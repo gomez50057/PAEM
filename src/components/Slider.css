@@ -1,0 +1,25 @@
+.slider-section {
+    padding: 60px 20px;
+    background-color: #ecf0f1;
+    text-align: center;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slide {
+    flex: 0 0 100%;
+    padding: 20px;
+    margin: 0 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.slider-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}

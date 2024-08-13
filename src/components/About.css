@@ -1,0 +1,73 @@
+.about-container {
+  display: flex;
+}
+
+.about_txt {
+  width: 60vw;
+  height: auto;
+}
+
+.about_txt h3 {
+  color: var(--vinoOsc);
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.about_txt p {
+  text-align: justify;
+}
+
+.about_giro {
+  width: 40vw;
+  height: auto;
+}
+
+.gallery {
+  --s: 225px; /* Controla el tamaño */
+  
+  display: grid;
+  width: var(--s);
+  aspect-ratio: 1;
+  padding: calc(var(--s) / 20);
+  border-radius: 50%;
+  position: relative;
+}
+
+.gallery > img {
+  grid-area: 1/1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 5px;
+  border: 2px solid var(--vinoOsc);
+  box-sizing: border-box;
+  transform-origin: -70% 140.7%; /* Ajuste del origen de la transformación */
+  animation: m 16s infinite linear;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation-play-state: running; /* Animación en ejecución por defecto */
+}
+
+.gallery > img:hover {
+  transform: scale(1.1) rotate(-360deg); /* Incremento de tamaño en hover */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Añadir una sombra suave */
+  animation-play-state: paused; /* Pausar la animación en hover */
+}
+
+.gallery > img:nth-child(2) {
+  animation-delay: -4s;
+}
+
+.gallery > img:nth-child(3) {
+  animation-delay: -8s;
+}
+
+.gallery > img:nth-child(4) {
+  animation-delay: -12s;
+}
+
+@keyframes m {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
