@@ -3,11 +3,11 @@ import './Announcement.css';
 const Announcement = () => {
   return (
     <section className="announcement-section">
-      <h2>Anuncio Importante</h2>
+      <h2>Consulta la cartografía de Hidalgo</h2>
       <p>
-        Inscríbete hoy y obtén acceso exclusivo a nuestros recursos y eventos.
+        mapa
       </p>
-      <a href="/register" className="cta-button">Regístrate Ahora</a>
+      <a href="/register" className="cta-button">Acceder al mapa</a>
     </section>
   );
 };
