@@ -9,6 +9,44 @@
   overflow: visible;
 }
 
+/* Animaciones */
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-title,
+.slide-description,
+.slide-image img {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Control de la animación de salida */
+.slide-title.fade-out,
+.slide-description.fade-out,
+.slide-image img.fade-out {
+  animation: fadeOutUp 0.6s ease forwards;
+}
+
 .slide {
   position: relative;
   display: flex;
@@ -25,7 +63,7 @@
 }
 
 
-.slide::before, 
+.slide::before,
 .slide::after {
   content: '';
   position: absolute;

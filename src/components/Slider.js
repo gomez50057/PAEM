@@ -53,13 +53,18 @@ const slides = [
 ];
 
 const Slider = () => {
-  const imgBasePath = "/img/glifos/";
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [fade, setFade] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 8000);
+      setFade(true);
+
+      setTimeout(() => {
+        setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+        setFade(false);
+      }, 600); // 600ms para que coincida con la duración de la animación
+    }, 8000); // Cambia cada 8 segundos
 
     return () => clearInterval(interval);
   }, []);
@@ -67,19 +72,16 @@ const Slider = () => {
   return (
     <div className="slider-container">
       <div className="slide">
-        <div className="slide-image">
+        <div className={`slide-image ${fade ? 'fade-out' : ''}`}>
           <img src={slides[currentSlide].image} alt="placeholder" />
         </div>
         <div className="slide-content">
-          <h2 className="slide-title">{slides[currentSlide].title}</h2>
-          <div className="slide-glifo">
-            <img src={`${imgBasePath}Atitalaquia.webp`} alt="img_representativa" />
-            <img src={`${imgBasePath}atotonilco-de-tula.webp`} alt="img_representativa" />
-            <img src={`${imgBasePath}Tlahuelilpan.webp`} alt="img_representativa" />
-            <img src={`${imgBasePath}Tlaxcoapan.webp`} alt="img_representativa" />
-            <img src={`${imgBasePath}Tula de allende.webp`} alt="img_representativa" />
-          </div>
-          <p className="slide-description">{slides[currentSlide].description}</p>
+          <h2 className={`slide-title ${fade ? 'fade-out' : ''}`}>
+            {slides[currentSlide].title}
+          </h2>
+          <p className={`slide-description ${fade ? 'fade-out' : ''}`}>
+            {slides[currentSlide].description}
+          </p>
         </div>
         <div className="slider-controls">
           {slides.map((_, index) => (
