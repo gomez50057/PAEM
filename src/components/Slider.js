@@ -53,6 +53,7 @@ const slides = [
 ];
 
 const Slider = () => {
+  const imgBasePath = "/img/glifos/";
   const [currentSlide, setCurrentSlide] = useState(0);
   const [fade, setFade] = useState(false);
 
@@ -79,6 +80,13 @@ const Slider = () => {
           <h2 className={`slide-title ${fade ? 'fade-out' : ''}`}>
             {slides[currentSlide].title}
           </h2>
+          <div className="slide-glifo">
+            <img src={`${imgBasePath}Atitalaquia.webp`} alt="img_representativa" />
+            <img src={`${imgBasePath}atotonilco-de-tula.webp`} alt="img_representativa" />
+            <img src={`${imgBasePath}Tlahuelilpan.webp`} alt="img_representativa" />
+            <img src={`${imgBasePath}Tlaxcoapan.webp`} alt="img_representativa" />
+            <img src={`${imgBasePath}Tula de allende.webp`} alt="img_representativa" />
+          </div>
           <p className={`slide-description ${fade ? 'fade-out' : ''}`}>
             {slides[currentSlide].description}
           </p>
