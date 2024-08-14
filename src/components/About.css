@@ -1,5 +1,6 @@
 .about-container {
   display: flex;
+  padding: 3vh 0px;
 }
 
 .about_txt {
