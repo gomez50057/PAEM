@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section id='about' className="about-container">
       <div className="about_giro">
-        <div class="gallery">
+        <div className ="gallery">
           <img src="https://picsum.photos/id/104/400/400" alt="a dream catcher" />
           <img src="https://picsum.photos/id/1082/400/400" alt="a dream catcher" />
           <img src="https://picsum.photos/id/158/400/400" alt="a dream catcher" />
