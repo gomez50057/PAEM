@@ -31,6 +31,15 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.slide-flifo{
+    display: flex;
+    height: 30px;
+    width: 250px;
+    justify-content: space-between;
+    margin: 30px 0px;
+    /* background-color: #feb47b; */
+}
+
 .slide-content {
     margin-left: 20px;
 }
@@ -45,12 +54,13 @@
     font-weight: 600;
     margin: 10px 0;
     color: var(--vinoOsc);
+    padding-right: 20%;
 }
 
 .slide-description {
     font-size: 1rem;
     color: #555;
-    margin-bottom: 20px;
+    margin: 0px 15% 20px 0px;
 }
 
 .slide-button {

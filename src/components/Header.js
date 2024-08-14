@@ -5,8 +5,8 @@ import './Header.css';
 
 
 const Header = () => {
-    const imgBasePath = "/img/";
-    const txtRef = useRef(null);
+  const imgBasePath = "/img/";
+  const txtRef = useRef(null);
   const imgRef = useRef(null);
 
   useEffect(() => {
