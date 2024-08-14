@@ -53,7 +53,7 @@ const slides = [
 ];
 
 const Slider = () => {
-  const imgBasePath = "/img/flifos/";
+  const imgBasePath = "/img/glifos/";
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const Slider = () => {
         </div>
         <div className="slide-content">
           <h2 className="slide-title">{slides[currentSlide].title}</h2>
-          <div className="slide-flifo">
+          <div className="slide-glifo">
             <img src={`${imgBasePath}Atitalaquia.webp`} alt="img_representativa" />
             <img src={`${imgBasePath}atotonilco-de-tula.webp`} alt="img_representativa" />
             <img src={`${imgBasePath}Tlahuelilpan.webp`} alt="img_representativa" />
@@ -80,7 +80,6 @@ const Slider = () => {
             <img src={`${imgBasePath}Tula de allende.webp`} alt="img_representativa" />
           </div>
           <p className="slide-description">{slides[currentSlide].description}</p>
-          <button className="slide-button">Read More</button>
         </div>
         <div className="slider-controls">
           {slides.map((_, index) => (
