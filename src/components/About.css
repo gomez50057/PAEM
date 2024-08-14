@@ -9,12 +9,15 @@
 
 .about_txt h3 {
   color: var(--vinoOsc);
-  font-size: 2.5rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 600;
+  padding-right: 2.5vw;
 }
 
 .about_txt p {
   text-align: justify;
+  padding-right: 2.5vw;
+  line-height: 1.5;
 }
 
 .about_giro {
