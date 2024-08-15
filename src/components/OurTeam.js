@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState } from 'react';
 import './OurTeam.css';
@@ -39,6 +38,10 @@ const OurTeam = () => {
     setCurrentIndex((prevIndex) => (prevIndex === teamMembers.length - 1 ? 0 : prevIndex + 1));
   };
 
+  const handleMemberClick = (index) => {
+    setCurrentIndex(index);
+  };
+
   return (
     <div className="team-container">
       <div className="profile-section">
@@ -60,7 +63,12 @@ const OurTeam = () => {
         <button onClick={handlePrevClick} className="nav-button">←</button>
         {teamMembers.map((member, index) => (
           <div key={index} className="team-member">
-            <img src={member.image} alt={member.name} className={`team-image ${index === currentIndex ? 'active' : ''}`} />
+            <img
+              src={member.image}
+              alt={member.name}
+              className={`team-image ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => handleMemberClick(index)}  // Añadido el evento onClick aquí
+            />
             <p>{member.name}</p>
             <p className="position">{member.position}</p>
           </div>
