@@ -5,10 +5,10 @@ const About = () => {
     <section id='about' className="about-container">
       <div className="about_giro">
         <div className="gallery">
-          <img src="https://picsum.photos/id/104/400/400" alt="a dream catcher" />
-          <img src="https://picsum.photos/id/1082/400/400" alt="a dream catcher" />
-          <img src="https://picsum.photos/id/158/400/400" alt="a dream catcher" />
-          <img src="https://picsum.photos/id/234/400/400" alt="a dream catcher" />
+          <img src="https://via.placeholder.com/250?text=About+1" alt="a dream catcher" />
+          <img src="https://via.placeholder.com/250?text=About+2" alt="a dream catcher" />
+          <img src="https://via.placeholder.com/250?text=About+3" alt="a dream catcher" />
+          <img src="https://via.placeholder.com/250?text=About+4" alt="a dream catcher" />
         </div>
       </div>
       <div className="about_txt">
