@@ -55,7 +55,7 @@
   height: 60vh;
   padding: 20px;
   backdrop-filter: blur(10px);
-  background-color: #e8e8e8;
+  background: linear-gradient(transparent 65%, hsla(344, 66%, 38%, 0.301));
   border-radius: 0 80px 0px 80px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px, rgba(0, 0, 0, 0.22) 0px 14px 28px, rgba(0, 0, 0, 0.1) 0px 30px 60px -12px;
   transform: perspective(1000px) rotateX(10deg) rotateY(0deg);
@@ -95,7 +95,7 @@
 .slide-image {
   width: 250px;
   height: auto;
-  margin-left: -50px;
+  margin-left: -55px;
 }
 
 .slide-image img {
