@@ -6,6 +6,7 @@
   height: auto;
   background: rgb(160, 33, 66);
   background: radial-gradient(circle, rgba(160, 33, 66, 1) 18%, rgba(105, 27, 50, 1) 85%);
+  min-height: 100vh; /* Asegura que el contenedor ocupe al menos la altura completa de la ventana */
 }
 
 .profile-section {
@@ -14,6 +15,8 @@
   align-items: center;
   width: 90%;
   margin-bottom: 20px;
+  position: relative; /* Necesario para la superposición */
+  flex-grow: 1; /* Permite que esta sección crezca para llenar el espacio disponible */
 }
 
 .profile-details {
@@ -43,30 +46,17 @@
 
 .profile-image {
   max-width: 40%;
+  height: 100%; /* Ocupa todo el alto disponible */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Alinea la imagen hacia la derecha */
 }
 
 .profile-image img {
-  max-width: 100%;
+  width: auto;
+  height: 100%;
+  object-fit: cover; /* Ajuste para asegurar que la imagen se vea bien */
   border-radius: 10px;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  margin-bottom: 20px;
-}
-
-.nav-button {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.nav-button:hover {
-  transform: scale(1.1);
 }
 
 .team-list {
@@ -74,18 +64,16 @@
   justify-content: space-around;
   align-items: center;
   width: 100vw;
-  /* Ajustar el ancho a 100vw */
   padding: 20px;
   margin-top: 20px;
   background: rgba(255, 255, 255, 0.1);
-  /* Fondo semitransparente para efecto de vidrio */
   border-radius: 20px;
-  /* Bordes redondeados */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  /* Aplicar el efecto de desenfoque para el efecto de vidrio */
   border: 1px solid rgba(255, 255, 255, 0.3);
-  /* Bordes con opacidad para mayor efecto de vidrio */
+  position: relative;
+  bottom: 0;
+  z-index: 1;
 }
 
 .team-member {

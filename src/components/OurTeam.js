@@ -7,7 +7,7 @@ const teamMembers = [
   {
     name: "Mtro. Miguel Ángel Tello Vargas",
     position: "Titular de la Unidad de Planeación y Prospectiva",
-    description: "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia Comisión Metropolitana de Gestión Integral de Riesgos Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo Comisión Metropolitana de Asentamientos Humanos Comisión Metropolitana de Movilidad Comisión Metropolitana de Salud Comisión de Agua y Drenaje del Área Metropolitana Comisión Ambiental Metropolitana",
+    description: "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia \n Comisión Metropolitana de Gestión Integral de Riesgos\nComisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo\nComisión Metropolitana de Asentamientos Humanos\nComisión Metropolitana de Movilidad\nComisión Metropolitana de Salud\nComisión de Agua y Drenaje del Área Metropolitana\nComisión Ambiental Metropolitana",
     image: "https://via.placeholder.com/400x400", // Replace with actual image paths
   },
   {
@@ -42,9 +42,9 @@ const OurTeam = () => {
           <img src={teamMembers[currentIndex].image} alt={teamMembers[currentIndex].name} />
         </div>
       </div>
+
       <div className="team-list">
         <button onClick={handlePrevClick} className="nav-button">←</button>
-
         {teamMembers.map((member, index) => (
           <div key={index} className="team-member">
             <img src={member.image} alt={member.name} className={`team-image ${index === currentIndex ? 'active' : ''}`} />
