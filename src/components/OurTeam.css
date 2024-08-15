@@ -1,0 +1,90 @@
+.team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.profile-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.profile-details {
+  max-width: 50%;
+}
+
+.profile-details h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.profile-details h4 {
+  font-size: 1.5rem;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.profile-details p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.profile-image {
+  max-width: 40%;
+}
+
+.profile-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+}
+
+.team-list {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  transition: transform 0.2s;
+}
+
+.team-image.active {
+  transform: scale(1.2);
+}
+
+.position {
+  font-size: 0.8rem;
+  color: gray;
+}
