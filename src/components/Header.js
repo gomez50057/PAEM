@@ -25,7 +25,7 @@ const Header = () => {
       <div className="content_header">
         <div className="header_txt fade-in-target" ref={txtRef}>
           <img src={`${imgBasePath}headertxt.png`} alt="img_representativa" />
-          <p>Subcomisiones de la ZMTulancingo</p>
+          <p>Comisiones de la Zona Metropolitana del Valle de México</p>
         </div>
         <div className="header_img fade-in-target" ref={imgRef}>
           <img src={`${imgBasePath}headerimg.png`} alt="img_representativa" className="floating-img" />
