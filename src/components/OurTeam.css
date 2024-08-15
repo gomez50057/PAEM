@@ -3,7 +3,9 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 20px;
+  height: auto;
+  background: rgb(160, 33, 66);
+  background: radial-gradient(circle, rgba(160, 33, 66, 1) 18%, rgba(105, 27, 50, 1) 85%);
 }
 
 .profile-section {
@@ -21,17 +23,22 @@
 .profile-details h2 {
   font-size: 3rem;
   margin-bottom: 10px;
+  color: var(--doradoClr);
 }
 
 .profile-details h4 {
   font-size: 1.5rem;
-  color: gray;
+  color: var(--blanco);
   margin-bottom: 20px;
+  font-weight: 400;
 }
 
 .profile-details p {
-  font-size: 1rem;
-  color: #666;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--blanco);
+  text-align: justify;
+  line-height: 1.5;
 }
 
 .profile-image {
@@ -65,7 +72,20 @@
 .team-list {
   display: flex;
   justify-content: space-around;
-  width: 90%;
+  align-items: center;
+  width: 100vw;
+  /* Ajustar el ancho a 100vw */
+  padding: 20px;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  /* Fondo semitransparente para efecto de vidrio */
+  border-radius: 20px;
+  /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  /* Aplicar el efecto de desenfoque para el efecto de vidrio */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Bordes con opacidad para mayor efecto de vidrio */
 }
 
 .team-member {
