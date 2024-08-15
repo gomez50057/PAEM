@@ -3,24 +3,26 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: auto;
+  height: 100vh; 
   background: rgb(160, 33, 66);
   background: radial-gradient(circle, rgba(160, 33, 66, 1) 18%, rgba(105, 27, 50, 1) 85%);
-  min-height: 100vh; /* Asegura que el contenedor ocupe al menos la altura completa de la ventana */
 }
 
 .profile-section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   width: 90%;
-  margin-bottom: 20px;
-  position: relative; /* Necesario para la superposición */
-  flex-grow: 1; /* Permite que esta sección crezca para llenar el espacio disponible */
+  flex-grow: 1; 
+  position: relative; 
 }
 
 .profile-details {
   max-width: 50%;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
 }
 
 .profile-details h2 {
@@ -45,18 +47,16 @@
 }
 
 .profile-image {
-  max-width: 40%;
-  height: 100%; /* Ocupa todo el alto disponible */
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* Alinea la imagen hacia la derecha */
+  max-width: 45%;
+  height: calc(100% + 180px);
+  margin-bottom: -180px;
+  filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.6));
 }
 
 .profile-image img {
-  width: auto;
-  height: 100%;
-  object-fit: cover; /* Ajuste para asegurar que la imagen se vea bien */
-  border-radius: 10px;
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
 }
 
 .team-list {
@@ -64,8 +64,8 @@
   justify-content: space-around;
   align-items: center;
   width: 100vw;
+  max-height: 180px;
   padding: 20px;
-  margin-top: 20px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -85,11 +85,13 @@
   height: 60px;
   border-radius: 50%;
   margin-bottom: 10px;
+  object-fit: cover; 
+  display: flex;
   transition: transform 0.2s;
 }
 
 .team-image.active {
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
 .position {

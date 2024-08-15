@@ -8,7 +8,7 @@ const teamMembers = [
     name: "Mtro. Miguel Ángel Tello Vargas",
     position: "Titular de la Unidad de Planeación y Prospectiva",
     description: "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia \n Comisión Metropolitana de Gestión Integral de Riesgos\nComisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo\nComisión Metropolitana de Asentamientos Humanos\nComisión Metropolitana de Movilidad\nComisión Metropolitana de Salud\nComisión de Agua y Drenaje del Área Metropolitana\nComisión Ambiental Metropolitana",
-    image: "https://via.placeholder.com/400x400", // Replace with actual image paths
+    image: "/img/ZMVM/integrantesComisiones/HGO/miguel.png", // Replace with actual image paths
   },
   {
     name: "Lic. Onésimo Rodrigo Serrano Rivera",
