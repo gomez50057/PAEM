@@ -28,7 +28,7 @@ const Team = ({ teamName, teamMembers }) => {
   return (
     <div className="team-container">
       <div className="profile-section">
-        <button onClick={handlePrevClick} className="nav-button">←</button>
+        <button onClick={handlePrevClick} className="nav-buttonL">←</button>
         <div className="profile-details">
           <h2>{teamMembers[currentIndex].name}</h2>
           <h4>{teamMembers[currentIndex].position}</h4>
@@ -41,7 +41,7 @@ const Team = ({ teamName, teamMembers }) => {
         <div className="profile-image">
           <img src={teamMembers[currentIndex].image} alt={teamMembers[currentIndex].name} />
         </div>
-        <button onClick={handleNextClick} className="nav-button">→</button>
+        <button onClick={handleNextClick} className="nav-buttonR">→</button>
       </div>
       <div className="team-list" {...handlers} ref={listRef}>
         {teamMembers.map((member, index) => (
@@ -55,8 +55,10 @@ const Team = ({ teamName, teamMembers }) => {
               alt={member.name}
               className={`team-image ${index === currentIndex ? 'active' : ''}`}
             />
-            <p>{member.name}</p>
-            <p className="position">{member.position}</p>
+            <div>
+              <p>{member.name}</p>
+              <p className="position">{member.position}</p>
+            </div>
           </div>
         ))}
       </div>

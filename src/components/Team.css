@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100vh; 
+  height: 100vh;
   background: rgb(160, 33, 66);
   background: radial-gradient(circle, rgba(160, 33, 66, 1) 18%, rgba(105, 27, 50, 1) 85%);
 }
@@ -13,16 +13,16 @@
   justify-content: space-between;
   align-items: flex-end;
   width: 90%;
-  flex-grow: 1; 
-  position: relative; 
+  flex-grow: 1;
+  position: relative;
 }
 
 .profile-details {
   max-width: 50%;
-  height: 100%; 
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .team-title {
@@ -63,8 +63,8 @@
 
 .profile-image img {
   width: 100%;
-  height: 100%; 
-  object-fit: cover; 
+  height: 100%;
+  object-fit: cover;
 }
 
 .team-list {
@@ -84,33 +84,46 @@
   position: relative;
   bottom: 0;
   z-index: 1;
+  cursor: grabbing;
 }
+
 .team-list::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .team-member {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   text-align: center;
-  min-width: 250px; 
+  min-width: 400px;
+  height: auto;
   backdrop-filter: blur(10px);
   background: linear-gradient(transparent 65%, hsla(344, 66%, 38%, 0.301));
-  border-radius: 40px 20px 0px 20px;
+  border-radius: 80px 50px 50px 80px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px, rgba(0, 0, 0, 0.22) 0px 14px 28px, rgba(0, 0, 0, 0.1) 0px 30px 60px -12px;
-  margin: 0 20px;
+  margin: 0 5px;
   transition: transform 1s ease, opacity 0.3s ease;
   transform: perspective(1000px) rotateX(10deg) rotateY(0deg) scale(0.8);
   opacity: 0.5;
+  filter: blur(1.5px);
+  cursor: pointer;
 }
 
 .team-member.active {
   opacity: 1;
-  transform: scale(1.2);
+  transform: scale(1.1) perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-20px);
+  margin: 0 50px;
+  filter: blur(0);
+
 }
 
 .team-member:hover {
-  transform: scale(1.2) perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-20px);
+  transform: scale(1.1) perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-20px);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px, rgba(0, 0, 0, 0.25) 0px 22px 70px 4px;
   margin: 0 50px;
+  filter: blur(0);
+
 }
 
 .team-image {
@@ -118,7 +131,8 @@
   height: 60px;
   border-radius: 50%;
   margin-bottom: 10px;
-  object-fit: cover; 
+  margin-right: 20px;
+  object-fit: cover;
   display: flex;
   transition: transform 0.2s;
 }
@@ -127,7 +141,7 @@
   transform: scale(1.3);
 }
 
-.team-list p{
+.team-list p {
   color: var(--blanco);
   margin: 6px;
 }
@@ -136,13 +150,15 @@
   font-size: 0.5rem;
 }
 
-.team-list p:nth-child(2){
+.team-list p:nth-child(2) {
   font-size: 0.8rem;
 }
 
-.nav-button {
-  background-color: var(--doradoClr); /* Color dorado */
-  color: var(--blanco); /* Color blanco para el texto */
+.nav-buttonL,
+.nav-buttonR {
+  position: absolute;
+  background-color: var(--doradoClr);
+  color: var(--blanco);
   border: none;
   border-radius: 50%;
   width: 50px;
@@ -151,27 +167,38 @@
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
-              0 6px 20px rgba(0, 0, 0, 0.19);
+    0 6px 20px rgba(0, 0, 0, 0.19);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.nav-button:hover {
-  background-color: var(--vinoClr); /* Cambia a color vino oscuro al hacer hover */
-  transform: scale(1.1); /* Aumenta el tamaño ligeramente al hacer hover */
+.nav-buttonL{
+  top: 110%;
+  left: -50px;
+  z-index: 100;
+}
+
+.nav-buttonR {
+  top: 50%;
+  right: 0;
+
+}
+
+.nav-buttonL:hover,
+.nav-buttonR:hover {
+  background-color: var(--vinoClr);
+  transform: scale(1.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4),
-              0 14px 28px rgba(0, 0, 0, 0.25);
+    0 14px 28px rgba(0, 0, 0, 0.25);
 }
 
-.nav-button:active {
-  transform: scale(0.95); /* Efecto de presionado */
+.nav-buttonL:active,
+.nav-buttonR:active {
+  transform: scale(0.95);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4),
-              0 4px 8px rgba(0, 0, 0, 0.25);
+    0 4px 8px rgba(0, 0, 0, 0.25);
 }
-
-
-
 
 
