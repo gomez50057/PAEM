@@ -7,7 +7,7 @@
 /* Header Section with Title and First Two Cards */
 .team-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;  /* Cambiado a flex-start para alinear a la izquierda */
   align-items: center;
   margin-bottom: 40px;
 }
@@ -16,7 +16,7 @@
   flex: 1;
   font-size: 2rem;
   color: var(--primary-color); /* Puedes ajustar esto a tu color principal */
-  text-align: right;
+  text-align: left;  /* Cambiado a left para alinear a la izquierda */
   margin-right: 40px;
 }
 
