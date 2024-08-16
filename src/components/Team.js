@@ -1,10 +1,11 @@
 "use client";
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import './Team.css';
 
 const Team = ({ teamName, teamMembers }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(false);
   const listRef = useRef(null);
 
   const handlePrevClick = () => {
@@ -25,11 +26,25 @@ const Team = ({ teamName, teamMembers }) => {
     trackMouse: true,
   });
 
+  useEffect(() => {
+    if (fade) {
+      const timeout = setTimeout(() => setFade(false), 500); // 500ms coincide con la duración de la animación
+      return () => clearTimeout(timeout);
+    }
+  }, [fade]);
+
+  const changeMember = (index) => {
+    if (index !== currentIndex) {
+      setFade(true);
+      setTimeout(() => setCurrentIndex(index), 250); // 250ms para que coincida con el inicio de la animación de salida
+    }
+  };
+
   return (
     <div className="team-container">
       <div className="profile-section">
         <button onClick={handlePrevClick} className="nav-buttonL">←</button>
-        <div className="profile-details">
+        <div className={`profile-details ${fade ? 'fade-out' : ''}`}>
           <h2>{teamMembers[currentIndex].name}</h2>
           <h4>{teamMembers[currentIndex].position}</h4>
           <ul>
@@ -39,7 +54,7 @@ const Team = ({ teamName, teamMembers }) => {
           </ul>
           <p>{teamName}</p>
         </div>
-        <div className="profile-image">
+        <div className={`profile-image ${fade ? 'fade-out' : ''}`}>
           <img src={teamMembers[currentIndex].image} alt={teamMembers[currentIndex].name} />
         </div>
         <button onClick={handleNextClick} className="nav-buttonR">→</button>
@@ -49,7 +64,7 @@ const Team = ({ teamName, teamMembers }) => {
           <div
             key={index}
             className={`team-member ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => changeMember(index)}
           >
             <img
               src={member.image}
