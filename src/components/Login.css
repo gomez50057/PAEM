@@ -1,0 +1,105 @@
+/* login.css */
+
+.container_login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--blanco);
+}
+
+.container_login p {
+  color: var(--blanco);
+}
+
+.background-login {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/img/backlogin.webp'); /* Asegúrate de tener la imagen en la carpeta correcta */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: blur(3px);
+  opacity: 0.90;
+}
+
+.login_txt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: hsla(0, 0%, 18%, 0.6);
+  width: 30vw;
+  height: auto;
+  border-radius: 40px;
+  margin-top: 2vh;
+  padding: 3vw;
+}
+
+.login_txt img {
+  width: 7vw;
+  height: auto;
+}
+
+.link-registrarse {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.link-registrarse:hover {
+  color: orange;
+}
+
+.login_txt p:last-child {
+  font-size: 10px;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px;
+  box-sizing: border-box;
+  background-color: #000;
+  margin-bottom: 5px;
+  color: var(--blanco);
+  border: none;
+  border-radius: 20px;
+}
+
+.input-container .input-img {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  cursor: pointer;
+}
+
+.login_txt button {
+  width: 100%;
+  padding: 8px 5px;
+  background-color: var(--vinoClr);
+  color: var(--blanco);
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+  border: 2px outset buttonborder;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
