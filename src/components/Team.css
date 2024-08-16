@@ -2,12 +2,13 @@
 
 .team-container {
   padding: 20px;
+  margin-top: 65px;
 }
 
 /* Header Section with Title and First Two Cards */
 .team-header {
   display: flex;
-  justify-content: flex-start;  /* Cambiado a flex-start para alinear a la izquierda */
+  justify-content: flex-start;  /* Alinear a la izquierda */
   align-items: center;
   margin-bottom: 40px;
 }
@@ -15,8 +16,9 @@
 .team-title {
   flex: 1;
   font-size: 2rem;
-  color: var(--primary-color); /* Puedes ajustar esto a tu color principal */
-  text-align: left;  /* Cambiado a left para alinear a la izquierda */
+  font-weight: 600;
+  color: var(--vinoOsc); /* Ajusta esto a tu color principal */
+  text-align: left;  /* Alinear el título a la izquierda */
   margin-right: 40px;
 }
 
@@ -25,12 +27,12 @@
   gap: 20px;
 }
 
-.horizontal-card {
+.team-header-cards .horizontal-card {
   flex-direction: row;
   background-color: #f5f5f5;
   border-radius: 50px;
   padding: 20px;
-  width: auto;
+  width: 400px;  /* Asegura que estos card tengan un ancho de 400px */
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -38,28 +40,28 @@
   align-items: center;
 }
 
-.horizontal-card:hover {
+.team-header-cards .horizontal-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.horizontal-card .team-card-image {
+.team-header-cards .horizontal-card .team-card-image {
   width: 80px;
   height: 80px;
   margin-right: 20px;
 }
 
-.horizontal-card .team-card-info {
+.team-header-cards .horizontal-card .team-card-info {
   margin-top: 0;
   text-align: left;
 }
 
-.horizontal-card .team-card-info h3 {
+.team-header-cards .horizontal-card .team-card-info h3 {
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-.horizontal-card .team-card-info p {
+.team-header-cards .horizontal-card .team-card-info p {
   font-size: 0.9rem;
   color: #777;
 }
@@ -72,17 +74,17 @@
   gap: 20px;
 }
 
-.team-card {
+.team-body .team-card {
   background-color: #f5f5f5;
   border-radius: 50px;
   padding: 20px;
-  width: 200px;
+  width: 200px;  /* Ancho estándar para las tarjetas restantes */
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.team-card:hover {
+.team-body .team-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
