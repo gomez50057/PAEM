@@ -4,7 +4,6 @@
   align-items: center;
   width: 100%;
   height: 100vh; 
-  background: rgb(160, 33, 66);
   background: radial-gradient(circle, rgba(160, 33, 66, 1) 18%, rgba(105, 27, 50, 1) 85%);
 }
 
@@ -14,22 +13,13 @@
   align-items: flex-end;
   width: 90%;
   flex-grow: 1; 
-  position: relative; 
 }
 
 .profile-details {
   max-width: 50%;
-  height: 100%; 
   display: flex;
   flex-direction: column;
   justify-content: center; 
-}
-
-.team-title {
-  font-size: 2rem;
-  color: var(--blanco);
-  margin-bottom: 20px;
-  text-align: center;
 }
 
 .profile-details h2 {
@@ -39,31 +29,31 @@
   color: var(--doradoClr);
 }
 
+.profile-details h4, .profile-details ul {
+  color: var(--blanco);
+  font-weight: 400;
+}
+
 .profile-details h4 {
   font-size: 1.2rem;
-  color: var(--blanco);
   margin-bottom: 20px;
-  font-weight: 400;
 }
 
 .profile-details ul {
   font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--blanco);
   text-align: justify;
   line-height: 1.5;
 }
 
 .profile-image {
   max-width: 45%;
-  height: calc(100% + 180px);
   margin-bottom: -180px;
   filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.6));
 }
 
 .profile-image img {
   width: 100%;
-  height: 100%; 
+  height: calc(100% + 180px);
   object-fit: cover; 
 }
 
@@ -73,15 +63,18 @@
   align-items: center;
   width: 100%;
   height: 180px;
-  overflow: hidden; /* Oculta los elementos fuera de vista */
-  position: relative;
   padding: 20px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden; /* Oculta los elementos fuera de vista */
   cursor: grab;
+}
+
+.team-list:active {
+  cursor: grabbing;
 }
 
 .team-member {
@@ -91,13 +84,9 @@
   backdrop-filter: blur(10px);
   background: linear-gradient(transparent 65%, hsla(344, 66%, 38%, 0.301));
   border-radius: 40px 20px 0px 20px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px, rgba(0, 0, 0, 0.22) 0px 14px 28px, rgba(0, 0, 0, 0.1) 0px 30px 60px -12px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3), 0px 14px 28px rgba(0, 0, 0, 0.22), 0px 30px 60px -12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.5;
-}
-
-.team-member {
-  text-align: center;
 }
 
 .team-member.active {
@@ -106,8 +95,8 @@
 }
 
 .team-member:hover {
-  transform: scale(1.2) perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-20px);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px, rgba(0, 0, 0, 0.25) 0px 22px 70px 4px;
+  transform: scale(1.2) translateY(-20px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.35), 0px 22px 70px 4px rgba(0, 0, 0, 0.25);
 }
 
 .team-image {
@@ -116,7 +105,6 @@
   border-radius: 50%;
   margin-bottom: 10px;
   object-fit: cover; 
-  display: flex;
   transition: transform 0.2s;
 }
 
@@ -124,16 +112,16 @@
   transform: scale(1.3);
 }
 
-.team-list p{
+.team-list p {
   color: var(--blanco);
   margin: 6px;
 }
 
-.position {
+.team-list .position {
   font-size: 0.5rem;
 }
 
-.team-list p:nth-child(2){
+.team-list p:nth-child(2) {
   font-size: 0.8rem;
 }
 
@@ -147,8 +135,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
-              0 6px 20px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.19);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   align-items: center;
@@ -158,18 +145,10 @@
 .nav-button:hover {
   background-color: var(--vinoClr); /* Cambia a color vino oscuro al hacer hover */
   transform: scale(1.1); /* Aumenta el tamaño ligeramente al hacer hover */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4),
-              0 14px 28px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 14px 28px rgba(0, 0, 0, 0.25);
 }
 
 .nav-button:active {
   transform: scale(0.95); /* Efecto de presionado */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4),
-              0 4px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.25);
 }
-
-.team-list:active {
-  cursor: grabbing;
-}
-
-
