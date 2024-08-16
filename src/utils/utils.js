@@ -1,5 +1,242 @@
 // src/utils/utils.js
 
+export const federalTeamMembers = [
+  {
+    name: "Mtro. Álvaro Lomelí Covarrubias",
+    position: "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
+    description: [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+      "Comisión Metropolitana de Gestión Integral de Riesgos",
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+      "Comisión Metropolitana de Asentamientos Humanos",
+      "Comisión Metropolitana de Movilidad",
+      "Comisión Metropolitana de Salud",
+      "Comisión de Agua y Drenaje del Área Metropolitana",
+      "Comisión Ambiental Metropolitana"
+    ],
+    image: "https://via.placeholder.com/400x400",
+  },
+];
+
+export const cdmxTeamMembers = [
+  {
+    "name": "Mtro. Ricardo Ruíz Suárez",
+    "position": "Secretario de Gobierno",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+      "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil",
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+      "Comisión Metropolitana de Asentamientos Humanos",
+      "Comisión Metropolitana de Movilidad",
+      "Comisión Metropolitana de Salud",
+      "Comisión de Agua y Drenaje del Área Metropolitana",
+      "Comisión Ambiental Metropolitana"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Lic. Israel Moreno Rivera",
+    "position": "Subsecretario de Coordinación Metropolitana y Enlace Gubernamental",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+      "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil",
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+      "Comisión Metropolitana de Asentamientos Humanos",
+      "Comisión Metropolitana de Movilidad",
+      "Comisión Metropolitana de Salud",
+      "Comisión de Agua y Drenaje del Área Metropolitana",
+      "Comisión Ambiental Metropolitana"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "No hay",
+    "position": "Secretario de Seguridad Ciudadana",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Lic. Ernestina Godoy Ramos",
+    "position": "Fiscal General de Justicia",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Arq. Myriam Urzúa Venegas",
+    "position": "Secretaria de Gestión Integral de Riesgos y Protección Civil",
+    "description": [
+      "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Lic. Fadlala Hneide",
+    "position": "Secretario de Desarrollo Económico",
+    "description": [
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Dra. Nathalie Veronique Desplas Puel",
+    "position": "Secretaria de Turismo",
+    "description": [
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Mtro. Carlos Alberto Ulloa Pérez",
+    "position": "Secretario de Desarrollo Urbano y Vivienda",
+    "description": [
+      "Comisión Metropolitana de Asentamientos Humanos"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Mtro. Andrés Lajous Loaeza",
+    "position": "Secretario de Movilidad",
+    "description": [
+      "Comisión Metropolitana de Movilidad"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Dra. Oliva López Arellano",
+    "position": "Secretaria de Salud",
+    "description": [
+      "Comisión Metropolitana de Salud"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Lic. Ernesto Armendáriz Ramírez",
+    "position": "Gerente General de Coordinación Institucional de Operación y Servicios",
+    "description": [
+      "Comisión de Agua y Drenaje del Área Metropolitana"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Dra. Marina Robles García",
+    "position": "Secretaria de Medio Ambiente",
+    "description": [
+      "Comisión Ambiental Metropolitana"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  }
+
+];
+
+export const edomexTeamMembers = [
+  {
+    "name": "Lic. Rafael Díaz Leal Barrueta",
+    "position": "Secretario de Desarrollo Urbano y Obra",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+      "Comisión Metropolitana de Gestión Integral de Riesgos",
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+      "Comisión Metropolitana de Asentamientos Humanos",
+      "Comisión Metropolitana de Movilidad",
+      "Comisión Metropolitana de Salud",
+      "Comisión de Agua y Drenaje del Área Metropolitana",
+      "Comisión Ambiental Metropolitana"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Dr. Pablo Basáñez García",
+    "position": "Director General de Proyectos de Coordinación Metropolitana de la Secretaría de Desarrollo Urbano y Obra",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+      "Comisión Metropolitana de Gestión Integral de Riesgos",
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+      "Comisión Metropolitana de Asentamientos Humanos",
+      "Comisión Metropolitana de Movilidad",
+      "Comisión Metropolitana de Salud",
+      "Comisión de Agua y Drenaje del Área Metropolitana",
+      "Comisión Ambiental Metropolitana"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Mtro. Rodrigo Sigfrid Martínez – Celis Wogau",
+    "position": "Secretario de Seguridad",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Lic. José Luis Cervantes Martínez",
+    "position": "Fiscal General de Justicia de Estado de México",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Lic. Samuel Gutiérrez Macías",
+    "position": "Coordinador General de Protección Civil",
+    "description": [
+      "Comisión Metropolitana de Gestión Integral de Riesgos"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Mtro. Pablo Peralta García",
+    "position": "Secretario de Desarrollo Económico",
+    "description": [
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "M.E.D.P. Ivett Tinoco García",
+    "position": "Secretaria de Cultura y Turismo",
+    "description": [
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Mtro. Luis Gilberto Limón Chávez",
+    "position": "Secretario de Movilidad",
+    "description": [
+      "Comisión Metropolitana de Movilidad"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Mtro. Francisco Javier Fernández Clamont",
+    "position": "Secretario de Salud",
+    "description": [
+      "Comisión Metropolitana de Salud"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Lic. Raúl Chaparro Valdés",
+    "position": "Director General del Programa Hidráulico",
+    "description": [
+      "Comisión de Agua y Drenaje del Área Metropolitana"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Ing. Jorge Rescala Pérez",
+    "position": "Secretario de Medio Ambiente",
+    "description": [
+      "Comisión Ambiental Metropolitana"
+    ],
+    "image": "https://via.placeholder.com/400x400"
+  }
+];
+
 export const hgoTeamMembers = [
   {
     name: "Mtro. Miguel Ángel Tello Vargas",
@@ -29,148 +266,91 @@ export const hgoTeamMembers = [
     image: "https://via.placeholder.com/400x400",
   },
   {
-    name: "Dr. Silvia Rodríguez García",
-    position: "Directora de Políticas Públicas",
-    description: [
-      "Análisis y formulación de políticas públicas",
-      "Evaluación y seguimiento de políticas implementadas",
-      "Investigación y estudios estratégicos",
-      "Asesoría en temas de gobernanza"
+    "name": "T.S.U. Salvador Cruz Neri",
+    "position": "Secretario de Seguridad Pública",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
     ],
-    image: "https://via.placeholder.com/400x400",
+    "image": "https://via.placeholder.com/400x400"
   },
   {
-    name: "Mtro. Juan Carlos Álvarez Mendoza",
-    position: "Director de Planeación y Prospectiva",
-    description: [
-      "Prospectiva y análisis de escenarios",
-      "Diseño de estrategias de desarrollo regional",
-      "Coordinación de la agenda de planeación estatal",
-      "Supervisión de planes sectoriales"
+    "name": "Dr. Santiago Nieto Castillo",
+    "position": "Encargado del Despacho de la Procuraduría General de Justicia",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
     ],
-    image: "https://via.placeholder.com/400x400",
+    "image": "https://via.placeholder.com/400x400"
   },
   {
-    name: "Ing. Laura Estefanía Gutiérrez Torres",
-    position: "Jefa del Departamento de Análisis Estadístico",
-    description: [
-      "Recopilación y análisis de datos estadísticos",
-      "Elaboración de informes estadísticos",
-      "Seguimiento de indicadores clave",
-      "Asesoramiento en decisiones basadas en datos"
+    "name": "Lic. Guillermo Olivares Reyna",
+    "position": "Secretario de Gobierno",
+    "description": [
+      "Comisión Metropolitana de Gestión Integral de Riesgos"
     ],
-    image: "https://via.placeholder.com/400x400",
+    "image": "https://via.placeholder.com/400x400"
   },
   {
-    name: "Lic. Fernando Castillo Ortiz",
-    position: "Director de Programas Especiales",
-    description: [
-      "Coordinación de programas especiales de gobierno",
-      "Gestión de proyectos estratégicos de alto impacto",
-      "Supervisión de la implementación de programas",
-      "Enlace con dependencias federales"
+    "name": "Ing. Francisco Quijas Cruz",
+    "position": "Subsecretario de Protección Civil y Gestión de Riesgos",
+    "description": [
+      "Comisión Metropolitana de Gestión Integral de Riesgos"
     ],
-    image: "https://via.placeholder.com/400x400",
+    "image": "https://via.placeholder.com/400x400"
   },
   {
-    name: "Arq. María Isabel Hernández Ríos",
-    position: "Directora de Infraestructura y Proyectos Urbanos",
-    description: [
-      "Diseño y supervisión de proyectos de infraestructura",
-      "Planificación urbana y desarrollo territorial",
-      "Gestión de recursos para obras públicas",
-      "Monitoreo de la calidad en proyectos de infraestructura"
+    "name": "Lic. Carlos Henkel Escorza",
+    "position": "Secretario de Desarrollo Económico",
+    "description": [
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
-    image: "https://via.placeholder.com/400x400",
+    "image": "https://via.placeholder.com/400x400"
   },
   {
-    name: "Mtra. Beatriz Sánchez Martínez",
-    position: "Directora de Desarrollo Regional",
-    description: [
-      "Implementación de estrategias de desarrollo regional",
-      "Evaluación de impacto social y económico",
-      "Fortalecimiento de capacidades locales",
-      "Promoción del desarrollo sostenible"
+    "name": "Tec. Elizabeth Quintanar Gómez",
+    "position": "Secretaria de Turismo",
+    "description": [
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
-    image: "https://via.placeholder.com/400x400",
+    "image": "https://via.placeholder.com/400x400"
   },
   {
-    name: "Lic. Ernesto Ramírez Pérez",
-    position: "Coordinador de Vinculación Interinstitucional",
-    description: [
-      "Enlace con instituciones públicas y privadas",
-      "Coordinación de mesas de trabajo interinstitucionales",
-      "Seguimiento de acuerdos interinstitucionales",
-      "Gestión de convenios de colaboración"
+    "name": "Mtro. Alejandro Sánchez García",
+    "position": "Secretario de Infraestructura Pública y Desarrollo Urbano Sostenible",
+    "description": [
+      "Comisión Metropolitana de Asentamientos Humanos",
+      "Comisión de Agua y Drenaje del Área Metropolitana"
     ],
-    image: "https://via.placeholder.com/400x400",
+    "image": "https://via.placeholder.com/400x400"
   },
   {
-    name: "Lic. Andrea López Gutiérrez",
-    position: "Directora de Comunicación Social",
-    description: [
-      "Gestión de la comunicación institucional",
-      "Relaciones con medios de comunicación",
-      "Coordinación de campañas de comunicación",
-      "Supervisión de contenidos para redes sociales"
+    "name": "Mtra. Lyzbeth Robles Gutiérrez",
+    "position": "Secretaria de Movilidad y Transporte",
+    "description": [
+      "Comisión Metropolitana de Movilidad"
     ],
-    image: "https://via.placeholder.com/400x400",
-  },
+    "image": "https://via.placeholder.com/400x400"
+  }, 
   {
-    name: "Ing. Pedro Morales Castro",
-    position: "Director de Innovación y Tecnología",
-    description: [
-      "Desarrollo de proyectos tecnológicos",
-      "Implementación de soluciones de TI",
-      "Coordinación de proyectos de innovación",
-      "Gestión de plataformas tecnológicas"
+    "name": "Mtra. María Zorayda Robles Barrera",
+    "position": "Secretaria de Salud",
+    "description": [
+      "Comisión Metropolitana de Salud"
     ],
-    image: "https://via.placeholder.com/400x400",
-  },
+    "image": "https://via.placeholder.com/400x400"
+  },  
   {
-    name: "Lic. Maribel González Díaz",
-    position: "Directora de Evaluación de Proyectos",
-    description: [
-      "Evaluación de la viabilidad de proyectos",
-      "Análisis costo-beneficio de programas",
-      "Seguimiento de la ejecución de proyectos",
-      "Asesoría en la toma de decisiones estratégicas"
+    "name": "Mtra. Mónica Patricia Mixtega Trejo",
+    "position": "Secretaria de Medio Ambiente y Recursos Naturales",
+    "description": [
+      "Comisión Ambiental Metropolitana"
     ],
-    image: "https://via.placeholder.com/400x400",
+    "image": "https://via.placeholder.com/400x400"
   }
 ];
 
-
-export const edomexTeamMembers = [
-  {
-    name: "Carlos Perez",
-    position: "EDOMEX Position 1",
-    description: ["Description line 1", "Description line 2"],
-    image: "https://via.placeholder.com/400x400",
-  },
-];
-
-export const cdmxTeamMembers = [
-  {
-    name: "Jane Doe",
-    position: "CDMX Position 1",
-    description: ["Description line 1", "Description line 2"],
-    image: "https://via.placeholder.com/400x400",
-  },
-];
-
-export const federalTeamMembers = [
-  {
-    name: "John Doe",
-    position: "Federal Position 1",
-    description: ["Description line 1", "Description line 2"],
-    image: "https://via.placeholder.com/400x400",
-  },
-];
-
-export default {
-  hgoTeamMembers,
-  edomexTeamMembers,
-  cdmxTeamMembers,
+export default { 
   federalTeamMembers,
+  cdmxTeamMembers,
+  edomexTeamMembers,
+  hgoTeamMembers
 };
