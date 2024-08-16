@@ -96,7 +96,7 @@
   background: linear-gradient(transparent 65%, hsla(344, 66%, 38%, 0.301));
   border-radius: 40px 20px 0px 20px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px, rgba(0, 0, 0, 0.22) 0px 14px 28px, rgba(0, 0, 0, 0.1) 0px 30px 60px -12px;
-  margin: 0 10px;
+  margin: 0 20px;
   transition: transform 1s ease, opacity 0.3s ease;
   transform: perspective(1000px) rotateX(10deg) rotateY(0deg) scale(0.8);
   opacity: 0.5;
