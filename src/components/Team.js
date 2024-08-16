@@ -45,7 +45,16 @@ const Team = ({ teamName, teamMembers }) => {
     setOffset(0);
   };
 
-  const visibleMembers = [...teamMembers.slice(currentIndex), ...teamMembers.slice(0, currentIndex)].slice(0, 3);
+  const getTransformStyle = (index) => {
+    if (index === currentIndex) {
+      return { transform: `translateX(${-offset}px)`, zIndex: 2 };
+    } else if (index === (currentIndex + 1) % teamMembers.length) {
+      return { transform: `translateX(calc(100% - ${offset}px))`, zIndex: 1 };
+    } else if (index === (currentIndex - 1 + teamMembers.length) % teamMembers.length) {
+      return { transform: `translateX(calc(-100% - ${offset}px))`, zIndex: 1 };
+    }
+    return { transform: 'translateX(100%)', zIndex: 0 };
+  };
 
   return (
     <div className="team-container">
@@ -72,22 +81,22 @@ const Team = ({ teamName, teamMembers }) => {
         onMouseLeave={handleMouseUp}
       >
         <button onClick={handlePrevClick} className="nav-button">←</button>
-        {visibleMembers.map((member, index) => {
-          const isActive = (currentIndex + index) % teamMembers.length === currentIndex;
-          const transformStyle = isDragging ? { transform: `translateX(${-offset}px)` } : {};
-          return (
-            <div key={index} className={`team-member ${isActive ? 'active' : ''}`} style={transformStyle}>
-              <img
-                src={member.image}
-                alt={member.name}
-                className={`team-image ${isActive ? 'active' : ''}`}
-                onClick={() => setCurrentIndex((currentIndex + index) % teamMembers.length)}
-              />
-              <p>{member.name}</p>
-              <p className="position">{member.position}</p>
-            </div>
-          );
-        })}
+        {teamMembers.map((member, index) => (
+          <div
+            key={index}
+            className={`team-member ${index === currentIndex ? 'active' : ''}`}
+            style={getTransformStyle(index)}
+          >
+            <img
+              src={member.image}
+              alt={member.name}
+              className={`team-image ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(index)}
+            />
+            <p>{member.name}</p>
+            <p className="position">{member.position}</p>
+          </div>
+        ))}
         <button onClick={handleNextClick} className="nav-button">→</button>
       </div>
     </div>
