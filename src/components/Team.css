@@ -25,6 +25,13 @@
   justify-content: center; 
 }
 
+.team-title {
+  font-size: 2rem;
+  color: var(--blanco);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .profile-details h2 {
   font-size: 2.7rem;
   font-weight: 600;

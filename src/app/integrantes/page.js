@@ -1,9 +1,18 @@
-import OurTeam from '@/components/OurTeam';
+import React from 'react';
+import FederalTeam from '@/components/teams/FederalTeam';
+import CDMXTeam from '@/components/teams/CDMXTeam';
+import EDOMEXTeam from '@/components/teams/EDOMEXTeam';
+import HGOTeam from '@/components/teams/HGOTeam';
 
-export default function OurTeamPage() {
+const IntegrantesPage = () => {
   return (
     <div>
-      <OurTeam />
+      <FederalTeam />
+      <CDMXTeam />
+      <EDOMEXTeam />
+      <HGOTeam />
     </div>
   );
-}
+};
+
+export default IntegrantesPage;
