@@ -30,6 +30,7 @@ const Team = ({ teamName, teamMembers }) => {
             <div className="team-card-info">
               <h3>{member.name}</h3>
               <p>{member.position}</p>
+              <p>Comision: {member.description}</p>
             </div>
           </div>
         ))}
