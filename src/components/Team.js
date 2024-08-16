@@ -37,6 +37,7 @@ const Team = ({ teamName, teamMembers }) => {
               <li key={index}>{item}</li>
             ))}
           </ul>
+          <p>{teamName}</p>
         </div>
         <div className="profile-image">
           <img src={teamMembers[currentIndex].image} alt={teamMembers[currentIndex].name} />

@@ -8,6 +8,13 @@
   background: radial-gradient(circle, rgba(160, 33, 66, 1) 18%, rgba(105, 27, 50, 1) 85%);
 }
 
+.profile-details p {
+  color: rgba(210, 209, 209, 0.2);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .profile-section {
   display: flex;
   justify-content: space-between;
