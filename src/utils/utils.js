@@ -25,7 +25,8 @@ export const hgoTeamMembers = [
       "Enlace interinstitucional",
       "Desarrollo y seguimiento de indicadores de gestión"
     ],
-    image: "/img/ZMVM/integrantesComisiones/HGO/onesimo.png",
+    // image: "/img/ZMVM/integrantesComisiones/HGO/onesimo.png",
+    image: "https://via.placeholder.com/400x400",
   },
   {
     name: "Dr. Silvia Rodríguez García",
