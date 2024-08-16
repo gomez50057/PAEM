@@ -36,7 +36,7 @@ const Navbar = () => {
           <div className="navbar_opc">
             <li><Link href="/integrantes" className=""> Integrantes  </Link></li>
             <li><Link href="/" className=""> Noticias  </Link></li>
-            <li><Link href="/" className=""> PAEM </Link></li>
+            <li><Link href="/" className=""> Acceder </Link></li>
           </div>
           <div className="Navbar_circulo">
             <img src={`${imgBasePath}estrella.webp`} alt="img_representativa" />

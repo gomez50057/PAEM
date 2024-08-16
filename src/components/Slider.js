@@ -6,54 +6,49 @@ import './Slider.css';
 const slides = [
   {
     image: 'https://via.placeholder.com/250?text=Slide+1',
-    title: 'Subcomisión de Seguridad Pública y Procuración de Justicia de la Zona Metropolitana de Tula',
-    description: 'Lograr mejores condiciones en materia de SEGURIDAD PÚBLICA Y PROCURACIÓN DE JUSTICIA, en beneficio de los habitantes de la Zona Metropolitana de Tula.',
+    title: 'Comisión Metropolitana de Seguridad Pública y Procuración de Justicia (CMSPYPJ)',
+    description: 'Coordinar en materia de seguridad pública y procuración de justicia, mediante operativos conjuntos en cuadrantes de alta incidencia delictiva en las zonas limítrofes del Valle de México, así como el intercambio de información para reducir los índices de impunidad y fortalecer el estado de derecho.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+2',
-    title: 'Subcomisión de Salud de la Zona Metropolitana de Tula',
-    description: 'Lograr mejores condiciones en materia de SALUD, en beneficio de los habitantes de la Zona Metropolitana de Tula.',
+    title: 'Comisión Metropolitana de Gestión Integral de Riesgos (COMEPROC)',
+    description: 'Establecer una coordinación operativa conjunta de prevención, atención, mitigación y restablecimiento para la Zona Metropolitana del Valle de México para impulsar un sistema metropolitano de alertamiento múltiple.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+3',
-    title: 'Subcomisión de Protección Civil y Gestión Integral de Riesgos de la Zona Metropolitana de Tula',
-    description: 'Lograr mejores condiciones en materia de PROTECCIÓN CIVIL Y GESTIÓN INTEGRAL DE RIESGOS, en beneficio de los habitantes de la Zona Metropolitana de Tula.',
+    title: 'Comisión Metropolitana de Desarrollo Económico, Competitividad y Turismo (COMEDECO)',
+    description: 'Consolidar al Valle de México como uno de los principales destinos turísticos del país, así como crear una estrategia para fortalecer el desarrollo económico en la Zona Metropolitana del Valle de México.',
   },
 
   {
     image: 'https://via.placeholder.com/250?text=Slide+4',
-    title: 'Subcomisión de Movilidad de la Zona Metropolitana de Tula',
-    description: 'Lograr mejores condiciones en materia de MOVILIDAD, en beneficio de los habitantes de la Zona Metropolitana de Tula.',
+    title: 'Comisión Metropolitana de Asentamientos Humanos (COMETAH)',
+    description: 'Armonizar la normativa metropolitana en materia de desarrollo urbano, así como establecer estrategias que permitan un crecimiento urbano sostenible en la Zona Metropolitana del Valle de México.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+5',
-    title: 'Subcomisión de Medio Ambiente de la Zona Metropolitana de Tula',
-    description: 'Lograr mejores condiciones en materia de MEDIO AMBIENTE, en beneficio de los habitantes de la Zona Metropolitana de Tula.',
+    title: 'Comisión Metropolitana de Movilidad (COMEMOVI)',
+    description: 'Fortalecer la interoperabilidad, los procesos y manejo de datos del transporte público concesionado, impulsando proyectos de infraestructura de movilidad en la Zona Metropolitana del Valle de México.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+6',
-    title: 'Subcomisión de Gobernanza Metropolitana de la Zona Metropolitana de Tula',
-    description: 'Lograr mejores condiciones en materia de GOBERNANZA METROPOLITANA, en beneficio de los habitantes de la Zona Metropolitana de Tula.',
+    title: 'Comisión Metropolitana de Salud (COMESA)',
+    description: 'Optimizar los protocolos de atención prehospitalaria, creando un sistema metropolitano de salud para atención ambulatoria y hospitalaria; así como la implementación de un Atlas de Riesgos Sanitarios y Epidemiológicos del Valle de México.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+7',
-    title: 'Subcomisión de Desarrollo Económico de la Zona Metropolitana de Tula',
-    description: 'Lograr mejores condiciones en materia de DESARROLLO ECONÓMICO, en beneficio de los habitantes de la Zona Metropolitana de Tula.',
+    title: 'Comisión de Agua y Drenaje del Área Metropolitana (CADAM)',
+    description: ' Implementar protocolos de atención, prevención, reacción, atención y restablecimiento en contingencias hidrometereológicas en el Valle de México.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+8',
-    title: 'Subcomisión de Asentamientos Humanos de la Zona Metropolitana de Tula',
-    description: 'Lograr mejores condiciones en materia de ASENTAMIENTOS HUMANOS, en beneficio de los habitantes de la Zona Metropolitana de Tula.',
+    title: 'Comisión Ambiental Metropolitana (CAM)',
+    description: 'Reducir la huella metropolitana de carbono, mejorando la calidad del aire, así como emprender políticas de mitigación de los efectos del calentamiento global en la Zona Metropolitana del Valle de México.',
   },
-  {
-    image: 'https://via.placeholder.com/250?text=Slide+9',
-    title: 'Subcomisión de Agua y Alcantarillado de la Zona Metropolitana de Tula',
-    description: 'Lograr mejores condiciones en materia de AGUA Y ALCANTARILLADO, en beneficio de los habitantes de la Zona Metropolitana de Tula.',
-  }
 ];
 
 const Slider = () => {
-  const imgBasePath = "/img/glifos/";
+  // const imgBasePath = "/img/glifos/";
   const [currentSlide, setCurrentSlide] = useState(0);
   const [fade, setFade] = useState(false);
 
@@ -80,13 +75,13 @@ const Slider = () => {
           <h2 className={`slide-title ${fade ? 'fade-out' : ''}`}>
             {slides[currentSlide].title}
           </h2>
-          <div className="slide-glifo">
+          {/* <div className="slide-glifo">
             <img src={`${imgBasePath}Atitalaquia.webp`} alt="img_representativa" />
             <img src={`${imgBasePath}atotonilco-de-tula.webp`} alt="img_representativa" />
             <img src={`${imgBasePath}Tlahuelilpan.webp`} alt="img_representativa" />
             <img src={`${imgBasePath}Tlaxcoapan.webp`} alt="img_representativa" />
             <img src={`${imgBasePath}Tula de allende.webp`} alt="img_representativa" />
-          </div>
+          </div> */}
           <p className={`slide-description ${fade ? 'fade-out' : ''}`}>
             {slides[currentSlide].description}
           </p>

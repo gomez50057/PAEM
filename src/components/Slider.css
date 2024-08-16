@@ -116,7 +116,7 @@
 }
 
 .slide-title {
-  font-size: 1.5rem;
+  font-size: 2.1rem;
   font-weight: 600;
   margin: 10px 0;
   color: var(--vinoOsc);
@@ -124,7 +124,7 @@
 }
 
 .slide-description {
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: #555;
   margin: 0px 15% 20px 0px;
 }
