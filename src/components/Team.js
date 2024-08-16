@@ -43,12 +43,15 @@ const Team = ({ teamName, teamMembers }) => {
         {visibleMembers.map((member, index) => {
           const isActive = (currentIndex + index) % teamMembers.length === currentIndex;
           return (
-            <div key={index} className={`team-member ${isActive ? 'active' : ''}`}>
+            <div
+              key={index}
+              className={`team-member ${isActive ? 'active' : ''}`}
+              onClick={() => setCurrentIndex((currentIndex + index) % teamMembers.length)}
+            >
               <img
                 src={member.image}
                 alt={member.name}
                 className={`team-image ${isActive ? 'active' : ''}`}
-                onClick={() => setCurrentIndex((currentIndex + index) % teamMembers.length)}
               />
               <p>{member.name}</p>
               <p className="position">{member.position}</p>
