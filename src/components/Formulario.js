@@ -55,27 +55,30 @@ const Formulario = () => {
     >
       {({ setFieldValue }) => (
         <Form className="formulario-container">
+          <h2>Datos Generales</h2>
           <div className="form-group">
             <label>Fecha:</label>
             <Field name="fecha" type="text" disabled className="input-field" />
           </div>
 
-          <div className="form-group">
-            <label>Nombre:</label>
-            <Field name="nombre" type="text" className="input-field" />
-            <ErrorMessage name="nombre" component="div" className="error-message" />
-          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Nombre:</label>
+              <Field name="nombre" type="text" className="input-field" />
+              <ErrorMessage name="nombre" component="div" className="error-message" />
+            </div>
 
-          <div className="form-group">
-            <label>Apellido Paterno:</label>
-            <Field name="apellidoPaterno" type="text" className="input-field" />
-            <ErrorMessage name="apellidoPaterno" component="div" className="error-message" />
-          </div>
+            <div className="form-group">
+              <label>Apellido Paterno:</label>
+              <Field name="apellidoPaterno" type="text" className="input-field" />
+              <ErrorMessage name="apellidoPaterno" component="div" className="error-message" />
+            </div>
 
-          <div className="form-group">
-            <label>Apellido Materno:</label>
-            <Field name="apellidoMaterno" type="text" className="input-field" />
-            <ErrorMessage name="apellidoMaterno" component="div" className="error-message" />
+            <div className="form-group">
+              <label>Apellido Materno:</label>
+              <Field name="apellidoMaterno" type="text" className="input-field" />
+              <ErrorMessage name="apellidoMaterno" component="div" className="error-message" />
+            </div>
           </div>
 
           <div className="form-group">
@@ -84,24 +87,27 @@ const Formulario = () => {
             <ErrorMessage name="areaAdscripcion" component="div" className="error-message" />
           </div>
 
-          <div className="form-group">
-            <label>Teléfono:</label>
-            <Field name="telefono" type="text" className="input-field" />
-            <ErrorMessage name="telefono" component="div" className="error-message" />
+          <div className="form-row">
+            <div className="form-group">
+              <label>Teléfono:</label>
+              <Field name="telefono" type="text" className="input-field" />
+              <ErrorMessage name="telefono" component="div" className="error-message" />
+            </div>
+
+            <div className="form-group">
+              <label>Extensión:</label>
+              <Field name="extension" type="text" className="input-field" />
+              <ErrorMessage name="extension" component="div" className="error-message" />
+            </div>
+
+            <div className="form-group">
+              <label>Correo Electrónico:</label>
+              <Field name="correo" type="email" className="input-field" />
+              <ErrorMessage name="correo" component="div" className="error-message" />
+            </div>
           </div>
 
-          <div className="form-group">
-            <label>Extensión:</label>
-            <Field name="extension" type="text" className="input-field" />
-            <ErrorMessage name="extension" component="div" className="error-message" />
-          </div>
-
-          <div className="form-group">
-            <label>Correo Electrónico:</label>
-            <Field name="correo" type="email" className="input-field" />
-            <ErrorMessage name="correo" component="div" className="error-message" />
-          </div>
-
+          <h2>Acuerdo</h2>
           <div className="form-group">
             <label>Nombre del Acuerdo:</label>
             <Field name="nombreAcuerdo" type="text" className="input-field" />
