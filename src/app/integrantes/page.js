@@ -1,4 +1,5 @@
 import React from 'react';
+import Tecnico from '@/components/teams/Tecnico';
 import FederalTeam from '@/components/teams/FederalTeam';
 import CDMXTeam from '@/components/teams/CDMXTeam';
 import EDOMEXTeam from '@/components/teams/EDOMEXTeam';
@@ -10,6 +11,7 @@ const IntegrantesPage = () => {
   return (
     <div>
       <Navbar />
+      <Tecnico />
       <FederalTeam />
       <CDMXTeam />
       <EDOMEXTeam />

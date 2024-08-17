@@ -1,92 +1,30 @@
 /* Team.css */
 
 .team-container {
-  padding: 20px;
-  margin-top: 65px;
-}
-
-/* Header Section with Title and First Two Cards */
-.team-header {
-  display: flex;
-  justify-content: flex-start;  /* Alinear a la izquierda */
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-.team-title {
-  flex: 1;
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--vinoOsc); /* Ajusta esto a tu color principal */
-  text-align: left;  /* Alinear el título a la izquierda */
-  margin-right: 40px;
-}
-
-.team-header-cards {
-  display: flex;
-  gap: 20px;
-}
-
-.team-header-cards .horizontal-card {
-  flex-direction: row;
-  background-color: #f5f5f5;
-  border-radius: 50px;
-  padding: 20px;
-  width: 400px;  /* Asegura que estos card tengan un ancho de 400px */
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  align-items: center;
-}
-
-.team-header-cards .horizontal-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.team-header-cards .horizontal-card .team-card-image {
-  width: 80px;
-  height: 80px;
-  margin-right: 20px;
-}
-
-.team-header-cards .horizontal-card .team-card-info {
-  margin-top: 0;
-  text-align: left;
-}
-
-.team-header-cards .horizontal-card .team-card-info h3 {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.team-header-cards .horizontal-card .team-card-info p {
-  font-size: 0.9rem;
-  color: #777;
-}
-
-/* Rest of the Cards in Body Section */
-.team-body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 20px;
+  margin-top:70px;
 }
 
-.team-body .team-card {
+.team-card {
   background-color: #f5f5f5;
   border-radius: 50px;
   padding: 20px;
-  width: 250px;  /* Ancho estándar para las tarjetas restantes */
+  width: 250px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 4px solid transparent; /* Añade el borde aquí para efecto 3D */
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
 }
 
-.team-body .team-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.team-card:hover {
+  transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.1); /* Cambia el color del borde al hacer hover */
 }
 
 .team-card-image {
@@ -95,6 +33,8 @@
   margin: 0 auto;
   border-radius: 50%;
   overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra a la imagen para el efecto 3D */
+  transition: transform 0.3s ease;
 }
 
 .team-card-image img {
@@ -108,28 +48,28 @@
 
 .team-card-info h3 {
   font-size: 1.2rem;
-  font-weight: 5000;
+  font-weight: bold;
   margin-bottom: 10px;
-  color: var(--vinoOsc);
 }
 
 .team-card-info p {
-  font-size: 0.8rem;
-  color: var(--grisOsc);
-  margin: 0px;
-
+  font-size: 0.9rem;
+  color: #777;
   margin-bottom: 15px;
-  font-weight: 500;
-
 }
 
-.team-card-info p:nth-child(1){
-  margin: 0px;
- }
+.team-card-social {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 
- .team-card-info p:last-child{
-  font-size: 0.7rem;
-  font-weight: 400;
+.team-card-social a {
+  color: #555;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
 
- }
-
+.team-card-social a:hover {
+  color: #000;
+}
