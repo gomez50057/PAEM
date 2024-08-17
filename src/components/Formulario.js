@@ -64,45 +64,45 @@ const Formulario = () => {
           <div className="form-row">
             <div className="form-group">
               <label>Nombre:</label>
-              <Field name="nombre" type="text" className="input-field" />
+              <Field name="nombre" type="text" className="input-field" placeholder="Julio" />
               <ErrorMessage name="nombre" component="div" className="error-message" />
             </div>
 
             <div className="form-group">
               <label>Apellido Paterno:</label>
-              <Field name="apellidoPaterno" type="text" className="input-field" />
+              <Field name="apellidoPaterno" type="text" className="input-field" placeholder="Menchaca"/>
               <ErrorMessage name="apellidoPaterno" component="div" className="error-message" />
             </div>
 
             <div className="form-group">
               <label>Apellido Materno:</label>
-              <Field name="apellidoMaterno" type="text" className="input-field" />
+              <Field name="apellidoMaterno" type="text" className="input-field" placeholder="Salazar"/>
               <ErrorMessage name="apellidoMaterno" component="div" className="error-message" />
             </div>
           </div>
 
           <div className="form-group">
             <label>Área de Adscripción:</label>
-            <Field name="areaAdscripcion" type="text" className="input-field" />
+            <Field name="areaAdscripcion" type="text" className="input-field" placeholder="jefazo"/>
             <ErrorMessage name="areaAdscripcion" component="div" className="error-message" />
           </div>
 
           <div className="form-row">
             <div className="form-group">
               <label>Teléfono:</label>
-              <Field name="telefono" type="text" className="input-field" />
+              <Field name="telefono" type="text" className="input-field" placeholder="771 717 6000" />
               <ErrorMessage name="telefono" component="div" className="error-message" />
             </div>
 
             <div className="form-group">
               <label>Extensión:</label>
-              <Field name="extension" type="text" className="input-field" />
+              <Field name="extension" type="text" className="input-field" placeholder="6633"/>
               <ErrorMessage name="extension" component="div" className="error-message" />
             </div>
 
             <div className="form-group">
               <label>Correo Electrónico:</label>
-              <Field name="correo" type="email" className="input-field" />
+              <Field name="correo" type="email" className="input-field" placeholder="cg.planeacion@hidalgo.gob.mx"/>
               <ErrorMessage name="correo" component="div" className="error-message" />
             </div>
           </div>
@@ -110,7 +110,7 @@ const Formulario = () => {
           <h2>Acuerdo</h2>
           <div className="form-group">
             <label>Nombre del Acuerdo:</label>
-            <Field name="nombreAcuerdo" type="text" className="input-field" />
+            <Field name="nombreAcuerdo" type="text" className="input-field" placeholder=""/>
             <ErrorMessage name="nombreAcuerdo" component="div" className="error-message" />
           </div>
 

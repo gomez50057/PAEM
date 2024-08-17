@@ -28,11 +28,15 @@ h2 {
 .form-row {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px; /* Espacio entre los campos */
+}
+
+.form-row .form-group {
+  flex: 1; /* Asegura que cada form-group dentro de .form-row ocupe el mismo espacio */
 }
 
 .input-field {
-  width: 100%;
+  width: 100%; /* Asegura que los campos ocupen el 100% del ancho de su contenedor (form-group) */
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #ccc;
