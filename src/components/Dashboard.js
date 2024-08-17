@@ -14,9 +14,12 @@ const Dashboard = () => {
 
     const toggleBtn = document.querySelector('.toggle');
     const sidebar = document.querySelector('.sidebar');
+    const dashboardContainer = document.querySelector('.dashboard-container');
+
     toggleBtn.onclick = () => {
       toggleBtn.classList.toggle('active');
       sidebar.classList.toggle('active');
+      dashboardContainer.classList.toggle('sidebar-expanded');
     };
   }, []);
 

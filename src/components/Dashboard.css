@@ -1,56 +1,30 @@
-/* Dashboard Container */
+:root {
+  --doradoOsc: #bc955b;
+  --doradoClr: #DEC9A3;
+  --vinoOsc: #691B32;
+  --vinoClr: #A02142;
+  --vinoClr75: #691B32;
+  --grisOsc: #707271;
+  --grisClr: #98989a;
+  --blanco: #F5F3F5;
+}
+
 .dashboard-wrapper {
   display: flex;
   height: 100vh;
   padding: 20px;
-}
-
-.dashboard-container {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.1); /* Efecto Glass */
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  margin-left: 20px;
-  padding: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 20px;
-}
-
-.search-bar {
-  width: 300px;
-  padding: 10px;
-  border-radius: 20px;
-  border: none;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100% - 60px);
-}
-
-.content h1 {
-  font-size: 3rem;
-  color: #ffffff;
+  background-image: url("https://itefs.com/wp-content/uploads/2024/03/concepto-collage-html-css-persona-1-scaled.jpg");
 }
 
 /* Sidebar styles */
 .sidebar {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  bottom: 20px;
+  position: relative;
+  top: 0px;
+  left: 0px;
   width: 60px;
-  border-radius: 10px;
+  border-radius: 30px;
   box-sizing: initial;
-  border-left: 5px solid #8b1b3e;
-  background: #8b1b3e;
+  background: var(--vinoClr75);
   transition: width 0.5s;
   overflow-x: hidden;
 }
@@ -64,7 +38,8 @@
   margin-left: 10px;
   width: 40px;
   height: 40px;
-  background: #ffffff;
+  background: var(--blanco);
+
   border-radius: 10px;
   cursor: pointer;
   display: flex;
@@ -79,7 +54,7 @@
 .sidebar .toggle i {
   font-size: 1.5em;
   font-weight: 900;
-  color: #8b1b3e !important;
+  color: var(--vinoClr75) !important;
   display: none;
   position: absolute;
 }
@@ -112,7 +87,8 @@
 }
 
 .sidebar .list .list-item.active {
-  background: #ffffff;
+  background: var(--blanco);
+
 }
 
 .sidebar .list .list-item:hover {
@@ -124,7 +100,7 @@
   top: -20px;
   height: 20px;
   width: 100%;
-  background: #fff;
+  background: var(--blanco);
   display: none;
 }
 
@@ -136,7 +112,7 @@
   width: 100%;
   height: 100%;
   border-bottom-right-radius: 20px;
-  background: #8b1b3e;
+  background: var(--vinoClr75);
 }
 
 .sidebar .list .list-item b:nth-child(2) {
@@ -144,7 +120,7 @@
   bottom: -20px;
   height: 20px;
   width: 100%;
-  background: #fff;
+  background: var(--blanco);
   display: none;
 }
 
@@ -156,7 +132,7 @@
   width: 100%;
   height: 100%;
   border-top-right-radius: 20px;
-  background: #8b1b3e;
+  background: var(--vinoClr75);
 }
 
 .sidebar .list .list-item.active b:nth-child(1),
@@ -199,4 +175,43 @@
   height: 60px;
   line-height: 60px;
   white-space: normal;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  flex: 1;
+  margin-left: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 20px;
+  transition: margin-left 0.5s ease; 
+}
+
+
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+
+.search-bar {
+  width: 300px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 60px);
+}
+
+.content h1 {
+  font-size: 3rem;
+  color: #ffffff;
 }
