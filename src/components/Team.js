@@ -1,9 +1,8 @@
-
 "use client";
 import React from 'react';
 import './Team.css';
 
-const Team = ({ teamName, teamMembers }) => {
+const Team = ({ teamName, teamMembers, isTecnicoTeam = false }) => {
   return (
     <div className="team-container">
       <h2 className="team-title">{teamName}</h2>
@@ -15,6 +14,11 @@ const Team = ({ teamName, teamMembers }) => {
           <div className="team-card-info">
             <h3>{member.name}</h3>
             <p>{member.position}</p>
+            {isTecnicoTeam ? (
+              <p>{member.gobierno}</p>
+            ) : (
+              <p>{member.description}</p>
+            )}
           </div>
         </div>
       ))}

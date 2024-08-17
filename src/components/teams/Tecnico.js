@@ -7,6 +7,7 @@ const HGOTeam = () => {
     <Team 
       teamName="Consejo Técnico"
       teamMembers={tecnicoTeamMembers}
+      isTecnicoTeam={true} 
     />
   );
 }

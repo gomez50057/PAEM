@@ -7,6 +7,7 @@ const CDMXTeam = () => {
     <Team 
       teamName="Gobierno de la Ciudad de México"
       teamMembers={cdmxTeamMembers}
+      isTecnicoTeam={false} 
     />
   );
 }

@@ -7,6 +7,7 @@ const FederalTeam = () => {
     <Team 
       teamName="Gobierno Federal"
       teamMembers={federalTeamMembers}
+      isTecnicoTeam={false} 
     />
   );
 }

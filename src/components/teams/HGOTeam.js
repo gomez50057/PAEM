@@ -7,6 +7,8 @@ const HGOTeam = () => {
     <Team 
       teamName="Gobierno del Estado de Hidalgo"
       teamMembers={hgoTeamMembers}
+      isTecnicoTeam={false} 
+
     />
   );
 }

@@ -2,53 +2,53 @@
 
 export const federalTeamMembers = [
   {
-    name: "Mtro. Álvaro Lomelí Covarrubias",
-    position: "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
-    description: [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
-    image: "https://via.placeholder.com/400x400",
+    "name": "Mtro. Álvaro Lomelí Covarrubias",
+    "position": "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
+    // "description": [
+    //   "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+    //   "Comisión Metropolitana de Gestión Integral de Riesgos",
+    //   "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+    //   "Comisión Metropolitana de Asentamientos Humanos",
+    //   "Comisión Metropolitana de Movilidad",
+    //   "Comisión Metropolitana de Salud",
+    //   "Comisión de Agua y Drenaje del Área Metropolitana",
+    //   "Comisión Ambiental Metropolitana"
+    // ],
+    "image": "https://via.placeholder.com/400x400",
   },
 ];
 
 export const cdmxTeamMembers = [
-  {
-    "name": "Mtro. Ricardo Ruíz Suárez",
-    "position": "Secretario de Gobierno",
-    "description": [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
-    "image": "https://via.placeholder.com/400x400"
-  },
-  {
-    "name": "Lic. Israel Moreno Rivera",
-    "position": "Subsecretario de Coordinación Metropolitana y Enlace Gubernamental",
-    "description": [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
-    "image": "https://via.placeholder.com/400x400"
-  },
+  // {
+  //   "name": "Mtro. Ricardo Ruíz Suárez",
+  //   "position": "Secretario de Gobierno",
+  //   "description": [
+  //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+  //     "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil",
+  //     "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+  //     "Comisión Metropolitana de Asentamientos Humanos",
+  //     "Comisión Metropolitana de Movilidad",
+  //     "Comisión Metropolitana de Salud",
+  //     "Comisión de Agua y Drenaje del Área Metropolitana",
+  //     "Comisión Ambiental Metropolitana"
+  //   ],
+  //   "image": "https://via.placeholder.com/400x400"
+  // },
+  // {
+  //   "name": "Lic. Israel Moreno Rivera",
+  //   "position": "Subsecretario de Coordinación Metropolitana y Enlace Gubernamental",
+  //   "description": [
+  //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+  //     "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil",
+  //     "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+  //     "Comisión Metropolitana de Asentamientos Humanos",
+  //     "Comisión Metropolitana de Movilidad",
+  //     "Comisión Metropolitana de Salud",
+  //     "Comisión de Agua y Drenaje del Área Metropolitana",
+  //     "Comisión Ambiental Metropolitana"
+  //   ],
+  //   "image": "https://via.placeholder.com/400x400"
+  // },
   {
     "name": "No hay",
     "position": "Secretario de Seguridad Ciudadana",
@@ -133,36 +133,36 @@ export const cdmxTeamMembers = [
 ];
 
 export const edomexTeamMembers = [
-  {
-    "name": "Lic. Rafael Díaz Leal Barrueta",
-    "position": "Secretario de Desarrollo Urbano y Obra",
-    "description": [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
-    "image": "https://via.placeholder.com/400x400"
-  },
-  {
-    "name": "Dr. Pablo Basáñez García",
-    "position": "Director General de Proyectos de Coordinación Metropolitana de la Secretaría de Desarrollo Urbano y Obra",
-    "description": [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
-    "image": "https://via.placeholder.com/400x400"
-  },
+  // {
+  //   "name": "Lic. Rafael Díaz Leal Barrueta",
+  //   "position": "Secretario de Desarrollo Urbano y Obra",
+  //   "description": [
+  //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+  //     "Comisión Metropolitana de Gestión Integral de Riesgos",
+  //     "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+  //     "Comisión Metropolitana de Asentamientos Humanos",
+  //     "Comisión Metropolitana de Movilidad",
+  //     "Comisión Metropolitana de Salud",
+  //     "Comisión de Agua y Drenaje del Área Metropolitana",
+  //     "Comisión Ambiental Metropolitana"
+  //   ],
+  //   "image": "https://via.placeholder.com/400x400"
+  // },
+  // {
+  //   "name": "Dr. Pablo Basáñez García",
+  //   "position": "Director General de Proyectos de Coordinación Metropolitana de la Secretaría de Desarrollo Urbano y Obra",
+  //   "description": [
+  //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+  //     "Comisión Metropolitana de Gestión Integral de Riesgos",
+  //     "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+  //     "Comisión Metropolitana de Asentamientos Humanos",
+  //     "Comisión Metropolitana de Movilidad",
+  //     "Comisión Metropolitana de Salud",
+  //     "Comisión de Agua y Drenaje del Área Metropolitana",
+  //     "Comisión Ambiental Metropolitana"
+  //   ],
+  //   "image": "https://via.placeholder.com/400x400"
+  // },
   {
     "name": "Mtro. Rodrigo Sigfrid Martínez – Celis Wogau",
     "position": "Secretario de Seguridad",
@@ -238,33 +238,33 @@ export const edomexTeamMembers = [
 ];
 
 export const hgoTeamMembers = [
-  {
-    name: "Mtro. Miguel Ángel Tello Vargas",
-    position: "Titular de la Unidad de Planeación y Prospectiva",
-    description: [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
-    image: "/img/ZMVM/integrantesComisiones/HGO/miguel.png",
-  },
-  {
-    name: "Lic. Onésimo Rodrigo Serrano Rivera",
-    position: "Coordinador General de Planeación y Proyectos",
-    description: [
-      "Planeación Estratégica y Prospectiva",
-      "Coordinación y seguimiento de proyectos estratégicos",
-      "Enlace interinstitucional",
-      "Desarrollo y seguimiento de indicadores de gestión"
-    ],
-    // image: "/img/ZMVM/integrantesComisiones/HGO/onesimo.png",
-    image: "https://via.placeholder.com/400x400",
-  },
+  // {
+  //   "name": "Mtro. Miguel Ángel Tello Vargas",
+  //   "position": "Titular de la Unidad de Planeación y Prospectiva",
+  //   "description": [
+  //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
+  //     "Comisión Metropolitana de Gestión Integral de Riesgos",
+  //     "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
+  //     "Comisión Metropolitana de Asentamientos Humanos",
+  //     "Comisión Metropolitana de Movilidad",
+  //     "Comisión Metropolitana de Salud",
+  //     "Comisión de Agua y Drenaje del Área Metropolitana",
+  //     "Comisión Ambiental Metropolitana"
+  //   ],
+  //   "image": "/img/ZMVM/integrantesComisiones/HGO/miguel.png",
+  // },
+  // {
+  //   "name": "Lic. Onésimo Rodrigo Serrano Rivera",
+  //   "position": "Coordinador General de Planeación y Proyectos",
+  //   "description": [
+  //     "Planeación Estratégica y Prospectiva",
+  //     "Coordinación y seguimiento de proyectos estratégicos",
+  //     "Enlace interinstitucional",
+  //     "Desarrollo y seguimiento de indicadores de gestión"
+  //   ],
+  //   // "image": "/img/ZMVM/integrantesComisiones/HGO/onesimo.png",
+  //   "image": "https://via.placeholder.com/400x400",
+  // },
   {
     "name": "T.S.U. Salvador Cruz Neri",
     "position": "Secretario de Seguridad Pública",
@@ -350,120 +350,83 @@ export const hgoTeamMembers = [
 
 export const tecnicoTeamMembers = [
   {
-    name: "Mtro. Álvaro Lomelí Covarrubias",
-    position: "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
+    "name": "Mtro. Álvaro Lomelí Covarrubias",
+    "position": "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
     "gobierno": "Gobierno Federal",
-    description: [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
-    image: "https://via.placeholder.com/400x400",
+    "image": "https://via.placeholder.com/400x400",
   },
   {
-    name: "Mtro. Miguel Ángel Tello Vargas",
-    position: "Titular de la Unidad de Planeación y Prospectiva",
+    "name": "Mtro. Miguel Ángel Tello Vargas",
+    "position": "Titular de la Unidad de Planeación y Prospectiva",
     "gobierno": "Gobierno del Estado de Hidalgo",
-    description: [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
-    image: "/img/ZMVM/integrantesComisiones/HGO/miguel.png",
+    "image": "/img/ZMVM/integrantesComisiones/HGO/miguel.png",
   },
   {
-    name: "Lic. Onésimo Rodrigo Serrano Rivera",
-    position: "Coordinador General de Planeación y Proyectos",
+    "name": "Lic. Onésimo Rodrigo Serrano Rivera",
+    "position": "Coordinador General de Planeación y Proyectos",
     "gobierno": "Gobierno del Estado de Hidalgo",
-    description: [
-      "Planeación Estratégica y Prospectiva",
-      "Coordinación y seguimiento de proyectos estratégicos",
-      "Enlace interinstitucional",
-      "Desarrollo y seguimiento de indicadores de gestión"
-    ],
-    // image: "/img/ZMVM/integrantesComisiones/HGO/onesimo.png",
-    image: "https://via.placeholder.com/400x400",
+    // "image": "/img/ZMVM/integrantesComisiones/HGO/onesimo.png",
+    "image": "https://via.placeholder.com/400x400",
   },
   {
     "name": "Mtro. Ricardo Ruíz Suárez",
     "position": "Secretario de Gobierno",
     "gobierno": "Gobierno de la Ciudad de México",
-    "description": [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
     "name": "Lic. Israel Moreno Rivera",
     "position": "Subsecretario de Coordinación Metropolitana y Enlace Gubernamental",
     "gobierno": "Gobierno de la Ciudad de México",
-    "description": [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
     "name": "Lic. Rafael Díaz Leal Barrueta",
     "position": "Secretario de Desarrollo Urbano y Obra",
     "gobierno": "Gobierno del Estado de México",
-    "description": [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
     "name": "Dr. Pablo Basáñez García",
     "position": "Director General de Proyectos de Coordinación Metropolitana de la Secretaría de Desarrollo Urbano y Obra",
     "gobierno": "Gobierno del Estado de México",
-    "description": [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-      "Comisión Metropolitana de Gestión Integral de Riesgos",
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-      "Comisión Metropolitana de Asentamientos Humanos",
-      "Comisión Metropolitana de Movilidad",
-      "Comisión Metropolitana de Salud",
-      "Comisión de Agua y Drenaje del Área Metropolitana",
-      "Comisión Ambiental Metropolitana"
-    ],
     "image": "https://via.placeholder.com/400x400"
   },
 
+];
+
+export const estatalTeamMembers = [
+  {
+    "name": "Julio Menchaca Salazar",
+    "position": "Gobernador del estado de Hidalgo",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "https://via.placeholder.com/400x400",
+  },
+  {
+    "name": "Martí Batres Guadarrama",
+    "position": "Jefe de Gobierno de la Ciudad de México",
+    "gobierno": "Gobierno de la Ciudad de México",
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "Delfina Gómez Álvarez",
+    "position": "Gobernadora del Estado de México",
+    "gobierno": "Gobierno del Estado de México",
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "aaaaaaaa",
+    "position": "Secretario de Desarrollo Agrario, Territorial y Urbano",
+    "gobierno": "aaaaaaaaaa",
+    "image": "https://via.placeholder.com/400x400"
+  },
 ];
 
 export default {
   federalTeamMembers,
   cdmxTeamMembers,
   edomexTeamMembers,
-  hgoTeamMembers
+  hgoTeamMembers,
+  tecnicoTeamMembers,
+  estatalTeamMembers,
 };
