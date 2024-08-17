@@ -1,0 +1,77 @@
+/* Formulario.css */
+
+.formulario-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.dropzone {
+  padding: 20px;
+  border: 2px dashed #007bff;
+  border-radius: 5px;
+  background-color: #e9ecef;
+  text-align: center;
+  cursor: pointer;
+}
+
+.file-preview {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.file-preview-item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.file-preview-item img {
+  max-width: 100px;
+  border-radius: 5px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
