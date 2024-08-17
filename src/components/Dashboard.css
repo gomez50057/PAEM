@@ -4,22 +4,28 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #ffffff; /* Fondo blanco */
 }
 
 .dashboard-container {
   display: flex;
   height: 100vh;
-  background-color: #f5e6e8;
+  background: rgba(255, 255, 255, 0.1); /* Efecto Glass */
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 20px;
+  margin: 20px;
 }
 
 /* Sidebar styles */
 .sidebar {
-  width: 250px;
-  background-color: #8b1b3e;
+  width: 200px;
+  background-color: #a63446; /* Color más cercano al de la imagen */
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 20px;
 }
 
 .profile-picture {
@@ -41,7 +47,7 @@ body {
 
 .nav-menu li {
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   margin-bottom: 10px;
   color: #fff;
   font-size: 1rem;
@@ -54,7 +60,7 @@ body {
 
 .nav-menu li:hover,
 .nav-menu li.active {
-  background-color: #a63446;
+  background-color: #bf4454;
 }
 
 .nav-menu li img.icon {
@@ -63,19 +69,21 @@ body {
 
 .logout {
   margin-top: auto;
-  background-color: #a63446;
+  background-color: #bf4454;
 }
 
 .logout:hover {
-  background-color: #bf4454;
+  background-color: #d65564;
 }
 
 /* Main content styles */
 .main-content {
   flex: 1;
-  background-color: #f5e6e8;
+  background: rgba(255, 255, 255, 0.7); /* Fondo con efecto Glass */
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
   padding: 20px;
-  border-radius: 30px 0 0 30px;
+  margin-left: 20px;
 }
 
 .header {
@@ -101,5 +109,5 @@ body {
 
 .content h1 {
   font-size: 3rem;
-  color: #fff;
+  color: #ffffff;
 }
