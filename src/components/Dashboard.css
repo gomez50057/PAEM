@@ -189,9 +189,10 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   border: 4px solid transparent;
-
-
   transition: margin-left 0.5s ease;
+  overflow-y: auto; /* Añadir scroll vertical */
+  overflow-x: hidden; /* Ocultar scroll horizontal */
+  max-height: calc(100vh - 40px); /* Limitar la altura del contenedor */
 }
 
 .header {
@@ -212,15 +213,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100% - 60px);
+  height: auto; /* Cambiar para que el contenido se ajuste a su tamaño */
 }
 
 .content h1 {
   font-size: 3rem;
   color: #ffffff;
 }
-
-
-
-
-
