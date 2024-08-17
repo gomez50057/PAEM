@@ -13,7 +13,7 @@
   display: flex;
   height: 100vh;
   padding: 20px;
-  background-image: url("https://img.freepik.com/vector-gratis/concepto-vector-energia-verde_1308-130351.jpg?t=st=1723885378~exp=1723888978~hmac=dec98596ef1d6c960796556cddbe07a698c84be6524e67f89a66ce490ac07852&w=826");
+  background-image: url("../../public/img/dashboardBackground.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -26,7 +26,7 @@
   left: 0px;
   width: 60px;
   border-radius: 30px;
-  background: rgba(105, 27, 50, 0.75);
+  background: var(--vinoClr75);
   backdrop-filter: blur(10px);
   transition: width 0.6s, background-color 0.5s ease;
   overflow-x: hidden;
@@ -116,7 +116,7 @@
   width: 100%;
   height: 100%;
   border-bottom-right-radius: 20px;
-  background: rgba(105, 27, 50, 0.75);
+  background: var(--vinoClr75);
 }
 
 .sidebar .list .list-item b:nth-child(2) {
@@ -136,7 +136,7 @@
   width: 100%;
   height: 100%;
   border-top-right-radius: 20px;
-  background: rgba(105, 27, 50, 0.75);
+  background: var(--vinoClr75);
 }
 
 .sidebar .list .list-item.active b:nth-child(1),

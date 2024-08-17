@@ -26,10 +26,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-wrapper">
       <div className="sidebar">
-        <div className="toggle">
-          <i className="pe-7s-menu open"></i>
-          <i className="pe-7s-close close"></i>
-        </div>
+        <div className="toggle"></div>
         <ul className="list">
           <li className="list-item active">
             <b></b>
