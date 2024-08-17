@@ -20,12 +20,13 @@ body {
 /* Sidebar styles */
 .sidebar {
   width: 200px;
-  background-color: #a63446; /* Color más cercano al de la imagen */
-  padding: 20px;
+  background-color: #8b1b3e; /* Color más cercano al de la imagen */
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 50px;
+  position: relative;
 }
 
 .profile-picture {
@@ -43,23 +44,34 @@ body {
 .nav-menu ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .nav-menu li {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 15px;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 30px 0 0 30px;
   transition: background-color 0.3s;
+  margin-bottom: 10px;
 }
 
-.nav-menu li:hover,
 .nav-menu li.active {
+  background-color: #ffffff;
+  color: #8b1b3e;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 30px 0 0 30px;
+}
+
+.nav-menu li.active img.icon {
+  filter: invert(27%) sepia(91%) saturate(4179%) hue-rotate(320deg) brightness(91%) contrast(103%);
+}
+
+.nav-menu li:hover:not(.active) {
   background-color: #bf4454;
 }
 
