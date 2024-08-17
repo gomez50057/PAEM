@@ -14,19 +14,20 @@ const Dashboard = () => {
 
     const toggleBtn = document.querySelector('.toggle');
     const sidebar = document.querySelector('.sidebar');
-    const dashboardContainer = document.querySelector('.dashboard-container');
+
+    sidebar.classList.add('active');
+    toggleBtn.classList.add('active');
 
     toggleBtn.onclick = () => {
       toggleBtn.classList.toggle('active');
       sidebar.classList.toggle('active');
-      dashboardContainer.classList.toggle('sidebar-expanded');
     };
   }, []);
 
   return (
     <div className="dashboard-wrapper">
-      <div className="sidebar">
-        <div className="toggle"></div>
+      <div className="sidebar active"> 
+        <div className="toggle active"></div> 
         <ul className="list">
           <li className="list-item active">
             <b></b>
