@@ -1,8 +1,11 @@
 "use client";
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
+import Formulario from './Formulario'; // Importa el componente Formulario
 
 const Dashboard = () => {
+  const [activeComponent, setActiveComponent] = useState('dashboard'); // Estado para manejar el componente activo
+
   useEffect(() => {
     const listItems = document.querySelectorAll('.list-item');
     listItems.forEach((item) => {
@@ -24,12 +27,21 @@ const Dashboard = () => {
     };
   }, []);
 
+  const renderContent = () => {
+    switch (activeComponent) {
+      case 'formulario':
+        return <Formulario />;
+      default:
+        return <h1>DASHBOARD</h1>;
+    }
+  };
+
   return (
     <div className="dashboard-wrapper">
-      <div className="sidebar active"> 
-        <div className="toggle active"></div> 
+      <div className="sidebar active">
+        <div className="toggle active"></div>
         <ul className="list">
-          <li className="list-item active">
+          <li className="list-item active" onClick={() => setActiveComponent('dashboard')}>
             <b></b>
             <b></b>
             <a href="#" className="list-item-link">
@@ -39,54 +51,14 @@ const Dashboard = () => {
               <span className="title">Dashboard</span>
             </a>
           </li>
-          <li className="list-item">
+          <li className="list-item" onClick={() => setActiveComponent('formulario')}>
             <b></b>
             <b></b>
             <a href="#" className="list-item-link">
               <div className="icon">
                 <img src="https://via.placeholder.com/20" alt="Rooms Icon" />
               </div>
-              <span className="title">Rooms</span>
-            </a>
-          </li>
-          <li className="list-item">
-            <b></b>
-            <b></b>
-            <a href="#" className="list-item-link">
-              <div className="icon">
-                <img src="https://via.placeholder.com/20" alt="Devices Icon" />
-              </div>
-              <span className="title">Devices</span>
-            </a>
-          </li>
-          <li className="list-item">
-            <b></b>
-            <b></b>
-            <a href="#" className="list-item-link">
-              <div className="icon">
-                <img src="https://via.placeholder.com/20" alt="Security Icon" />
-              </div>
-              <span className="title">Security</span>
-            </a>
-          </li>
-          <li className="list-item">
-            <b></b>
-            <b></b>
-            <a href="#" className="list-item-link">
-              <div className="icon">
-                <img src="https://via.placeholder.com/20" alt="Statistics Icon" />
-              </div>
-              <span className="title">Statistics</span>
-            </a>
-          </li>
-          <li className="list-item">
-            <b></b>
-            <b></b>
-            <a href="#" className="list-item-link">
-              <div className="icon">
-                <img src="https://via.placeholder.com/20" alt="Members Icon" />
-              </div>
-              <span className="title">Members</span>
+              <span className="title">Formulario</span>
             </a>
           </li>
           <li className="list-item">
@@ -107,7 +79,7 @@ const Dashboard = () => {
           <input type="text" placeholder="Search..." className="search-bar" />
         </header>
         <section className="content">
-          <h1>DASHBOARD</h1>
+          {renderContent()} {/* Aquí se renderiza el componente activo */}
         </section>
       </div>
     </div>
