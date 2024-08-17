@@ -13,7 +13,10 @@
   display: flex;
   height: 100vh;
   padding: 20px;
-  background-image: url("https://itefs.com/wp-content/uploads/2024/03/concepto-collage-html-css-persona-1-scaled.jpg");
+  background-image: url("https://img.freepik.com/vector-gratis/concepto-vector-energia-verde_1308-130351.jpg?t=st=1723885378~exp=1723888978~hmac=dec98596ef1d6c960796556cddbe07a698c84be6524e67f89a66ce490ac07852&w=826");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 /* Sidebar styles */
@@ -30,7 +33,7 @@
 }
 
 .sidebar.active {
-  width: 300px;
+  width: 200px;
 }
 
 .sidebar .toggle {
