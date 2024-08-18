@@ -94,6 +94,7 @@
 
 .sidebar .list .list-item:hover {
   background: #fafafa69;
+  z-index: 100;
 }
 
 .sidebar .list .list-item b:nth-child(1) {
