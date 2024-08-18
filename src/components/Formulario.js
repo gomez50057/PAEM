@@ -158,7 +158,11 @@ const Formulario = () => {
               {({ getRootProps, getInputProps }) => (
                 <div {...getRootProps()} className="dropzone">
                   <input {...getInputProps()} />
-                  <p>Arrastra y suelta los archivos aquí, o haz clic para seleccionarlos</p>
+                  <img src="https://img.freepik.com/vector-gratis/concepto-carga-imagen-pagina-destino_23-2148317961.jpg?t=st=1723946936~exp=1723950536~hmac=3163d11aee43ae0f7504e508d5d937fe77df8112519430e8b420daeca36353e6&w=996" alt="Icono de archivo" />
+                  <div className="dropzone-txt">
+                    <p>Arrastra y suelta <span className="highlight">imágenes, vídeos o cualquier archivo</span></p>
+                    <p>o<span className="highlight"> buscar archivos</span> en su computadora</p>
+                  </div>
                 </div>
               )}
             </Dropzone>
