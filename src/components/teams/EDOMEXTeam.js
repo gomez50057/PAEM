@@ -1,5 +1,5 @@
 import React from 'react';
-import Team from '@/components/Team';
+import Team from '@/components/teams/Team';
 import { edomexTeamMembers } from '@/utils/utils';
 
 const EDOMEXTeam = () => {

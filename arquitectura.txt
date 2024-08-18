@@ -1,20 +1,69 @@
+public/                          // Archivos públicos accesibles (imágenes, fuentes, etc.)
+│   ├── img/
+│   ├── favicon.ico
 src/
 ├── app/
+│   ├── dashboard/
+│   │   └── page.js
+│   ├── integrantes/
+│   │   └── page.js
+│   ├── login/
+│   │   └── page.js
 │   ├── favicon.ico
 │   ├── layout.js
-│   └── page.js
+│   ├── page.js
 ├── components/
-│   ├── About.css
-│   ├── About.js
-│   ├── Announcement.css
-│   ├── Announcement.js
-│   ├── Footer.css
-│   ├── Footer.js
-│   ├── Header.css
-│   ├── Header.js
-│   ├── Navbar.css
-│   ├── Navbar.js
-│   ├── Slider.css
-│   └── Slider.js
-└── styles/
+│   ├── layout/
+│   │   ├── Header.js
+│   │   ├── Header.css
+│   │   ├── Footer.js
+│   │   ├── Footer.css
+│   │   ├── Navbar.js
+│   │   ├── Navbar.css
+│   ├── teams/
+│   │   ├── CDMXTeam.js  
+│   │   ├── EDOMEXTeam.js 
+│   │   ├── EstatalMetro.js 
+│   │   ├── FederalTeam.js  
+│   │   ├── HGOTeam.js 
+│   │   ├── Tecnico.js 
+│   │   ├── Team.css
+│   │   └── Team.js
+│   ├── dashboard/
+│   │   ├── Dashboard.js
+│   │   ├── Dashboard.css
+│   ├── forms/
+│   │   ├── Formulario.js
+│   │   ├── Formulario.css
+│   ├── home/
+│   │   ├── About.js
+│   │   ├── About.css
+│   │   ├── Announcement.js
+│   │   ├── Announcement.css
+│   │   ├── Slider.js
+│   │   ├── Slider.css
+│   ├── auth/
+│   │   ├── Login.js
+│   │   ├── Login.css
+├── hooks/                           // Custom hooks
+│   ├── useAuth.js
+│   ├── useForm.js
+├── contexts/                        // Context API para manejo de estados globales
+│   ├── AuthContext.js
+│   ├── ThemeContext.js
+├── styles/
 │   ├── globals.css
+├── utils/
+│   ├── utils.js                   // datos de apoyo para team
+├── services/                        // Servicios para llamadas a APIs
+│   ├── api.js                       // Configuración de Axios o cualquier cliente HTTP
+│   ├── authService.js               // Servicios de autenticación
+│   ├── userService.js               // Servicios de gestión de usuarios
+├── .eslintrc.json
+├── .gitignore
+├── arquitectura.txt
+├── jsconfig.json
+├── next.config.js
+├── package-lock.json
+├── package.json
+└── README.md

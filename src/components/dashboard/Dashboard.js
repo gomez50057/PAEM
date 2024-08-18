@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
-import Formulario from './Formulario'; // Importa el componente Formulario
+import Formulario from '../forms/Formulario'; // Importa el componente Formulario
 
 const Dashboard = () => {
   const [activeComponent, setActiveComponent] = useState('dashboard'); // Estado para manejar el componente activo

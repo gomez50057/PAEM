@@ -1,7 +1,7 @@
 // src/app/login/page.js
 import React from 'react';
-import Login from '@/components/Login';
-import Navbar from '@/components/Navbar';
+import Login from '@/components/auth/Login';
+import Navbar from '@/components/layout/Navbar';
 
 
 const LoginPage = () => {
