@@ -1,11 +1,9 @@
-"use client";
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Dropzone from 'react-dropzone';
 import './Formulario.css';
 
-// Esquema de validación de Formik con Yup
 const validationSchema = Yup.object().shape({
   nombre: Yup.string().required('El nombre es obligatorio'),
   apellidoPaterno: Yup.string().required('El apellido paterno es obligatorio'),
@@ -30,8 +28,8 @@ const Formulario = () => {
     const newFiles = acceptedFiles.map(file => ({
       file,
       preview: URL.createObjectURL(file),
-      progress: 0, // Iniciar el progreso en 0 para cada archivo
-      completed: false // Nuevo estado para marcar como completado
+      progress: 0,
+      completed: false
     }));
     setFiles(prevFiles => [...prevFiles, ...newFiles]);
 
@@ -40,11 +38,12 @@ const Formulario = () => {
       const interval = setInterval(() => {
         setFiles(prevFiles => {
           const updatedFiles = [...prevFiles];
-          const currentFile = updatedFiles[prevFiles.length - newFiles.length + index];
+          const currentFileIndex = prevFiles.length - newFiles.length + index;
+          const currentFile = updatedFiles[currentFileIndex];
 
           if (currentFile.progress >= 100) {
             clearInterval(interval);
-            currentFile.completed = true; // Marcar como completado
+            currentFile.completed = true;
           } else {
             currentFile.progress += 10;
           }
@@ -76,7 +75,6 @@ const Formulario = () => {
       }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
-        // Manejo de la acción de envío de formulario
         console.log('Formulario enviado:', values);
       }}
     >
@@ -149,56 +147,56 @@ const Formulario = () => {
 
           <div className="form-group">
             <label>Documentos (evidencia):</label>
-            {files.length === 0 ? (
-              <Dropzone
-                onDrop={(acceptedFiles) => {
-                  setFieldValue('documentos', acceptedFiles);
-                  handleDrop(acceptedFiles);
-                }}
-              >
-                {({ getRootProps, getInputProps }) => (
-                  <div {...getRootProps()} className="dropzone">
-                    <input {...getInputProps()} />
-                    <img src="https://img.freepik.com/vector-gratis/concepto-carga-imagen-pagina-destino_23-2148317961.jpg" alt="Icono de archivo" />
-                    <div className="dropzone-txt">
-                      <p>Arrastra y suelta <span className="highlight">imágenes, vídeos o cualquier archivo</span></p>
-                      <p>o <span className="highlight">buscar archivos</span> en su computadora</p>
-                    </div>
-                  </div>
-                )}
-              </Dropzone>
-            ) : (
-              <div className="file-preview">
-                {files.map((fileObj, index) => (
-                  <div key={index} className="file-preview-item">
-                    <img src={fileObj.preview} alt={`Documento ${index + 1}`} />
-                    {fileObj.completed ? (
-                      <>
-                        <div className="checkmark-circle">
-                          <svg viewBox="0 0 52 52" className="checkmark">
-                            <circle cx="26" cy="26" r="25" fill="none" />
-                            <path d="M14 27l8 8 16-16" fill="none" />
-                          </svg>
-                        </div>
-                        <div className="file-details">
-                          <p>{fileObj.file.name}</p>
-                          <button type="button" onClick={() => handleRemoveFile(fileObj.file)}>
-                            Eliminar
-                          </button>
-                        </div>
-                      </>
-                    ) : (
-                      <div className="progress-bar">
-                        <div className="progress" style={{ width: `${fileObj.progress}%` }}></div>
+            <Dropzone
+              onDrop={(acceptedFiles) => {
+                setFieldValue('documentos', [...files.map(fileObj => fileObj.file), ...acceptedFiles]);
+                handleDrop(acceptedFiles);
+              }}
+            >
+              {({ getRootProps, getInputProps }) => (
+                <div {...getRootProps()} className="dropzone">
+                  <input {...getInputProps()} />
+                  {files.length === 0 && (
+                    <>
+                      <img src="https://img.freepik.com/vector-gratis/concepto-carga-imagen-pagina-destino_23-2148317961.jpg?t=st=1723946936~exp=1723950536~hmac=3163d11aee43ae0f7504e508d5d937fe77df8112519430e8b420daeca36353e6&w=996" alt="Icono de archivo" />
+                      <div className="dropzone-txt">
+                        <p>Arrastra y suelta <span className="highlight">imágenes, vídeos o cualquier archivo</span></p>
+                        <p>o<span className="highlight"> buscar archivos</span> en su computadora</p>
                       </div>
-                    )}
+                    </>
+                  )}
+                  <div className="file-preview">
+                    {files.map((fileObj, index) => (
+                      <div key={index} className="file-preview-item">
+                        <img src={fileObj.preview} alt={`Documento ${index + 1}`} />
+                        {fileObj.completed ? (
+                          <>
+                            <div className="checkmark-circle">
+                              <svg viewBox="0 0 52 52" className="checkmark">
+                                <circle cx="26" cy="26" r="25" fill="none" />
+                                <path d="M14 27l8 8 16-16" fill="none" />
+                              </svg>
+                            </div>
+                            <div className="file-details">
+                              <p>{fileObj.file.name}</p>
+                              <button type="button" onClick={() => handleRemoveFile(fileObj.file)}>
+                                Eliminar
+                              </button>
+                            </div>
+                          </>
+                        ) : (
+                          <div className="progress-bar">
+                            <div className="progress" style={{ width: `${fileObj.progress}%` }}></div>
+                          </div>
+                        )}
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            )}
+                </div>
+              )}
+            </Dropzone>
             <ErrorMessage name="documentos" component="div" className="error-message" />
           </div>
-
           <button type="submit" className="submit-button">Enviar</button>
         </Form>
       )}
