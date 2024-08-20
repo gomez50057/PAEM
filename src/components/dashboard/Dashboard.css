@@ -3,7 +3,7 @@
   --doradoClr: #DEC9A3;
   --vinoOsc: #691B32;
   --vinoClr: #A02142;
-  --vinoClr75: #A02142;
+  --vinoClr: #A02142;
   --grisOsc: #707271;
   --grisClr: #98989a;
   --blanco: #F5F3F5;
@@ -21,7 +21,7 @@
   left: 0px;
   width: 60px;
   border-radius: 30px;
-  background: var(--vinoClr75);
+  background: var(--vinoClr);
   backdrop-filter: blur(10px);
   transition: width 0.6s, background-color 0.5s ease;
   overflow-x: hidden;
@@ -40,8 +40,7 @@
 }
 
 .sidebar .toggle {
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 10px 0 0 8px;
   width: 40px;
   height: 40px;
   background: var(--blanco);
@@ -56,31 +55,12 @@
   background: var(--doradoOsc);
 }
 
-.sidebar .toggle i {
-  font-size: 1.5em;
-  font-weight: 900;
-  color: var(--vinoClr75);
-  display: none;
-  position: absolute;
-}
-
-.sidebar .toggle i.open,
-.sidebar .toggle.active i.close {
-  display: block;
-}
-
-.sidebar .toggle.active i.open,
-.sidebar .toggle i.close {
-  display: none;
-}
-
 .sidebar .list {
   position: absolute;
-  top: 60px;
+  top: 40px;
   left: 0;
   width: 100%;
-  padding-left: 5px;
-  padding-top: 40px;
+  padding: 40px 0 0 5px;
 }
 
 .sidebar .list .list-item {
@@ -106,6 +86,7 @@
   top: -20px;
   height: 20px;
   left: calc(100% - 19.02px);
+  min-width: 19.02px;
   width: 10%;
   background: #d8d6d8;
   display: none;
@@ -119,7 +100,7 @@
   width: 100%;
   height: 100%;
   border-bottom-right-radius: 20px;
-  background: var(--vinoClr75);
+  background: var(--vinoClr);
 }
 
 .sidebar .list .list-item b:nth-child(2) {
@@ -128,6 +109,7 @@
   height: 20px;
   left: calc(100% - 19.02px);
   width: 10%;
+  min-width: 19.02px;
   background: #d8d6d8;
   display: none;
 }
@@ -141,11 +123,6 @@
   height: 100%;
   border-top-right-radius: 20px;
   background: var(--vinoClr);
-}
-
-.sidebar .list .list-item.active b:nth-child(1),
-.sidebar .list .list-item.active b:nth-child(2) {
-  display: block;
 }
 
 .sidebar .list .list-item.active .list-item-link {
@@ -164,7 +141,7 @@
   width: 100%;
   display: flex;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--blanco);
 }
 
 .sidebar .list .list-item .list-item-link .icon {
