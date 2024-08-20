@@ -166,7 +166,18 @@ const Formulario = () => {
 
             <div className="form-group">
               <label>Extensión:</label>
-              <Field name="extension" type="text" className="input-field" placeholder="6633" />
+              <Field 
+                name="extension" 
+                type="text" 
+                className="input-field" 
+                placeholder="6633"
+                onChange={(e) => {
+                  const { value } = e.target;
+                  if (/^\d*$/.test(value)) { // Solo permitir números
+                    setFieldValue('extension', value);
+                  }
+                }}
+              />
               <ErrorMessage name="extension" component="div" className="error-message" />
             </div>
 
