@@ -122,6 +122,11 @@
   background: var(--vinoClr);
 }
 
+.sidebar .list .list-item.active b:nth-child(1),
+.sidebar .list .list-item.active b:nth-child(2) {
+  display: block;
+}
+
 .sidebar .list .list-item.active .list-item-link {
   color: #691b32;
   font-weight: 600;
