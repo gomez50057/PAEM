@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Dropzone from 'react-dropzone';
@@ -12,9 +13,9 @@ const validationSchema = Yup.object().shape({
   telefono: Yup.string().required('El teléfono es obligatorio'),
   extension: Yup.string(),
   correo: Yup.string().email('Correo electrónico inválido').required('El correo es obligatorio'),
-  nombreAcuerdo: Yup.string()
-    .max(250, 'El nombre del acuerdo no debe exceder 250 caracteres')
-    .required('El nombre del acuerdo es obligatorio'),
+  descripcionAcuerdo: Yup.string()
+    .max(5000, 'La descripción del acuerdo no debe exceder 5000 caracteres')
+    .required('La descripción del acuerdo es obligatorio'),
   descripcionAvance: Yup.string()
     .max(5000, 'La descripción del avance no debe exceder 5000 caracteres')
     .required('La descripción del avance es obligatoria'),
@@ -69,13 +70,40 @@ const Formulario = () => {
         telefono: '',
         extension: '',
         correo: '',
-        nombreAcuerdo: '',
+        descripcionAcuerdo: '',
         descripcionAvance: '',
         documentos: []
       }}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        console.log('Formulario enviado:', values);
+      onSubmit={async (values, { setSubmitting }) => {
+        const formData = new FormData();
+        formData.append('fecha', values.fecha);
+        formData.append('nombre', values.nombre);
+        formData.append('apellido_paterno', values.apellidoPaterno);
+        formData.append('apellido_materno', values.apellidoMaterno);
+        formData.append('area_adscripcion', values.areaAdscripcion);
+        formData.append('telefono', values.telefono);
+        formData.append('extension', values.extension);
+        formData.append('correo', values.correo);
+        formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
+        formData.append('descripcion_avance', values.descripcionAvance);
+
+        files.forEach((file, index) => {
+          formData.append(`documentos_${index}`, file.file);
+        });
+
+        try {
+          const response = await axios.post('http://localhost:8000/api/formularios/', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          });
+          console.log('Formulario enviado:', response.data);
+        } catch (error) {
+          console.error('Error al enviar el formulario:', error);
+        } finally {
+          setSubmitting(false);
+        }
       }}
     >
       {({ setFieldValue }) => (
@@ -134,9 +162,9 @@ const Formulario = () => {
 
           <h2>Acuerdo</h2>
           <div className="form-group">
-            <label>Nombre del Acuerdo:</label>
-            <Field name="nombreAcuerdo" type="text" className="input-field" />
-            <ErrorMessage name="nombreAcuerdo" component="div" className="error-message" />
+            <label>Descripción del Acuerdo:</label>
+            <Field name="descripcionAcuerdo" as="textarea" rows="5" className="input-field" />
+            <ErrorMessage name="descripcionAcuerdo" component="div" className="error-message" />
           </div>
 
           <div className="form-group">
