@@ -4,6 +4,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Dropzone from 'react-dropzone';
 import './Formulario.css';
+const imgIco = "/img/iconos/";
+
 
 const validationSchema = Yup.object().shape({
   nombre: Yup.string().required('El nombre es obligatorio'),
@@ -229,7 +231,7 @@ const Formulario = () => {
                   <input {...getInputProps()} />
                   {files.length === 0 && (
                     <>
-                      <img src="https://img.freepik.com/vector-gratis/concepto-carga-imagen-pagina-destino_23-2148317961.jpg?t=st=1723946936~exp=1723950536~hmac=3163d11aee43ae0f7504e508d5d937fe77df8112519430e8b420daeca36353e6&w=996" alt="Icono de archivo" />
+                      <img src={`${imgIco}dropzone.png`} alt="Icono de archivo" />
                       <div className="dropzone-txt">
                         <p>Arrastra y suelta <span className="highlight">imágenes, vídeos o cualquier archivo</span></p>
                         <p>o<span className="highlight"> buscar archivos</span> en su computadora</p>

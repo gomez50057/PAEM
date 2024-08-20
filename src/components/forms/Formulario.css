@@ -89,7 +89,7 @@ h2 {
 }
 
 .dropzone img {
-  max-width: 50px;
+width: 400px;
   margin-bottom: 20px;
 }
 
