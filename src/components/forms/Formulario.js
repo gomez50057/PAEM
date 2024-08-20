@@ -61,12 +61,12 @@ const Formulario = () => {
   };
 
   const formatPhoneNumber = (value) => {
-    const cleanedValue = value.replace(/\D/g, '').slice(0, 10); // Limitar a 10 dígitos
-    const match = cleanedValue.match(/^(\d{3})(\d{4})(\d{3})$/);
+    const cleanedValue = value.replace(/\D/g, '').slice(0, 10); 
+    const match = cleanedValue.match(/^(\d{3})(\d{3})(\d{4})$/);
     if (match) {
-      return `${match[1]} ${match[2]} ${match[3]}`;
+      return `${match[1]}-${match[2]}-${match[3]}`;
     }
-    return cleanedValue; // Devuelve el valor formateado o parcialmente formateado
+    return cleanedValue; 
   };
 
   return (
@@ -153,12 +153,7 @@ const Formulario = () => {
           <div className="form-row">
             <div className="form-group">
               <label>Teléfono:</label>
-              <Field
-                name="telefono"
-                type="tel"
-                className="input-field"
-                placeholder="xxx xxxx xxx"
-                value={formatPhoneNumber(values.telefono)}
+              <Field name="telefono" type="tel" className="input-field" placeholder="771 717 6000" value={formatPhoneNumber(values.telefono)}
                 onChange={(e) => {
                   const { value } = e.target;
                   if (/^\d*$/.test(value)) {
