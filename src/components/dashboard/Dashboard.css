@@ -13,10 +13,8 @@
   display: flex;
   height: 100vh;
   padding: 20px;
-
 }
 
-/* Sidebar styles */
 .sidebar {
   position: relative;
   top: 0px;
@@ -36,9 +34,10 @@
   width: 200px;
 }
 
-.sidebar.active .icon img {
+.sidebar.active .icon svg {
   width: 45px;
-  height: 45px;}
+  height: 45px;
+}
 
 .sidebar .toggle {
   margin-top: 10px;
@@ -60,7 +59,7 @@
 .sidebar .toggle i {
   font-size: 1.5em;
   font-weight: 900;
-  color: var(--vinoClr75) !important;
+  color: var(--vinoClr75);
   display: none;
   position: absolute;
 }
@@ -88,7 +87,7 @@
   position: relative;
   list-style: none;
   width: 100%;
-  border-radius: 25px 0 0 25px ;
+  border-radius: 25px 0 0 25px;
 }
 
 .sidebar .list .list-item.active {
@@ -97,7 +96,7 @@
 
 .sidebar .list .list-item:hover,
 .sidebar .list .list-item:hover b:nth-child(1),
-.sidebar .list .list-item:hover b:nth-child(2)  {
+.sidebar .list .list-item:hover b:nth-child(2) {
   background: #fafafa69;
   z-index: 100;
 }
@@ -144,8 +143,6 @@
   background: var(--vinoClr);
 }
 
-
-
 .sidebar .list .list-item.active b:nth-child(1),
 .sidebar .list .list-item.active b:nth-child(2) {
   display: block;
@@ -156,9 +153,14 @@
   font-weight: 600;
 }
 
+.sidebar .list .list-item:hover .list-item-link {
+  color: var(--blanco);
+  font-weight: 600;
+}
+
 .sidebar .list .list-item .list-item-link {
   position: relative;
-  display: block;
+  align-items: center;
   width: 100%;
   display: flex;
   text-decoration: none;
@@ -171,28 +173,30 @@
   justify-content: center;
   align-items: center;
   min-width: 50px;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   line-height: 60px;
   padding: 10px;
 }
 
 .icon-svg .d {
-  fill: var(--blanco); 
+  fill: var(--blanco);
   transition: fill 0.3s ease;
 }
 
 .sidebar .list .list-item.active .icon-svg .d {
   fill: var(--vinoOsc);
-} 
-
-.sidebar .list .list-item:hover .icon-svg .d {
-  fill: var(--blanco); 
 }
 
+.sidebar .list .list-item.active .icon-svg {
+  scale: 1.2;
+}
 
+.sidebar .list .list-item:hover .icon-svg .d {
+  fill: var(--blanco);
+}
 
-.icon img {
+.icon svg {
   width: 25px;
   height: 25px;
   transition: 0.8s linear;
