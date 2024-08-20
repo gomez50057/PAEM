@@ -10,7 +10,9 @@ const validationSchema = Yup.object().shape({
   apellidoPaterno: Yup.string().required('El apellido paterno es obligatorio'),
   apellidoMaterno: Yup.string().required('El apellido materno es obligatorio'),
   areaAdscripcion: Yup.string().required('El área de adscripción es obligatoria'),
-  telefono: Yup.string().required('El teléfono es obligatorio'),
+  telefono: Yup.string()
+    .matches(/^\d{10}$/, 'El teléfono debe tener exactamente 10 dígitos')
+    .required('El teléfono es obligatorio'),
   extension: Yup.string(),
   correo: Yup.string().email('Correo electrónico inválido').required('El correo es obligatorio'),
   descripcionAcuerdo: Yup.string()
@@ -34,7 +36,6 @@ const Formulario = () => {
     }));
     setFiles(prevFiles => [...prevFiles, ...newFiles]);
 
-    // Simular el progreso de carga para cada archivo
     newFiles.forEach((newFile, index) => {
       const interval = setInterval(() => {
         setFiles(prevFiles => {
@@ -57,6 +58,15 @@ const Formulario = () => {
 
   const handleRemoveFile = (fileToRemove) => {
     setFiles(files.filter(file => file.file !== fileToRemove));
+  };
+
+  const formatPhoneNumber = (value) => {
+    const cleanedValue = value.replace(/\D/g, '').slice(0, 10); // Limitar a 10 dígitos
+    const match = cleanedValue.match(/^(\d{3})(\d{4})(\d{3})$/);
+    if (match) {
+      return `${match[1]} ${match[2]} ${match[3]}`;
+    }
+    return cleanedValue; // Devuelve el valor formateado o parcialmente formateado
   };
 
   return (
@@ -106,7 +116,7 @@ const Formulario = () => {
         }
       }}
     >
-      {({ setFieldValue }) => (
+      {({ setFieldValue, values }) => (
         <Form className="formulario-container">
           <h2>Datos Generales</h2>
           <div className="form-group">
@@ -143,7 +153,19 @@ const Formulario = () => {
           <div className="form-row">
             <div className="form-group">
               <label>Teléfono:</label>
-              <Field name="telefono" type="tel" className="input-field" placeholder="771 717 6000" />
+              <Field
+                name="telefono"
+                type="tel"
+                className="input-field"
+                placeholder="xxx xxxx xxx"
+                value={formatPhoneNumber(values.telefono)}
+                onChange={(e) => {
+                  const { value } = e.target;
+                  if (/^\d*$/.test(value)) {
+                    setFieldValue('telefono', value);
+                  }
+                }}
+              />
               <ErrorMessage name="telefono" component="div" className="error-message" />
             </div>
 
@@ -223,7 +245,7 @@ const Formulario = () => {
                 </div>
               )}
             </Dropzone>
-            <ErrorMessage name="documentos" component="div" className="error-message" placeholder="" />
+            <ErrorMessage name="documentos" component="div" className="error-message" />
           </div>
           <button type="submit" className="submit-button">Enviar</button>
         </Form>
