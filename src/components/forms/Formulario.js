@@ -61,13 +61,28 @@ const Formulario = () => {
   };
 
   const formatPhoneNumber = (value) => {
-    const cleanedValue = value.replace(/\D/g, '').slice(0, 10); 
-    const match = cleanedValue.match(/^(\d{3})(\d{3})(\d{4})$/);
-    if (match) {
-      return `${match[1]}-${match[2]}-${match[3]}`;
+    const cleanedValue = value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
+
+    if (cleanedValue.length <= 3) {
+      return cleanedValue;
     }
-    return cleanedValue; 
+    if (cleanedValue.length <= 6) {
+      return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3)}`;
+    }
+    if (cleanedValue.length <= 10) {
+      return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6)}`;
+    }
+
+    return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6, 10)}`;
   };
+
+  const handlePhoneNumberChange = (e, setFieldValue) => {
+    const { value } = e.target;
+    // Permitir solo números y guiones
+    const onlyNumbers = value.replace(/[^\d-]/g, '');
+    setFieldValue('telefono', formatPhoneNumber(onlyNumbers));
+  };
+
 
   return (
     <Formik
@@ -153,23 +168,23 @@ const Formulario = () => {
           <div className="form-row">
             <div className="form-group">
               <label>Teléfono:</label>
-              <Field name="telefono" type="tel" className="input-field" placeholder="771 717 6000" value={formatPhoneNumber(values.telefono)}
-                onChange={(e) => {
-                  const { value } = e.target;
-                  if (/^\d*$/.test(value)) {
-                    setFieldValue('telefono', value);
-                  }
-                }}
+              <Field
+                name="telefono"
+                type="tel"
+                className="input-field"
+                placeholder="771-717-6000"
+                value={formatPhoneNumber(values.telefono)}
+                onChange={(e) => handlePhoneNumberChange(e, setFieldValue)}
               />
               <ErrorMessage name="telefono" component="div" className="error-message" />
             </div>
 
             <div className="form-group">
               <label>Extensión:</label>
-              <Field 
-                name="extension" 
-                type="text" 
-                className="input-field" 
+              <Field
+                name="extension"
+                type="text"
+                className="input-field"
                 placeholder="6633"
                 onChange={(e) => {
                   const { value } = e.target;
