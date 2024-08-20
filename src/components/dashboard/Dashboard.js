@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import Formulario from '../forms/Formulario'; // Importa el componente Formulario
+const imgIco = "/img/iconos/";
 
 const Dashboard = () => {
   const [activeComponent, setActiveComponent] = useState('dashboard'); // Estado para manejar el componente activo
@@ -118,7 +119,12 @@ const Dashboard = () => {
             </a>
           </li>
         </ul>
-        <div className=""></div>
+        <div className="sidebar-card">
+          <button>
+            <img src={`${imgIco}exit.png`} alt="Icono de Cerrar Sesión" className="icon" />
+            Cerrar Sesión
+          </button>
+        </div>
 
       </div>
 
