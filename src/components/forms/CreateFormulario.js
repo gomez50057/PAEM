@@ -1,44 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import FormularioBase from './FormularioBase';  // Asegúrate de importar tu FormularioBase
+import FormularioBase from './FormularioBase'; 
 import './Formulario.css';
 
 const CreateFormulario = () => {
   const [files, setFiles] = useState([]);
-
-  const handleDrop = (acceptedFiles) => {
-    const newFiles = acceptedFiles.map(file => ({
-      file,
-      preview: URL.createObjectURL(file),
-      progress: 0,
-      completed: false
-    }));
-    setFiles(prevFiles => [...prevFiles, ...newFiles]);
-
-    // Simulate progress
-    newFiles.forEach((newFile, index) => {
-      const interval = setInterval(() => {
-        setFiles(prevFiles => {
-          const updatedFiles = [...prevFiles];
-          const currentFileIndex = prevFiles.length - newFiles.length + index;
-          const currentFile = updatedFiles[currentFileIndex];
-
-          if (currentFile.progress >= 100) {
-            clearInterval(interval);
-            currentFile.completed = true;
-          } else {
-            currentFile.progress += 10;
-          }
-
-          return updatedFiles;
-        });
-      }, 100);
-    });
-  };
-
-  const handleRemoveFile = (fileToRemove) => {
-    setFiles(files.filter(file => file.file !== fileToRemove));
-  };
 
   const handleSubmit = async (values, { setSubmitting }) => {
     const formData = new FormData();
@@ -88,9 +54,6 @@ const CreateFormulario = () => {
           documentos: []
         }}
         onSubmit={handleSubmit}
-        handleDrop={handleDrop}
-        handleRemoveFile={handleRemoveFile}
-        files={files}
       />
     </div>
   );

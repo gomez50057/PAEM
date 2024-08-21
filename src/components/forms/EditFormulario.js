@@ -1,38 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import FormularioBase from './FormularioBase';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import FormularioBase from './FormularioBase'; 
+import './Formulario.css';
 
-const EditFormulario = ({ projectId }) => {
+const EditFormulario = ({ id }) => {
   const [initialValues, setInitialValues] = useState(null);
+  const [files, setFiles] = useState([]);
 
   useEffect(() => {
-    const fetchProjectData = async () => {
+    // Aquí se haría la llamada a la API para obtener los datos del formulario existente
+    const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/formularios/${projectId}/`);
-        setInitialValues(response.data);
+        const response = await axios.get(`http://localhost:8000/api/formularios/${id}/`);
+        const data = response.data;
+        
+        // Establecer valores iniciales, incluidas las rutas de archivos o datos existentes
+        setInitialValues({
+          fecha: data.fecha,
+          nombre: data.nombre,
+          apellidoPaterno: data.apellido_paterno,
+          apellidoMaterno: data.apellido_materno,
+          areaAdscripcion: data.area_adscripcion,
+          telefono: data.telefono,
+          extension: data.extension,
+          correo: data.correo,
+          descripcionAcuerdo: data.descripcion_acuerdo,
+          descripcionAvance: data.descripcion_avance,
+          documentos: data.documentos || []
+        });
       } catch (error) {
-        console.error('Error fetching project data:', error);
+        console.error('Error fetching form data:', error);
       }
     };
 
-    if (projectId) {
-      fetchProjectData();
-    }
-  }, [projectId]);
+    fetchData();
+  }, [id]);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     const formData = new FormData();
-    Object.keys(values).forEach(key => {
-      if (key !== 'documentos') {
-        formData.append(key, values[key]);
-      }
-    });
-    values.documentos.forEach((file, index) => {
-      formData.append(`documentos_${index}`, file);
+    formData.append('fecha', values.fecha);
+    formData.append('nombre', values.nombre);
+    formData.append('apellido_paterno', values.apellidoPaterno);
+    formData.append('apellido_materno', values.apellidoMaterno);
+    formData.append('area_adscripcion', values.areaAdscripcion);
+    formData.append('telefono', values.telefono);
+    formData.append('extension', values.extension);
+    formData.append('correo', values.correo);
+    formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
+    formData.append('descripcion_avance', values.descripcionAvance);
+
+    files.forEach((file, index) => {
+      formData.append(`documentos_${index}`, file.file);
     });
 
     try {
-      const response = await axios.put(`http://localhost:8000/api/formularios/${projectId}/`, formData, {
+      const response = await axios.put(`http://localhost:8000/api/formularios/${id}/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -45,9 +67,18 @@ const EditFormulario = ({ projectId }) => {
     }
   };
 
-  if (!initialValues) return <p>Cargando...</p>;
+  if (!initialValues) {
+    return <div>Cargando...</div>;
+  }
 
-  return <FormularioBase initialValues={initialValues} onSubmit={handleSubmit} />;
+  return (
+    <div className="edit-formulario">
+      <FormularioBase
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+      />
+    </div>
+  );
 };
 
 export default EditFormulario;

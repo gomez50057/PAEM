@@ -5,7 +5,6 @@ import Dropzone from 'react-dropzone';
 import './Formulario.css';
 const imgIco = "/img/iconos/";
 
-
 const validationSchema = Yup.object().shape({
   nombre: Yup.string().required('El nombre es obligatorio'),
   apellidoPaterno: Yup.string().required('El apellido paterno es obligatorio'),
@@ -27,6 +26,30 @@ const validationSchema = Yup.object().shape({
 
 const FormularioBase = ({ initialValues, onSubmit }) => {
   const [files, setFiles] = useState(initialValues ? initialValues.documentos : []);
+
+  const formatPhoneNumber = (value) => {
+    const cleanedValue = value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
+
+    if (cleanedValue.length <= 3) {
+      return cleanedValue;
+    }
+    if (cleanedValue.length <= 6) {
+      return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3)}`;
+    }
+    if (cleanedValue.length <= 10) {
+      return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6)}`;
+    }
+
+    return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6, 10)}`;
+  };
+
+  const handlePhoneNumberChange = (e, setFieldValue) => {
+    const { value } = e.target;
+    const cleanedValue = value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
+  
+    setFieldValue('telefono', cleanedValue); // Guardar el número sin formato para validación
+    setFieldValue('telefonoFormateado', formatPhoneNumber(cleanedValue)); // Guardar el número formateado para la UI
+  };
 
   const handleDrop = (acceptedFiles) => {
     const newFiles = acceptedFiles.map(file => ({
@@ -59,30 +82,6 @@ const FormularioBase = ({ initialValues, onSubmit }) => {
 
   const handleRemoveFile = (fileToRemove) => {
     setFiles(files.filter(file => file.file !== fileToRemove));
-  };
-
-  const formatPhoneNumber = (value) => {
-    const cleanedValue = value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
-
-    if (cleanedValue.length <= 3) {
-      return cleanedValue;
-    }
-    if (cleanedValue.length <= 6) {
-      return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3)}`;
-    }
-    if (cleanedValue.length <= 10) {
-      return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6)}`;
-    }
-
-    return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6, 10)}`;
-  };
-
-  const handlePhoneNumberChange = (e, setFieldValue) => {
-    const { value } = e.target;
-    const cleanedValue = value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
-  
-    setFieldValue('telefono', cleanedValue); // Guardar el número sin formato
-    setFieldValue('telefonoFormateado', formatPhoneNumber(cleanedValue)); // Guardar el número formateado para la UI
   };
 
   return (
@@ -133,7 +132,7 @@ const FormularioBase = ({ initialValues, onSubmit }) => {
                 type="tel"
                 className="input-field"
                 placeholder="771-717-6000"
-                value={formatPhoneNumber(values.telefono)}
+                value={values.telefonoFormateado || formatPhoneNumber(values.telefono)}
                 onChange={(e) => handlePhoneNumberChange(e, setFieldValue)}
               />
               <ErrorMessage name="telefono" component="div" className="error-message" />
