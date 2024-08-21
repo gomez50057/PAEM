@@ -1,17 +1,17 @@
-"use client";
 import React, { useState, useEffect } from 'react';
 import MUIDataTable from 'mui-datatables';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Typography } from '@mui/material';
+import ProjectModal from './ProjectModal'; // Importar el modal
 import './CRUDTable.css';
-
 import axios from 'axios';
 
 const CRUDTable = () => {
   const [data, setData] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
 
   useEffect(() => {
-    // Aquí harías la llamada a la API para obtener los datos
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:8000/api/formularios/');
@@ -23,6 +23,16 @@ const CRUDTable = () => {
 
     fetchData();
   }, []);
+
+  const handleEditClick = (projectId) => {
+    setSelectedProjectId(projectId);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setSelectedProjectId(null);
+  };
 
   const columns = [
     { name: "fecha", label: "Fecha" },
@@ -41,11 +51,12 @@ const CRUDTable = () => {
       label: "Acciones",
       options: {
         setCellProps: () => ({ className: 'sticky-column' }),
-        customBodyRender: (value, tableMeta, updateValue) => {
+        customBodyRender: (value, tableMeta) => {
+          const projectId = tableMeta.rowData[0]; // Asumiendo que el id está en la primera columna
           return (
             <div className="Acciones-con">
               <button
-                onClick={() => console.log('Editar', tableMeta.rowData)}
+                onClick={() => handleEditClick(projectId)}
                 className="crud-button"
               >
                 Editar
@@ -121,7 +132,6 @@ const CRUDTable = () => {
                 right: 0,
                 zIndex: 1,
               },
-
             },
           },
         },
@@ -136,7 +146,7 @@ const CRUDTable = () => {
                 backgroundColor: 'transparent',
                 boxShadow: 'none',
               },
-              '& .sticky-column': { // Fijar la columna de acciones
+              '& .sticky-column': { 
                 position: 'sticky',
                 right: 0,
                 zIndex: 1,
@@ -152,12 +162,17 @@ const CRUDTable = () => {
       <CssBaseline />
       <div className="table_grid">
         <MUIDataTable
-          title={<Typography variant="h3"> Registrados</Typography>}
+          title={<Typography variant="h3">Registrados</Typography>}
           data={data}
           columns={columns}
           options={options}
         />
       </div>
+      <ProjectModal
+        open={openModal}
+        handleClose={handleCloseModal}
+        projectId={selectedProjectId}
+      />
     </ThemeProvider>
   );
 };
