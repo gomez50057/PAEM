@@ -46,9 +46,11 @@ const FormularioBase = ({ initialValues, onSubmit }) => {
   const handlePhoneNumberChange = (e, setFieldValue) => {
     const { value } = e.target;
     const cleanedValue = value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
-  
-    setFieldValue('telefono', cleanedValue); // Guardar el número sin formato para validación
-    setFieldValue('telefonoFormateado', formatPhoneNumber(cleanedValue)); // Guardar el número formateado para la UI
+
+    if (cleanedValue.length <= 10) {
+      setFieldValue('telefono', cleanedValue); // Guardar el número sin formato para validación
+      setFieldValue('telefonoFormateado', formatPhoneNumber(cleanedValue)); // Guardar el número formateado para la UI
+    }
   };
 
   const handleDrop = (acceptedFiles) => {
