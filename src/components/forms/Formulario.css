@@ -9,7 +9,7 @@
 
 .formulario-container {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 0 10px 0;
   padding: 20px;
   background-color: var(--background-color);
   box-shadow: 0px 4px 6px var(--box-shadow-color);
@@ -89,7 +89,7 @@ h2 {
 }
 
 .dropzone img {
-width: 400px;
+  width: 400px;
   margin-bottom: 20px;
 }
 
@@ -182,6 +182,7 @@ width: 400px;
     stroke-dasharray: 50px 50px;
     stroke-dashoffset: 50px;
   }
+
   100% {
     stroke-dasharray: 50px 50px;
     stroke-dashoffset: 0;
@@ -211,7 +212,7 @@ width: 400px;
 }
 
 .submit-button {
-  background: linear-gradient(to right, #a02142, #92203e, #841e3b, #761d36, #691b32);  
+  background: linear-gradient(to right, #a02142, #92203e, #841e3b, #761d36, #691b32);
   color: #fff;
   padding: 12px 20px;
   border: none;
@@ -222,7 +223,7 @@ width: 400px;
 }
 
 .submit-button:hover {
-  background: linear-gradient(to right, #a7193f, #7c0d2b, #5b1126, #4b0c1e, #380716);  
+  background: linear-gradient(to right, #a7193f, #7c0d2b, #5b1126, #4b0c1e, #380716);
   transform: scale(1.05);
 }
 
@@ -273,4 +274,18 @@ width: 400px;
 
 .file-details button:hover {
   background-color: #d40000;
+}
+
+
+/*  */
+/*  */
+/*  */
+
+.edit-formulario {
+  width: 95vw; 
+  max-width: 100%; 
+  height: auto; 
+  max-height: 85%; 
+  overflow-y: auto; 
+  padding: 15px; 
 }

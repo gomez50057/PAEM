@@ -1,40 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FormularioBase from './FormularioBase'; 
+import AgreementSuccessModal from './AgreementSuccessModal';
 import './Formulario.css';
 
-const EditFormulario = ({ id }) => {
-  const [initialValues, setInitialValues] = useState(null);
+const EditFormulario = ({ onClose }) => {
   const [files, setFiles] = useState([]);
+  const [initialValues, setInitialValues] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Aquí se haría la llamada a la API para obtener los datos del formulario existente
-    const fetchData = async () => {
+    const fetchAcuerdoData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/formularios/${id}/`);
-        const data = response.data;
-        
-        // Establecer valores iniciales, incluidas las rutas de archivos o datos existentes
+        const response = await axios.get('http://localhost:8000/api/formularios/4/');
+        const acuerdoData = response.data;
+
+        // Transformar los datos para el formulario si es necesario
         setInitialValues({
-          fecha: data.fecha,
-          nombre: data.nombre,
-          apellidoPaterno: data.apellido_paterno,
-          apellidoMaterno: data.apellido_materno,
-          areaAdscripcion: data.area_adscripcion,
-          telefono: data.telefono,
-          extension: data.extension,
-          correo: data.correo,
-          descripcionAcuerdo: data.descripcion_acuerdo,
-          descripcionAvance: data.descripcion_avance,
-          documentos: data.documentos || []
+          fecha: acuerdoData.fecha || new Date().toISOString().slice(0, 10),
+          nombre: acuerdoData.nombre || '',
+          apellidoPaterno: acuerdoData.apellido_paterno || '',
+          apellidoMaterno: acuerdoData.apellido_materno || '',
+          areaAdscripcion: acuerdoData.area_adscripcion || '',
+          telefono: acuerdoData.telefono || '',
+          extension: acuerdoData.extension || '',
+          correo: acuerdoData.correo || '',
+          descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',
+          descripcionAvance: acuerdoData.descripcion_avance || '',
+          documentos: acuerdoData.documentos || []
         });
+
+        // Si hay documentos, mapearlos al formato esperado
+        setFiles(acuerdoData.documentos.map((doc, index) => ({
+          file: null,  // Los archivos originales no se tienen, así que no se pueden editar directamente
+          preview: doc.url,  // Utiliza la URL del documento como vista previa
+          progress: 100,
+          completed: true
+        })));
+
+        setLoading(false); // Los datos se han cargado
       } catch (error) {
-        console.error('Error fetching form data:', error);
+        console.error('Error al obtener los datos del acuerdo:', error);
+        setLoading(false); // Finaliza la carga incluso si hay un error
       }
     };
 
-    fetchData();
-  }, [id]);
+    fetchAcuerdoData();
+  }, []);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     const formData = new FormData();
@@ -49,17 +62,21 @@ const EditFormulario = ({ id }) => {
     formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
     formData.append('descripcion_avance', values.descripcionAvance);
 
+    // Incluir archivos nuevos si se subieron
     files.forEach((file, index) => {
-      formData.append(`documentos_${index}`, file.file);
+      if (file.file) {
+        formData.append(`documentos_${index}`, file.file);
+      }
     });
 
     try {
-      const response = await axios.put(`http://localhost:8000/api/formularios/${id}/`, formData, {
+      const response = await axios.put('http://localhost:8000/api/formularios/4/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
       console.log('Formulario actualizado:', response.data);
+      setModalIsOpen(true); // Abre el modal al actualizar el formulario con éxito
     } catch (error) {
       console.error('Error al actualizar el formulario:', error);
     } finally {
@@ -67,8 +84,27 @@ const EditFormulario = ({ id }) => {
     }
   };
 
-  if (!initialValues) {
-    return <div>Cargando...</div>;
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+    onClose(); // Lógica para cerrar el modal o redirigir si es necesario
+  };
+
+  const handleCreateNewAgreement = () => {
+    setModalIsOpen(false);
+    setFiles([]);
+    const container = document.querySelector('.dashboard-container');
+    if (container) {
+      container.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleGoToHome = () => {
+    setModalIsOpen(false);
+    onClose(); // Lógica para redirigir a la página principal o cerrar el modal
+  };
+
+  if (loading) {
+    return <div>Cargando datos...</div>; // Mostrar mensaje de carga mientras se obtienen los datos
   }
 
   return (
@@ -76,6 +112,14 @@ const EditFormulario = ({ id }) => {
       <FormularioBase
         initialValues={initialValues}
         onSubmit={handleSubmit}
+        files={files}
+        setFiles={setFiles}
+      />
+      <AgreementSuccessModal 
+        isOpen={modalIsOpen} 
+        onRequestClose={handleCloseModal} 
+        onCreateNewAgreement={handleCreateNewAgreement}
+        onGoToHome={handleGoToHome}
       />
     </div>
   );
