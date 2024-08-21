@@ -6,9 +6,9 @@ import './Formulario.css';
 
 const CreateFormulario = () => {
   const [files, setFiles] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const handleSubmit = async (values, { setSubmitting }) => {
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const formData = new FormData();
     formData.append('fecha', values.fecha);
     formData.append('nombre', values.nombre);
@@ -32,7 +32,9 @@ const CreateFormulario = () => {
         }
       });
       console.log('Formulario enviado:', response.data);
-      setIsModalOpen(true); // Mostrar el modal de éxito
+      setModalIsOpen(true);  // Abre el modal al enviar el formulario con éxito
+      resetForm(); // Limpia los datos del formulario
+      setFiles([]); // Limpia los archivos subidos
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
     } finally {
@@ -40,16 +42,19 @@ const CreateFormulario = () => {
     }
   };
 
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
+
   const handleCreateNewAgreement = () => {
-    // Restablecer el formulario para crear un nuevo acuerdo
+    setModalIsOpen(false);
+    // Limpia los datos del formulario y los archivos subidos
     setFiles([]);
-    setIsModalOpen(false);
-    // Podrías también restablecer el estado del formulario aquí si es necesario
   };
 
   const handleGoToHome = () => {
-    // Lógica para redirigir o ir a la página principal
-    window.location.href = '/';
+    setModalIsOpen(false);
+    // Lógica para redirigir a la página principal si es necesario
   };
 
   return (
@@ -69,11 +74,12 @@ const CreateFormulario = () => {
           documentos: []
         }}
         onSubmit={handleSubmit}
+        files={files}
+        setFiles={setFiles}
       />
-
-      <AgreementSuccessModal
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)}
+      <AgreementSuccessModal 
+        isOpen={modalIsOpen} 
+        onRequestClose={handleCloseModal} 
         onCreateNewAgreement={handleCreateNewAgreement}
         onGoToHome={handleGoToHome}
       />
