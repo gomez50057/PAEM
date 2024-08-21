@@ -4,9 +4,11 @@ import './Dashboard.css';
 import Formulario from '../forms/CreateFormulario';
 import Acuerdos from '../CRUDTable/CRUDTable';
 const imgIco = "/img/iconos/";
+const imgBasePath = "/img/";
+
 
 const Dashboard = () => {
-  const [activeComponent, setActiveComponent] = useState('dashboard'); 
+  const [activeComponent, setActiveComponent] = useState('dashboard');
 
   useEffect(() => {
     const listItems = document.querySelectorAll('.list-item');
@@ -31,14 +33,14 @@ const Dashboard = () => {
 
   const renderContent = () => {
     switch (activeComponent) {
-        case 'formulario':
-            return <Formulario />;
-        case 'acuerdos':
-            return <Acuerdos />; 
-        default:
-            return <h1>DASHBOARD</h1>;
+      case 'formulario':
+        return <Formulario />;
+      case 'acuerdos':
+        return <Acuerdos />;
+      default:
+        return <h1>DASHBOARD</h1>;
     }
-};
+  };
 
 
   return (
@@ -104,7 +106,7 @@ const Dashboard = () => {
             </a>
           </li>
           <li className="list-item" onClick={() => setActiveComponent('acuerdos')}>
-          <b></b>
+            <b></b>
             <b></b>
             <a href="#" className="list-item-link">
               <div className="icon">
@@ -124,6 +126,10 @@ const Dashboard = () => {
           </li>
         </ul>
         <div className="sidebar-card">
+          <div className="sidebarCardImg">
+            <img src={`${imgBasePath}sidebarRecurso.png`} alt="Icono de Cerrar Sesión" />
+          </div>
+
           <button>
             <img src={`${imgIco}exit.png`} alt="Icono de Cerrar Sesión" className="icon" />
             Cerrar Sesión
@@ -137,7 +143,7 @@ const Dashboard = () => {
           <input type="text" placeholder="Search..." className="search-bar" />
         </header>
         <section className="content">
-          {renderContent()} 
+          {renderContent()}
         </section>
       </div>
     </div>

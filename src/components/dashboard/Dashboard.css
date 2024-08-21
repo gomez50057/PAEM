@@ -187,16 +187,35 @@
   position: fixed;
   bottom: 20px;
   width: calc(100% - 20px);
-  height: 250px;
+  height: 200px;
   margin: 0 10px;
   background: rgba(245, 245, 245, 0.3);
   border-radius: 25px;
   border: 2.2px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
-  box-shadow: 11px 7px 30px 0px rgba(0,0,0,0.1);
+  box-shadow: 11px 7px 30px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sidebar-card .sidebarCardImg {
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: -20px;
+  scale: 0.9;
+  filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.5));
+
+  transition: 0.7s ease-in-out;
+}
+
+.sidebar-card .sidebarCardImg:hover {
+  filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.6)) translateY(-15px);
+  scale: 1;
 }
 
 .sidebar-card button {
@@ -205,6 +224,7 @@
   width: 80%;
   height: auto;
   padding: 10px 5px;
+  margin-bottom: 30px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -223,9 +243,9 @@
 
 
 .sidebar-card button .icon {
-  width: 20px; 
+  width: 20px;
   height: 20px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 
