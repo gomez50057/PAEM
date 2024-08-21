@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import FormularioBase from './FormularioBase'; 
+import AgreementSuccessModal from './AgreementSuccessModal';
 import './Formulario.css';
 
 const CreateFormulario = () => {
   const [files, setFiles] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     const formData = new FormData();
@@ -30,11 +32,24 @@ const CreateFormulario = () => {
         }
       });
       console.log('Formulario enviado:', response.data);
+      setIsModalOpen(true); // Mostrar el modal de éxito
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handleCreateNewAgreement = () => {
+    // Restablecer el formulario para crear un nuevo acuerdo
+    setFiles([]);
+    setIsModalOpen(false);
+    // Podrías también restablecer el estado del formulario aquí si es necesario
+  };
+
+  const handleGoToHome = () => {
+    // Lógica para redirigir o ir a la página principal
+    window.location.href = '/';
   };
 
   return (
@@ -54,6 +69,13 @@ const CreateFormulario = () => {
           documentos: []
         }}
         onSubmit={handleSubmit}
+      />
+
+      <AgreementSuccessModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        onCreateNewAgreement={handleCreateNewAgreement}
+        onGoToHome={handleGoToHome}
       />
     </div>
   );
