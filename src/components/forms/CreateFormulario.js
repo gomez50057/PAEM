@@ -50,6 +50,11 @@ const CreateFormulario = () => {
     setModalIsOpen(false);
     // Limpia los datos del formulario y los archivos subidos
     setFiles([]);
+    // Desplaza el contenedor `dashboard-container` hasta la parte superior
+    const container = document.querySelector('.dashboard-container');
+    if (container) {
+      container.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleGoToHome = () => {
