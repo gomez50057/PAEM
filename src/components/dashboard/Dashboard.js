@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
-import Formulario from '../forms/Formulario';
+import Formulario from '../forms/CreateFormulario';
 import Acuerdos from '../CRUDTable/CRUDTable';
 const imgIco = "/img/iconos/";
 

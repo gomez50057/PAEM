@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Formulario from '../forms/Formulario';
+import Formulario from '../forms/EditFormulario';
 import axios from 'axios';
 
 const style = {
@@ -23,7 +23,7 @@ const ProjectModal = ({ open, handleClose, projectId }) => {
     if (open && projectId) {
       const fetchProjectData = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/api/formularios/${projectId}/`);
+          const response = await axios.get(`http://localhost:8000/api/formularios/4/`);
           setInitialValues(response.data);
         } catch (error) {
           console.error('Error fetching project data:', error);
