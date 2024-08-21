@@ -1,11 +1,12 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
-import Formulario from '../forms/Formulario'; // Importa el componente Formulario
+import Formulario from '../forms/Formulario';
+import Acuerdos from '../CRUDTable/CRUDTable';
 const imgIco = "/img/iconos/";
 
 const Dashboard = () => {
-  const [activeComponent, setActiveComponent] = useState('dashboard'); // Estado para manejar el componente activo
+  const [activeComponent, setActiveComponent] = useState('dashboard'); 
 
   useEffect(() => {
     const listItems = document.querySelectorAll('.list-item');
@@ -30,12 +31,15 @@ const Dashboard = () => {
 
   const renderContent = () => {
     switch (activeComponent) {
-      case 'formulario':
-        return <Formulario />;
-      default:
-        return <h1>DASHBOARD</h1>;
+        case 'formulario':
+            return <Formulario />;
+        case 'acuerdos':
+            return <Acuerdos />; 
+        default:
+            return <h1>DASHBOARD</h1>;
     }
-  };
+};
+
 
   return (
     <div className="dashboard-wrapper">
@@ -99,8 +103,8 @@ const Dashboard = () => {
               <span className="title">Formulario</span>
             </a>
           </li>
-          <li className="list-item">
-            <b></b>
+          <li className="list-item" onClick={() => setActiveComponent('acuerdos')}>
+          <b></b>
             <b></b>
             <a href="#" className="list-item-link">
               <div className="icon">
@@ -133,7 +137,7 @@ const Dashboard = () => {
           <input type="text" placeholder="Search..." className="search-bar" />
         </header>
         <section className="content">
-          {renderContent()} {/* Aquí se renderiza el componente activo */}
+          {renderContent()} 
         </section>
       </div>
     </div>
