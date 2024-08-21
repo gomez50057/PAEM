@@ -4,7 +4,7 @@ import FormularioBase from './FormularioBase';
 import AgreementSuccessModal from './AgreementSuccessModal';
 import './Formulario.css';
 
-const EditFormulario = ({ onClose }) => {
+const EditFormulario = ({ projectId, onClose }) => { // Recibe projectId como prop
   const [files, setFiles] = useState([]);
   const [initialValues, setInitialValues] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -13,10 +13,9 @@ const EditFormulario = ({ onClose }) => {
   useEffect(() => {
     const fetchAcuerdoData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/formularios/4/');
+        const response = await axios.get(`http://localhost:8000/api/formularios/${projectId}/`); // Usa el projectId para la consulta
         const acuerdoData = response.data;
 
-        // Transformar los datos para el formulario si es necesario
         setInitialValues({
           fecha: acuerdoData.fecha || new Date().toISOString().slice(0, 10),
           nombre: acuerdoData.nombre || '',
@@ -28,11 +27,11 @@ const EditFormulario = ({ onClose }) => {
           correo: acuerdoData.correo || '',
           descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',
           descripcionAvance: acuerdoData.descripcion_avance || '',
-          documentos: acuerdoData.documentos || []
+          documentos: acuerdoData.documentos || [] // Asegura que documentos sea un array, incluso si es null
         });
 
-        // Si hay documentos, mapearlos al formato esperado
-        setFiles(acuerdoData.documentos.map((doc, index) => ({
+        // Solo intentar mapear si documentos no es null o undefined
+        setFiles((acuerdoData.documentos || []).map((doc) => ({
           file: null,  // Los archivos originales no se tienen, así que no se pueden editar directamente
           preview: doc.url,  // Utiliza la URL del documento como vista previa
           progress: 100,
@@ -46,8 +45,10 @@ const EditFormulario = ({ onClose }) => {
       }
     };
 
-    fetchAcuerdoData();
-  }, []);
+    if (projectId) { // Solo intenta cargar datos si hay un projectId
+      fetchAcuerdoData();
+    }
+  }, [projectId]);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     const formData = new FormData();
@@ -70,7 +71,7 @@ const EditFormulario = ({ onClose }) => {
     });
 
     try {
-      const response = await axios.put('http://localhost:8000/api/formularios/4/', formData, {
+      const response = await axios.put(`http://localhost:8000/api/formularios/${projectId}/`, formData, { // Usa el projectId para la actualización
         headers: {
           'Content-Type': 'multipart/form-data'
         }

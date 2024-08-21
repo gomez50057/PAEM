@@ -25,6 +25,7 @@ const CRUDTable = () => {
   }, []);
 
   const handleEditClick = (projectId) => {
+    console.log('Selected Project ID:', projectId); // Mostrar el ID en la consola
     setSelectedProjectId(projectId);
     setOpenModal(true);
   };
@@ -35,6 +36,7 @@ const CRUDTable = () => {
   };
 
   const columns = [
+    { name: "id", label: "ID" }, // Añadido para mostrar el ID en la tabla, puedes ocultarlo si no lo necesitas visualizar
     { name: "fecha", label: "Fecha" },
     { name: "nombre", label: "Nombre" },
     { name: "apellido_paterno", label: "Apellido Paterno" },
@@ -52,7 +54,7 @@ const CRUDTable = () => {
       options: {
         setCellProps: () => ({ className: 'sticky-column' }),
         customBodyRender: (value, tableMeta) => {
-          const projectId = tableMeta.rowData[0]; // Asumiendo que el id está en la primera columna
+          const projectId = tableMeta.rowData[0]; // Ahora usamos el ID que está en la primera columna
           return (
             <div className="Acciones-con">
               <button

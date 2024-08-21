@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Formulario from '../forms/EditFormulario';
-import axios from 'axios';
+import EditFormulario from '../forms/EditFormulario';
 
 const style = {
   position: 'absolute',
@@ -19,22 +18,6 @@ const style = {
 };
 
 const ProjectModal = ({ open, handleClose, projectId }) => {
-  const [initialValues, setInitialValues] = React.useState(null);
-
-  useEffect(() => {
-    if (open && projectId) {
-      const fetchProjectData = async () => {
-        try {
-          const response = await axios.get(`http://localhost:8000/api/formularios/4/`);
-          setInitialValues(response.data);
-        } catch (error) {
-          console.error('Error fetching project data:', error);
-        }
-      };
-
-      fetchProjectData();
-    }
-  }, [open, projectId]);
 
   return (
     <Modal
@@ -45,11 +28,7 @@ const ProjectModal = ({ open, handleClose, projectId }) => {
     >
       <Box sx={style}>
         <h2 id="modal-title">Editar Acuerdo</h2>
-        {initialValues ? (
-          <Formulario initialValues={initialValues} />
-        ) : (
-          <p>Cargando datos...</p>
-        )}
+        <EditFormulario projectId={projectId} /> 
       </Box>
     </Modal>
   );
