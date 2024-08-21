@@ -62,7 +62,7 @@ const FormularioBase = ({ initialValues, onSubmit }) => {
   };
 
   const formatPhoneNumber = (value) => {
-    const cleanedValue = value.replace(/\D/g, ''); 
+    const cleanedValue = value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
 
     if (cleanedValue.length <= 3) {
       return cleanedValue;
@@ -79,8 +79,10 @@ const FormularioBase = ({ initialValues, onSubmit }) => {
 
   const handlePhoneNumberChange = (e, setFieldValue) => {
     const { value } = e.target;
-    const onlyNumbers = value.replace(/[^\d-]/g, '');
-    setFieldValue('telefono', formatPhoneNumber(onlyNumbers));
+    const cleanedValue = value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
+  
+    setFieldValue('telefono', cleanedValue); // Guardar el número sin formato
+    setFieldValue('telefonoFormateado', formatPhoneNumber(cleanedValue)); // Guardar el número formateado para la UI
   };
 
   return (
