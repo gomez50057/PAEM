@@ -14,7 +14,7 @@ const CRUDTable = () => {
     // Aquí harías la llamada a la API para obtener los datos
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/formularios/');
+        const response = await axios.get('http://localhost:8000/api/formularios/');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -40,9 +40,10 @@ const CRUDTable = () => {
       name: "acciones",
       label: "Acciones",
       options: {
+        setCellProps: () => ({ className: 'sticky-column' }),
         customBodyRender: (value, tableMeta, updateValue) => {
           return (
-            <div>
+            <div className="Acciones-con">
               <button
                 onClick={() => console.log('Editar', tableMeta.rowData)}
                 className="crud-button"
@@ -115,6 +116,31 @@ const CRUDTable = () => {
             root: {
               fontWeight: 600,
               backgroundColor: '#f5f5f5',
+              '&.sticky-column': { 
+                position: 'sticky',
+                right: 0,
+                zIndex: 1,
+              },
+
+            },
+          },
+        },
+        MuiTableRow: {
+          styleOverrides: {
+            root: {
+              '&:hover': {
+                backgroundColor: 'rgba(230, 230, 230) !important',
+                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.9)',
+              },
+              '& .MUIDataTableBodyCell-root:last-child:hover': {
+                backgroundColor: 'transparent',
+                boxShadow: 'none',
+              },
+              '& .sticky-column': { // Fijar la columna de acciones
+                position: 'sticky',
+                right: 0,
+                zIndex: 1,
+              },
             },
           },
         },
