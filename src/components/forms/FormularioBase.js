@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
   descripcionAvance: Yup.string()
     .max(5000, 'La descripción del avance no debe exceder 5000 caracteres')
     .required('La descripción del avance es obligatoria'),
-  documentos: Yup.array().min(1, 'Debes cargar al menos un documento como evidencia')
+  // documentos: Yup.array().min(1, 'Debes cargar al menos un documento como evidencia')
 });
 
 const FormularioBase = ({ initialValues, onSubmit }) => {
