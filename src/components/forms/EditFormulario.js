@@ -13,11 +13,11 @@ const EditFormulario = ({ projectId, onClose }) => { // Recibe projectId como pr
   useEffect(() => {
     const fetchAcuerdoData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/formularios/${projectId}/`); // Usa el projectId para la consulta
+        const response = await axios.get(`http://localhost:8000/api/acuerdos/${projectId}/`);
         const acuerdoData = response.data;
 
         setInitialValues({
-          fecha: acuerdoData.fecha || new Date().toISOString().slice(0, 10),
+          fecha: new Date().toISOString().slice(0, 10),  // Fecha de la nueva actualización
           nombre: acuerdoData.nombre || '',
           apellidoPaterno: acuerdoData.apellido_paterno || '',
           apellidoMaterno: acuerdoData.apellido_materno || '',
@@ -25,34 +25,30 @@ const EditFormulario = ({ projectId, onClose }) => { // Recibe projectId como pr
           telefono: acuerdoData.telefono || '',
           extension: acuerdoData.extension || '',
           correo: acuerdoData.correo || '',
-          descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',
-          descripcionAvance: acuerdoData.descripcion_avance || '',
-          documentos: acuerdoData.documentos || [] // Asegura que documentos sea un array, incluso si es null
+          descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',  // Mantén la descripción del acuerdo original
+          descripcionAvance: '',  // Campo para que el usuario describa el avance de esta actualización
+          documentos: []  // Campo para subir nuevos documentos para esta actualización
         });
 
-        // Solo intentar mapear si documentos no es null o undefined
-        setFiles((acuerdoData.documentos || []).map((doc) => ({
-          file: null,  // Los archivos originales no se tienen, así que no se pueden editar directamente
-          preview: doc.url,  // Utiliza la URL del documento como vista previa
-          progress: 100,
-          completed: true
-        })));
+        setFiles([]);  // Limpiamos los archivos anteriores para comenzar con la nueva actualización
 
-        setLoading(false); // Los datos se han cargado
+        setLoading(false);
       } catch (error) {
         console.error('Error al obtener los datos del acuerdo:', error);
-        setLoading(false); // Finaliza la carga incluso si hay un error
+        setLoading(false);
       }
     };
 
-    if (projectId) { // Solo intenta cargar datos si hay un projectId
+    if (projectId) {
       fetchAcuerdoData();
     }
   }, [projectId]);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     const formData = new FormData();
-    formData.append('fecha', values.fecha);
+    formData.append('acuerdo', projectId);  // Asociamos la actualización con el acuerdo original
+    formData.append('fecha_actualizacion', values.fecha);
+    formData.append('descripcion_avance', values.descripcionAvance);
     formData.append('nombre', values.nombre);
     formData.append('apellido_paterno', values.apellidoPaterno);
     formData.append('apellido_materno', values.apellidoMaterno);
@@ -60,8 +56,6 @@ const EditFormulario = ({ projectId, onClose }) => { // Recibe projectId como pr
     formData.append('telefono', values.telefono);
     formData.append('extension', values.extension);
     formData.append('correo', values.correo);
-    formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
-    formData.append('descripcion_avance', values.descripcionAvance);
 
     // Incluir archivos nuevos si se subieron
     files.forEach((file, index) => {
@@ -71,15 +65,15 @@ const EditFormulario = ({ projectId, onClose }) => { // Recibe projectId como pr
     });
 
     try {
-      const response = await axios.put(`http://localhost:8000/api/formularios/${projectId}/`, formData, { // Usa el projectId para la actualización
+      const response = await axios.post('http://localhost:8000/api/actualizaciones/', formData, {  // Endpoint para crear una nueva actualización
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
-      console.log('Formulario actualizado:', response.data);
-      setModalIsOpen(true); // Abre el modal al actualizar el formulario con éxito
+      console.log('Actualización creada:', response.data);
+      setModalIsOpen(true); // Abre el modal al crear la actualización con éxito
     } catch (error) {
-      console.error('Error al actualizar el formulario:', error);
+      console.error('Error al crear la actualización:', error);
     } finally {
       setSubmitting(false);
     }
@@ -101,11 +95,11 @@ const EditFormulario = ({ projectId, onClose }) => { // Recibe projectId como pr
 
   const handleGoToHome = () => {
     setModalIsOpen(false);
-    onClose(); // Lógica para redirigir a la página principal o cerrar el modal
+    onClose();
   };
 
   if (loading) {
-    return <div>Cargando datos...</div>; // Mostrar mensaje de carga mientras se obtienen los datos
+    return <div>Cargando datos...</div>;
   }
 
   return (
