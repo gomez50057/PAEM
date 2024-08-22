@@ -281,7 +281,8 @@ h2 {
 /*  */
 /*  */
 
-.edit-formulario {
+.edit-formulario,
+.update-formulario {
   width: 95vw; 
   max-width: 100%; 
   height: auto; 

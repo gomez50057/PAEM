@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import EditFormulario from '../forms/EditFormulario';
+import UpdateFormulario from '../forms/UpdateFormulario';
 
 const style = {
   position: 'absolute',
@@ -17,7 +18,15 @@ const style = {
   p: 4,
 };
 
-const ProjectModal = ({ open, handleClose, projectId }) => {
+const ProjectModal = ({ open, handleClose, projectId, mode }) => { // Se añade `mode` para determinar la acción
+  const renderContent = () => {
+    if (mode === 'edit') {
+      return <EditFormulario projectId={projectId} onClose={handleClose} />;
+    } else if (mode === 'update') {
+      return <UpdateFormulario projectId={projectId} onClose={handleClose} />;
+    }
+    return null;
+  };
 
   return (
     <Modal
@@ -27,8 +36,10 @@ const ProjectModal = ({ open, handleClose, projectId }) => {
       aria-describedby="modal-description"
     >
       <Box sx={style}>
-        <h2 id="modal-title">Editar Acuerdo</h2>
-        <EditFormulario projectId={projectId} /> 
+        <h2 id="modal-title">
+          {mode === 'edit' ? 'Editar Acuerdo' : 'Actualizar Acuerdo'}
+        </h2>
+        {renderContent()}
       </Box>
     </Modal>
   );

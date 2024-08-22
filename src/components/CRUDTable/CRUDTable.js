@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MUIDataTable from 'mui-datatables';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Typography } from '@mui/material';
-import ProjectModal from './ProjectModal'; // Importar el modal
+import ProjectModal from './ProjectModal';
 import './CRUDTable.css';
 import axios from 'axios';
 
@@ -10,6 +10,7 @@ const CRUDTable = () => {
   const [data, setData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState(null);
+  const [modalMode, setModalMode] = useState('edit'); // Estado para manejar el modo del modal
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +26,13 @@ const CRUDTable = () => {
   }, []);
 
   const handleEditClick = (projectId) => {
-    console.log('Selected Project ID:', projectId); // Mostrar el ID en la consola
+    setModalMode('edit'); // Establece el modo en "edit"
+    setSelectedProjectId(projectId);
+    setOpenModal(true);
+  };
+
+  const handleUpdateClick = (projectId) => {
+    setModalMode('update'); // Establece el modo en "update"
     setSelectedProjectId(projectId);
     setOpenModal(true);
   };
@@ -62,6 +69,12 @@ const CRUDTable = () => {
                 className="crud-button"
               >
                 Editar
+              </button>
+              <button
+                onClick={() => handleUpdateClick(projectId)}
+                className="crud-button"
+              >
+                Actualizar
               </button>
             </div>
           );
@@ -129,7 +142,7 @@ const CRUDTable = () => {
             root: {
               fontWeight: 600,
               backgroundColor: '#f5f5f5',
-              '&.sticky-column': { 
+              '&.sticky-column': {
                 position: 'sticky',
                 right: 0,
                 zIndex: 1,
@@ -148,7 +161,7 @@ const CRUDTable = () => {
                 backgroundColor: 'transparent',
                 boxShadow: 'none',
               },
-              '& .sticky-column': { 
+              '& .sticky-column': {
                 position: 'sticky',
                 right: 0,
                 zIndex: 1,
@@ -174,6 +187,7 @@ const CRUDTable = () => {
         open={openModal}
         handleClose={handleCloseModal}
         projectId={selectedProjectId}
+        mode={modalMode}  // Pasa el modo al modal
       />
     </ThemeProvider>
   );
