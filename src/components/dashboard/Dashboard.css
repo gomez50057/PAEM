@@ -226,10 +226,13 @@
   height: auto;
   position: relative;
   top: -20px;
-  scale: 0.9;
+  scale: 0.3;
   filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.5));
-
   transition: 0.7s ease-in-out;
+}
+
+.sidebar.active .sidebar-card .sidebarCardImg {
+  scale: 0.9;
 }
 
 .sidebar-card .sidebarCardImg:hover {
@@ -260,14 +263,15 @@
   color: var(--vinoClr);
 }
 
-
 .sidebar-card button .icon {
   width: 20px;
   height: 20px;
-  margin-right: 10px;
+  margin-right: 25px;
 }
 
-
+.sidebar.active  .sidebar-card button .icon {
+  margin-right: 10px;
+}
 
 /* Dashboard Container */
 .dashboard-container {
