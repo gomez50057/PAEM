@@ -122,6 +122,7 @@ const Dashboard = () => {
                 </svg>
               </div>
               <span className="title">Acuerdos</span>
+              <span className="sub-title">coordinador</span>
             </a>
           </li>
         </ul>
