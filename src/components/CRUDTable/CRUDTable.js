@@ -14,7 +14,7 @@ const CRUDTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/formularios/');
+        const response = await axios.get('http://localhost:8000/api/acuerdos/');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -37,7 +37,7 @@ const CRUDTable = () => {
 
   const columns = [
     { name: "id", label: "ID" }, // Añadido para mostrar el ID en la tabla, puedes ocultarlo si no lo necesitas visualizar
-    { name: "fecha", label: "Fecha" },
+    { name: "fecha_creacion", label: "Fecha" },
     { name: "nombre", label: "Nombre" },
     { name: "apellido_paterno", label: "Apellido Paterno" },
     { name: "apellido_materno", label: "Apellido Materno" },

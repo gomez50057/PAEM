@@ -26,7 +26,7 @@ const CreateFormulario = () => {
     });
 
     try {
-      const response = await axios.post('http://localhost:8000/api/formularios/', formData, {
+      const response = await axios.post('http://localhost:8000/api/acuerdos/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -48,9 +48,7 @@ const CreateFormulario = () => {
 
   const handleCreateNewAgreement = () => {
     setModalIsOpen(false);
-    // Limpia los datos del formulario y los archivos subidos
     setFiles([]);
-    // Desplaza el contenedor `dashboard-container` hasta la parte superior
     const container = document.querySelector('.dashboard-container');
     if (container) {
       container.scrollTo({ top: 0, behavior: 'smooth' });

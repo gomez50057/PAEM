@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Dropzone from 'react-dropzone';
+import FileUploader from './FileUploader';
 import './Formulario.css';
-const imgIco = "/img/iconos/";
 
 const validationSchema = Yup.object().shape({
   nombre: Yup.string().required('El nombre es obligatorio'),
@@ -21,69 +20,25 @@ const validationSchema = Yup.object().shape({
   descripcionAvance: Yup.string()
     .max(5000, 'La descripción del avance no debe exceder 5000 caracteres')
     .required('La descripción del avance es obligatoria'),
-  // documentos: Yup.array().min(1, 'Debes cargar al menos un documento como evidencia')
 });
 
-const FormularioBase = ({ initialValues, onSubmit }) => {
-  const [files, setFiles] = useState(initialValues ? initialValues.documentos : []);
-
+const FormularioBase = ({ initialValues, onSubmit, files, setFiles }) => {
   const formatPhoneNumber = (value) => {
-    const cleanedValue = value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
-
-    if (cleanedValue.length <= 3) {
-      return cleanedValue;
-    }
-    if (cleanedValue.length <= 6) {
-      return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3)}`;
-    }
-    if (cleanedValue.length <= 10) {
-      return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6)}`;
-    }
-
-    return `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6, 10)}`;
+    const cleanedValue = value.replace(/\D/g, '');
+    return cleanedValue.length <= 3
+      ? cleanedValue
+      : cleanedValue.length <= 6
+      ? `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3)}`
+      : `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6)}`;
   };
 
   const handlePhoneNumberChange = (e, setFieldValue) => {
     const { value } = e.target;
-    const cleanedValue = value.replace(/\D/g, ''); // Eliminar todo excepto los dígitos
-
+    const cleanedValue = value.replace(/\D/g, '');
     if (cleanedValue.length <= 10) {
-      setFieldValue('telefono', cleanedValue); // Guardar el número sin formato para validación
-      setFieldValue('telefonoFormateado', formatPhoneNumber(cleanedValue)); // Guardar el número formateado para la UI
+      setFieldValue('telefono', cleanedValue);
+      setFieldValue('telefonoFormateado', formatPhoneNumber(cleanedValue));
     }
-  };
-
-  const handleDrop = (acceptedFiles) => {
-    const newFiles = acceptedFiles.map(file => ({
-      file,
-      preview: URL.createObjectURL(file),
-      progress: 0,
-      completed: false
-    }));
-    setFiles(prevFiles => [...prevFiles, ...newFiles]);
-
-    newFiles.forEach((newFile, index) => {
-      const interval = setInterval(() => {
-        setFiles(prevFiles => {
-          const updatedFiles = [...prevFiles];
-          const currentFileIndex = prevFiles.length - newFiles.length + index;
-          const currentFile = updatedFiles[currentFileIndex];
-
-          if (currentFile.progress >= 100) {
-            clearInterval(interval);
-            currentFile.completed = true;
-          } else {
-            currentFile.progress += 10;
-          }
-
-          return updatedFiles;
-        });
-      }, 100);
-    });
-  };
-
-  const handleRemoveFile = (fileToRemove) => {
-    setFiles(files.filter(file => file.file !== fileToRemove));
   };
 
   return (
@@ -149,7 +104,7 @@ const FormularioBase = ({ initialValues, onSubmit }) => {
                 placeholder="6633"
                 onChange={(e) => {
                   const { value } = e.target;
-                  if (/^\d*$/.test(value)) { // Solo permitir números
+                  if (/^\d*$/.test(value)) {
                     setFieldValue('extension', value);
                   }
                 }}
@@ -179,54 +134,7 @@ const FormularioBase = ({ initialValues, onSubmit }) => {
 
           <div className="form-group">
             <label>Documentos (evidencia):</label>
-            <Dropzone
-              onDrop={(acceptedFiles) => {
-                setFieldValue('documentos', [...files.map(fileObj => fileObj.file), ...acceptedFiles]);
-                handleDrop(acceptedFiles);
-              }}
-            >
-              {({ getRootProps, getInputProps }) => (
-                <div {...getRootProps()} className="dropzone">
-                  <input {...getInputProps()} />
-                  {files.length === 0 && (
-                    <>
-                      <img src={`${imgIco}dropzone.png`} alt="Icono de archivo" />
-                      <div className="dropzone-txt">
-                        <p>Arrastra y suelta <span className="highlight">imágenes, vídeos o cualquier archivo</span></p>
-                        <p>o<span className="highlight"> buscar archivos</span> en su computadora</p>
-                      </div>
-                    </>
-                  )}
-                  <div className="file-preview">
-                    {files.map((fileObj, index) => (
-                      <div key={index} className="file-preview-item">
-                        <img src={fileObj.preview} alt={`Documento ${index + 1}`} />
-                        {fileObj.completed ? (
-                          <>
-                            <div className="checkmark-circle">
-                              <svg viewBox="0 0 52 52" className="checkmark">
-                                <circle cx="26" cy="26" r="25" fill="none" />
-                                <path d="M14 27l8 8 16-16" fill="none" />
-                              </svg>
-                            </div>
-                            <div className="file-details">
-                              <p>{fileObj.file.name}</p>
-                              <button type="button" onClick={() => handleRemoveFile(fileObj.file)}>
-                                Eliminar
-                              </button>
-                            </div>
-                          </>
-                        ) : (
-                          <div className="progress-bar">
-                            <div className="progress" style={{ width: `${fileObj.progress}%` }}></div>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </Dropzone>
+            <FileUploader onFilesChange={setFiles} />
             <ErrorMessage name="documentos" component="div" className="error-message" />
           </div>
           <button type="submit" className="submit-button">Enviar</button>
