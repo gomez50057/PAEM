@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import Formulario from '../forms/CreateFormulario';
 import Acuerdos from '../CRUDTable/CRUDTable';
-import Headerdashboard from '../dashboard/Headerdashboard';
+import Headerdashboard from '../dashboard/HeaderDashboard';
 const imgIco = "/img/iconos/";
 const imgBasePath = "/img/";
 
