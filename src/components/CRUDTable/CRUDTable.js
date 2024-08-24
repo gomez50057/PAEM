@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MUIDataTable from 'mui-datatables';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Typography } from '@mui/material';
-import ProjectModal from './ProjectModal';
+import ProjectModal from './ProjectModal'; // Importar el modal
 import './CRUDTable.css';
 import axios from 'axios';
 
@@ -10,7 +10,7 @@ const CRUDTable = () => {
   const [data, setData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState(null);
-  const [modalMode, setModalMode] = useState('edit'); // Estado para manejar el modo del modal
+  const [modalMode, setModalMode] = useState('edit');  // Nuevo estado para el modo del modal
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,14 +26,20 @@ const CRUDTable = () => {
   }, []);
 
   const handleEditClick = (projectId) => {
-    setModalMode('edit'); // Establece el modo en "edit"
     setSelectedProjectId(projectId);
+    setModalMode('edit');  // Establece el modo a 'edit'
     setOpenModal(true);
   };
 
   const handleUpdateClick = (projectId) => {
-    setModalMode('update'); // Establece el modo en "update"
     setSelectedProjectId(projectId);
+    setModalMode('update');  // Establece el modo a 'update'
+    setOpenModal(true);
+  };
+
+  const handleHistoryClick = (projectId) => {
+    setSelectedProjectId(projectId);
+    setModalMode('history');  // Establece el modo a 'history'
     setOpenModal(true);
   };
 
@@ -75,6 +81,12 @@ const CRUDTable = () => {
                 className="crud-button"
               >
                 Actualizar
+              </button>
+              <button
+                onClick={() => handleHistoryClick(projectId)}
+                className="crud-button"
+              >
+                Historial
               </button>
             </div>
           );

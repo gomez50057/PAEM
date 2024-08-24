@@ -17,7 +17,7 @@ const EditFormulario = ({ projectId, onClose }) => {
         const acuerdoData = response.data;
 
         setInitialValues({
-          fecha: acuerdoData.fecha_creacion || new Date().toISOString().slice(0, 10),
+          fecha: acuerdoData.fecha || new Date().toISOString().slice(0, 10),
           nombre: acuerdoData.nombre || '',
           apellidoPaterno: acuerdoData.apellido_paterno || '',
           apellidoMaterno: acuerdoData.apellido_materno || '',
@@ -27,15 +27,16 @@ const EditFormulario = ({ projectId, onClose }) => {
           correo: acuerdoData.correo || '',
           descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',
           descripcionAvance: acuerdoData.descripcion_avance || '',
-          documentos: acuerdoData.documentos || []
+          documentos: Array.isArray(acuerdoData.documentos) ? acuerdoData.documentos : []
         });
 
-        setFiles((acuerdoData.documentos || []).map((doc) => ({
+        // Verifica si documentos es un array antes de usar .map()
+        setFiles(Array.isArray(acuerdoData.documentos) ? acuerdoData.documentos.map((doc) => ({
           file: null,
           preview: doc.url,
           progress: 100,
           completed: true
-        })));
+        })) : []);
 
         setLoading(false);
       } catch (error) {

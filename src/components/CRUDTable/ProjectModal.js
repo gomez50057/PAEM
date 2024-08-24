@@ -3,6 +3,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import EditFormulario from '../forms/EditFormulario';
 import UpdateFormulario from '../forms/UpdateFormulario';
+import HistoryList from '../forms/HistoryList';  // Importa el nuevo componente HistoryList
 
 const style = {
   position: 'absolute',
@@ -18,12 +19,14 @@ const style = {
   p: 4,
 };
 
-const ProjectModal = ({ open, handleClose, projectId, mode }) => { // Se añade `mode` para determinar la acción
+const ProjectModal = ({ open, handleClose, projectId, mode }) => { 
   const renderContent = () => {
     if (mode === 'edit') {
       return <EditFormulario projectId={projectId} onClose={handleClose} />;
     } else if (mode === 'update') {
       return <UpdateFormulario projectId={projectId} onClose={handleClose} />;
+    } else if (mode === 'history') {
+      return <HistoryList projectId={projectId} onClose={handleClose} />;
     }
     return null;
   };
@@ -37,7 +40,7 @@ const ProjectModal = ({ open, handleClose, projectId, mode }) => { // Se añade 
     >
       <Box sx={style}>
         <h2 id="modal-title">
-          {mode === 'edit' ? 'Editar Acuerdo' : 'Actualizar Acuerdo'}
+          {mode === 'edit' ? 'Editar Acuerdo' : mode === 'update' ? 'Actualizar Acuerdo' : 'Historial de Actualizaciones'}
         </h2>
         {renderContent()}
       </Box>
