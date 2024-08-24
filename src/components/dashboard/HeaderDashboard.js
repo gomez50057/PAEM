@@ -1,5 +1,7 @@
 import React from 'react';
 import './HeaderDashboard.css';
+const imgBasePath = "https://bibliotecadigitaluplaph.hidalgo.gob.mx/img_banco/";
+
 
 const HeaderDashboard = () => {
   return (
@@ -10,10 +12,14 @@ const HeaderDashboard = () => {
 
       <div className="header-right">
         <div className="welcome-container">
-          <p className="welcome-text">Hola Carlos Garcia</p>
-          <div className="profile-circle"></div>
+          <p className="welcome-text">Hola! <span>Carlos Garcia</span></p>
+          <div className="Navbar_circulo">
+            <img src={`${imgBasePath}estrella.webp`} alt="img_representativa" />
+          </div>
         </div>
-        <i className="bell-icon">&#128276;</i>
+        <div className="Navbar_circulo">
+            <img src={`${imgBasePath}alerta.png`} alt="img_representativa" />
+          </div>
       </div>
     </header>
   );

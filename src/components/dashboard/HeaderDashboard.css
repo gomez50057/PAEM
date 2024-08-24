@@ -32,18 +32,36 @@
 
 .welcome-text {
   font-size: 1rem;
-  font-weight: bold;
-  margin-right: 10px; /* Añade espacio entre el texto y el círculo */
+  font-weight: 500;
+  margin-right: 10px; 
 }
 
-.profile-circle {
+.welcome-text span{
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.Navbar_circulo {
   width: 40px;
   height: 40px;
-  background-color: #aaa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blanco);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+    0 6px 20px rgba(0, 0, 0, 0.19);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Navbar_circulo img {
+  width: 35px;
+  height: auto;
   border-radius: 50%;
 }
 
-.bell-icon {
-  font-size: 24px;
-  cursor: pointer;
+.Navbar_circulo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4),
+    0 14px 28px rgba(0, 0, 0, 0.25);
 }
