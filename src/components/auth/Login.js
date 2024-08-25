@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Login.css';
 
 const imgBasePath = "https://bibliotecadigitaluplaph.hidalgo.gob.mx/img_banco/";
@@ -14,9 +15,26 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Lógica de manejo de inicio de sesión omitida por ahora.
+    setError(null); // Resetear el mensaje de error
+
+    try {
+      const response = await axios.post('http://localhost:8000/auth/inicio-sesion/', {
+        username,
+        password,
+      });
+
+      // Aquí podrías guardar el token de autenticación en localStorage o en un estado global
+      localStorage.setItem('token', response.data.token);
+
+      // Redirigir al usuario a la página de inicio o dashboard
+      window.location.href = '/dashboard'; // Ajusta la ruta según tus necesidades
+
+    } catch (error) {
+      setError('Usuario o contraseña incorrectos.');
+      console.error('Error al iniciar sesión:', error);
+    }
   };
 
   const handleUsernameChange = (event) => {
