@@ -6,6 +6,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
 }
 
 .container_login p {
@@ -38,18 +39,20 @@
   width: 40vw;
   height: 100vh;
   padding: 3vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .login_txt form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
-  height: auto;
+  width: 100%;
+  gap: 15px;
 }
 
 .login_txt img {
   width: 7vw;
+  max-width: 100px;
   height: auto;
 }
 
@@ -65,6 +68,7 @@
 
 .login_txt p:last-child {
   font-size: 10px;
+  margin-top: 20px;
 }
 
 .input-container {
@@ -80,17 +84,17 @@
   background-color: transparent;
   margin-bottom: 5px;
   color: var(--grisOsc);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 500;
   border: none;
   border-bottom: 2px solid var(--doradoClr);
+  transition: border-color 0.3s ease;
 }
 
 .input-container input:focus {
   outline: none;
   border-bottom: 2px solid var(--doradoOsc);
 }
-
 
 .input-container .input-img {
   position: absolute;
@@ -103,20 +107,32 @@
 
 .login_txt button {
   width: 80%;
-  padding: 8px 5px;
-  background-image: linear-gradient(to right, #a02142, #92203e, #841e3b, #761d36, #691b32);  
+  padding: 12px;
+  background-image: linear-gradient(to right, #a02142, #92203e, #841e3b, #761d36, #691b32);
   color: var(--blanco);
   border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
   margin-top: 10px;
-  border: 2px outset buttonborder;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login_txt button:hover {
+  background-color: #691b32;
+  transform: scale(1.05);
+}
+
+.login_txt button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
 .error-message {
   color: red;
   font-size: 0.9rem;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .loading-indicator {

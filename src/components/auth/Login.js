@@ -10,75 +10,70 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false); // Añadido para manejar el estado de carga
+  const [loading, setLoading] = useState(false);
 
-  const togglePassword = () => {
-    setShowPassword(!showPassword);
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setError(null);
-    setLoading(true); // Iniciar la carga
+    setLoading(true);
 
-    axios.post('http://localhost:8000/auth/inicio-sesion/', { username, password })
-      .then(response => {
-        localStorage.setItem('token', response.data.token);
-        window.location.href = '/dashboard'; // Redirigir después de un inicio de sesión exitoso
-      })
-      .catch(error => {
-        setError('Usuario o contraseña incorrectos.');
-        console.error('Error al iniciar sesión:', error);
-      })
-      .finally(() => {
-        setLoading(false); // Finalizar la carga
-      });
-  };
-
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+    try {
+      await axios.post('http://localhost:8000/auth/inicio-sesion/', { username, password });
+      window.location.href = '/dashboard';
+    } catch (error) {
+      setError('Usuario o contraseña incorrectos.');
+      console.error('Error al iniciar sesión:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <section id='login' className="container_login">
       <div className="background-login" />
       <div className="login_txt">
-        <img src={`${imgBasePath}estrella.webp`} alt="img_representativa" />
+        <img src={`${imgBasePath}estrella.webp`} alt="Imagen representativa" />
         <p>Inicia Sesión</p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} aria-label="Formulario de inicio de sesión">
           <div className="input-container">
+            {/* <label htmlFor="username" className="sr-only">Usuario</label> */}
             <input
               type="text"
+              id="username"
               placeholder="Usuario"
               value={username}
-              onChange={handleUsernameChange}
+              onChange={(e) => setUsername(e.target.value)}
               autoComplete="username"
+              required
             />
           </div>
           <div className="input-container">
+            {/* <label htmlFor="password" className="sr-only">Contraseña</label> */}
             <input
               type={showPassword ? "text" : "password"}
+              id="password"
               placeholder="Contraseña"
               value={password}
-              onChange={handlePasswordChange}
+              onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
+              required
             />
             <img
               className="input-img"
               src={showPassword ? `${imgBasePath}password_visible.webp` : `${imgBasePath}password.webp`}
-              alt="img_representativa"
-              onClick={togglePassword}
+              alt={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+              onClick={togglePasswordVisibility}
             />
           </div>
-          {error && <div className="error-message">{error}</div>}
+          {error && <div className="error-message" role="alert">{error}</div>}
           {loading ? (
             <div className="loading-indicator">Cargando...</div>
           ) : (
-            <button type="submit">INGRESAR</button>
+            <button type="submit" disabled={loading}>INGRESAR</button>
           )}
         </form>
         <p>¿No tienes una cuenta? <a href="/" className="link-registrarse">REGÍSTRATE</a></p>
