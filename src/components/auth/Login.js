@@ -40,7 +40,6 @@ const Login = () => {
         <p>Inicia Sesión</p>
         <form onSubmit={handleSubmit} aria-label="Formulario de inicio de sesión">
           <div className="input-container">
-            {/* <label htmlFor="username" className="sr-only">Usuario</label> */}
             <input
               type="text"
               id="username"
@@ -52,7 +51,6 @@ const Login = () => {
             />
           </div>
           <div className="input-container">
-            {/* <label htmlFor="password" className="sr-only">Contraseña</label> */}
             <input
               type={showPassword ? "text" : "password"}
               id="password"
