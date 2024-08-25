@@ -10,31 +10,29 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); // Añadido para manejar el estado de carga
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    setError(null); // Resetear el mensaje de error
+    setError(null);
+    setLoading(true); // Iniciar la carga
 
-    try {
-      const response = await axios.post('http://localhost:8000/auth/inicio-sesion/', {
-        username,
-        password,
+    axios.post('http://localhost:8000/auth/inicio-sesion/', { username, password })
+      .then(response => {
+        localStorage.setItem('token', response.data.token);
+        window.location.href = '/dashboard'; // Redirigir después de un inicio de sesión exitoso
+      })
+      .catch(error => {
+        setError('Usuario o contraseña incorrectos.');
+        console.error('Error al iniciar sesión:', error);
+      })
+      .finally(() => {
+        setLoading(false); // Finalizar la carga
       });
-
-      // Aquí podrías guardar el token de autenticación en localStorage o en un estado global
-      localStorage.setItem('token', response.data.token);
-
-      // Redirigir al usuario a la página de inicio o dashboard
-      window.location.href = '/dashboard'; // Ajusta la ruta según tus necesidades
-
-    } catch (error) {
-      setError('Usuario o contraseña incorrectos.');
-      console.error('Error al iniciar sesión:', error);
-    }
   };
 
   const handleUsernameChange = (event) => {
@@ -77,7 +75,11 @@ const Login = () => {
             />
           </div>
           {error && <div className="error-message">{error}</div>}
-          <button type="submit">INGRESAR</button>
+          {loading ? (
+            <div className="loading-indicator">Cargando...</div>
+          ) : (
+            <button type="submit">INGRESAR</button>
+          )}
         </form>
         <p>¿No tienes una cuenta? <a href="/" className="link-registrarse">REGÍSTRATE</a></p>
       </div>
