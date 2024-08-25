@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MUIDataTable from 'mui-datatables';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Typography } from '@mui/material';
-import ProjectModal from './ProjectModal'; // Importar el modal
+import ProjectModal from './ProjectModal';
 import './CRUDTable.css';
 import axios from 'axios';
 
@@ -10,7 +10,7 @@ const CRUDTable = () => {
   const [data, setData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState(null);
-  const [modalMode, setModalMode] = useState('edit');  // Nuevo estado para el modo del modal
+  const [modalMode, setModalMode] = useState('edit');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,8 +49,11 @@ const CRUDTable = () => {
   };
 
   const columns = [
-    { name: "id", label: "ID" }, // Añadido para mostrar el ID en la tabla, puedes ocultarlo si no lo necesitas visualizar
+    { name: "id", label: "ID Acuerdo", options: { display: false, viewColumns: false } }, 
+    { name: "id_unico", label: "ID Acuerdo" }, 
     { name: "fecha_creacion", label: "Fecha" },
+    { name: "descripcion_acuerdo", label: "Descripción del Acuerdo" },
+    { name: "descripcion_avance", label: "Descripción del Avance" },
     { name: "nombre", label: "Nombre" },
     { name: "apellido_paterno", label: "Apellido Paterno" },
     { name: "apellido_materno", label: "Apellido Materno" },
@@ -58,8 +61,6 @@ const CRUDTable = () => {
     { name: "telefono", label: "Teléfono" },
     { name: "extension", label: "Extensión" },
     { name: "correo", label: "Correo" },
-    { name: "descripcion_acuerdo", label: "Descripción del Acuerdo" },
-    { name: "descripcion_avance", label: "Descripción del Avance" },
     { name: "documentos", label: "Documentos" },
     {
       name: "acciones",
@@ -67,7 +68,7 @@ const CRUDTable = () => {
       options: {
         setCellProps: () => ({ className: 'sticky-column' }),
         customBodyRender: (value, tableMeta) => {
-          const projectId = tableMeta.rowData[0]; // Ahora usamos el ID que está en la primera columna
+          const projectId = tableMeta.rowData[0];
           return (
             <div className="Acciones-con">
               <button
@@ -199,7 +200,7 @@ const CRUDTable = () => {
         open={openModal}
         handleClose={handleCloseModal}
         projectId={selectedProjectId}
-        mode={modalMode}  // Pasa el modo al modal
+        mode={modalMode}
       />
     </ThemeProvider>
   );
