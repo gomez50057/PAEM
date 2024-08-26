@@ -16,7 +16,8 @@
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
+  width: auto;
+  max-width: 80vw;
   text-align: center;
 }
 

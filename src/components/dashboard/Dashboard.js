@@ -10,10 +10,9 @@ import SvgIcon from '../SvgIcon';
 import ConfirmationModal from '../dashboard/ConfirmationModal';
 
 const Dashboard = () => {
-  const [activeComponent, setActiveComponent] = useState('dashboard');
+  const [activeComponent, setActiveComponent] = useState('formulario'); // El formulario es el componente predeterminado
   const [userRole, setUserRole] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-
 
   useEffect(() => {
     // Obtener el rol del usuario desde el almacenamiento local
@@ -81,23 +80,25 @@ const Dashboard = () => {
       <div className="sidebar active">
         <div className="toggle active"></div>
         <ul className="list">
-          <li
-            className="list-item active"
-            data-component="dashboard"
-            onClick={() => handleMenuClick('dashboard')}
-          >
-            <b></b>
-            <b></b>
-            <a href="#" className="list-item-link">
-              <div className="icon">
-                <SvgIcon name="dashboard" />
-              </div>
-              <span className="title">Dashboard</span>
-            </a>
-          </li>
-          {(userRole === 'coordinador' || userRole === 'responsable' || userRole === 'enlace') && (
+          {userRole === 'coordinador' && ( // Mostrar solo para coordinadores
             <li
               className="list-item"
+              data-component="dashboard"
+              onClick={() => handleMenuClick('dashboard')}
+            >
+              <b></b>
+              <b></b>
+              <a href="#" className="list-item-link">
+                <div className="icon">
+                  <SvgIcon name="dashboard" />
+                </div>
+                <span className="title">Dashboard</span>
+              </a>
+            </li>
+          )}
+          {(userRole === 'coordinador' || userRole === 'responsable' || userRole === 'enlace') && (
+            <li
+              className="list-item active" // El formulario es la opción activa por defecto
               data-component="formulario"
               onClick={() => handleMenuClick('formulario')}
             >
