@@ -7,7 +7,6 @@ import HistoryList from '../forms/HistoryList';
 import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
-  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
@@ -20,7 +19,6 @@ const style = {
   p: 4,
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between',
   position: 'relative', // Añadido para posicionar la "X" correctamente
 };
 
