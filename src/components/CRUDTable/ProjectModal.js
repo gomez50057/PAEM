@@ -3,7 +3,8 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import EditFormulario from '../forms/EditFormulario';
 import UpdateFormulario from '../forms/UpdateFormulario';
-import HistoryList from '../forms/HistoryList';  // Importa el nuevo componente HistoryList
+import HistoryList from '../forms/HistoryList';
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
   position: 'absolute',
@@ -17,9 +18,13 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  position: 'relative', // Añadido para posicionar la "X" correctamente
 };
 
-const ProjectModal = ({ open, handleClose, projectId, mode }) => { 
+const ProjectModal = ({ open, handleClose, projectId, mode }) => {
   const renderContent = () => {
     if (mode === 'edit') {
       return <EditFormulario projectId={projectId} onClose={handleClose} />;
@@ -39,7 +44,22 @@ const ProjectModal = ({ open, handleClose, projectId, mode }) => {
       aria-describedby="modal-description"
     >
       <Box sx={style}>
-        <h2 id="modal-title">
+        <button 
+          onClick={handleClose} 
+          className="close-button" 
+          style={{ 
+            position: 'absolute', 
+            top: '10px', 
+            right: '10px', 
+            background: 'none', 
+            border: 'none', 
+            cursor: 'pointer'
+          }}
+        >
+          <CloseIcon fontSize="large" style={{ color: 'var(--grisOsc)' }} />
+        </button>
+
+        <h2 id="modal-title" style={{ marginBottom: '20px' }}>
           {mode === 'edit' ? 'Editar Acuerdo' : mode === 'update' ? 'Actualizar Acuerdo' : 'Historial de Actualizaciones'}
         </h2>
         {renderContent()}
