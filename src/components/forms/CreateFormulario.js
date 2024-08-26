@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import FormularioBase from './FormularioBase'; 
+import FormularioBase from './FormularioBase';
 import AgreementSuccessModal from './AgreementSuccessModal';
 import './Formulario.css';
 
@@ -20,6 +20,8 @@ const CreateFormulario = () => {
     formData.append('correo', values.correo);
     formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
     formData.append('descripcion_avance', values.descripcionAvance);
+    formData.append('estado', values.estado);
+    formData.append('comision', values.comision);
 
     files.forEach((file, index) => {
       formData.append(`documentos_${index}`, file.file);
@@ -74,15 +76,17 @@ const CreateFormulario = () => {
           correo: '',
           descripcionAcuerdo: '',
           descripcionAvance: '',
-          documentos: []
+          documentos: [],
+          estado: localStorage.getItem('userState') || '',
+          comision: localStorage.getItem('userCommission') || ''
         }}
         onSubmit={handleSubmit}
         files={files}
         setFiles={setFiles}
       />
-      <AgreementSuccessModal 
-        isOpen={modalIsOpen} 
-        onRequestClose={handleCloseModal} 
+      <AgreementSuccessModal
+        isOpen={modalIsOpen}
+        onRequestClose={handleCloseModal}
         onCreateNewAgreement={handleCreateNewAgreement}
         onGoToHome={handleGoToHome}
       />

@@ -50,11 +50,22 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles }) => {
       {({ setFieldValue, values }) => (
         <Form className="formulario-container">
           <h2>Datos Generales</h2>
-          <div className="form-group">
-            <label>Fecha:</label>
-            <Field name="fecha" type="text" disabled className="input-field" />
+          <div className="form-row">
+            <div className="form-group">
+              <label>Fecha:</label>
+              <Field name="fecha" type="text" disabled className="input-field" />
+            </div>
+            <div className="form-group">
+              <label>Estado:</label>
+              <Field name="estado" type="text" disabled className="input-field" />
+            </div>
+            <div className="form-group">
+              <label>Comisión:</label>
+              <Field name="comision" type="text" disabled className="input-field" />
+            </div>
           </div>
 
+          {/* Existing fields */}
           <div className="form-row">
             <div className="form-group">
               <label>Nombre:</label>
