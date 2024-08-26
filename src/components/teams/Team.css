@@ -11,15 +11,15 @@
 
 .team-title {
   font-size: 2rem;
-  font-weight: 600;
-  color: var(--vinoOsc); /* Hacer el título más visible sobre el fondo animado */
+  font-weight: 700;
+  color: var(--vinoOsc);
   text-align: center;
   width: 100%;
   margin-bottom: 20px;
 }
 
 .team-card {
-  background-color: #ffffff;
+  background-color: var(--blanco);
   border-radius: 50px;
   padding: 20px;
   width: 250px;
@@ -53,42 +53,29 @@
 }
 
 .team-card:hover .team-card-image img {
-  transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen al hacer hover */
+  transform: scale(1.1);
 }
 
 .team-card-info {
   margin-top: 20px;
-  animation: fadeIn 1s ease forwards;
 }
 
 .team-card-info h3 {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 10px;
-  color: #333;
-  animation: fadeIn 1s ease forwards;
+  color: var(--vinoOsc);
 }
 
 .team-card-info p {
   font-size: 0.9rem;
-  color: #777;
+  font-weight: 400;
+  color: var(--vinoClr);
   margin-bottom: 15px;
-  animation: fadeIn 1s ease 0.2s forwards;
 }
 
 .team-card-info p:last-child {
   font-size: 0.85rem;
-  color: #555;
+  color: var(--grisClr);
   margin-top: 10px;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
