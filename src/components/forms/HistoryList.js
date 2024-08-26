@@ -10,7 +10,11 @@ const HistoryList = ({ projectId, onClose }) => {
     const fetchUpdates = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/api/actualizaciones/?acuerdo=${projectId}`);
-        setUpdates(response.data);
+        
+        // Asegúrate de que estás filtrando las actualizaciones solo para el acuerdo actual
+        const filteredUpdates = response.data.filter(update => update.acuerdo === projectId);
+        setUpdates(filteredUpdates);
+        
       } catch (error) {
         console.error('Error fetching updates:', error);
       } finally {
@@ -34,7 +38,11 @@ const HistoryList = ({ projectId, onClose }) => {
             <p><strong>Versión:</strong> {update.version}</p>
             <p><strong>Fecha:</strong> {update.fecha_actualizacion}</p>
             <p><strong>Descripción del Avance:</strong> {update.descripcion_avance}</p>
-            <p><strong>Documentos:</strong> {update.documentos ? <a href={update.documentos} target="_blank" rel="noopener noreferrer">Ver Documento</a> : 'No disponible'}</p>
+            <p>
+              <strong>Documentos:</strong> {update.documentos ? (
+                <a href={update.documentos} target="_blank" rel="noopener noreferrer">Ver Documento</a>
+              ) : 'No disponible'}
+            </p>
           </li>
         ))}
       </ul>
