@@ -32,19 +32,19 @@
 
 .gallery {
   position: relative;
-  width: 350px; /* Incrementa el tamaño del contenedor del semicírculo */
-  height: 175px; /* Incrementa la altura para crear el semicírculo */
+  width: 350px;
+  height: 175px;
 }
 
 .gallery img {
   position: absolute;
-  width: 120px; /* Tamaño más grande de las imágenes */
+  width: 120px;
   height: 120px;
   border-radius: 50%;
   border: 2px solid var(--vinoOsc);
-  padding: 5px; /* Espacio entre la imagen y el borde */
-  background-color: white; /* Para hacer que el padding sea visible */
-  animation: semicircle 12s infinite ease-in-out; /* Más lento */
+  padding: 5px;
+  background-color: var(blanco);
+  animation: semicircle 12s infinite ease-in-out;
 }
 
 .gallery img:nth-child(1) {
@@ -70,24 +70,28 @@
     transform: translate(-50%, 0) scale(0);
     opacity: 0;
   }
+
   25% {
     top: 50%;
     left: 100%;
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
+
   50% {
     top: 0%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
+
   75% {
     top: 50%;
     left: 0%;
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
+
   100% {
     top: 100%;
     left: 50%;
