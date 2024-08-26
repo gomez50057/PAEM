@@ -22,11 +22,15 @@ const Login = () => {
     setLoading(true);
 
     try {
-      await axios.post('http://localhost:8000/auth/inicio-sesion/', { username, password });
-      window.location.href = '/dashboard';
+      const response = await axios.post('http://localhost:8000/auth/inicio-sesion/', { username, password });
+      if (response.data.status === 'ok') {
+        localStorage.setItem('userRole', response.data.group); // Guarda el rol del usuario en localStorage
+        window.location.href = '/dashboard';
+      } else {
+        setError('Usuario o contraseña incorrectos.');
+      }
     } catch (error) {
-      setError('Usuario o contraseña incorrectos.');
-      console.error('Error al iniciar sesión:', error);
+      setError('Error de conexión. Inténtalo de nuevo.');
     } finally {
       setLoading(false);
     }
