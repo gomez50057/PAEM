@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import Formulario from '../forms/CreateFormulario';
 import Acuerdos from '../CRUDTable/CRUDTable';
+import TableResponsable from '../CRUDTable/responsable/TableResponsable';
+import TableEnlace from '../CRUDTable/enlace/TableEnlace';
 import Headerdashboard from '../dashboard/HeaderDashboard';
 import SvgIcon from '../SvgIcon';
 import ConfirmationModal from '../dashboard/ConfirmationModal';
@@ -66,9 +68,9 @@ const Dashboard = () => {
       case 'acuerdosCoordinador':
         return <Acuerdos />;
       case 'acuerdosResponsable':
-        return <Acuerdos />;
+        return <TableResponsable />;
       case 'acuerdosEnlace':
-        return <Acuerdos />;
+        return <TableEnlace />;
       default:
         return <h1>DASHBOARD</h1>;
     }
