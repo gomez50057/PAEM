@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
@@ -13,6 +13,125 @@ const InteractiveMap = () => {
     const mapRef = useRef(null);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const commonStyle = useCallback((fillColor, color, weight = 2) => ({
+        fillColor,
+        fillOpacity: 0.7,
+        color,
+        weight,
+    }), []);
+
+    const createPopupContentMetropolitanas = useCallback((feature) => {
+        const {
+            POBMUN,
+            POBFEM,
+            POBMAS,
+            Superficie,
+            NO_Zona,
+            NOM_MUN,
+            POB_ESTATA,
+            PMDU,
+            NOM_LINK_P,
+            FECH,
+            LINKPMDU,
+            LINKPMD,
+            FECHPMD,
+            ATLAS,
+            LINKATLAS,
+            FECHATLAS,
+        } = feature.properties;
+
+        // Validaciones para cada propiedad
+        const poblacionMunicipal = POBMUN ? POBMUN.toLocaleString() : "No disponible";
+        const poblacionFemenina = POBFEM ? POBFEM.toLocaleString() : "No disponible";
+        const poblacionMasculina = POBMAS ? POBMAS.toLocaleString() : "No disponible";
+        const superficieMunicipal = Superficie ? `${Superficie.toFixed(3)} km²` : "No disponible";
+        const poblacionMetropolitana = POB_ESTATA ? POB_ESTATA.toLocaleString() : "No disponible";
+
+        let popupContent = `
+            <div class='PopupT'><b>Zona Metropolitana de </b>${NO_Zona || "Desconocida"}</div>
+            <b>Municipio:</b> ${NOM_MUN || "Desconocido"}
+            <br><b>Población Municipal:</b> ${poblacionMunicipal}
+            <br><b>Mujeres:</b> ${poblacionFemenina}
+            <br><b>Hombres:</b> ${poblacionMasculina}
+            <br><b>Superficie:</b> ${superficieMunicipal}
+            <br><b>Población Metropolitana:</b> ${poblacionMetropolitana}
+            <div class='PopupSubT'><b>Instrumentos de Planeación </b></div>
+        `;
+
+        if (PMDU !== "No existe") {
+            popupContent += `<b>PMDU:</b> <a href='${LINKPMDU || "#"}' target='_blank'>${NOM_LINK_P || "Consultar"}</a><b> (${FECH || "N/A"})</b>`;
+        } else {
+            popupContent += `<b>PMDU:</b> ${PMDU}`;
+        }
+
+        popupContent += `<br><b>PMD:</b> <a href='${LINKPMD || "#"}' target='_blank'><b>Consultar</b></a><b> (${FECHPMD || "N/A"})</b>`;
+
+        if (ATLAS !== "No existe") {
+            popupContent += `<br><b>Atlas de Riesgos:</b> <a href='${LINKATLAS || "#"}' target='_blank'><b>Consultar</b></a><b> (${FECHATLAS || "N/A"})</b>`;
+        } else {
+            popupContent += `<br><b>Atlas de Riesgos:</b> ${ATLAS}`;
+        }
+
+        return popupContent;
+    }, []);
+
+    const createPopupContentZMVM = useCallback((feature) => {
+        const {
+            POBMUN,
+            POBFEM,
+            POBMAS,
+            Superficie,
+            NOM_ENT,
+            NOM_MUN,
+            POBMETRO,
+        } = feature.properties;
+
+        // Validaciones para cada propiedad
+        const poblacionMunicipal = POBMUN ? POBMUN.toLocaleString() : "No disponible";
+        const poblacionFemenina = POBFEM ? POBFEM.toLocaleString() : "No disponible";
+        const poblacionMasculina = POBMAS ? POBMAS.toLocaleString() : "No disponible";
+        const superficieMunicipal = Superficie ? `${Superficie.toFixed(3)} km²` : "No disponible";
+        const poblacionMetropolitana = POBMETRO ? POBMETRO.toLocaleString() : "No disponible";
+
+        let popupContent = `
+            <div class='PopupT'>${NOM_ENT || "Entidad desconocida"}</div>
+            <b>Nombre del Municipio:</b> ${NOM_MUN || "Desconocido"}
+            <br><b>Población Municipal:</b> ${poblacionMunicipal}
+            <br><b>Mujeres:</b> ${poblacionFemenina}
+            <br><b>Hombres:</b> ${poblacionMasculina}
+            <br><b>Superficie:</b> ${superficieMunicipal}
+            <br><b>Población Metropolitana:</b> ${poblacionMetropolitana}
+        `;
+
+        return popupContent;
+    }, []);
+
+    const geoJSONMetropolitanas = useCallback((data, fillColor, color) => {
+        return L.geoJSON(data, {
+            style: commonStyle(fillColor, color),
+            onEachFeature: (feature, layer) => {
+                layer.bindPopup(createPopupContentMetropolitanas(feature));
+            }
+        }).addTo(mapRef.current);
+    }, [commonStyle, createPopupContentMetropolitanas]);
+
+    const geoJSONZMVM = useCallback((data) => {
+        return L.geoJSON(data, {
+            style: (feature) => {
+                const colorMap = {
+                    "Hidalgo": "#BC955B",
+                    "Estado de México": "#691B31",
+                    "Ciudad de México": "#3a9680"
+                };
+                const color = colorMap[feature.properties.NOM_ENT] || "orange";
+                return commonStyle(color, color, 2.6);
+            },
+            onEachFeature: (feature, layer) => {
+                layer.bindPopup(createPopupContentZMVM(feature));
+            }
+        }).addTo(mapRef.current);
+    }, [commonStyle, createPopupContentZMVM]);
 
     useEffect(() => {
         mapRef.current = L.map('map', {
@@ -30,105 +149,18 @@ const InteractiveMap = () => {
 
         mapRef.current.attributionControl.setPrefix('');
 
-        // Función para crear capas GeoJSON de Zonas Metropolitanas
-        const geoJSONMetropolitanas = (data, fillColor, color) => {
-            return L.geoJSON(data, {
-                style: function (feature) {
-                    return {
-                        fillColor: fillColor,
-                        fillOpacity: 0.7,
-                        color: color,
-                        weight: 2,
-                    };
-                },
-                onEachFeature: function (feature, layer) {
-                    var poblacionMun = feature.properties.POBMUN.toLocaleString();
-                    var poblacionFem = feature.properties.POBFEM.toLocaleString();
-                    var poblacionMas = feature.properties.POBMAS.toLocaleString();
-                    var SupMun = feature.properties.Superficie.toFixed(3) + " km²";
-
-                    var PMDU = feature.properties.PMDU;
-                    var LINKPMDU = feature.properties.LINKPMDU;
-                    var LINKPMD = feature.properties.LINKPMD;
-                    var ATLAS = feature.properties.ATLAS;
-                    var LINKATLAS = feature.properties.LINKATLAS;
-                    var PobEst = feature.properties.POB_ESTATA.toLocaleString();
-
-                    layer.bindPopup("<div class='PopupT'><b>Zona Metropolitana de </b> " + feature.properties.NO_Zona + "</div>" +
-                        "<b>Municipio:</b> " + feature.properties.NOM_MUN +
-                        "<br><b>Población Municipal:</b> " + poblacionMun +
-                        "<br><b>Mujeres:</b> " + poblacionFem +
-                        "<br><b>Hombres:</b> " + poblacionMas +
-                        "<br><b>Superficie:</b> " + SupMun +
-                        "<br><b>Población Metropolitana:</b> " + PobEst +
-                        "<div class='PopupSubT'><b>Instrumentos de Planeación </b></div>");
-
-                    if (PMDU !== "No existe") {
-                        layer.setPopupContent(layer.getPopup()._content + "<b>PMDU:</b> " +
-                            "<a href='" + LINKPMDU + "' target='_blank'>" + feature.properties.NOM_LINK_P +
-                            "</a>" + "<b> (</b>" + feature.properties.FECH + "<b>)</b>");
-                    } else {
-                        layer.setPopupContent(layer.getPopup()._content + "<b>PMDU:</b> " + PMDU);
-                    }
-                    layer.setPopupContent(layer.getPopup()._content + "<br><b>PMD:</b> " +
-                        "<a href='" + LINKPMD + "' target='_blank'>" + "<b> Consultar </b>" +
-                        "</a>" + "<b> (</b>" + feature.properties.FECHPMD + "<b>)</b>");
-
-                    if (ATLAS !== "No existe") {
-                        layer.setPopupContent(layer.getPopup()._content + "<br><b>Atlas de Riesgos:</b> " +
-                            "<a href='" + LINKATLAS + "' target='_blank'>" + "<b> Consultar </b>" +
-                            "</a>" + "<b> (</b>" + feature.properties.FECHATLAS + "<b>)</b>");
-                    } else {
-                        layer.setPopupContent(layer.getPopup()._content + "<br><b>Atlas de Riesgos:</b> " + ATLAS);
-                    }
-                }
-            }).addTo(mapRef.current);
-        };
-
-        // Función para crear capas GeoJSON de ZMVM
-        const geoJSONZMVM = (data) => {
-            return L.geoJSON(data, {
-                style: function (feature) {
-                    var nomEntidad = feature.properties.NOM_ENT;
-                    var color = nomEntidad === "Hidalgo" ? "#BC955B" :
-                        nomEntidad === "Estado de México" ? "#691B31" :
-                            nomEntidad === "Ciudad de México" ? "#3a9680" : "orange";
-                    return {
-                        fillColor: color,
-                        color: color,
-                        weight: 2.6,
-                        fillOpacity: 0.45
-                    };
-                },
-                onEachFeature: function (feature, layer) {
-                    var poblacionMun = feature.properties.POBMUN.toLocaleString();
-                    var poblacionFem = feature.properties.POBFEM.toLocaleString();
-                    var poblacionMas = feature.properties.POBMAS.toLocaleString();
-                    var SupMun = feature.properties.Superficie.toFixed(3) + " km²";
-                    var PobMetro = feature.properties.POBMETRO.toLocaleString();
-                    layer.bindPopup("<div class='PopupT'>" + feature.properties.NOM_ENT + "</div>" +
-                        "<b>Nombre del Municipio:</b> " + feature.properties.NOM_MUN +
-                        "<br><b>Población Municipal:</b> " + poblacionMun +
-                        "<br><b>Mujeres:</b> " + poblacionFem +
-                        "<br><b>Hombres:</b> " + poblacionMas +
-                        "<br><b>Superficie:</b> " + SupMun +
-                        "<br><b>Población Metropolitana:</b> " + PobMetro);
-                }
-            }).addTo(mapRef.current);
-        };
-
         // Añade las capas GeoJSON al mapa
-        const InfoZMP = geoJSONMetropolitanas(ZMP_Info, '#B6DC76', '#fff');
-        const InfoZMT = geoJSONMetropolitanas(ZMT_Info, 'Aqua', 'transparent');
-        const InfoZMTUL = geoJSONMetropolitanas(ZMTUL_Info, '#241E4E', 'transparent');
-        const ZMVM_InfoGene = geoJSONZMVM(zmvm_InfoGeneral); // Añadir la capa ZMVM
+        geoJSONMetropolitanas(ZMP_Info, '#B6DC76', '#fff');
+        geoJSONMetropolitanas(ZMT_Info, 'Aqua', 'transparent');
+        geoJSONMetropolitanas(ZMTUL_Info, '#241E4E', 'transparent');
+        geoJSONZMVM(zmvm_InfoGeneral);
 
         setTimeout(() => mapRef.current.invalidateSize(), 300);
 
         return () => {
             mapRef.current.remove();
         };
-    }, []);
+    }, [geoJSONMetropolitanas, geoJSONZMVM]);
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
