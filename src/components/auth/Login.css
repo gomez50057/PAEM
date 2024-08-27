@@ -21,13 +21,19 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/img/backlogin.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  filter: blur(3px);
-  opacity: 0.90;
+  z-index: -20;
+  background-image: linear-gradient(to right bottom, #691b32, #691b32, #691b32, #691b32, #691b32, #844359, #b34e6b, #a02142, #a02142, #a02142, #a02142, #a02142);
+  opacity: 0.95;
+
+}
+
+.background-login-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  z-index: -10;
+
 }
 
 .login_txt {
@@ -87,7 +93,7 @@
   font-size: 1.1rem;
   font-weight: 500;
   border: none;
-  border-bottom: 2px solid var(--doradoClr);
+  border-bottom: 2px solid var(--doradoOsc);
   transition: border-color 0.3s ease;
 }
 
@@ -102,12 +108,14 @@
   right: 10px;
   transform: translateY(-50%);
   width: 20px;
+  filter: drop-shadow(2px 4px 6px black);
   cursor: pointer;
 }
 
 .login_txt button {
+  max-width: 300px;
   width: 80%;
-  padding: 12px;
+  padding: 18px 12px;
   background-image: linear-gradient(to right, #a02142, #92203e, #841e3b, #761d36, #691b32);
   color: var(--blanco);
   border-radius: 30px;

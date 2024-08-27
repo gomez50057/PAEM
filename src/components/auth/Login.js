@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Login.css';
 
 const imgBasePath = "https://bibliotecadigitaluplaph.hidalgo.gob.mx/img_banco/";
+const img = "/img/";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -48,6 +49,9 @@ const Login = () => {
   return (
     <section id='login' className="container_login">
       <div className="background-login" />
+      <div className="background-login-img">
+        <img src={`${img}backlogin.png`} alt="img_representativa" />
+      </div>
       <div className="login_txt">
         <img src={`${imgBasePath}estrella.webp`} alt="Imagen representativa" />
         <p>Inicia Sesión</p>
