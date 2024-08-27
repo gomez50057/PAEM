@@ -27,7 +27,9 @@ const EditFormulario = ({ projectId, onClose }) => {
           correo: acuerdoData.correo || '',
           descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',
           descripcionAvance: acuerdoData.descripcion_avance || '',
-          documentos: Array.isArray(acuerdoData.documentos) ? acuerdoData.documentos : []
+          documentos: Array.isArray(acuerdoData.documentos) ? acuerdoData.documentos : [],
+          estado: acuerdoData.estado || '',
+          comision: acuerdoData.comision || ''
         });
 
         // Verifica si documentos es un array antes de usar .map()
@@ -62,6 +64,8 @@ const EditFormulario = ({ projectId, onClose }) => {
     formData.append('correo', values.correo);
     formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
     formData.append('descripcion_avance', values.descripcionAvance);
+    formData.append('estado', values.estado);
+    formData.append('comision', values.comision);
 
     files.forEach((file, index) => {
       if (file.file) {
