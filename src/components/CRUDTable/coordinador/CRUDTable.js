@@ -53,7 +53,19 @@ const CRUDTable = () => {
     { name: "id_unico", label: "ID Acuerdo" }, 
     { name: "fecha_creacion", label: "Fecha" },
     { name: "descripcion_acuerdo", label: "Descripción del Acuerdo" },
-    { name: "estatus", label: "Estatus" },
+    {
+      name: "estatus",
+      label: "Estatus",
+      options: {
+        customBodyRender: (value) => {
+          return (
+            <span style={{ color: value === "en_proceso" ? '#FFA500' : 'inherit' }}>
+              {value}
+            </span>
+          );
+        },
+      },
+    },
     { name: "descripcion_avance", label: "Descripción del Avance Inicial" },
     { name: "nombre", label: "Nombre" },
     { name: "apellido_paterno", label: "Apellido Paterno" },
