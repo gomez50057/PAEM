@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FormularioBase from './FormularioBase';
 import AgreementSuccessModal from './AgreementSuccessModal';
@@ -7,6 +7,16 @@ import './Formulario.css';
 const CreateFormulario = () => {
   const [files, setFiles] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [userState, setUserState] = useState(null); // Cambia el valor inicial a null
+  const [userCommission, setUserCommission] = useState(null); // Cambia el valor inicial a null
+
+  useEffect(() => {
+    // Accede a localStorage solo cuando el componente esté montado en el cliente
+    if (typeof window !== 'undefined') {
+      setUserState(localStorage.getItem('userState') || '');
+      setUserCommission(localStorage.getItem('userCommission') || '');
+    }
+  }, []);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const formData = new FormData();
@@ -59,8 +69,11 @@ const CreateFormulario = () => {
 
   const handleGoToHome = () => {
     setModalIsOpen(false);
-    // Lógica para redirigir a la página principal si es necesario
   };
+
+  if (userState === null || userCommission === null) {
+    return null; // O un spinner/cargando mientras se obtiene el estado del usuario
+  }
 
   return (
     <div className="create-formulario">
@@ -77,8 +90,8 @@ const CreateFormulario = () => {
           descripcionAcuerdo: '',
           descripcionAvance: '',
           documentos: [],
-          estado: localStorage.getItem('userState') || '',
-          comision: localStorage.getItem('userCommission') || ''
+          estado: userState, // Usa el estado obtenido de localStorage
+          comision: userCommission // Usa el estado obtenido de localStorage
         }}
         onSubmit={handleSubmit}
         files={files}
