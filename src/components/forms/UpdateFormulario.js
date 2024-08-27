@@ -4,7 +4,7 @@ import FormularioBase from './FormularioBase';
 import AgreementSuccessModal from './AgreementSuccessModal';
 import './Formulario.css';
 
-const UpdateFormulario = ({ projectId, onClose }) => { // Recibe projectId como prop
+const UpdateFormulario = ({ projectId, onClose }) => {
   const [files, setFiles] = useState([]);
   const [initialValues, setInitialValues] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -27,7 +27,9 @@ const UpdateFormulario = ({ projectId, onClose }) => { // Recibe projectId como 
           correo: acuerdoData.correo || '',
           descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',  // Mantén la descripción del acuerdo original
           descripcionAvance: '',  // Campo para que el usuario describa el avance de esta actualización
-          documentos: []  // Campo para subir nuevos documentos para esta actualización
+          documentos: [],  // Campo para subir nuevos documentos para esta actualización
+          estado: acuerdoData.estado || '',
+          comision: acuerdoData.comision || '',
         });
 
         setFiles([]);  // Limpiamos los archivos anteriores para comenzar con la nueva actualización
@@ -56,6 +58,8 @@ const UpdateFormulario = ({ projectId, onClose }) => { // Recibe projectId como 
     formData.append('telefono', values.telefono);
     formData.append('extension', values.extension);
     formData.append('correo', values.correo);
+    formData.append('estado', values.estado);
+    formData.append('comision', values.comision);
 
     // Incluir archivos nuevos si se subieron
     files.forEach((file, index) => {
