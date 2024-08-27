@@ -24,11 +24,16 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:8000/auth/inicio-sesion/', { username, password });
       if (response.data.status === 'ok') {
-        // Guardar los datos del usuario en localStorage
+        // Guardar el token de autenticación en las cookies
+        document.cookie = `authToken=${response.data.token}; path=/; SameSite=Lax; Secure`;
+
+        // Guardar otros datos del usuario en localStorage
         localStorage.setItem('userRole', response.data.group);
         localStorage.setItem('userName', response.data.username);
         localStorage.setItem('userState', response.data.estado);
         localStorage.setItem('userCommission', response.data.comision);
+
+        // Redirigir al dashboard
         window.location.href = '/dashboard';
       } else {
         setError('Usuario o contraseña incorrectos.');
