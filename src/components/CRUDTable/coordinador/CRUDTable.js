@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import MUIDataTable from 'mui-datatables';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Typography } from '@mui/material';
-import ProjectModal from './ProjectModal';
-import './CRUDTable.css';
+import ProjectModal from '../ProjectModal';
+import '../CRUDTable.css';
 import axios from 'axios';
 
 const CRUDTable = () => {

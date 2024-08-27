@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import Formulario from '../forms/CreateFormulario';
-import Acuerdos from '../CRUDTable/CRUDTable';
+import Acuerdos from '../CRUDTable/coordinador/CRUDTable';
 import TableResponsable from '../CRUDTable/responsable/TableResponsable';
 import TableEnlace from '../CRUDTable/enlace/TableEnlace';
 import Headerdashboard from '../dashboard/HeaderDashboard';
-import SvgIcon from '../SvgIcon';
+import SvgIcon from '../shared/SvgIcon';
 import ConfirmationModal from '../dashboard/ConfirmationModal';
 
 const Dashboard = () => {
