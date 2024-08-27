@@ -56,7 +56,9 @@ const TableEnlace = () => {
 
   const columns = [
     { name: "id", label: "ID Acuerdo", options: { display: false, viewColumns: false } }, 
-    { name: "id_unico", label: "ID Acuerdo" }, 
+    {
+      name: "id_unico", label: "ID Acuerdo", options: { sortDirection: 'desc', }
+    },
     { name: "fecha_creacion", label: "Fecha" },
     { name: "descripcion_acuerdo", label: "Descripción del Acuerdo" },
     { name: "descripcion_avance", label: "Descripción del Avance" },

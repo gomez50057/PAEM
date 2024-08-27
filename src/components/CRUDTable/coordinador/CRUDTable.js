@@ -51,8 +51,10 @@ const CRUDTable = () => {
   };
 
   const columns = [
-    { name: "id", label: "ID Acuerdo", options: { display: false, viewColumns: false } }, 
-    { name: "id_unico", label: "ID Acuerdo" }, 
+    { name: "id", label: "ID Acuerdo", options: { display: false, viewColumns: false } },
+    {
+      name: "id_unico", label: "ID Acuerdo", options: { sortDirection: 'desc', }
+    },
     { name: "fecha_creacion", label: "Fecha" },
     { name: "descripcion_acuerdo", label: "Descripción del Acuerdo" },
     {
@@ -62,7 +64,7 @@ const CRUDTable = () => {
         customBodyRender: (value) => {
           let displayValue;
           let color;
-    
+
           switch (value) {
             case "sin_avance":
               displayValue = "Sin Avance";
@@ -84,7 +86,7 @@ const CRUDTable = () => {
               displayValue = value; // Mostrar el valor original si no coincide
               color = "inherit"; // Sin color especial si no coincide
           }
-    
+
           return (
             <span style={{ color: color }}>
               {displayValue}
