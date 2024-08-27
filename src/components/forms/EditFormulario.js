@@ -9,6 +9,7 @@ const EditFormulario = ({ projectId, onClose }) => {
   const [initialValues, setInitialValues] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [estatus, setEstatus] = useState(''); // Estado para el campo estatus
 
   useEffect(() => {
     const fetchAcuerdoData = async () => {
@@ -29,8 +30,11 @@ const EditFormulario = ({ projectId, onClose }) => {
           descripcionAvance: acuerdoData.descripcion_avance || '',
           documentos: Array.isArray(acuerdoData.documentos) ? acuerdoData.documentos : [],
           estado: acuerdoData.estado || '',
-          comision: acuerdoData.comision || ''
+          comision: acuerdoData.comision || '',
         });
+
+        // Setear el estatus inicial si está presente en los datos del acuerdo
+        setEstatus(acuerdoData.estatus || '');
 
         // Verifica si documentos es un array antes de usar .map()
         setFiles(Array.isArray(acuerdoData.documentos) ? acuerdoData.documentos.map((doc) => ({
@@ -66,6 +70,7 @@ const EditFormulario = ({ projectId, onClose }) => {
     formData.append('descripcion_avance', values.descripcionAvance);
     formData.append('estado', values.estado);
     formData.append('comision', values.comision);
+    formData.append('estatus', estatus); // Agregar el campo 'estatus'
 
     files.forEach((file, index) => {
       if (file.file) {
@@ -113,6 +118,23 @@ const EditFormulario = ({ projectId, onClose }) => {
 
   return (
     <div className="edit-formulario">
+      <div className="form-group">
+        <label htmlFor="estatus">Estatus</label>
+        <select
+          id="estatus"
+          name="estatus"
+          value={estatus}
+          onChange={(e) => setEstatus(e.target.value)}
+          class="input-field"
+        >
+          <option value="">Selecciona un estatus</option>
+          <option value="en_proceso">En Proceso</option>
+          <option value="sin_avance">Sin Avance</option>
+          <option value="atendido">Atendido</option>
+          <option value="cancelado">Cancelado</option>
+        </select>
+      </div>
+      
       <FormularioBase
         initialValues={initialValues}
         onSubmit={handleSubmit}
