@@ -7,7 +7,7 @@ import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import './InteractiveMap.css';
 
-import { ZMP_Info, ZMT_Info, ZMTUL_Info } from './ZM';
+import { ZMP_Info, ZMT_Info, ZMTUL_Info, zmvm_InfoGeneral } from './ZM';
 
 const InteractiveMap = () => {
     const mapRef = useRef(null);
@@ -30,7 +30,7 @@ const InteractiveMap = () => {
 
         mapRef.current.attributionControl.setPrefix('');
 
-        // Función para crear capas GeoJSON
+        // Función para crear capas GeoJSON de Zonas Metropolitanas
         const geoJSONMetropolitanas = (data, fillColor, color) => {
             return L.geoJSON(data, {
                 style: function (feature) {
@@ -85,10 +85,43 @@ const InteractiveMap = () => {
             }).addTo(mapRef.current);
         };
 
+        // Función para crear capas GeoJSON de ZMVM
+        const geoJSONZMVM = (data) => {
+            return L.geoJSON(data, {
+                style: function (feature) {
+                    var nomEntidad = feature.properties.NOM_ENT;
+                    var color = nomEntidad === "Hidalgo" ? "#BC955B" :
+                        nomEntidad === "Estado de México" ? "#691B31" :
+                            nomEntidad === "Ciudad de México" ? "#3a9680" : "orange";
+                    return {
+                        fillColor: color,
+                        color: color,
+                        weight: 2.6,
+                        fillOpacity: 0.45
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    var poblacionMun = feature.properties.POBMUN.toLocaleString();
+                    var poblacionFem = feature.properties.POBFEM.toLocaleString();
+                    var poblacionMas = feature.properties.POBMAS.toLocaleString();
+                    var SupMun = feature.properties.Superficie.toFixed(3) + " km²";
+                    var PobMetro = feature.properties.POBMETRO.toLocaleString();
+                    layer.bindPopup("<div class='PopupT'>" + feature.properties.NOM_ENT + "</div>" +
+                        "<b>Nombre del Municipio:</b> " + feature.properties.NOM_MUN +
+                        "<br><b>Población Municipal:</b> " + poblacionMun +
+                        "<br><b>Mujeres:</b> " + poblacionFem +
+                        "<br><b>Hombres:</b> " + poblacionMas +
+                        "<br><b>Superficie:</b> " + SupMun +
+                        "<br><b>Población Metropolitana:</b> " + PobMetro);
+                }
+            }).addTo(mapRef.current);
+        };
+
         // Añade las capas GeoJSON al mapa
-        const InfoZMP = geoJSONMetropolitanas(ZMP_Info, '#B6DC76', 'transparent');
+        const InfoZMP = geoJSONMetropolitanas(ZMP_Info, '#B6DC76', '#fff');
         const InfoZMT = geoJSONMetropolitanas(ZMT_Info, 'Aqua', 'transparent');
         const InfoZMTUL = geoJSONMetropolitanas(ZMTUL_Info, '#241E4E', 'transparent');
+        const ZMVM_InfoGene = geoJSONZMVM(zmvm_InfoGeneral); // Añadir la capa ZMVM
 
         setTimeout(() => mapRef.current.invalidateSize(), 300);
 
