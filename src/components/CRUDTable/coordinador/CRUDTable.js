@@ -58,9 +58,34 @@ const CRUDTable = () => {
       label: "Estatus",
       options: {
         customBodyRender: (value) => {
+          let displayValue;
+          let color;
+    
+          switch (value) {
+            case "sin_avance":
+              displayValue = "Sin Avance";
+              color = "#FF0000"; // Rojo para indicar que no hay avance
+              break;
+            case "en_proceso":
+              displayValue = "En Proceso";
+              color = "#FFA500"; // Naranja para indicar que está en proceso
+              break;
+            case "atendido":
+              displayValue = "Atendido";
+              color = "#008000"; // Verde para indicar que ha sido atendido
+              break;
+            case "cancelado":
+              displayValue = "Cancelado";
+              color = "#808080"; // Gris para indicar que ha sido cancelado
+              break;
+            default:
+              displayValue = value; // Mostrar el valor original si no coincide
+              color = "inherit"; // Sin color especial si no coincide
+          }
+    
           return (
-            <span style={{ color: value === "en_proceso" ? '#FFA500' : 'inherit' }}>
-              {value}
+            <span style={{ color: color }}>
+              {displayValue}
             </span>
           );
         },
