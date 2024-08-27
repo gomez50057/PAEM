@@ -14,17 +14,18 @@ const TableResponsable = () => {
   const [modalMode, setModalMode] = useState('update');
   const [noDataMessage, setNoDataMessage] = useState('');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/api/acuerdos/');
-        setData(response.data);
-        filterDataByUserState(response.data); // Filtrado solo por estado
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+  // Mueve fetchData fuera del useEffect para que pueda reutilizarse
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/acuerdos/');
+      setData(response.data);
+      filterDataByUserState(response.data); // Filtrado solo por estado
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -49,6 +50,7 @@ const TableResponsable = () => {
   const handleCloseModal = () => {
     setOpenModal(false);
     setSelectedProjectId(null);
+    fetchData(); // Volver a cargar los datos después de cerrar el modal
   };
 
   const columns = [
