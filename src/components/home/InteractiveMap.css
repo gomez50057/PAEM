@@ -1,18 +1,18 @@
-.mapaConte{
+.mapaConte {
   display: flex;
   align-items: center;
 }
 
-.mapaTxt{
+.mapaTxt {
   background: none;
   justify-content: center;
   width: 40vw;
   padding: 30px;
 }
 
-.mapaTxt p{
-text-align: justify;
-font-size: 1.1rem;
+.mapaTxt p {
+  text-align: justify;
+  font-size: 1.1rem;
 }
 
 #sidebar {
@@ -84,10 +84,10 @@ font-size: 1.1rem;
 
 @media (max-width: 768px) {
   #fullscreenButton {
-      top: 5px;
-      right: 5px;
-      font-size: 24px;
-      padding: 8px;
+    top: 5px;
+    right: 5px;
+    font-size: 24px;
+    padding: 8px;
   }
 }
 
@@ -109,64 +109,10 @@ font-size: 1.1rem;
 
 @media (max-width: 600px) {
   #sidebar {
-      padding: 10px;
+    padding: 10px;
   }
 }
 
-
-.leaflet-oldie .marker-cluster-large,
-.leaflet-oldie .marker-cluster-medium,
-.leaflet-oldie .marker-cluster-small,
-.marker-cluster-large,
-.marker-cluster-medium,
-.marker-cluster-small {
-  background-color: hsla(345, 65%, 38%, .6)
-}
-
-.leaflet-oldie .marker-cluster-large div,
-.leaflet-oldie .marker-cluster-medium div,
-.leaflet-oldie .marker-cluster-small div,
-.marker-cluster-large div,
-.marker-cluster-medium div,
-.marker-cluster-small div {
-  background-color: hsla(343, 58%, 26%, .6)
-}
-
-.marker-cluster {
-  background-clip: padding-box;
-  border-radius: 20px
-}
-
-.marker-cluster div {
-  width: 30px;
-  height: 30px;
-  margin-left: 5px;
-  margin-top: 5px;
-  color: #ccc;
-  text-align: center;
-  border-radius: 15px
-}
-
-.marker-cluster span {
-  line-height: 30px
-}
-
-
-.leaflet-cluster-anim .leaflet-marker-icon,
-.leaflet-cluster-anim .leaflet-marker-shadow {
-  -webkit-transition: -webkit-transform 0.3s ease-out, opacity 0.3s ease-in;
-  -moz-transition: -moz-transform 0.3s ease-out, opacity 0.3s ease-in;
-  -o-transition: -o-transform 0.3s ease-out, opacity 0.3s ease-in;
-  transition: transform 0.3s ease-out, opacity 0.3s ease-in;
-}
-
-.leaflet-cluster-spider-leg {
-  /* stroke-dashoffset (duration and function) should match with leaflet-marker-icon transform in order to track it exactly */
-  -webkit-transition: -webkit-stroke-dashoffset 0.3s ease-out, -webkit-stroke-opacity 0.3s ease-in;
-  -moz-transition: -moz-stroke-dashoffset 0.3s ease-out, -moz-stroke-opacity 0.3s ease-in;
-  -o-transition: -o-stroke-dashoffset 0.3s ease-out, -o-stroke-opacity 0.3s ease-in;
-  transition: stroke-dashoffset 0.3s ease-out, stroke-opacity 0.3s ease-in;
-}
 
 /* Estilo general para el popup */
 .leaflet-popup-content-wrapper {
@@ -189,13 +135,13 @@ font-size: 1.1rem;
 
 @keyframes fadeIn {
   from {
-      opacity: 0;
-      transform: translateY(-10px);
+    opacity: 0;
+    transform: translateY(-10px);
   }
 
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -233,16 +179,16 @@ font-size: 1.1rem;
 
 @media (max-width: 600px) {
   .leaflet-popup-content-wrapper {
-      width: 90vw;
-      border-radius: 20px;
+    width: 90vw;
+    border-radius: 20px;
   }
 
   .popup-content {
-      width: 87vw;
+    width: 87vw;
   }
 
   .popup-project-name {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 
