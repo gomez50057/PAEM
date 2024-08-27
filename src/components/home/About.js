@@ -12,7 +12,7 @@ const About = () => {
         </div>
       </div>
       <div className="about_txt">
-        <h3>¿Qué Son Las Comisiones Metropolitanas del Valle de México?</h3>
+        <h2>¿Qué son las <span className="span-doarado">Comisiones Metropolitanas</span> del <span>Valle de México?</span></h2>
         <p>Las Comisiones son órganos auxiliares del Consejo, cuya labor consiste en informar, desahogar, proponer, recomendar, analizar, investigar, opinar y evaluar los Asuntos Metropolitanos que corresponden a la problemática sectorial que atiende cada Comisión en particular.</p>
         <h3>Objetivo</h3>
         <p>Proporcionar un punto de acceso de información que permita consultar y administrar los acuerdos generados dentro de las comisiones metropolitanas del valle de México.</p>

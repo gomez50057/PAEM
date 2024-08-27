@@ -228,7 +228,7 @@ const InteractiveMap = () => {
                 </div>
             </div>
             <div className="mapaTxt">
-                <h2><span>Explora</span> las <span>Zonas Metropolitanas</span> en el <span>Mapa</span> Interactivo</h2>
+                <h2><span>Explora</span> las <span className="span-doarado">Zonas Metropolitanas</span> en el <span>Mapa</span> Interactivo</h2>
                 <p>Descubre las Zonas Metropolitanas de Pachuca, Tula, Tulancingo y el Valle de México. Haz clic en cada zona para ver datos detallados de los municipios y sus características. ¡Explora ahora!</p>
             </div>
         </section>

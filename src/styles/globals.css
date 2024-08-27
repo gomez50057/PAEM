@@ -50,8 +50,14 @@ h2 {
 }
 
 h1 span,
-h2 span {
+h2 span,
+h3 span {
   font-weight: 700;
+}
+
+h2 .span-doarado {
+  color: var(--doradoOsc);
+  font-style: italic;
 }
 
 p {

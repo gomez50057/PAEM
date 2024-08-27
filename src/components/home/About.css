@@ -6,17 +6,18 @@
 .about_txt {
   width: 60vw;
   height: auto;
+  padding-right: 2.5vw;
 }
 
 .about_txt h3 {
   color: var(--vinoOsc);
   font-size: 2rem;
   font-weight: 600;
-  padding-right: 2.5vw;
 }
 
 .about_txt p {
   text-align: justify;
+  font-size: 1.1rem;
   padding-right: 2.5vw;
   line-height: 1.5;
 }
