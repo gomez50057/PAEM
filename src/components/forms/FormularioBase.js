@@ -22,14 +22,14 @@ const validationSchema = Yup.object().shape({
     .required('La descripción del avance es obligatoria'),
 });
 
-const FormularioBase = ({ initialValues, onSubmit, files, setFiles }) => {
+const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableFields = {} }) => {
   const formatPhoneNumber = (value) => {
     const cleanedValue = value.replace(/\D/g, '');
     return cleanedValue.length <= 3
       ? cleanedValue
       : cleanedValue.length <= 6
-      ? `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3)}`
-      : `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6)}`;
+        ? `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3)}`
+        : `${cleanedValue.slice(0, 3)}-${cleanedValue.slice(3, 6)}-${cleanedValue.slice(6)}`;
   };
 
   const handlePhoneNumberChange = (e, setFieldValue) => {
@@ -133,7 +133,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles }) => {
           <h2>Acuerdo</h2>
           <div className="form-group">
             <label>Descripción del Acuerdo:</label>
-            <Field name="descripcionAcuerdo" as="textarea" rows="5" className="input-field" placeholder="Agrega una descripción del acuerdo no mayor a 5000 caracteres" />
+            <Field name="descripcionAcuerdo" as="textarea" rows="5" className="input-field" placeholder="Agrega una descripción del acuerdo no mayor a 5000 caracteres" disabled={disableFields.descripcionAcuerdo} />
             <ErrorMessage name="descripcionAcuerdo" component="div" className="error-message" />
           </div>
 
