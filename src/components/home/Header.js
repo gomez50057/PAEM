@@ -41,16 +41,16 @@ const Header = () => {
         <div className="ZonasMetro">
           <p>¡Elige una Zona Metropolitana! </p>
           <div className="content_circuleZM">
-            <div className="circuleZM" onClick={() => handleCircleClick('ZM de Pachuca')}>
+            <div className="circuleZM" onClick={() => handleCircleClick('ZMP')}>
               <div className="tooltip">ZM de Pachuca </div>
             </div>
-            <div className="circuleZM" onClick={() => handleCircleClick('ZM de Tula')}>
+            <div className="circuleZM" onClick={() => handleCircleClick('ZMTula')}>
               <div className="tooltip">ZM de Tula</div>
             </div>
-            <div className="circuleZM" onClick={() => handleCircleClick('ZM de Tulancingo')}>
+            <div className="circuleZM" onClick={() => handleCircleClick('ZMTulancingo')}>
               <div className="tooltip">ZM de Tulancingo</div>
             </div>
-            <div className="circuleZM" onClick={() => handleCircleClick('ZM del Valle de México')}>
+            <div className="circuleZM" onClick={() => handleCircleClick('ZMVM')}>
               <div className="tooltip">ZM del Valle de México</div>
             </div>
           </div>
