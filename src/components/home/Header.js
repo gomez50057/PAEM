@@ -25,11 +25,24 @@ const Header = () => {
       <div className="content_header">
         <div className="header_txt fade-in-target" ref={txtRef}>
           <img src={`${imgBasePath}headertxt.png`} alt="img_representativa" />
-          <p>Comisiones de la Zona Metropolitana del Valle de México</p>
         </div>
+
+        <div className="ZonasMetro">
+          <p>¡Elige una Zona Metropolitana! </p>
+          <div className="content_circuleZM">
+            <div className="circuleZM"></div>
+            <div className="circuleZM"></div>
+            <div className="circuleZM"></div>
+            <div className="circuleZM"></div>
+
+          </div>
+        </div>
+
         <div className="header_img fade-in-target" ref={imgRef}>
           <img src={`${imgBasePath}headerimg.png`} alt="img_representativa" className="floating-img" />
         </div>
+
+
       </div>
     </section>
   );
