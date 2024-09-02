@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react';
 import './Header.css';
 
-
 const Header = () => {
   const imgBasePath = "/img/";
   const txtRef = useRef(null);
@@ -19,6 +18,18 @@ const Header = () => {
     }
   }, []);
 
+  // Función para establecer una cookie
+  const setCookie = (name, value, days) => {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+  };
+
+  // Función de controlador para manejar el clic en cada círculo
+  const handleCircleClick = (zona) => {
+    setCookie('selectedZonaMetropolitana', zona, 7); // Guardar la selección en cookies por 7 días
+  };
+
   return (
     <section id="header" className="header-container">
       <div className="background-svg" />
@@ -30,19 +41,24 @@ const Header = () => {
         <div className="ZonasMetro">
           <p>¡Elige una Zona Metropolitana! </p>
           <div className="content_circuleZM">
-            <div className="circuleZM"></div>
-            <div className="circuleZM"></div>
-            <div className="circuleZM"></div>
-            <div className="circuleZM"></div>
-
+            <div className="circuleZM" onClick={() => handleCircleClick('ZM de Pachuca')}>
+              <div className="tooltip">ZM de Pachuca </div>
+            </div>
+            <div className="circuleZM" onClick={() => handleCircleClick('ZM de Tula')}>
+              <div className="tooltip">ZM de Tula</div>
+            </div>
+            <div className="circuleZM" onClick={() => handleCircleClick('ZM de Tulancingo')}>
+              <div className="tooltip">ZM de Tulancingo</div>
+            </div>
+            <div className="circuleZM" onClick={() => handleCircleClick('ZM del Valle de México')}>
+              <div className="tooltip">ZM del Valle de México</div>
+            </div>
           </div>
         </div>
 
         <div className="header_img fade-in-target" ref={imgRef}>
           <img src={`${imgBasePath}headerimg.png`} alt="img_representativa" className="floating-img" />
         </div>
-
-
       </div>
     </section>
   );

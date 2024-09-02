@@ -86,7 +86,6 @@
   opacity: 1 !important;
 }
 
-
 .ZonasMetro {
   position: absolute;
   display: flex;
@@ -115,11 +114,12 @@
 }
 
 .circuleZM {
+  position: relative;
   width: 8rem;
   height: 8rem;
   background-color: yellow;
   border-radius: 50%;
-  transition: 1S;
+  transition: 1s;
   cursor: pointer;
 }
 
@@ -127,5 +127,25 @@
   scale: 1.4;
   transform: translateY(-30px);
   margin: 40px;
+}
 
+/* Tooltip CSS */
+.tooltip {
+  position: absolute;
+  bottom: 110%; /* Ajusta la posición del tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none; /* Evita que el tooltip interfiera con el hover */
+  white-space: nowrap;
+}
+
+.circuleZM:hover .tooltip {
+  opacity: 1;
 }
