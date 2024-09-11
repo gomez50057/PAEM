@@ -14,15 +14,21 @@ const About = () => {
   const [zonaSeleccionada, setZonaSeleccionada] = useState('');
 
   useEffect(() => {
-    const getCookie = (name) => {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-      return '';
+    const getZonaFromLocalStorage = () => {
+      const zonaMetropolitana = localStorage.getItem('selectedZonaMetropolitana');
+      setZonaSeleccionada(zonaMetropolitana || ''); // Actualiza el estado
     };
 
-    const zonaMetropolitana = getCookie('selectedZonaMetropolitana');
-    setZonaSeleccionada(zonaMetropolitana);
+    // Cargar la zona seleccionada al montar el componente
+    getZonaFromLocalStorage();
+
+    // Escuchar el evento personalizado 'zonaChanged'
+    window.addEventListener('zonaChanged', getZonaFromLocalStorage);
+
+    // Limpieza del event listener cuando el componente se desmonte
+    return () => {
+      window.removeEventListener('zonaChanged', getZonaFromLocalStorage);
+    };
   }, []);
 
   const images = getImages(zonaSeleccionada);

@@ -9,7 +9,6 @@ const Header = () => {
   const imgRef = useRef(null);
 
   useEffect(() => {
-    // Activar fade-in para los elementos al montar el componente
     if (txtRef.current) {
       txtRef.current.classList.add('fade-in');
     }
@@ -18,16 +17,10 @@ const Header = () => {
     }
   }, []);
 
-  // Función para establecer una cookie
-  const setCookie = (name, value, days) => {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
-  };
-
-  // Función de controlador para manejar el clic en cada círculo
-  const handleCircleClick = (zona) => {
-    setCookie('selectedZonaMetropolitana', zona, 7); // Guardar la selección en cookies por 7 días
+  const setZonaAndDispatchEvent = (zona) => {
+    localStorage.setItem('selectedZonaMetropolitana', zona); // Guardar en localStorage
+    const event = new Event('zonaChanged'); // Crear un evento personalizado
+    window.dispatchEvent(event); // Emitir el evento
   };
 
   return (
@@ -41,16 +34,16 @@ const Header = () => {
         <div className="ZonasMetro">
           <p>¡Elige una Zona Metropolitana! </p>
           <div className="content_circuleZM">
-            <div className="circuleZM" onClick={() => handleCircleClick('ZMP')}>
+            <div className="circuleZM" onClick={() => setZonaAndDispatchEvent('ZMP')}>
               <div className="tooltip">ZM de Pachuca </div>
             </div>
-            <div className="circuleZM" onClick={() => handleCircleClick('ZMTula')}>
+            <div className="circuleZM" onClick={() => setZonaAndDispatchEvent('ZMTula')}>
               <div className="tooltip">ZM de Tula</div>
             </div>
-            <div className="circuleZM" onClick={() => handleCircleClick('ZMTulancingo')}>
+            <div className="circuleZM" onClick={() => setZonaAndDispatchEvent('ZMTulancingo')}>
               <div className="tooltip">ZM de Tulancingo</div>
             </div>
-            <div className="circuleZM" onClick={() => handleCircleClick('ZMVM')}>
+            <div className="circuleZM" onClick={() => setZonaAndDispatchEvent('ZMVM')}>
               <div className="tooltip">ZM del Valle de México</div>
             </div>
           </div>
