@@ -1,19 +1,21 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import './InteractiveMap.css';
 import { ZMP_Info, ZMT_Info, ZMTUL_Info, zmvm_InfoGeneral } from './ZM';
+import { getTituloZona, getPreposicion } from '../../utils/home'; // Importar las funciones necesarias
 
 const InteractiveMap = () => {
     const mapRef = useRef(null);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [L, setL] = useState(null); // Estado para Leaflet
+    const [zonaSeleccionada, setZonaSeleccionada] = useState('ZMP'); // Zona Metropolitana seleccionada (por defecto ZMP)
 
     useEffect(() => {
-        // Importa Leaflet solo en el cliente
+        // Importar Leaflet solo en el cliente
         if (typeof window !== 'undefined') {
             import('leaflet').then((module) => {
                 setL(module.default);
@@ -23,7 +25,13 @@ const InteractiveMap = () => {
     }, []);
 
     useEffect(() => {
-        if (!L) return; // Si Leaflet aún no está cargado, no hagas nada
+        // Obtener la zona metropolitana seleccionada desde localStorage
+        const selectedZonaMetropolitana = localStorage.getItem('selectedZonaMetropolitana') || 'ZMP'; // Por defecto ZMP
+        setZonaSeleccionada(selectedZonaMetropolitana);
+    }, []);
+
+    useEffect(() => {
+        if (!L || !zonaSeleccionada) return; // Si Leaflet o la zona no está cargada, no hagas nada
 
         const commonStyle = (fillColor, color, weight = 2) => ({
             fillColor,
@@ -144,7 +152,7 @@ const InteractiveMap = () => {
             }).addTo(mapRef.current);
         };
 
-        // Inicializa el mapa y añade capas solo si Leaflet está cargado
+        // Inicializar el mapa solo si Leaflet está cargado
         if (L) {
             mapRef.current = L.map('map', {
                 center: [19.6296533, -98.9263916],
@@ -161,21 +169,27 @@ const InteractiveMap = () => {
 
             mapRef.current.attributionControl.setPrefix('');
 
-            // Añade las capas GeoJSON al mapa
-            geoJSONMetropolitanas(ZMP_Info, '#DEC9A3', '#DEC9A3');
-            geoJSONMetropolitanas(ZMT_Info, '#98989a', '#98989a');
-            geoJSONMetropolitanas(ZMTUL_Info, '#A02142', '#A02142');
-            geoJSONZMVM(zmvm_InfoGeneral);
+            // Condicional para agregar la capa correcta según la zona metropolitana seleccionada
+            if (zonaSeleccionada === 'ZMP') {
+                geoJSONMetropolitanas(ZMP_Info, '#DEC9A3', '#DEC9A3');
+            } else if (zonaSeleccionada === 'ZMTula') {
+                geoJSONMetropolitanas(ZMT_Info, '#98989a', '#98989a');
+            } else if (zonaSeleccionada === 'ZMTulancingo') {
+                geoJSONMetropolitanas(ZMTUL_Info, '#A02142', '#A02142');
+            } else if (zonaSeleccionada === 'ZMVM') {
+                geoJSONZMVM(zmvm_InfoGeneral);
+            }
 
             setTimeout(() => mapRef.current.invalidateSize(), 300);
         }
 
+        // Limpiar el mapa al desmontar el componente
         return () => {
             if (mapRef.current) {
                 mapRef.current.remove();
             }
         };
-    }, [L]);
+    }, [L, zonaSeleccionada]); // El efecto depende de Leaflet y la zona seleccionada
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -228,8 +242,8 @@ const InteractiveMap = () => {
                 </div>
             </div>
             <div className="mapaTxt">
-                <h2><span>Explora</span> las <span className="span-doarado">Zonas Metropolitanas</span> en el <span>Mapa</span> Interactivo</h2>
-                <p>Descubre las Zonas Metropolitanas de Pachuca, Tula, Tulancingo y el Valle de México. Haz clic en cada zona para ver datos detallados de los municipios y sus características. ¡Explora ahora!</p>
+                <h2><span>Explora</span> la <span className="span-doarado">Zona Metropolitana</span> en el <span>Mapa</span> Interactivo</h2>
+                <p>Descubre las Zonas Metropolitanas {getPreposicion(zonaSeleccionada)} {getTituloZona(zonaSeleccionada)}. Haz clic en cada zona para ver datos detallados de los municipios y sus características. ¡Explora ahora!</p>
             </div>
         </section>
     );
