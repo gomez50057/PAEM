@@ -17,10 +17,19 @@ const Header = () => {
     }
   }, []);
 
-  const setZonaAndDispatchEvent = (zona) => {
-    localStorage.setItem('selectedZonaMetropolitana', zona); // Guardar en localStorage
-    const event = new Event('zonaChanged'); // Crear un evento personalizado
-    window.dispatchEvent(event); // Emitir el evento
+  // Función para manejar la selección de zona y desplazarse hacia abajo
+  const setZonaAndScroll = (zona) => {
+    // Guardar en localStorage
+    localStorage.setItem('selectedZonaMetropolitana', zona); 
+    // Emitir evento personalizado
+    const event = new Event('zonaChanged');
+    window.dispatchEvent(event); 
+
+    // Desplazarse hacia abajo 100vh
+    window.scrollTo({
+      top: window.innerHeight,  // Esto desplaza 100vh
+      behavior: 'smooth',       // Animación suave
+    });
   };
 
   return (
@@ -34,16 +43,16 @@ const Header = () => {
         <div className="ZonasMetro">
           <p>¡Elige una Zona Metropolitana! </p>
           <div className="content_circuleZM">
-            <div className="circuleZM" onClick={() => setZonaAndDispatchEvent('ZMP')}>
-              <div className="tooltip">ZM de Pachuca </div>
+            <div className="circuleZM" onClick={() => setZonaAndScroll('ZMP')}>
+              <div className="tooltip">ZM de Pachuca</div>
             </div>
-            <div className="circuleZM" onClick={() => setZonaAndDispatchEvent('ZMTula')}>
+            <div className="circuleZM" onClick={() => setZonaAndScroll('ZMTula')}>
               <div className="tooltip">ZM de Tula</div>
             </div>
-            <div className="circuleZM" onClick={() => setZonaAndDispatchEvent('ZMTulancingo')}>
+            <div className="circuleZM" onClick={() => setZonaAndScroll('ZMTulancingo')}>
               <div className="tooltip">ZM de Tulancingo</div>
             </div>
-            <div className="circuleZM" onClick={() => setZonaAndDispatchEvent('ZMVM')}>
+            <div className="circuleZM" onClick={() => setZonaAndScroll('ZMVM')}>
               <div className="tooltip">ZM del Valle de México</div>
             </div>
           </div>
