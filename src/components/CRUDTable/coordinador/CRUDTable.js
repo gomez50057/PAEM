@@ -88,7 +88,7 @@ const CRUDTable = () => {
           }
 
           return (
-            <span style={{ color: color }}>
+            <span style={{ backgroundColor: color, padding:'10px', borderRadius: '20px', color: "#f5f5f5" }}>
               {displayValue}
             </span>
           );
