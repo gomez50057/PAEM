@@ -7,7 +7,7 @@ import TableResponsable from '../CRUDTable/responsable/TableResponsable';
 import TableEnlace from '../CRUDTable/enlace/TableEnlace';
 import Headerdashboard from '../dashboard/HeaderDashboard';
 import SvgIcon from '../shared/SvgIcon';
-import ConfirmationModal from '../dashboard/ConfirmationModal';
+import ConfirmationModal from '../shared/LogoutModal';
 
 const Dashboard = () => {
   const [activeComponent, setActiveComponent] = useState('formulario'); // El formulario es el componente predeterminado

@@ -1,28 +1,34 @@
+// ConfirmationModal.js
 import React from 'react';
-import './LogoutModal.css';
-import axios from 'axios';
+import './LogoutModal.css'; // Archivo CSS para el estilo del modal
 
-const LogoutModal = ({ isOpen, onClose }) => {
+const deleteCookie = (name) => {
+  document.cookie = `${name}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Lax; Secure`;
+};
+
+const handleLogout = () => {
+  // Borra todas las cookies relacionadas con la sesión
+  deleteCookie('authToken');
+  deleteCookie('userRole');
+  deleteCookie('userName');
+  deleteCookie('userState');
+  deleteCookie('userCommission');
+  
+  // Redirige a la página de inicio de sesión o a la página principal
+  window.location.href = '/login';
+};
+
+const LogoutModal = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
 
-  const handleLogout = async () => {
-    try {
-      await axios.post('/api/logout/');
-      window.location.href = '/login';  // Redirige al login después de cerrar sesión
-    } catch (error) {
-      console.error('Error al cerrar sesión:', error);
-      alert('Hubo un error al cerrar sesión. Intenta de nuevo.');
-    }
-  };
-
   return (
-    <div className="confirmation-modal-overlay" onClick={onClose}>
-      <div className="confirmation-modal-content" onClick={(e) => e.stopPropagation()}>
+    <div className="confirmation-modal">
+      <div className="modal-content">
         <h2>Estás a punto de cerrar sesión</h2>
         <p>¿Estás seguro de que deseas salir?</p>
-        <div className="confirmation-modal-buttons">
-          <button className="confirm-button" onClick={handleLogout}>Sí, Cerrar Sesión</button>
-          <button className="cancel-button" onClick={onClose}>No</button>
+        <div className="modal-buttons">
+          <button onClick={() => { onConfirm(); handleLogout(); }} className="confirm-button">Sí, Cerrar Sesión</button>
+          <button onClick={onClose} className="cancel-button">No</button>
         </div>
       </div>
     </div>
