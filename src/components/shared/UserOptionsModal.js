@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'; // Next.js 13 o superior usa `next/
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
 import './UserOptionsModal.css';
+import LogoutModal from './LogoutModal'; // Importar el componente de confirmación
 
 const imgBasePath = "https://bibliotecadigitaluplaph.hidalgo.gob.mx/img_banco/";
 
@@ -37,13 +38,17 @@ const UserOptionsModal = ({ isOpen, onClose, anchorElement, username }) => {
   };
 
   const handleLogoutClick = () => {
-    setIsLogoutModalOpen(true);
+    setIsLogoutModalOpen(true);  // Abrir modal de confirmación
   };
 
   const handleFaqClick = () => {
     if (isClient) {
       router.push('/preguntas-frecuentes');  // Redirigir solo si estamos en el cliente
     }
+  };
+
+  const closeLogoutModal = () => {
+    setIsLogoutModalOpen(false);  // Cerrar el modal de confirmación
   };
 
   return (
@@ -78,7 +83,11 @@ const UserOptionsModal = ({ isOpen, onClose, anchorElement, username }) => {
         </div>
       </div>
 
-      {/* Aquí podrías añadir la lógica para el modal de confirmación de cierre de sesión */}
+      <LogoutModal
+        isOpen={isLogoutModalOpen}
+        onClose={closeLogoutModal}
+        onConfirm={closeLogoutModal}  
+      />
     </>
   );
 };
