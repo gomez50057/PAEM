@@ -24,10 +24,20 @@ const InteractiveMap = () => {
         }
     }, []);
 
+    // Escuchar el evento "zonaChanged" para actualizar la zona seleccionada
     useEffect(() => {
-        // Obtener la zona metropolitana seleccionada desde localStorage
-        const selectedZonaMetropolitana = localStorage.getItem('selectedZonaMetropolitana') || 'ZMP'; // Por defecto ZMP
-        setZonaSeleccionada(selectedZonaMetropolitana);
+        const handleZonaChange = () => {
+            const newZona = localStorage.getItem('selectedZonaMetropolitana') || 'ZMP'; // Obtener la nueva zona seleccionada
+            setZonaSeleccionada(newZona); // Actualizar el estado
+        };
+
+        // Agregar el evento listener
+        window.addEventListener('zonaChanged', handleZonaChange);
+
+        // Limpiar el evento listener cuando se desmonte el componente
+        return () => {
+            window.removeEventListener('zonaChanged', handleZonaChange);
+        };
     }, []);
 
     useEffect(() => {
@@ -243,7 +253,7 @@ const InteractiveMap = () => {
             </div>
             <div className="mapaTxt">
                 <h2><span>Explora</span> la <span className="span-doarado">Zona Metropolitana</span> en el <span>Mapa</span> Interactivo</h2>
-                <p>Descubre las Zonas Metropolitanas {getPreposicion(zonaSeleccionada)} {getTituloZona(zonaSeleccionada)}. Haz clic en cada zona para ver datos detallados de los municipios y sus características. ¡Explora ahora!</p>
+                <p>Descubre sobre la Zona Metropolitana {getPreposicion(zonaSeleccionada)} {getTituloZona(zonaSeleccionada)}. Haz clic en cada zona para ver datos detallados de los municipios y sus características. ¡Explora ahora!</p>
             </div>
         </section>
     );
