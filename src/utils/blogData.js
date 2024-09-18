@@ -1,37 +1,35 @@
 export const blogPosts = [
   {
-    name: "Iceland",
-    description: "Explora los paisajes impresionantes de Islandia.",
+    name: "Lorem ipsum dolor sit amet",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras placerat augue ac lectus finibus feugiat.",
     date: "23 de septiembre, 2024",
-    image: "https://i.ibb.co/qCkd9jS/img1.jpg",
-    category: "ZMPachuca",
+    image: "https://via.placeholder.com/400x300",
+    quote: "El lugar donde la naturaleza te deja sin palabras."
   },
   {
-    name: "Finland",
-    description: "Descubre la belleza invernal de Finlandia.",
+    name: "Cras tincidunt ipsum",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt ipsum in urna dapibus viverra. Nulla facilisi. Etiam at eros sed elit tempor aliquam.",
     date: "22 de septiembre, 2024",
-    image: "https://i.ibb.co/jrRb11q/img2.jpg",
-    category: "ZMTula",
+    image: "https://via.placeholder.com/400x300",
+    quote: "El invierno más hermoso que jamás hayas visto."
   },
   {
-    name: "Australia",
-    description: "Una tierra diversa llena de maravillas naturales.",
+    name: "Phasellus ac odio",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac odio in turpis pellentesque gravida. Duis et justo sit amet ligula efficitur laoreet.",
     date: "21 de septiembre, 2024",
-    image: "https://i.ibb.co/NSwVv8D/img3.jpg",
-    category: "ZMTulancingo",
+    image: "https://via.placeholder.com/400x300"
   },
   {
-    name: "Netherlands",
-    description: "Explora los tulipanes y molinos de viento de los Países Bajos.",
+    name: "Nulla facilisi suspendisse",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Suspendisse et nibh nec lorem pellentesque laoreet non non magna.",
     date: "20 de septiembre, 2024",
-    image: "https://i.ibb.co/Bq4Q0M8/img4.jpg",
-    category: "ZMVM",
+    image: "https://via.placeholder.com/400x300",
+    quote: "Donde los tulipanes cuentan historias."
   },
   {
-    name: "Ireland",
-    description: "Explora la verde campiña irlandesa.",
+    name: "Sed viverra purus",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra, purus a viverra tincidunt, augue odio vestibulum orci, ac fringilla dui turpis eget erat.",
     date: "19 de septiembre, 2024",
-    image: "https://i.ibb.co/RNkk6L0/img6.jpg",
-    category: "ZMPachuca",
-  },
+    image: "https://via.placeholder.com/400x300"
+  }
 ];
