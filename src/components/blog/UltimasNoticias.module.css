@@ -1,0 +1,45 @@
+.ultimasNoticias {
+  padding: 50px;
+  background-color: white;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.newsItem {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.newsImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.newsTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.newsDate {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.newsDescription {
+  font-size: 1rem;
+  color: #333;
+}

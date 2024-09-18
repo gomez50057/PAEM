@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '@/components/shared/Navbar';
-import BlogHeader from '@/components/blog/BlogHeader';
+import BlogMain  from '@/components/blog/BlogMain';
 
 
 
@@ -8,7 +8,7 @@ const News = () => {
   return (
     <div>
       <Navbar />
-      <BlogHeader />
+      <BlogMain   />
     </div>
   );
 };
