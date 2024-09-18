@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./BlogHeader.module.css";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const BlogHeader = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -25,14 +26,11 @@ const BlogHeader = () => {
   };
 
   return (
-    <div
-      className={styles.container}
-      style={{ backgroundImage: `url(${items[activeIndex].bg})` }}
-    >
+    <div className={`${styles.container} ${styles.fadeIn}`} style={{ backgroundImage: `url(${items[activeIndex].bg})` }}>
       <div className={styles.content}>
-        <div className={styles.name}>{items[activeIndex].name}</div>
-        <div className={styles.des}>{items[activeIndex].des}</div>
-        <button>See More</button>
+        <div className={`${styles.name} ${styles.fadeIn}`}>{items[activeIndex].name}</div>
+        <div className={`${styles.des} ${styles.fadeIn}`}>{items[activeIndex].des}</div>
+        <button className={styles.fadeIn}>See More</button>
       </div>
 
       <div className={styles.previewContainer}>
@@ -44,7 +42,7 @@ const BlogHeader = () => {
             return (
               <div
                 key={nextIndex}
-                className={styles.previewItem}
+                className={`${styles.previewItem} ${styles.slideAnimation}`}
                 style={{ backgroundImage: `url(${items[nextIndex].bg})` }}
               ></div>
             );
@@ -53,10 +51,10 @@ const BlogHeader = () => {
 
       <div className={styles.button}>
         <button className={styles.prevButton} onClick={handlePrev}>
-          <i className="fa-solid fa-arrow-left"></i>
+          <ArrowBackIos />
         </button>
         <button className={styles.nextButton} onClick={handleNext}>
-          <i className="fa-solid fa-arrow-right"></i>
+          <ArrowForwardIos />
         </button>
       </div>
     </div>
