@@ -55,7 +55,8 @@ h3 span {
   font-weight: 700;
 }
 
-h2 .span-doarado {
+h2 .span-doarado,
+h1 .span-doarado {
   color: var(--doradoOsc);
   font-style: italic;
 }

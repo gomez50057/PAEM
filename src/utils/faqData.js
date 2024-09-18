@@ -1,8 +1,8 @@
 import { AttachFile, Assignment } from '@mui/icons-material';
 
 export const categories = [
-  { name: 'Archivos Adjuntos', icon: <AttachFile />, id: 'ArchivosAdjuntos' },
   { name: 'Formulario', icon: <Assignment />, id: 'Formulario' },
+  { name: 'Archivos Adjuntos', icon: <AttachFile />, id: 'ArchivosAdjuntos' },
 ];
 
 export const questions = {

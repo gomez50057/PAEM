@@ -7,7 +7,7 @@ import { categories, questions } from '../../utils/faqData';
 import './FAQ.css';
 
 const FAQ = () => {
-  const [activeCategory, setActiveCategory] = useState('ArchivosAdjuntos');
+  const [activeCategory, setActiveCategory] = useState('Formulario');
   const [openQuestion, setOpenQuestion] = useState(null);
 
   const handleToggleQuestion = (index) => {
@@ -17,7 +17,7 @@ const FAQ = () => {
   return (
     <div className="faq">
       <div className="faq-title">
-        <h1>Preguntas Frecuentes</h1>
+        <h1>Preguntas <span className="span-doarado">Frecuentes</span></h1>
         <p>¿Cómo Empezar?</p>
       </div>
 
