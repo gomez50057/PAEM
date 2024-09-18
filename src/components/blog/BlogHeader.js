@@ -17,7 +17,7 @@ const BlogHeader = () => {
 
   useEffect(() => {
     // Actualizamos la clave de animación para reiniciar las animaciones
-    setAnimationKey(prevKey => prevKey + 1);
+    setAnimationKey((prevKey) => prevKey + 1);
   }, [activeIndex]);
 
   const handleNext = () => {
@@ -30,6 +30,10 @@ const BlogHeader = () => {
 
   const getNextIndex = (index, offset) => {
     return (index + offset) % items.length;
+  };
+
+  const handlePreviewClick = (index) => {
+    setActiveIndex(index); // Cambiar la diapositiva al hacer clic en la previsualización
   };
 
   return (
@@ -58,6 +62,7 @@ const BlogHeader = () => {
                 key={nextIndex}
                 className={`${styles.previewItem} ${styles.slideAnimation}`}
                 style={{ backgroundImage: `url(${items[nextIndex].bg})` }}
+                onClick={() => handlePreviewClick(nextIndex)} // Manejar clic para cambiar a esta diapositiva
               ></div>
             );
           })}

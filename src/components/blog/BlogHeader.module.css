@@ -52,6 +52,7 @@
 .previewItem {
   width: 150px;
   height: 250px;
+  cursor: pointer;
   background-position: center;
   background-size: cover;
   border-radius: 15px;
