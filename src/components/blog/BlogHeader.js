@@ -38,6 +38,8 @@ const BlogHeader = () => {
 
   return (
     <div className={`${styles.container}`} style={{ backgroundImage: `url(${items[activeIndex].bg})` }}>
+      <div className={styles.overlay}></div> {/* Capa semitransparente */}
+
       <div className={styles.content}>
         {/* Asignamos claves únicas para cada elemento */}
         <div key={`${animationKey}-name`} className={`${styles.name} ${styles.textAnimation} delay-1`}>

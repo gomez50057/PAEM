@@ -12,6 +12,17 @@
   transition: background-image 0.8s ease-in-out;
 }
 
+/* Capa semitransparente para mejorar la legibilidad del texto */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Fondo negro con 50% de transparencia */
+  z-index: 1;
+}
+
 .content {
   position: absolute;
   top: 50%;
@@ -20,6 +31,7 @@
   color: white;
   text-align: left;
   max-width: 300px;
+  z-index: 2; /* Asegurarnos que el texto esté sobre la capa semi-transparente */
 }
 
 .content .name {
@@ -54,6 +66,7 @@
   right: 50px;
   bottom: 50px;
   gap: 20px;
+  z-index: 2; /* Previsualizaciones sobre la capa semitransparente */
 }
 
 .previewItem {
@@ -121,7 +134,7 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(50px); /* Mayor desplazamiento para hacer la animación más notoria */
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
