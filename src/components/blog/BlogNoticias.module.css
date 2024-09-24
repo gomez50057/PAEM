@@ -1,12 +1,11 @@
 .blogNoticias {
   display: flex;
-  justify-content: space-between;
-  padding: 50px;
-  background-color: white;
+  gap: 20px;
+  padding-left: 50px;
 }
 
 .newsSection {
-  width: 70%;
+  flex: 3;
 }
 
 .newsHeader {
@@ -17,79 +16,46 @@
 }
 
 .orderSelect {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .newsGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
 .newsItem {
-  background-color: #f4f4f4;
+  background-color: #fff;
+  padding: 15px;
   border-radius: 10px;
-  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .newsImage {
   width: 100%;
-  height: 200px;
+  height: 150px;
   object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .newsContent {
-  padding: 15px;
+  padding: 10px 0;
 }
 
 .newsMeta {
-  color: #888;
   font-size: 0.9rem;
+  color: #888;
 }
 
 .newsTitle {
-  font-size: 1.2rem;
-  margin: 10px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .newsDescription {
   font-size: 1rem;
-  color: #333;
-}
-
-.featuredSection {
-  width: 25%;
-  padding-left: 20px;
-}
-
-.featuredTitle {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.featuredList {
-  list-style: none;
-  padding: 0;
-}
-
-.featuredItem {
-  margin-bottom: 15px;
-}
-
-.featuredDate {
-  font-size: 0.9rem;
-  color: #888;
-}
-
-.featuredLink {
-  font-size: 1.1rem;
-  color: #000;
-  text-decoration: none;
-}
-
-.featuredLink:hover {
-  color: #007bff;
+  color: #555;
 }

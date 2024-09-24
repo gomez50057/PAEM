@@ -40,8 +40,24 @@ export const blogPosts = [
 ];
 
 export const featuredPosts = [
-  { name: "Vivir en el momento presente, plenamente consciente.", date: "16 de julio de 2024" },
-  { name: "Expresarse a través del arte, la música o la escritura.", date: "16 de julio de 2024" },
-  { name: "Explicación de las innovaciones en la tecnología de energía renovable.", date: "1 de agosto de 2024" },
-  { name: "Recetas a base de plantas para cada plan de alimentación.", date: "1 de agosto de 2024" }
+  { 
+    name: "Vivir en el momento presente, plenamente consciente.",
+    date: "16 de julio de 2024",
+    image: "https://via.placeholder.com/150?text=Vivir+en+el+Momento"
+  },
+  { 
+    name: "Expresarse a través del arte, la música o la escritura.",
+    date: "16 de julio de 2024",
+    image: "https://via.placeholder.com/150?text=Arte+Música+Escritura"
+  },
+  { 
+    name: "Explicación de las innovaciones en la tecnología de energía renovable.",
+    date: "1 de agosto de 2024",
+    image: "https://via.placeholder.com/150?text=Innovaciones+Energía+Renovable"
+  },
+  { 
+    name: "Recetas a base de plantas para cada plan de alimentación.",
+    date: "1 de agosto de 2024",
+    image: "https://via.placeholder.com/150?text=Recetas+Plantas"
+  }
 ];

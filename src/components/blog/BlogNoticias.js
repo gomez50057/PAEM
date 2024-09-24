@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './BlogNoticias.module.css';
+import FeaturedPosts from './FeaturedPosts'; // Importamos el nuevo componente
 
 const BlogNoticias = ({ posts, featuredPosts }) => {
   return (
@@ -7,7 +8,7 @@ const BlogNoticias = ({ posts, featuredPosts }) => {
       {/* Sección de Noticias */}
       <div className={styles.newsSection}>
         <div className={styles.newsHeader}>
-          <h2>Estilo de vida</h2>
+          <h2> <span>Noticias</span> de las <span>Zonas</span> <span className="span-doarado">Metropolitanas</span> </h2>
           <select className={styles.orderSelect}>
             <option>Entradas recientes</option>
             <option>Más populares</option>
@@ -28,17 +29,7 @@ const BlogNoticias = ({ posts, featuredPosts }) => {
       </div>
 
       {/* Barra Lateral - Publicaciones Destacadas */}
-      <aside className={styles.featuredSection}>
-        <h3 className={styles.featuredTitle}>Publicación destacada</h3>
-        <ul className={styles.featuredList}>
-          {featuredPosts.map((post, index) => (
-            <li key={index} className={styles.featuredItem}>
-              <p className={styles.featuredDate}>{post.date}</p>
-              <a href="#" className={styles.featuredLink}>{post.name}</a>
-            </li>
-          ))}
-        </ul>
-      </aside>
+      <FeaturedPosts featuredPosts={featuredPosts} />
     </section>
   );
 };

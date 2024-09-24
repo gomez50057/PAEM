@@ -7,8 +7,6 @@
   font-size: 2.5rem;
   margin-bottom: 30px;
   text-align: center;
-  font-family: 'Helvetica Neue', sans-serif;
-  color: #222;
 }
 
 .newsGrid {
@@ -60,7 +58,7 @@
 }
 
 .readMoreBtn {
-  background-color: #007BFF;
+  background-color: var(--vinoClr);
   color: white;
   padding: 8px 12px;
   border: none;
@@ -74,7 +72,7 @@
 }
 
 .readMoreBtn:hover {
-  background-color: #0056b3;
+  background-color: var(--vinoOsc);
 }
 
 .quote {
@@ -85,6 +83,6 @@
   text-align: center;
   padding: 10px;
   background-color: #eef1f6;
-  border-left: 4px solid #007BFF;
+  border-left: 4px solid var(--vinoClr);
   border-radius: 8px;
 }
