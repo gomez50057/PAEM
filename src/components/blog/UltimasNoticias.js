@@ -6,7 +6,10 @@ const UltimasNoticias = ({ posts }) => {
 
   return (
     <section className={styles.ultimasNoticias}>
-      <h2 className={styles.sectionTitle}> <span className="span-doarado">Últimas </span> Noticias</h2>
+      <h2 className={styles.sectionTitle}> <span className="span-doarado">Últimas </span> Noticias
+      
+      
+      </h2>
       <div className={styles.newsGrid}>
         {posts.map((post, index) => (
           <div key={index} className={styles.newsItem}>
