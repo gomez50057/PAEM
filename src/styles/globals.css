@@ -65,3 +65,21 @@ p {
   color: var(--grisOsc);
   font-weight: 500;
 }
+
+.readMoreBtn {
+  background-color: var(--vinoClr);
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.readMoreBtn:hover {
+  background-color: var(--vinoOsc);
+}

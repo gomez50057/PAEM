@@ -20,7 +20,7 @@ const UltimasNoticias = ({ posts }) => {
             </p>
 
             {/* Botón para ver más detalles */}
-            <Link href={`/noticias/${post.name.toLowerCase().replace(/\s+/g, "-")}`} className={styles.readMoreBtn}>
+            <Link href={`/noticias/${post.name.toLowerCase().replace(/\s+/g, "-")}`}className="readMoreBtn">
               Leer más
             </Link>
 
