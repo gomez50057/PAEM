@@ -6,12 +6,15 @@ import Link from "next/link";
 const BlogNoticias = ({ posts, featuredPosts }) => {
   const MAX_LENGTH = 50;
 
-  // Estado para manejar la categoría seleccionada
   const [selectedCategory, setSelectedCategory] = useState('Todas');
-
-  // Función para manejar el cambio en el select
+  const [fadeEffect, setFadeEffect] = useState(false);
+  // Función para manejar el cambio en el select con un pequeño delay para la animación
   const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
+    setFadeEffect(true); // Inicia el fade-out
+    setTimeout(() => {
+      setSelectedCategory(event.target.value);
+      setFadeEffect(false); // Inicia el fade-in
+    }, 300); // Retardo de 300ms para que se vea el efecto de transición
   };
 
   // Filtrar las publicaciones según la categoría seleccionada
@@ -32,7 +35,7 @@ const BlogNoticias = ({ posts, featuredPosts }) => {
             <option value="ZMTulancingo">ZMTulancingo</option>
           </select>
         </div>
-        <div className={styles.newsGrid}>
+        <div className={`${styles.newsGrid} ${fadeEffect ? styles.fadeOut : styles.fadeIn}`}>
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post, index) => (
               <div key={index} className={styles.newsItem}>
