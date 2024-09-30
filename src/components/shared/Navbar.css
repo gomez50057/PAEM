@@ -33,9 +33,14 @@
   padding: 14px 16px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: var(--vinoOsc);
   transition: color 0.3s, text-decoration 0.3s;
+}
+
+.Navbar .navbar_opc li a{
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .Navbar li a:hover {
@@ -78,6 +83,13 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4),
     0 14px 28px rgba(0, 0, 0, 0.25);
 }
+
+@media (max-width: 768px) {
+  .Navbar li {
+    margin: 0;
+  }
+}
+
 
 .Navbar_inicio,
 .Navbar_img,

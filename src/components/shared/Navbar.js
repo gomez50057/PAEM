@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className="Navbar_inicio">
           <div className="navbar_opc">
             <li><Link href="/integrantes" className=""> Integrantes  </Link></li>
-            <li><Link href="/" className=""> Noticias  </Link></li>
+            <li><Link href="/noticias" className=""> Noticias  </Link></li>
             <li><Link href="/login" className=""> Acceder </Link></li>
           </div>
           <div className="Navbar_circulo" ref={circuloRef} onClick={handleCirculoClick}>
