@@ -1,20 +1,35 @@
 "use client";
 
-import React, { useState } from 'react';
-// import { getTituloZona } from '../../utils/utils';
+import React, { useState, useEffect } from 'react';
 import ZMVMComponent from '../teams/ZM/ZMVMComponent';
 import ZMHidalgoComponent from '../teams/ZM/ZMHidalgoComponent';
 import styles from './ZonasMetropolitanas.module.css';
+
+// Función para obtener la zona seleccionada desde el localStorage o usar un valor predeterminado
+const getZonaFromLocalStorage = () => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('selectedZonaMetropolitana') || 'ZMVM'; // 'ZMVM' como valor por defecto
+  }
+  return 'ZMVM';
+};
 
 const ZonasMetropolitanas = () => {
   const [zonaSeleccionada, setZonaSeleccionada] = useState('ZMVM'); // Estado para la zona seleccionada
   const [fade, setFade] = useState('fade-in'); // Estado para el efecto de fade
 
+  // Cargar la zona seleccionada al montar el componente
+  useEffect(() => {
+    const selectedZonaMetropolitana = getZonaFromLocalStorage();
+    setZonaSeleccionada(selectedZonaMetropolitana); // Establece el valor inicial a partir de selectedZonaMetropolitana
+  }, []);
+
+  // Función para cambiar de zona
   const handleZonaChange = (zona) => {
     setFade('fade-out');
     setTimeout(() => {
       setZonaSeleccionada(zona);
       setFade('fade-in');
+      localStorage.setItem('selectedZonaMetropolitana', zona); // Guardar la zona seleccionada en localStorage
     }, 300); // Retraso para la animación
   };
 
