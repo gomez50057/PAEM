@@ -8,7 +8,7 @@ import styles from './ZonasMetropolitanas.module.css';
 // Función para obtener la zona seleccionada desde el localStorage o usar un valor predeterminado
 const getZonaFromLocalStorage = () => {
   if (typeof window !== 'undefined') {
-    return localStorage.getItem('selectedZonaMetropolitana') || 'ZMVM'; // 'ZMVM' como valor por defecto
+    return localStorage.getItem('selectedZonaMetropolitana') || 'ZMVM';
   }
   return 'ZMVM';
 };
