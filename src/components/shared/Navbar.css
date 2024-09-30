@@ -91,6 +91,12 @@
 }
 
 
+@media (max-width: 768px) {
+  .Navbar_inicio .navbar_opc {
+    display: none;
+  }
+}
+
 .Navbar_inicio,
 .Navbar_img,
 .navbar_opc {

@@ -63,7 +63,7 @@
   margin-right: 10px;
 }
 
-.menu-item span {
+.menu-item span .menu-item span a{
   flex-grow: 1;
   font-size: 14px;
   color: var(--grisClr);
@@ -92,4 +92,15 @@
 .logout-button:hover {
   background: linear-gradient(to right, #a7193f, #7c0d2b, #5b1126, #4b0c1e, #380716);
   transform: scale(1.05);
+}
+
+.small-screen-links {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .small-screen-links {
+    display: flex;
+    align-items: center;
+  }
 }

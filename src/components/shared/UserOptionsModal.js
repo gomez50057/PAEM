@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation'; // Next.js 13 o superior usa `next/navigation`
+import { useRouter } from 'next/navigation';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
 import './UserOptionsModal.css';
@@ -21,7 +21,7 @@ const UserOptionsModal = ({ isOpen, onClose, anchorElement, username }) => {
     }
   }, []);
 
-  if (!isOpen || !anchorElement || !isClient) return null; // Si no es el cliente, no hacemos nada
+  if (!isOpen || !anchorElement || !isClient) return null;
 
   const { top, left, height } = anchorElement.getBoundingClientRect();
   const modalStyle = {
@@ -33,22 +33,22 @@ const UserOptionsModal = ({ isOpen, onClose, anchorElement, username }) => {
 
   const handleLoginRedirect = () => {
     if (isClient) {
-      router.push('/login');  // Redirigir solo si estamos en el cliente
+      router.push('/login');
     }
   };
 
   const handleLogoutClick = () => {
-    setIsLogoutModalOpen(true);  // Abrir modal de confirmación
+    setIsLogoutModalOpen(true);
   };
 
   const handleFaqClick = () => {
     if (isClient) {
-      router.push('/preguntas-frecuentes');  // Redirigir solo si estamos en el cliente
+      router.push('/preguntas-frecuentes');
     }
   };
 
   const closeLogoutModal = () => {
-    setIsLogoutModalOpen(false);  // Cerrar el modal de confirmación
+    setIsLogoutModalOpen(false);
   };
 
   return (
@@ -73,6 +73,22 @@ const UserOptionsModal = ({ isOpen, onClose, anchorElement, username }) => {
             <span>Preguntas frecuentes</span>
           </div>
 
+          {/* Bloques de enlaces con íconos */}
+          <div className="menu-item small-screen-links" onClick={handleFaqClick}>
+            <HelpOutlineIcon />
+            <span><a href="/integrantes" className="">Integrantes</a></span>
+          </div>
+
+          <div className="menu-item small-screen-links" onClick={handleFaqClick}>
+            <HelpOutlineIcon />
+            <span><a href="/noticias" className="">Noticias</a></span>
+          </div>
+
+          <div className="menu-item small-screen-links" onClick={handleFaqClick}>
+            <HelpOutlineIcon />
+            <span><a href="/login" className="">Acceder</a></span>
+          </div>
+
           <button
             className="logout-button"
             onClick={username ? handleLogoutClick : handleLoginRedirect}
@@ -86,7 +102,7 @@ const UserOptionsModal = ({ isOpen, onClose, anchorElement, username }) => {
       <LogoutModal
         isOpen={isLogoutModalOpen}
         onClose={closeLogoutModal}
-        onConfirm={closeLogoutModal}  
+        onConfirm={closeLogoutModal}
       />
     </>
   );
