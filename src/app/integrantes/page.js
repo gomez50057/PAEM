@@ -1,10 +1,5 @@
 import React from 'react';
-import EstatalMetro from '@/components/teams/EstatalMetro';
-import Tecnico from '@/components/teams/Tecnico';
-import FederalTeam from '@/components/teams/FederalTeam';
-import CDMXTeam from '@/components/teams/CDMXTeam';
-import EDOMEXTeam from '@/components/teams/EDOMEXTeam';
-import HGOTeam from '@/components/teams/HGOTeam';
+import ZonasMetropolitanas from '@/components/teams/ZonasMetropolitanas';
 import Navbar from '@/components/shared/Navbar';
 
 
@@ -12,12 +7,7 @@ const IntegrantesPage = () => {
   return (
     <div>
       <Navbar />
-      <EstatalMetro />
-      <Tecnico />
-      <FederalTeam />
-      <HGOTeam />
-      <CDMXTeam />
-      <EDOMEXTeam />
+      <ZonasMetropolitanas />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import './Team.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Team = ({ teamName, teamMembers, isTecnicoTeam = false }) => {
+const Team = ({ teamName, teamSubName, teamMembers, isTecnicoTeam = false }) => {
   const teamRef = useRef(null);
 
   useEffect(() => {
@@ -59,6 +59,7 @@ const Team = ({ teamName, teamMembers, isTecnicoTeam = false }) => {
   return (
     <div className="team-container" ref={teamRef}>
       <h2 className="team-title">{teamName}</h2>
+      <h3 className="team-Subtitle">{teamSubName}</h3>
       {teamMembers.map((member, index) => (
         <div key={index} className="team-card">
           <div className="team-card-image">

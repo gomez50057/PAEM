@@ -5,7 +5,7 @@ import { tecnicoTeamMembers } from '@/utils/utils';
 const HGOTeam = () => {
   return (
     <Team 
-      teamName="Consejo Técnico"
+      teamSubName="Secretariado Técnico Conjunto"
       teamMembers={tecnicoTeamMembers}
       isTecnicoTeam={true} 
     />
