@@ -57,20 +57,51 @@ const TableEnlace = () => {
   };
 
   const columns = [
-    { name: "id", label: "ID Acuerdo", options: { display: false, viewColumns: false } }, 
+    { name: "id", label: "ID Acuerdo", options: { display: false, viewColumns: false } },
     {
       name: "id_unico", label: "ID Acuerdo", options: { sortDirection: 'desc', }
     },
     { name: "fecha_creacion", label: "Fecha" },
     { name: "descripcion_acuerdo", label: "Descripción del Acuerdo" },
-    { name: "descripcion_avance", label: "Descripción del Avance" },
-    { name: "nombre", label: "Nombre" },
-    { name: "apellido_paterno", label: "Apellido Paterno" },
-    { name: "apellido_materno", label: "Apellido Materno" },
-    { name: "area_adscripcion", label: "Área Adscripción" },
-    { name: "telefono", label: "Teléfono" },
-    { name: "extension", label: "Extensión" },
-    { name: "correo", label: "Correo" },
+    {
+      name: "estatus",
+      label: "Estatus",
+      options: {
+        customBodyRender: (value) => {
+          let displayValue;
+          let color;
+
+          switch (value) {
+            case "sin_avance":
+              displayValue = "Sin Avance";
+              color = "#FF0000"; // Rojo para indicar que no hay avance
+              break;
+            case "en_proceso":
+              displayValue = "En Proceso";
+              color = "#FFA500"; // Naranja para indicar que está en proceso
+              break;
+            case "atendido":
+              displayValue = "Atendido";
+              color = "#008000"; // Verde para indicar que ha sido atendido
+              break;
+            case "cancelado":
+              displayValue = "Cancelado";
+              color = "#808080"; // Gris para indicar que ha sido cancelado
+              break;
+            default:
+              displayValue = value; // Mostrar el valor original si no coincide
+              color = "inherit"; // Sin color especial si no coincide
+          }
+
+          return (
+            <span style={{ backgroundColor: color, padding:'10px', borderRadius: '20px', color: "#f5f5f5", display: 'ruby'}}>
+              {displayValue}
+            </span>
+          );
+        },
+      },
+    },
+    
     { name: "documentos", label: "Documentos" },
     {
       name: "acciones",

@@ -137,11 +137,11 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
             <ErrorMessage name="descripcionAcuerdo" component="div" className="error-message" />
           </div>
 
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Descripción del Avance:</label>
             <Field name="descripcionAvance" as="textarea" rows="5" className="input-field" placeholder="Agrega una descripción del avance no mayor a 5000 caracteres" />
             <ErrorMessage name="descripcionAvance" component="div" className="error-message" />
-          </div>
+          </div> */}
 
           <div className="form-group">
             <label>Documentos (evidencia):</label>

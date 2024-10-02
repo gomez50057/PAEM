@@ -10,7 +10,7 @@ import SvgIcon from '../shared/SvgIcon';
 import ConfirmationModal from '../shared/LogoutModal';
 
 const Dashboard = () => {
-  const [activeComponent, setActiveComponent] = useState('formulario'); // El formulario es el componente predeterminado
+  const [activeComponent, setActiveComponent] = useState(''); // El formulario es el componente predeterminado
   const [userRole, setUserRole] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -96,9 +96,12 @@ const Dashboard = () => {
               </a>
             </li>
           )}
-          {(userRole === 'coordinador' || userRole === 'responsable' || userRole === 'enlace') && (
+          {/* {(userRole === 'coordinador' || userRole === 'responsable' || userRole === 'enlace') && ( */}
+          {(userRole === 'coordinador') && (
+
             <li
-              className="list-item active" // El formulario es la opción activa por defecto
+              // className="list-item active"
+              className="list-item"
               data-component="formulario"
               onClick={() => handleMenuClick('formulario')}
             >

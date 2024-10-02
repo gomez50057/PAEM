@@ -18,13 +18,13 @@ const UpdateFormulario = ({ projectId, onClose }) => {
 
         setInitialValues({
           fecha: new Date().toISOString().slice(0, 10),  // Fecha de la nueva actualización
-          nombre: acuerdoData.nombre || '',
-          apellidoPaterno: acuerdoData.apellido_paterno || '',
-          apellidoMaterno: acuerdoData.apellido_materno || '',
-          areaAdscripcion: acuerdoData.area_adscripcion || '',
-          telefono: acuerdoData.telefono || '',
-          extension: acuerdoData.extension || '',
-          correo: acuerdoData.correo || '',
+          nombre: '',
+          apellidoPaterno: '',
+          apellidoMaterno: '',
+          areaAdscripcion: '',
+          telefono: '',
+          extension: '',
+          correo: '',
           descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',  // Mantén la descripción del acuerdo original
           descripcionAvance: '',  // Campo para que el usuario describa el avance de esta actualización
           documentos: [],  // Campo para subir nuevos documentos para esta actualización
