@@ -10,7 +10,7 @@ const CreateFormulario = () => {
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const formData = new FormData();
-    formData.append('fecha', values.fecha);
+    formData.append('fecha_creacion', values.fecha);
     formData.append('nombre', values.nombre);
     formData.append('apellido_paterno', values.apellidoPaterno);
     formData.append('apellido_materno', values.apellidoMaterno);
@@ -65,7 +65,7 @@ const CreateFormulario = () => {
     <div className="create-formulario">
       <FormularioBase
         initialValues={{
-          fecha: new Date().toISOString().slice(0, 10), // Valor por defecto: fecha actual
+          fecha: '',
           nombre: '',
           apellidoPaterno: '',
           apellidoMaterno: '',
