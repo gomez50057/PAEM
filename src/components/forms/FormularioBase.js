@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import FileUploader from './FileUploader';
 import './Formulario.css';
+import { comisiones } from '../../utils/comisiones';
 
 const validationSchema = Yup.object().shape({
   nombre: Yup.string().required('El nombre es obligatorio'),
@@ -53,16 +54,37 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
           <div className="form-row">
             <div className="form-group">
               <label>Fecha:</label>
-              <Field name="fecha" type="text" disabled className="input-field" />
+              <Field name="fecha" type="date" className="input-field" />
             </div>
             <div className="form-group">
               <label>Estado:</label>
-              <Field name="estado" type="text" disabled className="input-field" />
+              <Field name="estado" as="select" className="input-field">
+                <option value="">Selecciona un estado</option>
+                <option value="Estado de México">Estado de México</option>
+                <option value="Ciudad de México">Ciudad de México</option>
+                <option value="Hidalgo">Hidalgo</option>
+              </Field>
+              <ErrorMessage name="estado" component="div" className="error-message" />
             </div>
+
+
             <div className="form-group">
               <label>Comisión:</label>
-              <Field name="comision" type="text" disabled className="input-field" />
+              <Field name="comision" as="select" className="input-field">
+                <option value="">Selecciona una comisión</option>
+                {comisiones && comisiones.length > 0 ? (
+                  comisiones.map((comision, index) => (
+                    <option key={index} value={comision}>
+                      {comision}
+                    </option>
+                  ))
+                ) : (
+                  <option value="">Cargando comisiones...</option>
+                )}
+              </Field>
             </div>
+
+
           </div>
 
           {/* Existing fields */}
