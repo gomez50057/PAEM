@@ -1,37 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Dropzone from 'react-dropzone';
 
-const MinutaUploader = ({ onFilesChange }) => {
-  const [file, setFile] = useState(null);
-
+const MinutaUploader = ({ minuta, setMinuta }) => {
+  
   const handleDrop = (acceptedFiles) => {
     if (acceptedFiles.length > 0) {
       const newFile = acceptedFiles[0];
-      setFile({
+      setMinuta({
         file: newFile,
         preview: URL.createObjectURL(newFile),
       });
-      onFilesChange(newFile);
     }
   };
 
   const handleRemoveFile = () => {
-    setFile(null);
-    onFilesChange(null);
+    setMinuta(null);  // Reseteamos el archivo en el componente padre
   };
 
   return (
     <Dropzone
       onDrop={handleDrop}
-      accept={{ 'application/pdf': ['.pdf'] }}  // Asegúrate de aceptar solo archivos PDF
-      maxFiles={1}  // Solo permite cargar un archivo
+      accept={{ 'application/pdf': ['.pdf'] }}  // Solo aceptar archivos PDF
+      maxFiles={1}  // Solo un archivo permitido
     >
       {({ getRootProps, getInputProps }) => (
         <div {...getRootProps()} className="dropzone">
           <input {...getInputProps()} />
-          {file ? (
+          {minuta ? (
             <div className="file-preview">
-              <p>{file.file.name}</p>
+              <p>{minuta.file.name}</p>
               <button type="button" onClick={handleRemoveFile}>
                 Eliminar
               </button>

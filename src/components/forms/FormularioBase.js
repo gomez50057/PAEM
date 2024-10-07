@@ -26,7 +26,7 @@ const validationSchema = Yup.object().shape({
   //   .required('La descripción del avance es obligatoria'),
 });
 
-const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableFields = {}, showDescripcionAvance = false }) => {
+const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setMinuta, disableFields = {}, showDescripcionAvance = false }) => {
   const formatPhoneNumber = (value) => {
     const cleanedValue = value.replace(/\D/g, '');
     return cleanedValue.length <= 3
@@ -57,7 +57,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
           <div className="form-row">
             <div className="form-group">
               <label>Fecha:</label>
-              <Field name="fecha" type="date" className="input-field" disabled={disableFields.descripcionAcuerdo}/>
+              <Field name="fecha" type="date" className="input-field" disabled={disableFields.descripcionAcuerdo} />
             </div>
             <div className="form-group">
               <label>Estado:</label>
@@ -171,7 +171,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
           <div className="form-group">
             <label>Minuta:</label>
             <p>En esta sección, puedes cargar la minuta del proyecto en formato PDF. Recuerda que solo se permite subir un único archivo y debe ser exclusivamente en formato PDF. Asegúrate de que el archivo contiene toda la información relevante antes de realizar la subida.</p>
-            <MinutaUploader onFilesChange={setFiles} />
+            <MinutaUploader minuta={minuta} setMinuta={setMinuta} />
           </div>
 
           <div className="form-group">

@@ -5,18 +5,23 @@ const FileUploader = ({ onFilesChange }) => {
   const [files, setFiles] = useState([]);
 
   const handleDrop = (acceptedFiles) => {
-    const newFiles = acceptedFiles.map(file => ({
+    const newFiles = acceptedFiles.map((file) => ({
       file,
       preview: URL.createObjectURL(file),
       progress: 0,
       completed: false
     }));
-    setFiles(prevFiles => [...prevFiles, ...newFiles]);
-    onFilesChange(newFiles);
+    
+    setFiles((prevFiles) => {
+      const updatedFiles = [...prevFiles, ...newFiles];
+      onFilesChange(updatedFiles);
+      return updatedFiles;
+    });
 
+    // Simulación de progreso (opcional)
     newFiles.forEach((newFile, index) => {
       const interval = setInterval(() => {
-        setFiles(prevFiles => {
+        setFiles((prevFiles) => {
           const updatedFiles = [...prevFiles];
           const currentFileIndex = prevFiles.length - newFiles.length + index;
           const currentFile = updatedFiles[currentFileIndex];
@@ -35,9 +40,11 @@ const FileUploader = ({ onFilesChange }) => {
   };
 
   const handleRemoveFile = (fileToRemove) => {
-    const updatedFiles = files.filter(file => file.file !== fileToRemove);
-    setFiles(updatedFiles);
-    onFilesChange(updatedFiles);
+    setFiles((prevFiles) => {
+      const updatedFiles = prevFiles.filter((file) => file.file !== fileToRemove);
+      onFilesChange(updatedFiles);
+      return updatedFiles;
+    });
   };
 
   return (
@@ -50,7 +57,7 @@ const FileUploader = ({ onFilesChange }) => {
               <img src="/img/iconos/dropzone.png" alt="Icono de archivo" />
               <div className="dropzone-txt">
                 <p>Arrastra y suelta <span className="highlight">imágenes, vídeos o cualquier archivo</span></p>
-                <p>o<span className="highlight"> buscar archivos</span> en su computadora</p>
+                <p>o <span className="highlight">buscar archivos</span> en su computadora</p>
               </div>
             </>
           )}
