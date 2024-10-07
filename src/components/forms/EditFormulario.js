@@ -58,7 +58,7 @@ const EditFormulario = ({ projectId, onClose }) => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     const formData = new FormData();
-    formData.append('fecha', values.fecha);
+    formData.append('fecha_creacion', values.fecha);
     formData.append('nombre', values.nombre);
     formData.append('apellido_paterno', values.apellidoPaterno);
     formData.append('apellido_materno', values.apellidoMaterno);

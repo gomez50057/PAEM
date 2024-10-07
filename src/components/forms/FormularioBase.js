@@ -57,7 +57,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
           <div className="form-row">
             <div className="form-group">
               <label>Fecha:</label>
-              <Field name="fecha" type="date" className="input-field" />
+              <Field name="fecha" type="date" className="input-field" disabled={disableFields.descripcionAcuerdo}/>
             </div>
             <div className="form-group">
               <label>Estado:</label>
