@@ -58,9 +58,7 @@ const TableEnlace = () => {
 
   const columns = [
     { name: "id", label: "ID Acuerdo", options: { display: false, viewColumns: false } },
-    {
-      name: "id_unico", label: "ID Acuerdo", options: { sortDirection: 'desc', }
-    },
+    { name: "id_unico", label: "ID Acuerdo" },
     { name: "fecha_creacion", label: "Fecha" },
     { name: "descripcion_acuerdo", label: "Descripción del Acuerdo" },
     {
@@ -94,14 +92,14 @@ const TableEnlace = () => {
           }
 
           return (
-            <span style={{ backgroundColor: color, padding:'10px', borderRadius: '20px', color: "#f5f5f5", display: 'ruby'}}>
+            <span style={{ backgroundColor: color, padding: '10px', borderRadius: '20px', color: "#f5f5f5", display: 'ruby' }}>
               {displayValue}
             </span>
           );
         },
       },
     },
-    
+
     { name: "documentos", label: "Documentos" },
     {
       name: "acciones",

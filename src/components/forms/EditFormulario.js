@@ -125,7 +125,7 @@ const EditFormulario = ({ projectId, onClose }) => {
           name="estatus"
           value={estatus}
           onChange={(e) => setEstatus(e.target.value)}
-          class="input-field"
+          className="input-field"
         >
           <option value="">Selecciona un estatus</option>
           <option value="en_proceso">En Proceso</option>
