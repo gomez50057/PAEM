@@ -68,8 +68,6 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
               </Field>
               <ErrorMessage name="estado" component="div" className="error-message" />
             </div>
-
-
             <div className="form-group">
               <label>Comisión:</label>
               <Field name="comision" as="select" className="input-field">
