@@ -19,9 +19,9 @@ const CreateFormulario = () => {
     formData.append('extension', values.extension);
     formData.append('correo', values.correo);
     formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
-    formData.append('descripcion_avance', values.descripcionAvance);
-    formData.append('estado', values.estado); // Valor seleccionado por el usuario
-    formData.append('comision', values.comision); // Valor seleccionado por el usuario
+    // formData.append('descripcion_avance', values.descripcionAvance);
+    formData.append('estado', values.estado);
+    formData.append('comision', values.comision);
 
     files.forEach((file, index) => {
       formData.append(`documentos_${index}`, file.file);

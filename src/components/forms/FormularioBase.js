@@ -6,6 +6,8 @@ import './Formulario.css';
 import { comisiones } from '../../utils/comisiones';
 
 const validationSchema = Yup.object().shape({
+  estado: Yup.string().required('El nombre es obligatorio'),
+  comision: Yup.string().required('El nombre es obligatorio'),
   nombre: Yup.string().required('El nombre es obligatorio'),
   apellidoPaterno: Yup.string().required('El apellido paterno es obligatorio'),
   apellidoMaterno: Yup.string().required('El apellido materno es obligatorio'),
@@ -18,9 +20,9 @@ const validationSchema = Yup.object().shape({
   descripcionAcuerdo: Yup.string()
     .max(5000, 'La descripción del acuerdo no debe exceder 5000 caracteres')
     .required('La descripción del acuerdo es obligatorio'),
-  descripcionAvance: Yup.string()
-    .max(5000, 'La descripción del avance no debe exceder 5000 caracteres')
-    .required('La descripción del avance es obligatoria'),
+  // descripcionAvance: Yup.string()
+  //   .max(5000, 'La descripción del avance no debe exceder 5000 caracteres')
+  //   .required('La descripción del avance es obligatoria'),
 });
 
 const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableFields = {} }) => {
@@ -82,9 +84,8 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
                   <option value="">Cargando comisiones...</option>
                 )}
               </Field>
+              <ErrorMessage name="comision" component="div" className="error-message" />
             </div>
-
-
           </div>
 
           {/* Existing fields */}
