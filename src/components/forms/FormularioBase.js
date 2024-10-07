@@ -76,8 +76,8 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
                 <option value="">Selecciona una comisión</option>
                 {comisiones && comisiones.length > 0 ? (
                   comisiones.map((comision, index) => (
-                    <option key={index} value={comision}>
-                      {comision}
+                    <option key={index} value={comision.value}>
+                      {comision.label}
                     </option>
                   ))
                 ) : (
@@ -168,14 +168,6 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
               <ErrorMessage name="descripcionAvance" component="div" className="error-message" />
             </div>
           )}
-
-
-
-          {/* <div className="form-group">
-            <label>Descripción del Avance:</label>
-            <Field name="descripcionAvance" as="textarea" rows="5" className="input-field" placeholder="Agrega una descripción del avance no mayor a 5000 caracteres" />
-            <ErrorMessage name="descripcionAvance" component="div" className="error-message" />
-          </div> */}
 
           <div className="form-group">
             <label>Documentos (evidencia):</label>
