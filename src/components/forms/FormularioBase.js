@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import FileUploader from './FileUploader';
+import MinutaUploader from './MinutaUploader';
 import './Formulario.css';
 import { comisiones } from '../../utils/comisiones';
 
@@ -168,9 +169,15 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
           )}
 
           <div className="form-group">
-            <label>Documentos (evidencia):</label>
+            <label>Minuta:</label>
+            <p>En esta sección, puedes cargar la minuta del proyecto en formato PDF. Recuerda que solo se permite subir un único archivo y debe ser exclusivamente en formato PDF. Asegúrate de que el archivo contiene toda la información relevante antes de realizar la subida.</p>
+            <MinutaUploader onFilesChange={setFiles} />
+          </div>
+
+          <div className="form-group">
+            <label>Documentos Anexos(evidencia):</label>
+            <p>En esta sección, puedes cargar todos los anexos relacionados con el proyecto, excepto la minuta. Puedes subir archivos en formato de imágenes, vídeos o cualquier otro tipo de documento. Asegúrate de incluir toda la información adicional que respalde tu proyecto.</p>
             <FileUploader onFilesChange={setFiles} />
-            <ErrorMessage name="documentos" component="div" className="error-message" />
           </div>
           <button type="submit" className="submit-button">Enviar</button>
         </Form>
