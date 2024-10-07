@@ -140,6 +140,8 @@ const EditFormulario = ({ projectId, onClose }) => {
         onSubmit={handleSubmit}
         files={files}
         setFiles={setFiles}
+        showDescripcionAvance={true} // Mostrar el campo de 'Descripción del Avance'
+
       />
       <AgreementSuccessModal 
         isOpen={modalIsOpen} 

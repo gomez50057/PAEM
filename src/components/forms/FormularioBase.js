@@ -25,7 +25,7 @@ const validationSchema = Yup.object().shape({
   //   .required('La descripción del avance es obligatoria'),
 });
 
-const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableFields = {} }) => {
+const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableFields = {}, showDescripcionAvance = false }) => {
   const formatPhoneNumber = (value) => {
     const cleanedValue = value.replace(/\D/g, '');
     return cleanedValue.length <= 3
@@ -159,6 +159,17 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
             <Field name="descripcionAcuerdo" as="textarea" rows="5" className="input-field" placeholder="Agrega una descripción del acuerdo no mayor a 5000 caracteres" disabled={disableFields.descripcionAcuerdo} />
             <ErrorMessage name="descripcionAcuerdo" component="div" className="error-message" />
           </div>
+
+          {/* Solo muestra el campo "Descripción del Avance" si la prop showDescripcionAvance es true */}
+          {showDescripcionAvance && (
+            <div className="form-group">
+              <label>Descripción del Avance:</label>
+              <Field name="descripcionAvance" as="textarea" rows="5" className="input-field" placeholder="Agrega una descripción del avance no mayor a 5000 caracteres" />
+              <ErrorMessage name="descripcionAvance" component="div" className="error-message" />
+            </div>
+          )}
+
+
 
           {/* <div className="form-group">
             <label>Descripción del Avance:</label>

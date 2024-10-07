@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import FormularioBase from './FormularioBase'; 
+import FormularioBase from './FormularioBase';
 import AgreementSuccessModal from './AgreementSuccessModal';
 import './Formulario.css';
 
@@ -114,10 +114,11 @@ const UpdateFormulario = ({ projectId, onClose }) => {
         files={files}
         setFiles={setFiles}
         disableFields={{ descripcionAcuerdo: true }} // Deshabilitar 'descripcionAcuerdo'
+        showDescripcionAvance={true} // Mostrar el campo de 'Descripción del Avance'
       />
-      <AgreementSuccessModal 
-        isOpen={modalIsOpen} 
-        onRequestClose={handleCloseModal} 
+      <AgreementSuccessModal
+        isOpen={modalIsOpen}
+        onRequestClose={handleCloseModal}
         onCreateNewAgreement={handleCreateNewAgreement}
         onGoToHome={handleGoToHome}
       />

@@ -82,6 +82,7 @@ const CreateFormulario = () => {
         onSubmit={handleSubmit}
         files={files}
         setFiles={setFiles}
+        showDescripcionAvance={false} // No mostrar el campo de 'Descripción del Avance'
       />
       <AgreementSuccessModal
         isOpen={modalIsOpen}
