@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import FormularioBase from './FormularioBase';
 import AgreementSuccessModal from './AgreementSuccessModal';
@@ -7,16 +7,6 @@ import './Formulario.css';
 const CreateFormulario = () => {
   const [files, setFiles] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [userState, setUserState] = useState(null); // Cambia el valor inicial a null
-  const [userCommission, setUserCommission] = useState(null); // Cambia el valor inicial a null
-
-  useEffect(() => {
-    // Accede a localStorage solo cuando el componente esté montado en el cliente
-    if (typeof window !== 'undefined') {
-      setUserState(localStorage.getItem('userState') || '');
-      setUserCommission(localStorage.getItem('userCommission') || '');
-    }
-  }, []);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const formData = new FormData();
@@ -30,8 +20,8 @@ const CreateFormulario = () => {
     formData.append('correo', values.correo);
     formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
     formData.append('descripcion_avance', values.descripcionAvance);
-    formData.append('estado', values.estado);
-    formData.append('comision', values.comision);
+    formData.append('estado', values.estado); // Valor seleccionado por el usuario
+    formData.append('comision', values.comision); // Valor seleccionado por el usuario
 
     files.forEach((file, index) => {
       formData.append(`documentos_${index}`, file.file);
@@ -71,15 +61,11 @@ const CreateFormulario = () => {
     setModalIsOpen(false);
   };
 
-  if (userState === null || userCommission === null) {
-    return null; // O un spinner/cargando mientras se obtiene el estado del usuario
-  }
-
   return (
     <div className="create-formulario">
       <FormularioBase
         initialValues={{
-          fecha: new Date().toISOString().slice(0, 10),
+          fecha: new Date().toISOString().slice(0, 10), // Valor por defecto: fecha actual
           nombre: '',
           apellidoPaterno: '',
           apellidoMaterno: '',
@@ -90,8 +76,8 @@ const CreateFormulario = () => {
           descripcionAcuerdo: '',
           descripcionAvance: '',
           documentos: [],
-          estado: userState, // Usa el estado obtenido de localStorage
-          comision: userCommission // Usa el estado obtenido de localStorage
+          estado: '', // Valor será seleccionado en el formulario
+          comision: '' // Valor será seleccionado en el formulario
         }}
         onSubmit={handleSubmit}
         files={files}
