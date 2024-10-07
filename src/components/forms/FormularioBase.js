@@ -48,7 +48,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, disableField
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={false}
       onSubmit={onSubmit}
     >
       {({ setFieldValue, values }) => (

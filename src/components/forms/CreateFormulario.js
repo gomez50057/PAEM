@@ -19,12 +19,12 @@ const CreateFormulario = () => {
     formData.append('extension', values.extension);
     formData.append('correo', values.correo);
     formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
-    // formData.append('descripcion_avance', values.descripcionAvance);
     formData.append('estado', values.estado);
     formData.append('comision', values.comision);
 
+    // Asegúrate de que `files` es un arreglo de archivos que proviene de tu componente de Dropzone.
     files.forEach((file, index) => {
-      formData.append(`documentos_${index}`, file.file);
+      formData.append('documentos', file.file);  // Usa 'documentos' para múltiples archivos
     });
 
     try {
@@ -34,11 +34,12 @@ const CreateFormulario = () => {
         }
       });
       console.log('Formulario enviado:', response.data);
-      setModalIsOpen(true);  // Abre el modal al enviar el formulario con éxito
-      resetForm(); // Limpia los datos del formulario
-      setFiles([]); // Limpia los archivos subidos
+      setModalIsOpen(true);  
+      resetForm(); 
+      setFiles([]);
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
+      console.log('Error details:', error.response.data);  // Añade esta línea
     } finally {
       setSubmitting(false);
     }
@@ -75,13 +76,13 @@ const CreateFormulario = () => {
           correo: '',
           descripcionAcuerdo: '',
           descripcionAvance: '',
-          documentos: [],
+          documentos: [],  // Aquí es donde los archivos se almacenarán
           estado: '', // Valor será seleccionado en el formulario
           comision: '' // Valor será seleccionado en el formulario
         }}
         onSubmit={handleSubmit}
         files={files}
-        setFiles={setFiles}
+        setFiles={setFiles}  // Esto asegura que los archivos que subes se manejan correctamente
         showDescripcionAvance={false} // No mostrar el campo de 'Descripción del Avance'
       />
       <AgreementSuccessModal
