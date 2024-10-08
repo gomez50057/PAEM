@@ -1,7 +1,7 @@
 import React from 'react';
 import './AgreementSuccessModal.css';
 
-const AgreementSuccessModal = ({ isOpen, onRequestClose, onCreateNewAgreement, onGoToHome }) => {
+const AgreementSuccessModal = ({ isOpen, onCreateNewAgreement, onGoToHome }) => {
   if (!isOpen) return null;
 
   return (
