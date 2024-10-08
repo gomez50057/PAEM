@@ -30,9 +30,9 @@ const HeaderDashboard = () => {
 
   return (
     <header className="header-dashboard">
-      <div className="header-left">
+      {/* <div className="header-left">
         <input type="text" placeholder="Search..." className="search-bar" />
-      </div>
+      </div> */}
 
       <div className="header-right">
         <div className="welcome-container">
