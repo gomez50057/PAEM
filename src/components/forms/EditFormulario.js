@@ -115,6 +115,7 @@ const EditFormulario = ({ projectId, onClose }) => {
 
   const handleCreateNewAgreement = () => {
     setModalIsOpen(false);
+    onClose();
     setFiles([]);
     setMinuta(null);
     const container = document.querySelector('.dashboard-container');
