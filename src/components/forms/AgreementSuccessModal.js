@@ -15,7 +15,7 @@ const AgreementSuccessModal = ({ isOpen, onCreateNewAgreement, onGoToHome }) => 
             Repetir la acción hecha
           </button>
           <button onClick={onGoToHome}>
-            Ir a Acuerdos
+            Cerrar
           </button>
         </div>
       </div>
