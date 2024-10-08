@@ -95,15 +95,15 @@ const CreateFormulario = () => {
           descripcionAcuerdo: '',
           descripcionAvance: '',
           minuta: '',
-          documentos: [],  // Aquí es donde los archivos se almacenarán
-          estado: '', // Valor será seleccionado en el formulario
-          comision: '' // Valor será seleccionado en el formulario
+          documentos: [],
+          estado: '',
+          comision: ''
         }}
         onSubmit={handleSubmit}
         files={files}
-        setFiles={setFiles}  // Manejo de los documentos
+        setFiles={setFiles}
         minuta={minuta}
-        setMinuta={setMinuta}  // Manejo de la minuta
+        setMinuta={setMinuta}
         showDescripcionAvance={false} // No mostrar el campo de 'Descripción del Avance'
       />
       <AgreementSuccessModal
