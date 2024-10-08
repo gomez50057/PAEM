@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Dropzone from 'react-dropzone';
 
 const FileUploader = ({ onFilesChange }) => {
@@ -9,16 +9,17 @@ const FileUploader = ({ onFilesChange }) => {
       file,
       preview: URL.createObjectURL(file),
       progress: 0,
-      completed: false
+      completed: false,
     }));
-    
+
     setFiles((prevFiles) => {
       const updatedFiles = [...prevFiles, ...newFiles];
-      onFilesChange(updatedFiles);
+      // Llamada al prop para notificar al componente padre
+      onFilesChange(updatedFiles); // Esto actualiza el estado del padre fuera del renderizado
       return updatedFiles;
     });
 
-    // Simulación de progreso (opcional)
+    // Simulación de progreso
     newFiles.forEach((newFile, index) => {
       const interval = setInterval(() => {
         setFiles((prevFiles) => {
@@ -35,17 +36,24 @@ const FileUploader = ({ onFilesChange }) => {
 
           return updatedFiles;
         });
-      }, 100);
+      }, 200); // Aumenta el progreso cada 200ms
     });
   };
 
   const handleRemoveFile = (fileToRemove) => {
     setFiles((prevFiles) => {
-      const updatedFiles = prevFiles.filter((file) => file.file !== fileToRemove);
-      onFilesChange(updatedFiles);
+      const updatedFiles = prevFiles.filter((fileObj) => fileObj.file !== fileToRemove);
+      onFilesChange(updatedFiles); // Notificar al padre del cambio
       return updatedFiles;
     });
   };
+
+  // Limpieza de URLs de previsualización para evitar fugas de memoria
+  useEffect(() => {
+    return () => {
+      files.forEach((fileObj) => URL.revokeObjectURL(fileObj.preview));
+    };
+  }, [files]);
 
   return (
     <Dropzone onDrop={handleDrop}>
@@ -53,13 +61,11 @@ const FileUploader = ({ onFilesChange }) => {
         <div {...getRootProps()} className="dropzone">
           <input {...getInputProps()} />
           {files.length === 0 && (
-            <>
+            <div className="dropzone-txt">
               <img src="/img/iconos/dropzone.png" alt="Icono de archivo" />
-              <div className="dropzone-txt">
-                <p>Arrastra y suelta <span className="highlight">imágenes, vídeos o cualquier archivo</span></p>
-                <p>o <span className="highlight">buscar archivos</span> en su computadora</p>
-              </div>
-            </>
+              <p>Arrastra y suelta <span className="highlight">imágenes, vídeos o cualquier archivo</span></p>
+              <p>o <span className="highlight">buscar archivos</span> en su computadora</p>
+            </div>
           )}
           <div className="file-preview">
             {files.map((fileObj, index) => (
