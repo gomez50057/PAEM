@@ -11,11 +11,12 @@ const CRUDTable = () => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const [modalMode, setModalMode] = useState('edit');
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   // Mueve fetchData fuera del useEffect para que pueda reutilizarse
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/acuerdos/');
+      const response = await axios.get(`${apiUrl}/api/acuerdos`);
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);

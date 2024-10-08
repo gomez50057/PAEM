@@ -13,11 +13,12 @@ const TableResponsable = () => {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const [modalMode, setModalMode] = useState('update');
   const [noDataMessage, setNoDataMessage] = useState('');
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   // Mueve fetchData fuera del useEffect para que pueda reutilizarse
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/acuerdos/');
+      const response = await axios.get(`${apiUrl}/api/acuerdos/`);
       setData(response.data);
       filterDataByUserState(response.data); // Filtrado solo por estado
     } catch (error) {

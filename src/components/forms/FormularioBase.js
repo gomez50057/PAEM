@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import FileUploader from './FileUploader';
+// import FileUploader from './FileUploader';
 import MinutaUploader from './MinutaUploader';
 import './Formulario.css';
 import { comisiones } from '../../utils/comisiones';
@@ -176,11 +176,11 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
             <MinutaUploader minuta={minuta} setMinuta={setMinuta} />
           </div>
 
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Documentos Anexos(evidencia):</label>
             <p>En esta sección, puedes cargar todos los anexos relacionados con el proyecto, excepto la minuta. Puedes subir archivos en formato de imágenes, vídeos o cualquier otro tipo de documento. Asegúrate de incluir toda la información adicional que respalde tu proyecto.</p>
             <FileUploader onFilesChange={setFiles} />
-          </div>
+          </div> */}
           <button type="submit" className="submit-button">Enviar</button>
         </Form>
       )}

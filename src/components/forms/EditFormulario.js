@@ -11,11 +11,12 @@ const EditFormulario = ({ projectId, onClose }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [estatus, setEstatus] = useState(''); // Estado para el campo estatus
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     const fetchAcuerdoData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/acuerdos/${projectId}/`);
+        const response = await axios.get(`${apiUrl}/api/acuerdos/${projectId}/`);
         const acuerdoData = response.data;
 
         setInitialValues({
@@ -92,9 +93,10 @@ const EditFormulario = ({ projectId, onClose }) => {
     if (minuta && minuta.file) {
       formData.append('minuta', minuta.file);
     }
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
     try {
-      const response = await axios.put(`http://localhost:8000/api/acuerdos/${projectId}/`, formData, {
+      const response = await axios.put(`${apiUrl}/api/acuerdos/${projectId}/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

@@ -21,9 +21,10 @@ const Login = () => {
     event.preventDefault();
     setError(null);
     setLoading(true);
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
     try {
-      const response = await axios.post('http://localhost:8000/auth/inicio-sesion/', { username, password });
+      const response = await axios.post(`${apiUrl}/auth/inicio-sesion/`, { username, password });
       if (response.data.status === 'ok') {
         // Guardar el token de autenticación en las cookies
         document.cookie = `authToken=${response.data.token}; path=/; SameSite=Lax; Secure`;

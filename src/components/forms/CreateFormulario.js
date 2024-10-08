@@ -28,9 +28,10 @@ const CreateFormulario = () => {
       files.forEach((file, index) => {
         formData.append('documentos', file.file);  // Adjuntar como 'documentos'
       });
-    } else {
-      console.warn('No se han subido documentos.');
-    }
+    } 
+    // else {
+    //   console.warn('No se han subido documentos.');
+    // }
 
     // Adjuntar archivo de minuta si está presente
     if (minuta) {
@@ -38,9 +39,10 @@ const CreateFormulario = () => {
     } else {
       console.warn('No se ha subido la minuta.');
     }
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
     try {
-      const response = await axios.post('http://localhost:8000/api/acuerdos/', formData, {
+      const response = await axios.post(`${apiUrl}/api/acuerdos/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
