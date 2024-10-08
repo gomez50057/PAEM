@@ -13,7 +13,7 @@ const MinutaUploader = ({ minuta, setMinuta }) => {
   };
 
   const handleRemoveFile = () => {
-    setMinuta(null);  // Reseteamos el archivo en el componente padre
+    setMinuta(null);
   };
 
   return (
