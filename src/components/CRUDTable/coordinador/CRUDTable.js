@@ -46,7 +46,7 @@ const CRUDTable = () => {
 
   const handleAdvancesClick = (projectId) => {
     setSelectedProjectId(projectId);
-    setModalMode('advances');  // Establece el modo a 'history'
+    setModalMode('advances');  // Establece el modo a 'advances'
     setOpenModal(true);
   };
 
