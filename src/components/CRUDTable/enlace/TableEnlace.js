@@ -50,6 +50,12 @@ const TableEnlace = () => {
     setOpenModal(true);
   };
 
+  const handleAdvancesClick = (projectId) => {
+    setSelectedProjectId(projectId);
+    setModalMode('advances');  // Establece el modo a 'history'
+    setOpenModal(true);
+  };
+
   const handleCloseModal = () => {
     setOpenModal(false);
     setSelectedProjectId(null);
@@ -99,7 +105,20 @@ const TableEnlace = () => {
         },
       },
     },
-
+    {
+      name: "descripcion_avance",
+      label: "Avances",
+      options: {
+        customBodyRender: (value, tableMeta) => {
+          const projectId = tableMeta.rowData[0];
+          return (
+            <button onClick={() => handleAdvancesClick(projectId)} className="crud-button">
+              Ver todos los avances
+            </button>
+          );
+        }
+      }
+    },
     { name: "documentos", label: "Documentos" },
     {
       name: "acciones",

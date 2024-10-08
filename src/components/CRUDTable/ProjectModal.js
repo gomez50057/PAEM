@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import EditFormulario from '../forms/EditFormulario';
 import UpdateFormulario from '../forms/UpdateFormulario';
 import HistoryList from '../forms/HistoryList';
+import AllAdvances from '@/components/shared/AllAdvances';
 import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
@@ -30,6 +31,8 @@ const ProjectModal = ({ open, handleClose, projectId, mode }) => {
       return <UpdateFormulario projectId={projectId} onClose={handleClose} />;
     } else if (mode === 'history') {
       return <HistoryList projectId={projectId} onClose={handleClose} />;
+    } else if (mode === 'advances') {
+      return <AllAdvances projectId={projectId} onClose={handleClose} />;
     }
     return null;
   };

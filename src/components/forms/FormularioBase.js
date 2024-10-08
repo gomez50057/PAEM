@@ -61,7 +61,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
             </div>
             <div className="form-group">
               <label>Estado:</label>
-              <Field name="estado" as="select" className="input-field">
+              <Field name="estado" as="select" className="input-field" disabled={disableFields.descripcionAcuerdo} >
                 <option value="">Selecciona un estado</option>
                 <option value="Estado de México">Estado de México</option>
                 <option value="Ciudad de México">Ciudad de México</option>
@@ -71,7 +71,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
             </div>
             <div className="form-group">
               <label>Comisión:</label>
-              <Field name="comision" as="select" className="input-field">
+              <Field name="comision" as="select" className="input-field" disabled={disableFields.descripcionAcuerdo} >
                 <option value="">Selecciona una comisión</option>
                 {comisiones && comisiones.length > 0 ? (
                   comisiones.map((comision, index) => (
