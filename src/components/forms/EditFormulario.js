@@ -6,6 +6,7 @@ import './Formulario.css';
 
 const EditFormulario = ({ projectId, onClose }) => {
   const [files, setFiles] = useState([]);
+  const [minuta, setMinuta] = useState(null);  // Estado para la minuta
   const [initialValues, setInitialValues] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -36,13 +37,21 @@ const EditFormulario = ({ projectId, onClose }) => {
         // Setear el estatus inicial si está presente en los datos del acuerdo
         setEstatus(acuerdoData.estatus || '');
 
-        // Verifica si documentos es un array antes de usar .map()
+        // Configurar los archivos de documentos
         setFiles(Array.isArray(acuerdoData.documentos) ? acuerdoData.documentos.map((doc) => ({
           file: null,
           preview: doc.url,
           progress: 100,
           completed: true
         })) : []);
+
+        // Configurar el archivo de minuta si existe
+        if (acuerdoData.minuta) {
+          setMinuta({
+            file: null,
+            preview: acuerdoData.minuta,  // Aquí cargamos el enlace del archivo de minuta existente
+          });
+        }
 
         setLoading(false);
       } catch (error) {
@@ -72,11 +81,17 @@ const EditFormulario = ({ projectId, onClose }) => {
     formData.append('comision', values.comision);
     formData.append('estatus', estatus); // Agregar el campo 'estatus'
 
+    // Adjuntar archivos de documentos
     files.forEach((file, index) => {
       if (file.file) {
         formData.append(`documentos_${index}`, file.file);
       }
     });
+
+    // Adjuntar archivo de minuta si está presente
+    if (minuta && minuta.file) {
+      formData.append('minuta', minuta.file);
+    }
 
     try {
       const response = await axios.put(`http://localhost:8000/api/acuerdos/${projectId}/`, formData, {
@@ -101,6 +116,7 @@ const EditFormulario = ({ projectId, onClose }) => {
   const handleCreateNewAgreement = () => {
     setModalIsOpen(false);
     setFiles([]);
+    setMinuta(null);
     const container = document.querySelector('.dashboard-container');
     if (container) {
       container.scrollTo({ top: 0, behavior: 'smooth' });
@@ -140,9 +156,11 @@ const EditFormulario = ({ projectId, onClose }) => {
         onSubmit={handleSubmit}
         files={files}
         setFiles={setFiles}
+        minuta={minuta}  // Pasamos la minuta
+        setMinuta={setMinuta}  // Función para manejar la minuta
         showDescripcionAvance={true} // Mostrar el campo de 'Descripción del Avance'
-
       />
+      
       <AgreementSuccessModal 
         isOpen={modalIsOpen} 
         onRequestClose={handleCloseModal} 

@@ -2,7 +2,6 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 
 const MinutaUploader = ({ minuta, setMinuta }) => {
-  
   const handleDrop = (acceptedFiles) => {
     if (acceptedFiles.length > 0) {
       const newFile = acceptedFiles[0];
@@ -28,7 +27,8 @@ const MinutaUploader = ({ minuta, setMinuta }) => {
           <input {...getInputProps()} />
           {minuta ? (
             <div className="file-preview">
-              <p>{minuta.file.name}</p>
+              {/* Mostrar el nombre del archivo si es un nuevo archivo subido, o la URL si es una minuta ya existente */}
+              <p>{minuta.file ? minuta.file.name : "Minuta existente"}</p>
               <button type="button" onClick={handleRemoveFile}>
                 Eliminar
               </button>
