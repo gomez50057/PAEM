@@ -7,6 +7,7 @@ import './Formulario.css';
 import { comisiones } from '../../utils/comisiones';
 
 const validationSchema = Yup.object().shape({
+  fecha: Yup.string().required('La fecha es obligatorio'),
   estado: Yup.string().required('El nombre es obligatorio'),
   comision: Yup.string().required('El nombre es obligatorio'),
   nombre: Yup.string().required('El nombre es obligatorio'),
@@ -48,7 +49,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={false}
+      validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
       {({ setFieldValue, values }) => (
@@ -58,6 +59,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
             <div className="form-group">
               <label>Fecha:</label>
               <Field name="fecha" type="date" className="input-field" disabled={disableFields.descripcionAcuerdo} />
+              <ErrorMessage name="fecha" component="div" className="error-message" />
             </div>
             <div className="form-group">
               <label>Estado:</label>
