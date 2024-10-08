@@ -20,7 +20,6 @@ const CreateFormulario = () => {
     formData.append('extension', values.extension);
     formData.append('correo', values.correo);
     formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
-    formData.append('estado', values.estado);
     formData.append('comision', values.comision);
 
     // Adjuntar archivos de documentos
@@ -98,7 +97,6 @@ const CreateFormulario = () => {
           descripcionAvance: '',
           minuta: '',
           documentos: [],
-          estado: '',
           comision: ''
         }}
         onSubmit={handleSubmit}

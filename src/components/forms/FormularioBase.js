@@ -8,7 +8,7 @@ import { comisiones } from '../../utils/comisiones';
 
 const validationSchema = Yup.object().shape({
   fecha: Yup.string().required('La fecha es obligatorio'),
-  estado: Yup.string().required('El nombre es obligatorio'),
+  // estado: Yup.string().required('El nombre es obligatorio'),
   comision: Yup.string().required('El nombre es obligatorio'),
   nombre: Yup.string().required('El nombre es obligatorio'),
   apellidoPaterno: Yup.string().required('El apellido paterno es obligatorio'),
@@ -61,16 +61,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
               <Field name="fecha" type="date" className="input-field" disabled={disableFields.descripcionAcuerdo} />
               <ErrorMessage name="fecha" component="div" className="error-message" />
             </div>
-            <div className="form-group">
-              <label>Estado:</label>
-              <Field name="estado" as="select" className="input-field" disabled={disableFields.descripcionAcuerdo} >
-                <option value="">Selecciona un estado</option>
-                <option value="Estado de México">Estado de México</option>
-                <option value="Ciudad de México">Ciudad de México</option>
-                <option value="Hidalgo">Hidalgo</option>
-              </Field>
-              <ErrorMessage name="estado" component="div" className="error-message" />
-            </div>
+            
             <div className="form-group">
               <label>Comisión:</label>
               <Field name="comision" as="select" className="input-field" disabled={disableFields.descripcionAcuerdo} >
@@ -87,6 +78,19 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
               </Field>
               <ErrorMessage name="comision" component="div" className="error-message" />
             </div>
+
+            {showDescripcionAvance && (
+              <div className="form-group">
+                <label>Estado:</label>
+                <Field name="estado" as="select" className="input-field" >
+                  <option value="">Selecciona un estado</option>
+                  <option value="Estado de México">Estado de México</option>
+                  <option value="Ciudad de México">Ciudad de México</option>
+                  <option value="Hidalgo">Hidalgo</option>
+                </Field>
+                <ErrorMessage name="estado" component="div" className="error-message" />
+              </div>
+            )}
           </div>
 
           {/* Existing fields */}
