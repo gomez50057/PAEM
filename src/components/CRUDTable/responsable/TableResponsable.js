@@ -136,6 +136,17 @@ const TableResponsable = () => {
             },
           },
         },
+        MuiTypography: {
+          styleOverrides: {
+            h3: {
+              fontWeight: 600,
+              fontSize: '2.25rem',
+              color: '#DEC9A3',
+              fontFamily: "Montserrat",
+              padding: '10px'
+            },
+          },
+        },
         MuiTableCell: {
           styleOverrides: {
             root: {
