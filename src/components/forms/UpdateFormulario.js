@@ -18,18 +18,19 @@ const UpdateFormulario = ({ projectId, onClose }) => {
 
         setInitialValues({
           fecha: new Date().toISOString().slice(0, 10),  // Fecha de la nueva actualización
-          nombre: '',
+          estado: acuerdoData.estado || '',
+          zonaMetropolitana: acuerdoData.zm || '',
+          comision: acuerdoData.comision || '',
+          nombre: '',          
           apellidoPaterno: '',
           apellidoMaterno: '',
-          areaAdscripcion: '',
+          cargo: '',
           telefono: '',
           extension: '',
           correo: '',
-          descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',  // Mantén la descripción del acuerdo original
-          descripcionAvance: '',  // Campo para que el usuario describa el avance de esta actualización
-          documentos: [],  // Campo para subir nuevos documentos para esta actualización
-          estado: acuerdoData.estado || '',
-          comision: acuerdoData.comision || '',
+          descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',
+          descripcionAvance: '',
+          documentos: [],
         });
 
         setFiles([]);  // Limpiamos los archivos anteriores para comenzar con la nueva actualización
@@ -54,10 +55,11 @@ const UpdateFormulario = ({ projectId, onClose }) => {
     formData.append('nombre', values.nombre);
     formData.append('apellido_paterno', values.apellidoPaterno);
     formData.append('apellido_materno', values.apellidoMaterno);
-    formData.append('area_adscripcion', values.areaAdscripcion);
+    formData.append('cargo', values.cargo);
     formData.append('telefono', values.telefono);
     formData.append('extension', values.extension);
     formData.append('correo', values.correo);
+    formData.append('zm', values.zonaMetropolitana);
     formData.append('estado', values.estado);
     formData.append('comision', values.comision);
 
@@ -67,9 +69,10 @@ const UpdateFormulario = ({ projectId, onClose }) => {
         formData.append(`documentos_${index}`, file.file);
       }
     });
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
     try {
-      const response = await axios.post('http://localhost:8000/api/actualizaciones/', formData, {  // Endpoint para crear una nueva actualización
+      const response = await axios.post(`${apiUrl}/api/actualizaciones/`, formData, {  // Endpoint para crear una nueva actualización
         headers: {
           'Content-Type': 'multipart/form-data'
         }

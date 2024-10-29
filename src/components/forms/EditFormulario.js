@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import FormularioBase from './FormularioBase'; 
+import FormularioBase from './FormularioBase';
 import AgreementSuccessModal from './AgreementSuccessModal';
 import './Formulario.css';
 
@@ -21,17 +21,10 @@ const EditFormulario = ({ projectId, onClose }) => {
 
         setInitialValues({
           fecha: acuerdoData.fecha || new Date().toISOString().slice(0, 10),
-          nombre: acuerdoData.nombre || '',
-          apellidoPaterno: acuerdoData.apellido_paterno || '',
-          apellidoMaterno: acuerdoData.apellido_materno || '',
-          areaAdscripcion: acuerdoData.area_adscripcion || '',
-          telefono: acuerdoData.telefono || '',
-          extension: acuerdoData.extension || '',
-          correo: acuerdoData.correo || '',
-          descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',
-          descripcionAvance: acuerdoData.descripcion_avance || '',
-          documentos: Array.isArray(acuerdoData.documentos) ? acuerdoData.documentos : [],
+          zonaMetropolitana: acuerdoData.zm || '',
           estado: acuerdoData.estado || '',
+          descripcionAcuerdo: acuerdoData.descripcion_acuerdo || '',
+          documentos: Array.isArray(acuerdoData.documentos) ? acuerdoData.documentos : [],
           comision: acuerdoData.comision || '',
         });
 
@@ -69,18 +62,10 @@ const EditFormulario = ({ projectId, onClose }) => {
   const handleSubmit = async (values, { setSubmitting }) => {
     const formData = new FormData();
     formData.append('fecha_creacion', values.fecha);
-    formData.append('nombre', values.nombre);
-    formData.append('apellido_paterno', values.apellidoPaterno);
-    formData.append('apellido_materno', values.apellidoMaterno);
-    formData.append('area_adscripcion', values.areaAdscripcion);
-    formData.append('telefono', values.telefono);
-    formData.append('extension', values.extension);
-    formData.append('correo', values.correo);
-    formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
-    formData.append('descripcion_avance', values.descripcionAvance);
-    formData.append('estado', values.estado);
+    formData.append('zm', values.zonaMetropolitana);
     formData.append('comision', values.comision);
-    formData.append('estatus', estatus); // Agregar el campo 'estatus'
+    formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
+    formData.append('estatus', estatus);
 
     // Adjuntar archivos de documentos
     files.forEach((file, index) => {
@@ -153,7 +138,7 @@ const EditFormulario = ({ projectId, onClose }) => {
           <option value="cancelado">Cancelado</option>
         </select>
       </div>
-      
+
       <FormularioBase
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -161,12 +146,12 @@ const EditFormulario = ({ projectId, onClose }) => {
         setFiles={setFiles}
         minuta={minuta}  // Pasamos la minuta
         setMinuta={setMinuta}  // Función para manejar la minuta
-        showDescripcionAvance={true} // Mostrar el campo de 'Descripción del Avance'
+        showDescripcionAvance={false}
       />
-      
-      <AgreementSuccessModal 
-        isOpen={modalIsOpen} 
-        onRequestClose={handleCloseModal} 
+
+      <AgreementSuccessModal
+        isOpen={modalIsOpen}
+        onRequestClose={handleCloseModal}
         onCreateNewAgreement={handleCreateNewAgreement}
         onGoToHome={handleGoToHome}
       />

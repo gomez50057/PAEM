@@ -12,15 +12,9 @@ const CreateFormulario = () => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const formData = new FormData();
     formData.append('fecha_creacion', values.fecha);
-    formData.append('nombre', values.nombre);
-    formData.append('apellido_paterno', values.apellidoPaterno);
-    formData.append('apellido_materno', values.apellidoMaterno);
-    formData.append('area_adscripcion', values.areaAdscripcion);
-    formData.append('telefono', values.telefono);
-    formData.append('extension', values.extension);
-    formData.append('correo', values.correo);
-    formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
+    formData.append('zm', values.zm);
     formData.append('comision', values.comision);
+    formData.append('descripcion_acuerdo', values.descripcionAcuerdo);   
 
     // Adjuntar archivos de documentos
     if (files.length > 0) {
@@ -86,17 +80,9 @@ const CreateFormulario = () => {
       <FormularioBase
         initialValues={{
           fecha: '',
-          nombre: '',
-          apellidoPaterno: '',
-          apellidoMaterno: '',
-          areaAdscripcion: '',
-          telefono: '',
-          extension: '',
-          correo: '',
           descripcionAcuerdo: '',
-          descripcionAvance: '',
           minuta: '',
-          documentos: [],
+          zm: '',
           comision: ''
         }}
         onSubmit={handleSubmit}
@@ -104,7 +90,7 @@ const CreateFormulario = () => {
         setFiles={setFiles}
         minuta={minuta}
         setMinuta={setMinuta}
-        showDescripcionAvance={false} // No mostrar el campo de 'Descripción del Avance'
+        showDescripcionAvance={false}
       />
       <AgreementSuccessModal
         isOpen={modalIsOpen}

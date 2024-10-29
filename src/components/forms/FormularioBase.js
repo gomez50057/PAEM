@@ -8,12 +8,13 @@ import { comisiones } from '../../utils/comisiones';
 
 const validationSchema = Yup.object().shape({
   fecha: Yup.string().required('La fecha es obligatorio'),
-  // estado: Yup.string().required('El nombre es obligatorio'),
+  estado: Yup.string().required('El estado es obligatorio'),
+  zonaMetropolitana: Yup.string().required('La Zona Metropolitana es obligatorio'),
   comision: Yup.string().required('El nombre es obligatorio'),
   nombre: Yup.string().required('El nombre es obligatorio'),
   apellidoPaterno: Yup.string().required('El apellido paterno es obligatorio'),
   apellidoMaterno: Yup.string().required('El apellido materno es obligatorio'),
-  areaAdscripcion: Yup.string().required('El área de adscripción es obligatoria'),
+  cargo: Yup.string().required('El cargo es obligatoria'),
   telefono: Yup.string()
     .matches(/^\d{10}$/, 'El teléfono debe tener exactamente 10 dígitos')
     .required('El teléfono es obligatorio'),
@@ -61,7 +62,20 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
               <Field name="fecha" type="date" className="input-field" disabled={disableFields.descripcionAcuerdo} />
               <ErrorMessage name="fecha" component="div" className="error-message" />
             </div>
-            
+
+            <div className="form-group">
+              <label> Zona Metropolitana:</label>
+              <Field name="zonaMetropolitana" as="select" className="input-field" disabled={disableFields.descripcionAcuerdo} >
+                <option value="">Selecciona una Zona metropolitana</option>
+                <option value="ZMPachuca">ZMPachuca</option>
+                <option value="ZMTula">ZMTula</option>
+                <option value="ZMTulancingo">ZMTulancingo</option>
+                <option value="ZMVM">ZMValle de México</option>
+                <option value="no_aplica">No Aplica</option>
+              </Field>
+              <ErrorMessage name="zonaMetropolitana" component="div" className="error-message" />
+            </div>
+
             <div className="form-group">
               <label>Comisión:</label>
               <Field name="comision" as="select" className="input-field" disabled={disableFields.descripcionAcuerdo} >
@@ -95,67 +109,76 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
 
           {/* Existing fields */}
           <div className="form-row">
-            <div className="form-group">
-              <label>Nombre:</label>
-              <Field name="nombre" type="text" className="input-field" placeholder="Julio" />
-              <ErrorMessage name="nombre" component="div" className="error-message" />
-            </div>
-
-            <div className="form-group">
-              <label>Apellido Paterno:</label>
-              <Field name="apellidoPaterno" type="text" className="input-field" placeholder="Menchaca" />
-              <ErrorMessage name="apellidoPaterno" component="div" className="error-message" />
-            </div>
-
-            <div className="form-group">
-              <label>Apellido Materno:</label>
-              <Field name="apellidoMaterno" type="text" className="input-field" placeholder="Salazar" />
-              <ErrorMessage name="apellidoMaterno" component="div" className="error-message" />
-            </div>
+            {showDescripcionAvance && (
+              <div className="form-group">
+                <label>Nombre:</label>
+                <Field name="nombre" type="text" className="input-field" placeholder="Julio" />
+                <ErrorMessage name="nombre" component="div" className="error-message" />
+              </div>
+            )}
+            {showDescripcionAvance && (
+              <div className="form-group">
+                <label>Apellido Paterno:</label>
+                <Field name="apellidoPaterno" type="text" className="input-field" placeholder="Menchaca" />
+                <ErrorMessage name="apellidoPaterno" component="div" className="error-message" />
+              </div>
+            )}
+            {showDescripcionAvance && (
+              <div className="form-group">
+                <label>Apellido Materno:</label>
+                <Field name="apellidoMaterno" type="text" className="input-field" placeholder="Salazar" />
+                <ErrorMessage name="apellidoMaterno" component="div" className="error-message" />
+              </div>
+            )}
           </div>
-
-          <div className="form-group">
-            <label>Área de Adscripción:</label>
-            <Field name="areaAdscripcion" type="text" className="input-field" placeholder="Agrega el área donde trabajas" />
-            <ErrorMessage name="areaAdscripcion" component="div" className="error-message" />
-          </div>
+          {showDescripcionAvance && (
+            <div className="form-group">
+              <label>Cargo:</label>
+              <Field name="cargo" type="text" className="input-field" placeholder="Agrega el cargo que tienes" />
+              <ErrorMessage name="cargo" component="div" className="error-message" />
+            </div>
+          )}
 
           <div className="form-row">
-            <div className="form-group">
-              <label>Teléfono:</label>
-              <Field
-                name="telefono"
-                type="tel"
-                className="input-field"
-                placeholder="771-717-6000"
-                value={values.telefonoFormateado || formatPhoneNumber(values.telefono)}
-                onChange={(e) => handlePhoneNumberChange(e, setFieldValue)}
-              />
-              <ErrorMessage name="telefono" component="div" className="error-message" />
-            </div>
-
-            <div className="form-group">
-              <label>Extensión:</label>
-              <Field
-                name="extension"
-                type="text"
-                className="input-field"
-                placeholder="6633"
-                onChange={(e) => {
-                  const { value } = e.target;
-                  if (/^\d*$/.test(value)) {
-                    setFieldValue('extension', value);
-                  }
-                }}
-              />
-              <ErrorMessage name="extension" component="div" className="error-message" />
-            </div>
-
-            <div className="form-group">
-              <label>Correo Electrónico:</label>
-              <Field name="correo" type="email" className="input-field" placeholder="cg.planeacion@hidalgo.gob.mx" />
-              <ErrorMessage name="correo" component="div" className="error-message" />
-            </div>
+            {showDescripcionAvance && (
+              <div className="form-group">
+                <label>Teléfono:</label>
+                <Field
+                  name="telefono"
+                  type="tel"
+                  className="input-field"
+                  placeholder="771-717-6000"
+                  value={values.telefonoFormateado || formatPhoneNumber(values.telefono)}
+                  onChange={(e) => handlePhoneNumberChange(e, setFieldValue)}
+                />
+                <ErrorMessage name="telefono" component="div" className="error-message" />
+              </div>
+            )}
+            {showDescripcionAvance && (
+              <div className="form-group">
+                <label>Extensión:</label>
+                <Field
+                  name="extension"
+                  type="text"
+                  className="input-field"
+                  placeholder="6633"
+                  onChange={(e) => {
+                    const { value } = e.target;
+                    if (/^\d*$/.test(value)) {
+                      setFieldValue('extension', value);
+                    }
+                  }}
+                />
+                <ErrorMessage name="extension" component="div" className="error-message" />
+              </div>
+            )}
+            {showDescripcionAvance && (
+              <div className="form-group">
+                <label>Correo Electrónico:</label>
+                <Field name="correo" type="email" className="input-field" placeholder="cg.planeacion@hidalgo.gob.mx" />
+                <ErrorMessage name="correo" component="div" className="error-message" />
+              </div>
+            )}
           </div>
 
           <h2>Acuerdo</h2>

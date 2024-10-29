@@ -114,13 +114,6 @@ const CRUDTable = () => {
         }
       }
     },
-    { name: "nombre", label: "Nombre" },
-    { name: "apellido_paterno", label: "Apellido Paterno" },
-    { name: "apellido_materno", label: "Apellido Materno" },
-    { name: "area_adscripcion", label: "Área Adscripción" },
-    { name: "telefono", label: "Teléfono" },
-    { name: "extension", label: "Extensión" },
-    { name: "correo", label: "Correo" },
     { name: "documentos", label: "Documentos" },
     {
       name: "acciones",
