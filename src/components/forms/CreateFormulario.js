@@ -12,7 +12,7 @@ const CreateFormulario = () => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const formData = new FormData();
     formData.append('fecha_creacion', values.fecha);
-    formData.append('zm', values.zm);
+    formData.append('zonaMetropolitana', values.zm);
     formData.append('comision', values.comision);
     formData.append('descripcion_acuerdo', values.descripcionAcuerdo);   
 
@@ -82,7 +82,7 @@ const CreateFormulario = () => {
           fecha: '',
           descripcionAcuerdo: '',
           minuta: '',
-          zm: '',
+          zonaMetropolitana: '',
           comision: ''
         }}
         onSubmit={handleSubmit}
@@ -90,6 +90,7 @@ const CreateFormulario = () => {
         setFiles={setFiles}
         minuta={minuta}
         setMinuta={setMinuta}
+        context="create"
         showDescripcionAvance={false}
       />
       <AgreementSuccessModal

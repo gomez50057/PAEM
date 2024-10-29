@@ -146,6 +146,7 @@ const EditFormulario = ({ projectId, onClose }) => {
         setFiles={setFiles}
         minuta={minuta}  // Pasamos la minuta
         setMinuta={setMinuta}  // Función para manejar la minuta
+        context="edit"
         showDescripcionAvance={false}
       />
 

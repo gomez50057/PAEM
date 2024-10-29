@@ -1,34 +1,34 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import getValidationSchema from './validationSchema';
 // import FileUploader from './FileUploader';
 import MinutaUploader from './MinutaUploader';
 import './Formulario.css';
 import { comisiones } from '../../utils/comisiones';
 
-const validationSchema = Yup.object().shape({
-  fecha: Yup.string().required('La fecha es obligatorio'),
-  estado: Yup.string().required('El estado es obligatorio'),
-  zonaMetropolitana: Yup.string().required('La Zona Metropolitana es obligatorio'),
-  comision: Yup.string().required('El nombre es obligatorio'),
-  nombre: Yup.string().required('El nombre es obligatorio'),
-  apellidoPaterno: Yup.string().required('El apellido paterno es obligatorio'),
-  apellidoMaterno: Yup.string().required('El apellido materno es obligatorio'),
-  cargo: Yup.string().required('El cargo es obligatoria'),
-  telefono: Yup.string()
-    .matches(/^\d{10}$/, 'El teléfono debe tener exactamente 10 dígitos')
-    .required('El teléfono es obligatorio'),
-  extension: Yup.string(),
-  correo: Yup.string().email('Correo electrónico inválido').required('El correo es obligatorio'),
-  descripcionAcuerdo: Yup.string()
-    .max(5000, 'La descripción del acuerdo no debe exceder 5000 caracteres')
-    .required('La descripción del acuerdo es obligatorio'),
-  // descripcionAvance: Yup.string()
-  //   .max(5000, 'La descripción del avance no debe exceder 5000 caracteres')
-  //   .required('La descripción del avance es obligatoria'),
-});
+// const validationSchema = Yup.object().shape({
+//   fecha: Yup.string().required('La fecha es obligatorio'),
+//   estado: Yup.string().required('El estado es obligatorio'),
+//   zonaMetropolitana: Yup.string().required('La Zona Metropolitana es obligatorio'),
+//   comision: Yup.string().required('El nombre es obligatorio'),
+//   nombre: Yup.string().required('El nombre es obligatorio'),
+//   apellidoPaterno: Yup.string().required('El apellido paterno es obligatorio'),
+//   apellidoMaterno: Yup.string().required('El apellido materno es obligatorio'),
+//   cargo: Yup.string().required('El cargo es obligatoria'),
+//   telefono: Yup.string()
+//     .matches(/^\d{10}$/, 'El teléfono debe tener exactamente 10 dígitos')
+//     .required('El teléfono es obligatorio'),
+//   extension: Yup.string(),
+//   correo: Yup.string().email('Correo electrónico inválido').required('El correo es obligatorio'),
+//   descripcionAcuerdo: Yup.string()
+//     .max(5000, 'La descripción del acuerdo no debe exceder 5000 caracteres')
+//     .required('La descripción del acuerdo es obligatorio'),
+//   descripcionAvance: Yup.string()
+//     .max(5000, 'La descripción del avance no debe exceder 5000 caracteres')
+//     .required('La descripción del avance es obligatoria'),
+// });
 
-const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setMinuta, disableFields = {}, showDescripcionAvance = false }) => {
+const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setMinuta, disableFields = {}, showDescripcionAvance = false,  context = 'create'}) => {
   const formatPhoneNumber = (value) => {
     const cleanedValue = value.replace(/\D/g, '');
     return cleanedValue.length <= 3
@@ -50,7 +50,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={getValidationSchema(context)}
       onSubmit={onSubmit}
     >
       {({ setFieldValue, values }) => (
