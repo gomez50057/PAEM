@@ -147,7 +147,7 @@ const EditFormulario = ({ projectId, onClose }) => {
         minuta={minuta}  // Pasamos la minuta
         setMinuta={setMinuta}  // Función para manejar la minuta
         context="edit"
-        showDescripcionAvance={false}
+        showFields={false}
       />
 
       <AgreementSuccessModal

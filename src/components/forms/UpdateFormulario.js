@@ -118,7 +118,7 @@ const UpdateFormulario = ({ projectId, onClose }) => {
         setFiles={setFiles}
         disableFields={{ descripcionAcuerdo: true }} // Deshabilitar el campo 
         context="update"
-        showDescripcionAvance={true} // Mostrar el campo 
+        showFields={true} // Mostrar el campo 
       />
       <AgreementSuccessModal
         isOpen={modalIsOpen}

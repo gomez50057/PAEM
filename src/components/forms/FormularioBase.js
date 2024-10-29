@@ -6,7 +6,7 @@ import MinutaUploader from './MinutaUploader';
 import './Formulario.css';
 import { comisiones } from '../../utils/comisiones';
 
-const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setMinuta, disableFields = {}, showDescripcionAvance = false,  context = 'create'}) => {
+const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setMinuta, disableFields = {}, showFields = false,  context = 'create'}) => {
   const formatPhoneNumber = (value) => {
     const cleanedValue = value.replace(/\D/g, '');
     return cleanedValue.length <= 3
@@ -71,7 +71,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
               <ErrorMessage name="comision" component="div" className="error-message" />
             </div>
 
-            {showDescripcionAvance && (
+            {showFields && (
               <div className="form-group">
                 <label>Estado:</label>
                 <Field name="estado" as="select" className="input-field" >
@@ -87,21 +87,21 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
 
           {/* Existing fields */}
           <div className="form-row">
-            {showDescripcionAvance && (
+            {showFields && (
               <div className="form-group">
                 <label>Nombre:</label>
                 <Field name="nombre" type="text" className="input-field" placeholder="Julio" />
                 <ErrorMessage name="nombre" component="div" className="error-message" />
               </div>
             )}
-            {showDescripcionAvance && (
+            {showFields && (
               <div className="form-group">
                 <label>Apellido Paterno:</label>
                 <Field name="apellidoPaterno" type="text" className="input-field" placeholder="Menchaca" />
                 <ErrorMessage name="apellidoPaterno" component="div" className="error-message" />
               </div>
             )}
-            {showDescripcionAvance && (
+            {showFields && (
               <div className="form-group">
                 <label>Apellido Materno:</label>
                 <Field name="apellidoMaterno" type="text" className="input-field" placeholder="Salazar" />
@@ -109,7 +109,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
               </div>
             )}
           </div>
-          {showDescripcionAvance && (
+          {showFields && (
             <div className="form-group">
               <label>Cargo:</label>
               <Field name="cargo" type="text" className="input-field" placeholder="Agrega el cargo que tienes" />
@@ -118,7 +118,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
           )}
 
           <div className="form-row">
-            {showDescripcionAvance && (
+            {showFields && (
               <div className="form-group">
                 <label>Teléfono:</label>
                 <Field
@@ -132,7 +132,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
                 <ErrorMessage name="telefono" component="div" className="error-message" />
               </div>
             )}
-            {showDescripcionAvance && (
+            {showFields && (
               <div className="form-group">
                 <label>Extensión:</label>
                 <Field
@@ -150,7 +150,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
                 <ErrorMessage name="extension" component="div" className="error-message" />
               </div>
             )}
-            {showDescripcionAvance && (
+            {showFields && (
               <div className="form-group">
                 <label>Correo Electrónico:</label>
                 <Field name="correo" type="email" className="input-field" placeholder="cg.planeacion@hidalgo.gob.mx" />
@@ -166,8 +166,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
             <ErrorMessage name="descripcionAcuerdo" component="div" className="error-message" />
           </div>
 
-          {/* Solo muestra el campo "Descripción del Avance" si la prop showDescripcionAvance es true */}
-          {showDescripcionAvance && (
+          {showFields && (
             <div className="form-group">
               <label>Descripción del Avance:</label>
               <Field name="descripcionAvance" as="textarea" rows="5" className="input-field" placeholder="Agrega una descripción del avance no mayor a 5000 caracteres" />

@@ -91,7 +91,7 @@ const CreateFormulario = () => {
         minuta={minuta}
         setMinuta={setMinuta}
         context="create"
-        showDescripcionAvance={false}
+        showFields={false}
       />
       <AgreementSuccessModal
         isOpen={modalIsOpen}
