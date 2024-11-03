@@ -78,7 +78,6 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
                 <ErrorMessage name="comision" component="div" className="error-message" />
               </div>
 
-
               {showFields && (
                 <div className="form-group">
                   <label>Estado:</label>
