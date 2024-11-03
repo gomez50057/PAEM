@@ -12,7 +12,7 @@ const CreateFormulario = () => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const formData = new FormData();
     formData.append('fecha_creacion', values.fecha);
-    formData.append('zonaMetropolitana', values.zm);
+    formData.append('zm', values.zonaMetropolitana);
     formData.append('comision', values.comision);
     formData.append('descripcion_acuerdo', values.descripcionAcuerdo);   
 
