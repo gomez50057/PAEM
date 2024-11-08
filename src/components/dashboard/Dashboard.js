@@ -1,15 +1,17 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import Preloader from '../shared/Preloader';
+import '../shared/Preloader.css';
 import './Dashboard.css';
 
-const Formulario = dynamic(() => import('../forms/CreateFormulario'), { loading: () => <p>Loading...</p>, ssr: false });
-const Acuerdos = dynamic(() => import('../CRUDTable/coordinador/CRUDTable'), { loading: () => <p>Loading...</p>, ssr: false });
-const TableResponsable = dynamic(() => import('../CRUDTable/responsable/TableResponsable'), { loading: () => <p>Loading...</p>, ssr: false });
-const TableEnlace = dynamic(() => import('../CRUDTable/enlace/TableEnlace'), { loading: () => <p>Loading...</p>, ssr: false });
-const Headerdashboard = dynamic(() => import('../dashboard/HeaderDashboard'), { loading: () => <p>Loading...</p>, ssr: false });
-const SvgIcon = dynamic(() => import('../shared/SvgIcon'), { loading: () => <p>Loading...</p>, ssr: false });
-const ConfirmationModal = dynamic(() => import('../shared/LogoutModal'), { loading: () => <p>Loading...</p>, ssr: false });
+const Formulario = dynamic(() => import('../forms/CreateFormulario'), { loading: () => <Preloader />, ssr: false });
+const Acuerdos = dynamic(() => import('../CRUDTable/coordinador/CRUDTable'), { loading: () => <Preloader />, ssr: false });
+const TableResponsable = dynamic(() => import('../CRUDTable/responsable/TableResponsable'), { loading: () => <Preloader />, ssr: false });
+const TableEnlace = dynamic(() => import('../CRUDTable/enlace/TableEnlace'), { loading: () => <Preloader />, ssr: false });
+const Headerdashboard = dynamic(() => import('../dashboard/HeaderDashboard'), { loading: () => <Preloader />, ssr: false });
+const SvgIcon = dynamic(() => import('../shared/SvgIcon'), { loading: () => <Preloader />, ssr: false });
+const ConfirmationModal = dynamic(() => import('../shared/LogoutModal'), { loading: () => <Preloader />, ssr: false });
 
 const Dashboard = () => {
   const [activeComponent, setActiveComponent] = useState('');
