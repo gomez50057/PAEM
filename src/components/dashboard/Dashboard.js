@@ -1,16 +1,18 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import './Dashboard.css';
-import Formulario from '../forms/CreateFormulario';
-import Acuerdos from '../CRUDTable/coordinador/CRUDTable';
-import TableResponsable from '../CRUDTable/responsable/TableResponsable';
-import TableEnlace from '../CRUDTable/enlace/TableEnlace';
-import Headerdashboard from '../dashboard/HeaderDashboard';
-import SvgIcon from '../shared/SvgIcon';
-import ConfirmationModal from '../shared/LogoutModal';
+
+const Formulario = dynamic(() => import('../forms/CreateFormulario'), { loading: () => <p>Loading...</p>, ssr: false });
+const Acuerdos = dynamic(() => import('../CRUDTable/coordinador/CRUDTable'), { loading: () => <p>Loading...</p>, ssr: false });
+const TableResponsable = dynamic(() => import('../CRUDTable/responsable/TableResponsable'), { loading: () => <p>Loading...</p>, ssr: false });
+const TableEnlace = dynamic(() => import('../CRUDTable/enlace/TableEnlace'), { loading: () => <p>Loading...</p>, ssr: false });
+const Headerdashboard = dynamic(() => import('../dashboard/HeaderDashboard'), { loading: () => <p>Loading...</p>, ssr: false });
+const SvgIcon = dynamic(() => import('../shared/SvgIcon'), { loading: () => <p>Loading...</p>, ssr: false });
+const ConfirmationModal = dynamic(() => import('../shared/LogoutModal'), { loading: () => <p>Loading...</p>, ssr: false });
 
 const Dashboard = () => {
-  const [activeComponent, setActiveComponent] = useState(''); // El formulario es el componente predeterminado
+  const [activeComponent, setActiveComponent] = useState('');
   const [userRole, setUserRole] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -80,12 +82,8 @@ const Dashboard = () => {
       <div className="sidebar active">
         <div className="toggle active"></div>
         <ul className="list">
-          {userRole === 'coordinador' && ( // Mostrar solo para coordinadores
-            <li
-              className="list-item"
-              data-component="dashboard"
-              onClick={() => handleMenuClick('dashboard')}
-            >
+          {userRole === 'coordinador' && (
+            <li className="list-item" data-component="dashboard" onClick={() => handleMenuClick('dashboard')}>
               <b></b>
               <b></b>
               <a href="#" className="list-item-link">
@@ -96,15 +94,8 @@ const Dashboard = () => {
               </a>
             </li>
           )}
-          {/* {(userRole === 'coordinador' || userRole === 'responsable' || userRole === 'enlace') && ( */}
-          {(userRole === 'coordinador') && (
-
-            <li
-              // className="list-item active"
-              className="list-item"
-              data-component="formulario"
-              onClick={() => handleMenuClick('formulario')}
-            >
+          {userRole === 'coordinador' && (
+            <li className="list-item" data-component="formulario" onClick={() => handleMenuClick('formulario')}>
               <b></b>
               <b></b>
               <a href="#" className="list-item-link">
@@ -116,11 +107,7 @@ const Dashboard = () => {
             </li>
           )}
           {userRole === 'coordinador' && (
-            <li
-              className="list-item"
-              data-component="acuerdosCoordinador"
-              onClick={() => handleMenuClick('acuerdosCoordinador')}
-            >
+            <li className="list-item" data-component="acuerdosCoordinador" onClick={() => handleMenuClick('acuerdosCoordinador')}>
               <b></b>
               <b></b>
               <a href="#" className="list-item-link">
@@ -177,7 +164,6 @@ const Dashboard = () => {
             Cerrar Sesión
           </button>
         </div>
-
       </div>
 
       <div className="dashboard-container">
@@ -190,11 +176,7 @@ const Dashboard = () => {
         </section>
       </div>
 
-      <ConfirmationModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        onConfirm={handleConfirmLogout}
-      />
+      <ConfirmationModal isOpen={isModalOpen} onClose={handleCloseModal} onConfirm={handleConfirmLogout} />
     </div>
   );
 };

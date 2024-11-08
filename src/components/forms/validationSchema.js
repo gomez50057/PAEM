@@ -13,7 +13,7 @@ const getValidationSchema = (context) => {
       .required('La descripción del acuerdo es obligatoria');
   }
 
-  if (context === 'edit' || context === 'update') {
+  if (context === 'update') {
     schema.estado = Yup.string().required('El estado es obligatorio');
   }
 

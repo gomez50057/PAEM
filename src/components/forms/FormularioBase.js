@@ -8,6 +8,7 @@ import { comisiones, subcomisiones } from '../../utils/comisiones'; // Asegúrat
 
 const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setMinuta, disableFields = {}, showFields = false, context = 'create' }) => {
   const [comisionOptions, setComisionOptions] = useState(comisiones); // Estado para almacenar las opciones de "Comisión"
+  const [isEstadoDisabled, setIsEstadoDisabled] = useState(false);
 
   const formatPhoneNumber = (value) => {
     const cleanedValue = value.replace(/\D/g, '');
@@ -40,7 +41,16 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
           } else {
             setComisionOptions(comisiones);
           }
-        }, [values.zonaMetropolitana]);
+
+          // Configurar el valor y estado de 'estado' basado en la zona seleccionada
+          if (values.zonaMetropolitana === 'ZMPachuca' || values.zonaMetropolitana === 'ZMTula' || values.zonaMetropolitana === 'ZMTulancingo') {
+            setFieldValue('estado', 'Hidalgo');
+            setIsEstadoDisabled(true);
+          } else {
+            setFieldValue('estado', '');  // Reiniciar el valor si no es Hidalgo
+            setIsEstadoDisabled(false);
+          }
+        }, [values.zonaMetropolitana, setFieldValue]);
 
         return (
           <Form className="formulario-container">
@@ -81,7 +91,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
               {showFields && (
                 <div className="form-group">
                   <label>Estado:</label>
-                  <Field name="estado" as="select" className="input-field" >
+                  <Field name="estado" as="select" className="input-field" disabled={isEstadoDisabled}>
                     <option value="">Selecciona un estado</option>
                     <option value="EdoMex">Estado de México</option>
                     <option value="CDMX">Ciudad de México</option>
