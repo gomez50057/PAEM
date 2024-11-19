@@ -4,11 +4,24 @@ import React, { useState, useEffect } from 'react';
 import './Slider.css';
 import { slidesZMVM, slidesOther } from '../../utils/sliderData';
 
-const Slider = ({ zonaSeleccionada }) => {
+const Slider = () => {
   // const imgBasePath = "/img/glifos/";
+  const [zonaSeleccionada, setZonaSeleccionada] = useState('');
   const [slides, setSlides] = useState(slidesZMVM); // Diapositivas predeterminadas
   const [currentSlide, setCurrentSlide] = useState(0);
   const [fade, setFade] = useState(false);
+
+  useEffect(() => {
+    const getZonaFromLocalStorage = () => {
+      const zonaMetropolitana = localStorage.getItem('selectedZonaMetropolitana');
+      setZonaSeleccionada(zonaMetropolitana || ''); // Actualiza el estado
+    };
+    getZonaFromLocalStorage();
+    window.addEventListener('zonaChanged', getZonaFromLocalStorage);
+    return () => {
+      window.removeEventListener('zonaChanged', getZonaFromLocalStorage);
+    };
+  }, []);
 
   useEffect(() => {
     // Cambiar las diapositivas según la zona seleccionada
