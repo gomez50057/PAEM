@@ -39,8 +39,8 @@ const Slider = () => {
       setTimeout(() => {
         setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
         setFade(false);
-      }, 600); // Duración de la animación
-    }, 8000); // Cambiar cada 8 segundos
+      }, 1000); // Duración de la animación
+    }, 12000); // Cambiar cada 12 segundos
 
     return () => clearInterval(interval);
   }, [slides]);

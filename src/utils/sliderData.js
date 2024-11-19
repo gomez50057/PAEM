@@ -46,46 +46,46 @@ export const slidesOther = [
   {
     image: 'https://via.placeholder.com/250?text=Slide+1',
     title: 'Subcomisión de Agua y Alcantarillado (SAA)',
-    description: 'Implementar estrategias sostenibles para la gestión del agua y el alcantarillado en las zonas metropolitanas.',
+    description: 'Implementar estrategias sostenibles y eficaces para la captación, distribución y tratamiento del agua, así como la modernización de los sistemas de alcantarillado en las zonas metropolitanas.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+2',
     title: 'Subcomisión de Asentamientos Humanos (SAH)',
-    description: 'Promover la planeación urbana sostenible en asentamientos humanos.',
+    description: 'Promover la planeación urbana sostenible y la regularización de asentamientos humanos, con el objetivo de mejorar la calidad de vida de las comunidades y reducir los riesgos asociados al desarrollo no planificado.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+3',
     title: 'Subcomisión de Desarrollo Económico (SDE)',
-    description: 'Impulsar el desarrollo económico mediante políticas inclusivas y sostenibles.',
+    description: 'Impulsar el crecimiento económico mediante políticas inclusivas y sostenibles que fomenten la inversión, la generación de empleo y el fortalecimiento de las economías locales.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+4',
     title: 'Subcomisión de Gobernanza Metropolitana (SGM)',
-    description: 'Fomentar la gobernanza eficiente y la colaboración interinstitucional.',
+    description: 'Fomentar una gobernanza eficiente que promueva la colaboración entre diferentes niveles de gobierno y actores sociales, para garantizar una gestión más efectiva de las zonas metropolitanas.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+5',
     title: 'Subcomisión de Medio Ambiente (SMA)',
-    description: 'Implementar políticas para preservar y restaurar el medio ambiente.',
+    description: 'Implementar políticas integrales para preservar los recursos naturales, mitigar los efectos del cambio climático y restaurar ecosistemas críticos dentro de las zonas metropolitanas.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+6',
     title: 'Subcomisión de Movilidad (SM)',
-    description: 'Optimizar la movilidad urbana con un enfoque en transporte sostenible.',
+    description: 'Optimizar la movilidad urbana mediante el desarrollo de infraestructuras sostenibles y la promoción de sistemas de transporte público accesibles, eficientes y respetuosos con el medio ambiente.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+7',
     title: 'Subcomisión de Protección Civil y Gestión Integral de Riesgos (SPCGIR)',
-    description: 'Fortalecer la protección civil y la gestión de riesgos en zonas urbanas.',
+    description: 'Fortalecer las capacidades de protección civil y gestión de riesgos mediante planes de prevención, atención a emergencias y capacitación para comunidades en zonas urbanas.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+8',
     title: 'Subcomisión de Salud (SS)',
-    description: 'Mejorar los servicios de salud y promover la prevención sanitaria.',
+    description: 'Mejorar los servicios de salud pública, promover la prevención sanitaria y garantizar un acceso equitativo a servicios médicos de calidad en las zonas metropolitanas.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+9',
     title: 'Subcomisión de Seguridad Pública y Procuración de Justicia (SSPJ)',
-    description: 'Garantizar la seguridad pública y fortalecer la justicia en áreas metropolitanas.',
+    description: 'Garantizar la seguridad pública a través de estrategias integrales, fortaleciendo la coordinación entre instituciones y mejorando el acceso a la justicia en áreas metropolitanas.',
   },
 ];
