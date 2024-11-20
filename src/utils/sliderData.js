@@ -46,7 +46,7 @@ export const slidesOther = [
   {
     image: 'https://via.placeholder.com/250?text=Slide+1',
     title: 'Subcomisión de Agua y Alcantarillado (SAA)',
-    description: 'Implementar estrategias sostenibles y eficaces para la captación, distribución y tratamiento del agua, así como la modernización de los sistemas de alcantarillado en las zonas metropolitanas.',
+    description: 'Implementar estrategias sostenibles y eficaces para la captación, distribución y tratamiento del agua, así como la modernización de los sistemas de alcantarillado en la zona metropolitana.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+2',
@@ -61,12 +61,12 @@ export const slidesOther = [
   {
     image: 'https://via.placeholder.com/250?text=Slide+4',
     title: 'Subcomisión de Gobernanza Metropolitana (SGM)',
-    description: 'Fomentar una gobernanza eficiente que promueva la colaboración entre diferentes niveles de gobierno y actores sociales, para garantizar una gestión más efectiva de las zonas metropolitanas.',
+    description: 'Fomentar una gobernanza eficiente que promueva la colaboración entre diferentes niveles de gobierno y actores sociales, para garantizar una gestión más efectiva de la zona metropolitana.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+5',
     title: 'Subcomisión de Medio Ambiente (SMA)',
-    description: 'Implementar políticas integrales para preservar los recursos naturales, mitigar los efectos del cambio climático y restaurar ecosistemas críticos dentro de las zonas metropolitanas.',
+    description: 'Implementar políticas integrales para preservar los recursos naturales, mitigar los efectos del cambio climático y restaurar ecosistemas críticos dentro de la zona metropolitana.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+6',
@@ -81,7 +81,7 @@ export const slidesOther = [
   {
     image: 'https://via.placeholder.com/250?text=Slide+8',
     title: 'Subcomisión de Salud (SS)',
-    description: 'Mejorar los servicios de salud pública, promover la prevención sanitaria y garantizar un acceso equitativo a servicios médicos de calidad en las zonas metropolitanas.',
+    description: 'Mejorar los servicios de salud pública, promover la prevención sanitaria y garantizar un acceso equitativo a servicios médicos de calidad en la zona metropolitana.',
   },
   {
     image: 'https://via.placeholder.com/250?text=Slide+9',
