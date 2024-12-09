@@ -2,7 +2,7 @@
 
 export const federalTeamMembers = [
   {
-    "name": "Mtro. Álvaro Lomelí Covarrubias",
+    "name": "Álvaro Lomelí Covarrubias",
     "position": "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
     // "description": [
     //   "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
@@ -20,7 +20,7 @@ export const federalTeamMembers = [
 
 export const cdmxTeamMembers = [
   // {
-  //   "name": "Mtro. Ricardo Ruíz Suárez",
+  //   "name": "Ricardo Ruíz Suárez",
   //   "position": "Secretario de Gobierno",
   //   "description": [
   //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
@@ -35,7 +35,7 @@ export const cdmxTeamMembers = [
   //   "image": "https://via.placeholder.com/400x400"
   // },
   // {
-  //   "name": "Lic. Israel Moreno Rivera",
+  //   "name": "Alejandro Encinas Rodríguez",
   //   "position": "Subsecretario de Coordinación Metropolitana y Enlace Gubernamental",
   //   "description": [
   //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
@@ -50,7 +50,7 @@ export const cdmxTeamMembers = [
   //   "image": "https://via.placeholder.com/400x400"
   // },
   {
-    "name": "No hay",
+    "name": "Pablo Vázquez Camacho",
     "position": "Secretario de Seguridad Ciudadana",
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
@@ -58,15 +58,15 @@ export const cdmxTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Lic. Ernestina Godoy Ramos",
-    "position": "Fiscal General de Justicia",
+    "name": "Ulises Lara López",
+    "position": "Encargado del Despacho de la Fiscalía General de Justicia",
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
     ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Arq. Myriam Urzúa Venegas",
+    "name": "Myriam Urzúa Venegas",
     "position": "Secretaria de Gestión Integral de Riesgos y Protección Civil",
     "description": [
       "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil"
@@ -74,7 +74,7 @@ export const cdmxTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Lic. Fadlala Hneide",
+    "name": "Manola Zabalza Aldama",
     "position": "Secretario de Desarrollo Económico",
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
@@ -82,15 +82,15 @@ export const cdmxTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Dra. Nathalie Veronique Desplas Puel",
+    "name": "Alejandra Frausto Guerrero",
     "position": "Secretaria de Turismo",
-    "description": [
+    "description": [ 
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Mtro. Carlos Alberto Ulloa Pérez",
+    "name": "Alejandro Encinas Rodríguez",
     "position": "Secretario de Desarrollo Urbano y Vivienda",
     "description": [
       "Comisión Metropolitana de Asentamientos Humanos"
@@ -98,7 +98,7 @@ export const cdmxTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Mtro. Andrés Lajous Loaeza",
+    "name": "Héctor Ulises García Nieto",
     "position": "Secretario de Movilidad",
     "description": [
       "Comisión Metropolitana de Movilidad"
@@ -106,7 +106,7 @@ export const cdmxTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Dra. Oliva López Arellano",
+    "name": "Nadine Flora Gasman Zylbermann",
     "position": "Secretaria de Salud",
     "description": [
       "Comisión Metropolitana de Salud"
@@ -114,15 +114,15 @@ export const cdmxTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Lic. Ernesto Armendáriz Ramírez",
-    "position": "Gerente General de Coordinación Institucional de Operación y Servicios",
+    "name": "José Mario Esparza Hernández",
+    "position": "Secretario de Gestión Sustentable del Agua",
     "description": [
       "Comisión de Agua y Drenaje del Área Metropolitana"
     ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Dra. Marina Robles García",
+    "name": "Julia Álvarez Icaza Ramírez",
     "position": "Secretaria de Medio Ambiente",
     "description": [
       "Comisión Ambiental Metropolitana"
@@ -134,7 +134,7 @@ export const cdmxTeamMembers = [
 
 export const edomexTeamMembers = [
   // {
-  //   "name": "Lic. Rafael Díaz Leal Barrueta",
+  //   "name": "Carlos Jesús Maza Lara",
   //   "position": "Secretario de Desarrollo Urbano y Obra",
   //   "description": [
   //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
@@ -149,7 +149,7 @@ export const edomexTeamMembers = [
   //   "image": "https://via.placeholder.com/400x400"
   // },
   // {
-  //   "name": "Dr. Pablo Basáñez García",
+  //   "name": "Pablo Basáñez García",
   //   "position": "Director General de Proyectos de Coordinación Metropolitana de la Secretaría de Desarrollo Urbano y Obra",
   //   "description": [
   //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
@@ -164,7 +164,7 @@ export const edomexTeamMembers = [
   //   "image": "https://via.placeholder.com/400x400"
   // },
   {
-    "name": "Mtro. Rodrigo Sigfrid Martínez – Celis Wogau",
+    "name": "Cristóbal Castañeda Camarillo",
     "position": "Secretario de Seguridad",
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
@@ -172,7 +172,7 @@ export const edomexTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Lic. José Luis Cervantes Martínez",
+    "name": "José Luis Cervantes Martínez",
     "position": "Fiscal General de Justicia de Estado de México",
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
@@ -180,23 +180,23 @@ export const edomexTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Lic. Samuel Gutiérrez Macías",
-    "position": "Coordinador General de Protección Civil",
+    "name": "Adrián Hernández Romero",
+    "position": "Coordinador General de Protección Civil y Gestión Integral del Riesgo",
     "description": [
       "Comisión Metropolitana de Gestión Integral de Riesgos"
     ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Mtro. Pablo Peralta García",
-    "position": "Secretario de Desarrollo Económico",
+    "name": "Laura González Hernández",
+    "position": "Secretaria de Desarrollo Económico",
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "M.E.D.P. Ivett Tinoco García",
+    "name": "Nelly Minerva Carrasco Godínez",
     "position": "Secretaria de Cultura y Turismo",
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
@@ -204,7 +204,7 @@ export const edomexTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Mtro. Luis Gilberto Limón Chávez",
+    "name": "Daniel Andrés Sibaja González",
     "position": "Secretario de Movilidad",
     "description": [
       "Comisión Metropolitana de Movilidad"
@@ -212,24 +212,24 @@ export const edomexTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Mtro. Francisco Javier Fernández Clamont",
-    "position": "Secretario de Salud",
+    "name": "Macarena Montoya Olvera",
+    "position": "Secretaria de Salud",
     "description": [
       "Comisión Metropolitana de Salud"
     ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Lic. Raúl Chaparro Valdés",
-    "position": "Director General del Programa Hidráulico",
+    "name": "Pedro Moctezuma Barragán",
+    "position": "Secretario de Agua",
     "description": [
       "Comisión de Agua y Drenaje del Área Metropolitana"
     ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Ing. Jorge Rescala Pérez",
-    "position": "Secretario de Medio Ambiente",
+    "name": "Alhely Rubio Arronis",
+    "position": "Secretaría de Medio Ambiente y Desarrollo Sostenible",
     "description": [
       "Comisión Ambiental Metropolitana"
     ],
@@ -239,7 +239,7 @@ export const edomexTeamMembers = [
 
 export const hgoTeamMembers = [
   // {
-  //   "name": "Mtro. Miguel Ángel Tello Vargas",
+  //   "name": "Miguel Ángel Tello Vargas",
   //   "position": "Titular de la Unidad de Planeación y Prospectiva",
   //   "description": [
   //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
@@ -254,7 +254,7 @@ export const hgoTeamMembers = [
   //   "image": "/img/ZMVM/integrantesComisiones/HGO/miguel.png",
   // },
   // {
-  //   "name": "Lic. Onésimo Rodrigo Serrano Rivera",
+  //   "name": "Onésimo Rodrigo Serrano Rivera",
   //   "position": "Coordinador General de Planeación y Proyectos",
   //   "description": [
   //     "Planeación Estratégica y Prospectiva",
@@ -266,7 +266,7 @@ export const hgoTeamMembers = [
   //   "image": "https://via.placeholder.com/400x400",
   // },
   {
-    "name": "T.S.U. Salvador Cruz Neri",
+    "name": "Salvador Cruz Neri",
     "position": "Secretario de Seguridad Pública",
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
@@ -274,23 +274,15 @@ export const hgoTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Dr. Santiago Nieto Castillo",
-    "position": "Encargado del Despacho de la Procuraduría General de Justicia",
+    "name": "Francisco Ángel Fernández Hasbun",
+    "position": "Jefe del Despacho de la Procuraduría General de Justicia",
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
     ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Lic. Guillermo Olivares Reyna",
-    "position": "Secretario de Gobierno",
-    "description": [
-      "Comisión Metropolitana de Gestión Integral de Riesgos"
-    ],
-    "image": "https://via.placeholder.com/400x400"
-  },
-  {
-    "name": "Ing. Francisco Quijas Cruz",
+    "name": "Román Bernal Díaz",
     "position": "Subsecretario de Protección Civil y Gestión de Riesgos",
     "description": [
       "Comisión Metropolitana de Gestión Integral de Riesgos"
@@ -298,7 +290,7 @@ export const hgoTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Lic. Carlos Henkel Escorza",
+    "name": "Carlos Henkel Escorza",
     "position": "Secretario de Desarrollo Económico",
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
@@ -306,7 +298,7 @@ export const hgoTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Tec. Elizabeth Quintanar Gómez",
+    "name": "Elizabeth Quintanar Gómez",
     "position": "Secretaria de Turismo",
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
@@ -314,16 +306,16 @@ export const hgoTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Mtro. Alejandro Sánchez García",
+    "name": "Alejandro Sánchez García",
     "position": "Secretario de Infraestructura Pública y Desarrollo Urbano Sostenible",
     "description": [
-      "Comisión Metropolitana de Asentamientos Humanos",
+      "Comisión Metropolitana de Asentamientos Humanos - ",
       "Comisión de Agua y Drenaje del Área Metropolitana"
     ],
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Mtra. Lyzbeth Robles Gutiérrez",
+    "name": "Lyzbeth Robles Gutiérrez",
     "position": "Secretaria de Movilidad y Transporte",
     "description": [
       "Comisión Metropolitana de Movilidad"
@@ -331,7 +323,7 @@ export const hgoTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Mtra. María Zorayda Robles Barrera",
+    "name": "Juana Vanesa Escalante Arroyo",
     "position": "Secretaria de Salud",
     "description": [
       "Comisión Metropolitana de Salud"
@@ -339,7 +331,7 @@ export const hgoTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Mtra. Mónica Patricia Mixtega Trejo",
+    "name": "Mónica Patricia Mixtega Trejo",
     "position": "Secretaria de Medio Ambiente y Recursos Naturales",
     "description": [
       "Comisión Ambiental Metropolitana"
@@ -350,49 +342,54 @@ export const hgoTeamMembers = [
 
 export const tecnicoTeamMembers = [
   {
-    "name": "Mtro. Álvaro Lomelí Covarrubias",
+    "name": "Álvaro Lomelí Covarrubias",
     "position": "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
     "gobierno": "Gobierno Federal",
     "image": "https://via.placeholder.com/400x400",
   },
   {
-    "name": "Mtro. Miguel Ángel Tello Vargas",
+    "name": "Miguel Ángel Tello Vargas",
     "position": "Titular de la Unidad de Planeación y Prospectiva",
     "gobierno": "Gobierno del Estado de Hidalgo",
     "image": "/img/ZMVM/integrantesComisiones/HGO/miguel.png",
   },
   {
-    "name": "Lic. Onésimo Rodrigo Serrano Rivera",
+    "name": "Onésimo Rodrigo Serrano Rivera",
     "position": "Coordinador General de Planeación y Proyectos",
     "gobierno": "Gobierno del Estado de Hidalgo",
     // "image": "/img/ZMVM/integrantesComisiones/HGO/onesimo.png",
     "image": "https://via.placeholder.com/400x400",
   },
   {
-    "name": "Mtro. Ricardo Ruíz Suárez",
+    "name": "Guillermo Olivares Reyna",
+    "position": "Secretario de Gobierno",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "https://via.placeholder.com/400x400"
+  },
+  {
+    "name": "César Cravioto Romero",
     "position": "Secretario de Gobierno",
     "gobierno": "Gobierno de la Ciudad de México",
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Lic. Israel Moreno Rivera",
-    "position": "Subsecretario de Coordinación Metropolitana y Enlace Gubernamental",
+    "name": "Alejandro Encinas Rodríguez",
+    "position": "Secretario de Planeación y Ordenamiento Territorial y Coordinación Metropolitana   ",
     "gobierno": "Gobierno de la Ciudad de México",
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Lic. Rafael Díaz Leal Barrueta",
-    "position": "Secretario de Desarrollo Urbano y Obra",
+    "name": "Horacio Duarte Olivares",
+    "position": "Secretario General de Gobierno",
     "gobierno": "Gobierno del Estado de México",
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "Dr. Pablo Basáñez García",
-    "position": "Director General de Proyectos de Coordinación Metropolitana de la Secretaría de Desarrollo Urbano y Obra",
+    "name": "Carlos Jesús Maza Lara",
+    "position": "Secretario de Desarrollo Urbano y Obra",
     "gobierno": "Gobierno del Estado de México",
     "image": "https://via.placeholder.com/400x400"
-  },
-
+  }
 ];
 
 export const estatalTeamMembers = [
@@ -403,8 +400,8 @@ export const estatalTeamMembers = [
     "image": "https://via.placeholder.com/400x400",
   },
   {
-    "name": "Martí Batres Guadarrama",
-    "position": "Jefe de Gobierno de la Ciudad de México",
+    "name": "Clara Marina Brugada Molina",
+    "position": "Jefa de Gobierno de la Ciudad de México",
     "gobierno": "Gobierno de la Ciudad de México",
     "image": "https://via.placeholder.com/400x400"
   },
@@ -415,9 +412,9 @@ export const estatalTeamMembers = [
     "image": "https://via.placeholder.com/400x400"
   },
   {
-    "name": "aaaaaaaa",
-    "position": "Secretario de Desarrollo Agrario, Territorial y Urbano",
-    "gobierno": "aaaaaaaaaa",
+    "name": "Edna Elena Vega Rangel",
+    "position": "Secretaria de Desarrollo Agrario, Territorial y Urbano",
+    "gobierno": "Gobierno Federal",
     "image": "https://via.placeholder.com/400x400"
   },
 ];
