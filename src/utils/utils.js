@@ -109,7 +109,7 @@ export const edomexTeamMembers = [
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Cristóbal Castañeda Camarillo.png"
   },
   {
     "name": "José Luis Cervantes Martínez",
@@ -117,7 +117,7 @@ export const edomexTeamMembers = [
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/José Luis Cervantes Martínez.png"
   },
   {
     "name": "Adrián Hernández Romero",
@@ -125,7 +125,7 @@ export const edomexTeamMembers = [
     "description": [
       "Comisión Metropolitana de Gestión Integral de Riesgos"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Adrián Hernández Romero.png"
   },
   {
     "name": "Laura González Hernández",
@@ -133,7 +133,7 @@ export const edomexTeamMembers = [
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Laura González Hernández.png"
   },
   {
     "name": "Nelly Minerva Carrasco Godínez",
@@ -141,7 +141,7 @@ export const edomexTeamMembers = [
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Nelly Minerva Carrasco Godínez.png"
   },
   {
     "name": "Daniel Andrés Sibaja González",
@@ -149,7 +149,7 @@ export const edomexTeamMembers = [
     "description": [
       "Comisión Metropolitana de Movilidad"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Daniel Andrés Sibaja González.png"
   },
   {
     "name": "Macarena Montoya Olvera",
@@ -157,7 +157,7 @@ export const edomexTeamMembers = [
     "description": [
       "Comisión Metropolitana de Salud"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Macarena Montoya Olvera.png"
   },
   {
     "name": "Pedro Moctezuma Barragán",
@@ -165,7 +165,7 @@ export const edomexTeamMembers = [
     "description": [
       "Comisión de Agua y Drenaje del Área Metropolitana"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Pedro Moctezuma Barragán.png"
   },
   {
     "name": "Alhely Rubio Arronis",
@@ -173,7 +173,7 @@ export const edomexTeamMembers = [
     "description": [
       "Comisión Ambiental Metropolitana"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Alhely Rubio Arronis.png"
   }
 ];
 
