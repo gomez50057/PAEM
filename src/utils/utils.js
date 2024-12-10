@@ -19,43 +19,13 @@ export const federalTeamMembers = [
 ];
 
 export const cdmxTeamMembers = [
-  // {
-  //   "name": "Ricardo Ruíz Suárez",
-  //   "position": "Secretario de Gobierno",
-  //   "description": [
-  //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-  //     "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil",
-  //     "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-  //     "Comisión Metropolitana de Asentamientos Humanos",
-  //     "Comisión Metropolitana de Movilidad",
-  //     "Comisión Metropolitana de Salud",
-  //     "Comisión de Agua y Drenaje del Área Metropolitana",
-  //     "Comisión Ambiental Metropolitana"
-  //   ],
-  //   "image": "https://via.placeholder.com/400x400"
-  // },
-  // {
-  //   "name": "Alejandro Encinas Rodríguez",
-  //   "position": "Subsecretario de Coordinación Metropolitana y Enlace Gubernamental",
-  //   "description": [
-  //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-  //     "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil",
-  //     "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-  //     "Comisión Metropolitana de Asentamientos Humanos",
-  //     "Comisión Metropolitana de Movilidad",
-  //     "Comisión Metropolitana de Salud",
-  //     "Comisión de Agua y Drenaje del Área Metropolitana",
-  //     "Comisión Ambiental Metropolitana"
-  //   ],
-  //   "image": "https://via.placeholder.com/400x400"
-  // },
   {
     "name": "Pablo Vázquez Camacho",
     "position": "Secretario de Seguridad Ciudadana",
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/CDMX/Pablo Vázquez Camacho.png"
   },
   {
     "name": "Ulises Lara López",
@@ -63,7 +33,7 @@ export const cdmxTeamMembers = [
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/CDMX/Ulises Lara López.png"
   },
   {
     "name": "Myriam Urzúa Venegas",
@@ -71,7 +41,7 @@ export const cdmxTeamMembers = [
     "description": [
       "Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/CDMX/Myriam Urzúa Venegas.png"
   },
   {
     "name": "Manola Zabalza Aldama",
@@ -79,23 +49,23 @@ export const cdmxTeamMembers = [
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/CDMX/Manola Zabalza Aldama.png"
   },
   {
     "name": "Alejandra Frausto Guerrero",
     "position": "Secretaria de Turismo",
-    "description": [ 
+    "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/CDMX/Alejandra Frausto Guerrero.png"
   },
   {
-    "name": "Alejandro Encinas Rodríguez",
+    "name": "Inti Muñoz Santini",
     "position": "Secretario de Desarrollo Urbano y Vivienda",
     "description": [
       "Comisión Metropolitana de Asentamientos Humanos"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/CDMX/Inti Muñoz Santini.png"
   },
   {
     "name": "Héctor Ulises García Nieto",
@@ -103,7 +73,7 @@ export const cdmxTeamMembers = [
     "description": [
       "Comisión Metropolitana de Movilidad"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/CDMX/Héctor Ulises García Nieto.png"
   },
   {
     "name": "Nadine Flora Gasman Zylbermann",
@@ -111,7 +81,7 @@ export const cdmxTeamMembers = [
     "description": [
       "Comisión Metropolitana de Salud"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/CDMX/Nadine Flora Gasman Zylbermann.png"
   },
   {
     "name": "José Mario Esparza Hernández",
@@ -119,7 +89,7 @@ export const cdmxTeamMembers = [
     "description": [
       "Comisión de Agua y Drenaje del Área Metropolitana"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/CDMX/José Mario Esparza Hernández.png"
   },
   {
     "name": "Julia Álvarez Icaza Ramírez",
@@ -127,42 +97,12 @@ export const cdmxTeamMembers = [
     "description": [
       "Comisión Ambiental Metropolitana"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/CDMX/Julia Álvarez Icaza Ramírez.png"
   }
 
 ];
 
 export const edomexTeamMembers = [
-  // {
-  //   "name": "Carlos Jesús Maza Lara",
-  //   "position": "Secretario de Desarrollo Urbano y Obra",
-  //   "description": [
-  //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-  //     "Comisión Metropolitana de Gestión Integral de Riesgos",
-  //     "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-  //     "Comisión Metropolitana de Asentamientos Humanos",
-  //     "Comisión Metropolitana de Movilidad",
-  //     "Comisión Metropolitana de Salud",
-  //     "Comisión de Agua y Drenaje del Área Metropolitana",
-  //     "Comisión Ambiental Metropolitana"
-  //   ],
-  //   "image": "https://via.placeholder.com/400x400"
-  // },
-  // {
-  //   "name": "Pablo Basáñez García",
-  //   "position": "Director General de Proyectos de Coordinación Metropolitana de la Secretaría de Desarrollo Urbano y Obra",
-  //   "description": [
-  //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-  //     "Comisión Metropolitana de Gestión Integral de Riesgos",
-  //     "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-  //     "Comisión Metropolitana de Asentamientos Humanos",
-  //     "Comisión Metropolitana de Movilidad",
-  //     "Comisión Metropolitana de Salud",
-  //     "Comisión de Agua y Drenaje del Área Metropolitana",
-  //     "Comisión Ambiental Metropolitana"
-  //   ],
-  //   "image": "https://via.placeholder.com/400x400"
-  // },
   {
     "name": "Cristóbal Castañeda Camarillo",
     "position": "Secretario de Seguridad",
@@ -238,40 +178,11 @@ export const edomexTeamMembers = [
 ];
 
 export const hgoTeamMembers = [
-  // {
-  //   "name": "Miguel Ángel Tello Vargas",
-  //   "position": "Titular de la Unidad de Planeación y Prospectiva",
-  //   "description": [
-  //     "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia",
-  //     "Comisión Metropolitana de Gestión Integral de Riesgos",
-  //     "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo",
-  //     "Comisión Metropolitana de Asentamientos Humanos",
-  //     "Comisión Metropolitana de Movilidad",
-  //     "Comisión Metropolitana de Salud",
-  //     "Comisión de Agua y Drenaje del Área Metropolitana",
-  //     "Comisión Ambiental Metropolitana"
-  //   ],
-  //   "image": "/img/ZMVM/integrantesComisiones/HGO/miguel.png",
-  // },
-  // {
-  //   "name": "Onésimo Rodrigo Serrano Rivera",
-  //   "position": "Coordinador General de Planeación y Proyectos",
-  //   "description": [
-  //     "Planeación Estratégica y Prospectiva",
-  //     "Coordinación y seguimiento de proyectos estratégicos",
-  //     "Enlace interinstitucional",
-  //     "Desarrollo y seguimiento de indicadores de gestión"
-  //   ],
-  //   // "image": "/img/ZMVM/integrantesComisiones/HGO/onesimo.png",
-  //   "image": "https://via.placeholder.com/400x400",
-  // },
   {
     "name": "Salvador Cruz Neri",
     "position": "Secretario de Seguridad Pública",
-    "description": [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
-    ],
-    "image": "https://via.placeholder.com/400x400"
+    "description": ["Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"],
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Salvador Cruz Neri.png"
   },
   {
     "name": "Francisco Ángel Fernández Hasbun",
@@ -279,7 +190,7 @@ export const hgoTeamMembers = [
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Francisco Ángel Fernández Hasbun.png"
   },
   {
     "name": "Román Bernal Díaz",
@@ -287,7 +198,7 @@ export const hgoTeamMembers = [
     "description": [
       "Comisión Metropolitana de Gestión Integral de Riesgos"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Román Bernal Díaz.png"
   },
   {
     "name": "Carlos Henkel Escorza",
@@ -295,7 +206,8 @@ export const hgoTeamMembers = [
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Carlos Henkel Escorza.png"
+
   },
   {
     "name": "Elizabeth Quintanar Gómez",
@@ -303,7 +215,7 @@ export const hgoTeamMembers = [
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Elizabeth Quintanar Gómez.png"
   },
   {
     "name": "Alejandro Sánchez García",
@@ -312,7 +224,8 @@ export const hgoTeamMembers = [
       "Comisión Metropolitana de Asentamientos Humanos - ",
       "Comisión de Agua y Drenaje del Área Metropolitana"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Alejandro Sánchez García.png"
+
   },
   {
     "name": "Lyzbeth Robles Gutiérrez",
@@ -320,7 +233,8 @@ export const hgoTeamMembers = [
     "description": [
       "Comisión Metropolitana de Movilidad"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Lyzbeth Robles Gutiérrez.png"
+
   },
   {
     "name": "Juana Vanesa Escalante Arroyo",
@@ -328,7 +242,7 @@ export const hgoTeamMembers = [
     "description": [
       "Comisión Metropolitana de Salud"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Juana Vanesa Escalante Arroyo.png"
   },
   {
     "name": "Mónica Patricia Mixtega Trejo",
@@ -336,7 +250,7 @@ export const hgoTeamMembers = [
     "description": [
       "Comisión Ambiental Metropolitana"
     ],
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Mónica Patricia Mixtega Trejo.png"
   }
 ];
 
@@ -345,50 +259,51 @@ export const tecnicoTeamMembers = [
     "name": "Álvaro Lomelí Covarrubias",
     "position": "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
     "gobierno": "Gobierno Federal",
-    "image": "https://via.placeholder.com/400x400",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Álvaro Lomelí Covarrubias.png"
+
   },
   {
     "name": "Miguel Ángel Tello Vargas",
     "position": "Titular de la Unidad de Planeación y Prospectiva",
     "gobierno": "Gobierno del Estado de Hidalgo",
-    "image": "/img/ZMVM/integrantesComisiones/HGO/miguel.png",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Miguel Ángel Tello Vargas.png",
   },
   {
     "name": "Onésimo Rodrigo Serrano Rivera",
     "position": "Coordinador General de Planeación y Proyectos",
     "gobierno": "Gobierno del Estado de Hidalgo",
-    // "image": "/img/ZMVM/integrantesComisiones/HGO/onesimo.png",
-    "image": "https://via.placeholder.com/400x400",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/.png"
+
   },
   {
     "name": "Guillermo Olivares Reyna",
     "position": "Secretario de Gobierno",
     "gobierno": "Gobierno del Estado de Hidalgo",
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Guillermo Olivares Reyna.png"
   },
   {
     "name": "César Cravioto Romero",
     "position": "Secretario de Gobierno",
     "gobierno": "Gobierno de la Ciudad de México",
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/César Cravioto Romero.png"
   },
   {
     "name": "Alejandro Encinas Rodríguez",
     "position": "Secretario de Planeación y Ordenamiento Territorial y Coordinación Metropolitana   ",
     "gobierno": "Gobierno de la Ciudad de México",
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Alejandro Encinas Rodríguez.png"
   },
   {
     "name": "Horacio Duarte Olivares",
     "position": "Secretario General de Gobierno",
     "gobierno": "Gobierno del Estado de México",
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Horacio Duarte Olivares.png"
   },
   {
     "name": "Carlos Jesús Maza Lara",
     "position": "Secretario de Desarrollo Urbano y Obra",
     "gobierno": "Gobierno del Estado de México",
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Carlos Jesús Maza Lara.png"
   }
 ];
 
@@ -397,25 +312,25 @@ export const estatalTeamMembers = [
     "name": "Julio Menchaca Salazar",
     "position": "Gobernador del estado de Hidalgo",
     "gobierno": "Gobierno del Estado de Hidalgo",
-    "image": "https://via.placeholder.com/400x400",
+    "image": "/img/ZMVM/Presidencia Conjunta/Julio Menchaca Salazar.png",
   },
   {
     "name": "Clara Marina Brugada Molina",
     "position": "Jefa de Gobierno de la Ciudad de México",
     "gobierno": "Gobierno de la Ciudad de México",
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/Presidencia Conjunta/Clara Marina Brugada Molina.png"
   },
   {
     "name": "Delfina Gómez Álvarez",
     "position": "Gobernadora del Estado de México",
     "gobierno": "Gobierno del Estado de México",
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/Presidencia Conjunta/Delfina Gómez Álvarez.png"
   },
   {
     "name": "Edna Elena Vega Rangel",
     "position": "Secretaria de Desarrollo Agrario, Territorial y Urbano",
     "gobierno": "Gobierno Federal",
-    "image": "https://via.placeholder.com/400x400"
+    "image": "/img/ZMVM/Presidencia Conjunta/Edna Elena Vega Rangel.png"
   },
 ];
 
