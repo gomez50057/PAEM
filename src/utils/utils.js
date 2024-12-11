@@ -310,7 +310,7 @@ export const tecnicoTeamMembers = [
 export const estatalTeamMembers = [
   {
     "name": "Julio Menchaca Salazar",
-    "position": "Gobernador del estado de Hidalgo",
+    "position": "Gobernador del Estado de Hidalgo",
     "gobierno": "Gobierno del Estado de Hidalgo",
     "image": "/img/ZMVM/Presidencia Conjunta/Julio Menchaca Salazar.png",
   },

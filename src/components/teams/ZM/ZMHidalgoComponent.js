@@ -1,17 +1,17 @@
 import React from 'react';
 import { getTituloZona } from '../../../utils/home';
+import CEMZMsHgoTeam from '../CEMZMsHgoTeam';
+import COMZMsHgoTeam from '../COMZMsHgoTeam';
 
 const ZMHidalgoComponent = ({ zona }) => {
-  const tituloZona = getTituloZona(zona); // Obtener el título de la zona
-
+  const tituloZona = getTituloZona(zona);
   return (
     <div>
       <h2>Comisión de Ordenamiento Metropolitano de la ZM de {tituloZona}</h2>
-      <p>Esta es la información específica para la Zona Metropolitana de {tituloZona}.</p>
-      <p>Texto adicional o cualquier otro contenido específico para {tituloZona}.</p>
-      <h3>Consejo Estatal Metropolitano</h3>
+      <CEMZMsHgoTeam />
+      <COMZMsHgoTeam />
 
-      <h3>Comisiones de Ordenamiento Metropolitano</h3>
+      <h3>Servidores Públicos Municipales: <span>Síndicos, Tesoreros y Directores de Planeación, Desarrollo Urbano y Obras Públicas.</span></h3>
     </div>
   );
 };
