@@ -1,15 +1,6 @@
 import styles from "./UltimasNoticias.module.css";
 import Link from "next/link"; // Para manejar la navegación a los detalles de la nota
-
-// Función para normalizar nombres (elimina acentos y caracteres especiales)
-const normalizeName = (str) => {
-  return str
-    .normalize("NFD") // Descompone los caracteres acentuados
-    .replace(/[\u0300-\u036f]/g, "") // Elimina los diacríticos
-    .replace(/[^\w\s-]/g, "") // Elimina caracteres especiales
-    .replace(/\s+/g, "-") // Reemplaza espacios con guiones
-    .toLowerCase(); // Convierte a minúsculas
-};
+import { normalizeName } from "../../utils/blogData";
 
 const UltimasNoticias = ({ posts }) => {
   const MAX_LENGTH = 50; // Máxima longitud antes de mostrar "..."
