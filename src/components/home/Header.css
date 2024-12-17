@@ -25,7 +25,7 @@
   top: 40vh;
   left: 31px;
   transform: translate(0%, -50%);
-  width: 55vw;
+  width: 50vw;
   height: auto;
   opacity: 0;
   transition: opacity 1s ease-in;
