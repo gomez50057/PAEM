@@ -8,30 +8,38 @@ const FullPost = ({ post, featuredPosts }) => {
     return <p>La publicación no existe.</p>;
   }
 
-  // Función para procesar texto con negritas, cursivas y viñetas
+  // Función para procesar texto con negritas, cursivas y combinaciones
   const renderTextWithStyles = (text) => {
-    // Detecta y reemplaza **texto** para negritas y *texto* para cursivas
-    const boldItalicRegex = /\*\*([^*]+)\*\*|\*([^*]+)\*/g;
+    const combinedRegex = /(\*\*_(.*?)_\*\*)|(\*\*(.*?)\*\*)|(\*(.*?)\*)/g;
 
     const elements = [];
     let lastIndex = 0;
 
-    text.replace(boldItalicRegex, (match, bold, italic, offset) => {
-      // Agregar el texto previo
+    text.replace(combinedRegex, (match, boldItalicContent, bold, italic, offset) => {
+      // Agregar el texto previo a la coincidencia
       if (offset > lastIndex) {
         elements.push(text.substring(lastIndex, offset));
       }
 
-      // Negritas
-      if (bold) {
+      // Negrita y cursiva
+      if (boldItalicContent) {
+        elements.push(
+          <strong key={offset}>
+            <em>{boldItalicContent}</em>
+          </strong>
+        );
+      }
+      // Negrita
+      else if (bold) {
         elements.push(<strong key={offset}>{bold}</strong>);
       }
-      // Cursivas
-      if (italic) {
+      // Cursiva
+      else if (italic) {
         elements.push(<em key={offset}>{italic}</em>);
       }
       lastIndex = offset + match.length;
-    });
+    }
+    );
 
     // Agregar el resto del texto después de la última coincidencia
     if (lastIndex < text.length) {
@@ -86,7 +94,7 @@ const FullPost = ({ post, featuredPosts }) => {
           <h1 className={styles.title}>{post.name}</h1>
 
           <div className={styles.description}>
-            <ul style={{ listStyleType: "disc", padding: "0"}}>
+            <ul style={{ listStyleType: "disc", padding: "0" }}>
               {renderDescription(post.description)}
             </ul>
           </div>

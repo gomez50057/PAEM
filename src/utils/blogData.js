@@ -2,6 +2,7 @@
 // Cursiva: *Este texto estará en cursiva*
 // Viñetas: * Elemento de lista
 // Saltos de línea: \n
+// Negrita y Cursiva: **_Este texto estará en negrita y Cursiva_**
 
 export const blogPosts = [
   {
