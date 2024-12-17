@@ -1,7 +1,12 @@
+// Negrita: **Este texto estará en negrita**
+// Cursiva: *Este texto estará en cursiva*
+// Viñetas: * Elemento de lista
+// Saltos de línea: \n
+
 export const blogPosts = [
   {
-    name: "Lorem ipsum dolor sit amet",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras placerat augue ac lectus finibus feugiat.",
+    name: "Primera Sesion Ordinaria del Consejo de Desarrollo Metropolitano del Valle de Mexico",
+    description: "Hidalgo fue sede de la Primera Sesión Ordinaria del Consejo de Desarrollo Metropolitano del Valle de México 2023 desde Pachuca de Soto, Hidalgo, la cual se llevó a cabo el día 19 de mayo de 2023. \n Se contó con la presencia de la ex Jefa de Gobierno de la Ciudad de México, Claudia Sheinbaum, el ex gobernador del Estado de México, Alfredo Del Mazo Maza y siendo el anfitrión el gobernador Julio Menchaca; así como representantes de los tres niveles de gobierno de los estados, en la cual se aprobaron **6 grandes acuerdos**: \n*	Aprobación de la Agenda Metropolitana.\n*	Crear un corredor logístico-industrial Ciudad de México, Hidalgo y Estado de México.\n*	Creación de mecanismos financieros para el desarrollo metropolitano. \n*	Análisis para la integración de nuevos municipios de Hidalgo a la ZMVM.\n*	Actualización de las condiciones de aprovechamiento de los recursos hídricos de la ZMVM.\n*	Análisis de la propuesta de reglamento interior del Consejo de Desarrollo Metropolitano del Valle de México.",
     date: "23 de septiembre, 2024",
     image: "https://via.placeholder.com/400x300",
     quote: "El lugar donde la naturaleza te deja sin palabras.",
