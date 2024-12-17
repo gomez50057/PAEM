@@ -58,7 +58,7 @@
 
 .floating-img {
   display: block;
-  animation: floatingAnimation 2.5s infinite alternate ease-in-out, shadowAnimation 2.5s infinite alternate ease-in-out;
+  animation: floatingAnimation 10s infinite alternate ease-in-out, shadowAnimation 8s infinite alternate ease-in-out;
   will-change: transform, filter;
 }
 
