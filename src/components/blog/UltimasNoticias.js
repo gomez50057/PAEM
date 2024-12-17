@@ -1,6 +1,16 @@
 import styles from "./UltimasNoticias.module.css";
 import Link from "next/link"; // Para manejar la navegación a los detalles de la nota
 
+// Función para normalizar nombres (elimina acentos y caracteres especiales)
+const normalizeName = (str) => {
+  return str
+    .normalize("NFD") // Descompone los caracteres acentuados
+    .replace(/[\u0300-\u036f]/g, "") // Elimina los diacríticos
+    .replace(/[^\w\s-]/g, "") // Elimina caracteres especiales
+    .replace(/\s+/g, "-") // Reemplaza espacios con guiones
+    .toLowerCase(); // Convierte a minúsculas
+};
+
 const UltimasNoticias = ({ posts }) => {
   const MAX_LENGTH = 50; // Máxima longitud antes de mostrar "..."
 
@@ -20,15 +30,10 @@ const UltimasNoticias = ({ posts }) => {
             </p>
 
             {/* Botón para ver más detalles */}
-            <Link href={`/noticias/${post.name.toLowerCase().replace(/\s+/g, "-")}`}className="readMoreBtn">
-              Leer más
-            </Link>
-
+            <Link href={`/noticias/${normalizeName(post.name)}`} className="readMoreBtn" >Leer más</Link>
             {/* Mostrar cita si existe */}
             {post.quote && (
-              <div className={styles.quote}>
-                "{post.quote}"
-              </div>
+              <div className={styles.quote}>"{post.quote}"</div>
             )}
           </div>
         ))}

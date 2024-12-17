@@ -15,7 +15,7 @@ const FullPost = ({ post, featuredPosts }) => {
     const elements = [];
     let lastIndex = 0;
 
-    text.replace(combinedRegex, (match, boldItalicContent, bold, italic, offset) => {
+    text.replace(combinedRegex, (match, boldItalic, boldItalicContent, bold, boldContent, italic, italicContent, offset) => {
       // Agregar el texto previo a la coincidencia
       if (offset > lastIndex) {
         elements.push(text.substring(lastIndex, offset));
@@ -30,12 +30,12 @@ const FullPost = ({ post, featuredPosts }) => {
         );
       }
       // Negrita
-      else if (bold) {
-        elements.push(<strong key={offset}>{bold}</strong>);
+      else if (boldContent) {
+        elements.push(<strong key={offset}>{boldContent}</strong>);
       }
       // Cursiva
-      else if (italic) {
-        elements.push(<em key={offset}>{italic}</em>);
+      else if (italicContent) {
+        elements.push(<em key={offset}>{italicContent}</em>);
       }
       lastIndex = offset + match.length;
     }
