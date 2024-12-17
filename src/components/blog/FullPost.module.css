@@ -43,11 +43,19 @@
   font-size: 1.4rem;
   font-style: italic;
   color: #666;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  text-align: right;
+  margin: 20px 0 40px 0;
 }
 
 .sidebar {
   flex: 1;
   padding: 0 10px;
+}
+
+.rightAlignedList {
+  list-style-position: inside;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  padding-inline-start: 40px;
+
 }

@@ -30,7 +30,6 @@ const FullPost = ({ post, featuredPosts }) => {
       if (italic) {
         elements.push(<em key={offset}>{italic}</em>);
       }
-
       lastIndex = offset + match.length;
     });
 
@@ -38,7 +37,6 @@ const FullPost = ({ post, featuredPosts }) => {
     if (lastIndex < text.length) {
       elements.push(text.substring(lastIndex));
     }
-
     return elements;
   };
 
@@ -46,8 +44,9 @@ const FullPost = ({ post, featuredPosts }) => {
   const renderDescription = (description) => {
     return description.split("\n").map((line, index) => {
       if (line.startsWith("*")) {
+        // Aplica una clase específica para viñetas alineadas a la derecha
         return (
-          <li key={index} style={{ marginBottom: "0.5rem" }}>
+          <li key={index} className={styles.rightAlignedList}>
             {renderTextWithStyles(line.substring(2))}
           </li>
         );
@@ -87,7 +86,7 @@ const FullPost = ({ post, featuredPosts }) => {
           <h1 className={styles.title}>{post.name}</h1>
 
           <div className={styles.description}>
-            <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+            <ul style={{ listStyleType: "disc", padding: "0"}}>
               {renderDescription(post.description)}
             </ul>
           </div>
