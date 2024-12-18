@@ -2,19 +2,13 @@
 import { useState, useEffect } from "react";
 import styles from "./BlogHeader.module.css";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+import Link from "next/link";
+import { normalizeName, items } from "../../utils/blogData";
 
 const BlogHeader = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0); // Cambia la clave para forzar el reinicio de la animación
   const [manualChange, setManualChange] = useState(false); // Indica si se hizo un cambio manual
-
-  const items = [
-    { name: "Iceland", des: "Lorem ipsum dolor sit amet", bg: "https://i.ibb.co/qCkd9jS/img1.jpg" },
-    { name: "Finland", des: "Lorem ipsum dolor sit amet", bg: "https://i.ibb.co/jrRb11q/img2.jpg" },
-    { name: "Australia", des: "Lorem ipsum dolor sit amet", bg: "https://i.ibb.co/NSwVv8D/img3.jpg" },
-    { name: "Netherlands", des: "Lorem ipsum dolor sit amet", bg: "https://i.ibb.co/RNkk6L0/img6.jpg" },
-    { name: "Ireland", des: "Lorem ipsum dolor sit amet", bg: "https://i.ibb.co/Bq4Q0M8/img4.jpg" }
-  ];
 
   useEffect(() => {
     // Actualizamos la clave de animación para reiniciar las animaciones
@@ -70,9 +64,11 @@ const BlogHeader = () => {
         <div key={`${animationKey}-des`} className={`${styles.des} ${styles.textAnimation} delay-2`}>
           {items[activeIndex].des}
         </div>
-        <button key={`${animationKey}-button`} className={`${styles.textAnimation} delay-3`}>
-          Leer más
-        </button>
+        <Link href={`/noticias/${normalizeName(items[activeIndex].name)}`} passHref>
+          <button key={`${animationKey}-button`} className={`${styles.textAnimation} delay-3`}>
+            Leer más
+          </button>
+        </Link>
       </div>
 
       <div className={styles.previewContainer}>

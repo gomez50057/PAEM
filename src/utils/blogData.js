@@ -89,6 +89,11 @@ export const featuredPosts = [
   },
 ];
 
+export const items = [
+  { name: "7ma reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México", des: "13 de noviembre, 2024", bg: "/public/img/noticias/ZMVM/7ma reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México.jpg" },
+  { name: "Red Nacional Metropolitana 2024", des: "29 de noviembre, 2024", bg: "https://i.ibb.co/jrRb11q/img2.jpg" },
+];
+
 
 // Función para normalizar nombres (elimina acentos y caracteres especiales)
 export const normalizeName = (str) => {
