@@ -6,6 +6,7 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 const BlogHeader = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0); // Cambia la clave para forzar el reinicio de la animación
+  const [manualChange, setManualChange] = useState(false); // Indica si se hizo un cambio manual
 
   const items = [
     { name: "Iceland", des: "Lorem ipsum dolor sit amet", bg: "https://i.ibb.co/qCkd9jS/img1.jpg" },
@@ -22,20 +23,29 @@ const BlogHeader = () => {
 
   useEffect(() => {
     // Configura el intervalo para cambiar el slider automáticamente
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % items.length);
-    }, 6000);
+    if (!manualChange) {
+      const interval = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % items.length);
+      }, 6000);
 
-    // Limpia el intervalo al desmontar el componente
-    return () => clearInterval(interval);
-  }, [items.length]);
+      return () => clearInterval(interval);
+    }
+  }, [items.length, manualChange]);
 
   const handleNext = () => {
+    setManualChange(true); // Detiene el avance automático temporalmente
     setActiveIndex((prev) => (prev + 1) % items.length);
+    restartAutoAdvance();
   };
 
   const handlePrev = () => {
+    setManualChange(true); // Detiene el avance automático temporalmente
     setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
+    restartAutoAdvance();
+  };
+
+  const restartAutoAdvance = () => {
+    setManualChange(false);
   };
 
   const getNextIndex = (index, offset) => {
@@ -43,7 +53,9 @@ const BlogHeader = () => {
   };
 
   const handlePreviewClick = (index) => {
+    setManualChange(true); // Detiene el avance automático temporalmente
     setActiveIndex(index); // Cambiar la diapositiva al hacer clic en la previsualización
+    restartAutoAdvance();
   };
 
   return (
