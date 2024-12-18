@@ -44,11 +44,11 @@ const BlogNoticias = ({ posts, featuredPosts }) => {
                 <div className={styles.newsContent}>
                   <p className={styles.newsMeta}>{post.category} · {post.date}</p>
                   <h3 className={styles.newsTitle}>{post.name}</h3>
-                  <p className={styles.newsDescription}>
+                  <div className={styles.newsDescription}>
                     {post.description.length > MAX_LENGTH
                       ? renderDescription(`${post.description.slice(0, MAX_LENGTH)}...`)
                       : renderDescription(post.description)}
-                  </p>
+                  </div>
                 </div>
                 <Link href={`/noticias/${normalizeName(post.name)}`} className="readMoreBtn" >Leer más</Link>
               </div>
