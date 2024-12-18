@@ -1,6 +1,6 @@
 import styles from "./UltimasNoticias.module.css";
-import Link from "next/link"; // Para manejar la navegación a los detalles de la nota
-import { normalizeName } from "../../utils/blogData";
+import Link from "next/link";
+import { normalizeName, renderDescription } from "../../utils/blogData";
 
 const UltimasNoticias = ({ posts }) => {
   const MAX_LENGTH = 50; // Máxima longitud antes de mostrar "..."
@@ -14,18 +14,17 @@ const UltimasNoticias = ({ posts }) => {
             <img src={post.image} alt={post.name} className={styles.newsImage} />
             <h3 className={styles.newsTitle}>{post.name}</h3>
             <p className={styles.newsDate}>{post.date}</p>
-            <p className={styles.newsDescription}>
+            {/* Descripción procesada con estilos */}
+            <div className={styles.newsDescription}>
               {post.description.length > MAX_LENGTH
-                ? `${post.description.slice(0, MAX_LENGTH)}...`
-                : post.description}
-            </p>
+                ? renderDescription(`${post.description.slice(0, MAX_LENGTH)}...`)
+                : renderDescription(post.description)}
+            </div>
 
             {/* Botón para ver más detalles */}
             <Link href={`/noticias/${normalizeName(post.name)}`} className="readMoreBtn" >Leer más</Link>
             {/* Mostrar cita si existe */}
-            {post.quote && (
-              <div className={styles.quote}>"{post.quote}"</div>
-            )}
+            {post.quote && <div className={styles.quote}>"{post.quote}"</div>}
           </div>
         ))}
       </div>

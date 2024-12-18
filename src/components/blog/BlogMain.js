@@ -1,8 +1,8 @@
 "use client";
-import BlogHeader from "./BlogHeader"; // El componente respetado
-import BlogNoticias from "./BlogNoticias"; // Nuevo componente que combina noticias y publicaciones destacadas
-import UltimasNoticias from "./UltimasNoticias"; // Sección de últimas noticias (opcional para mantener)
-import { blogPosts, featuredPosts } from "../../utils/blogData"; // Datos simulados
+import BlogHeader from "./BlogHeader";
+import BlogNoticias from "./BlogNoticias";
+import UltimasNoticias from "./UltimasNoticias";
+import { blogPosts, featuredPosts } from "../../utils/blogData";
 
 const BlogMain = () => {
   return (

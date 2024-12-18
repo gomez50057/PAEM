@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './BlogNoticias.module.css';
 import FeaturedPosts from './FeaturedPosts';
 import Link from "next/link";
-import { normalizeName } from "../../utils/blogData";
+import { normalizeName, renderDescription } from "../../utils/blogData";
 
 const BlogNoticias = ({ posts, featuredPosts }) => {
   const MAX_LENGTH = 50;
@@ -46,8 +46,8 @@ const BlogNoticias = ({ posts, featuredPosts }) => {
                   <h3 className={styles.newsTitle}>{post.name}</h3>
                   <p className={styles.newsDescription}>
                     {post.description.length > MAX_LENGTH
-                      ? `${post.description.slice(0, MAX_LENGTH)}...`
-                      : post.description}
+                      ? renderDescription(`${post.description.slice(0, MAX_LENGTH)}...`)
+                      : renderDescription(post.description)}
                   </p>
                 </div>
                 <Link href={`/noticias/${normalizeName(post.name)}`} className="readMoreBtn" >Leer más</Link>
