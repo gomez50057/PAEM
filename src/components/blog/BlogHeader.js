@@ -20,6 +20,16 @@ const BlogHeader = () => {
     setAnimationKey((prevKey) => prevKey + 1);
   }, [activeIndex]);
 
+  useEffect(() => {
+    // Configura el intervalo para cambiar el slider automáticamente
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % items.length);
+    }, 6000);
+
+    // Limpia el intervalo al desmontar el componente
+    return () => clearInterval(interval);
+  }, [items.length]);
+
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % items.length);
   };
@@ -49,7 +59,7 @@ const BlogHeader = () => {
           {items[activeIndex].des}
         </div>
         <button key={`${animationKey}-button`} className={`${styles.textAnimation} delay-3`}>
-          See More
+          Leer más
         </button>
       </div>
 
