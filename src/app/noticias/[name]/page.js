@@ -1,15 +1,5 @@
 import FullPost from '../../../components/blog/FullPost';
-import { blogPosts } from '../../../utils/blogData';
-
-// Función para normalizar nombres (elimina acentos y caracteres especiales)
-const normalizeName = (str) => {
-  return str
-    .normalize("NFD") // Descompone los caracteres acentuados
-    .replace(/[\u0300-\u036f]/g, "") // Elimina los diacríticos
-    .replace(/[^\w\s-]/g, "") // Elimina caracteres especiales
-    .replace(/\s+/g, "-") // Reemplaza espacios con guiones
-    .toLowerCase(); // Convierte a minúsculas
-};
+import { blogPosts, normalizeName } from '../../../utils/blogData';
 
 const PostPage = ({ params }) => {
   const { name } = params; // Obtén el parámetro dinámico "name" desde los params
