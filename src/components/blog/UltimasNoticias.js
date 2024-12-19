@@ -24,7 +24,7 @@ const UltimasNoticias = ({ posts }) => {
             {/* Botón para ver más detalles */}
             <Link href={`/noticias/${normalizeName(post.name)}`} className="readMoreBtn" >Leer más</Link>
             {/* Mostrar cita si existe */}
-            {post.quote && <div className={styles.quote}>"{post.quote}"</div>}
+            {post.quote && <div className={styles.quote}>&quot;{post.quote}&quot;</div>}
           </div>
         ))}
       </div>

@@ -37,10 +37,7 @@ const FullPost = ({ post, featuredPosts }) => {
               {renderDescription(post.description)}
             </ul>
           </div>
-
-          {post.quote && (
-            <blockquote className={styles.quote}>"{post.quote}"</blockquote>
-          )}
+          {post.quote && <div className={styles.quote}>&quot;{post.quote}&quot;</div>}
         </div>
 
         {/* Columna de Publicaciones Destacadas */}

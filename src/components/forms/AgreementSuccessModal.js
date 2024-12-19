@@ -8,7 +8,7 @@ const AgreementSuccessModal = ({ isOpen, onCreateNewAgreement, onGoToHome }) => 
     <div className="overlay">
       <div className="styled-modal">
         <h2>¡Acuerdo enviado con éxito!</h2>
-        <p>Su acuerdo ha sido enviado correctamente. Puede validar el resultado de la validación en "Acuerdos"</p>
+        <p>Su acuerdo ha sido enviado correctamente. Puede validar el resultado de la validación en &quot;Acuerdos&quot;</p>
         <p>¿Qué desea hacer ahora?</p>
         <div className="modal-botton">
           <button onClick={onCreateNewAgreement}>
