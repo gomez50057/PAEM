@@ -1,10 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, useFormikContext } from 'formik';
 import getValidationSchema from './validationSchema';
 // import FileUploader from './FileUploader';
 import MinutaUploader from './MinutaUploader';
 import './Formulario.css';
-import { comisiones, subcomisiones } from '../../utils/comisiones'; // Asegúrate de importar ambos arreglos
+import { comisiones, subcomisiones } from '../../utils/comisiones';
+
+const ZonaEffect = ({ setComisionOptions, setIsEstadoDisabled }) => {
+  const { values, setFieldValue } = useFormikContext();
+
+  useEffect(() => {
+    if (
+      values.zonaMetropolitana === 'ZMPachuca' ||
+      values.zonaMetropolitana === 'ZMTula' ||
+      values.zonaMetropolitana === 'ZMTulancingo'
+    ) {
+      setComisionOptions(subcomisiones);
+      setFieldValue('estado', 'Hidalgo');
+      setIsEstadoDisabled(true);
+    } else {
+      setComisionOptions(comisiones);
+      setFieldValue('estado', '');
+      setIsEstadoDisabled(false);
+    }
+  }, [values.zonaMetropolitana, setFieldValue, setComisionOptions, setIsEstadoDisabled]);
+
+  return null;
+};
 
 const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setMinuta, disableFields = {}, showFields = false, context = 'create' }) => {
   const [comisionOptions, setComisionOptions] = useState(comisiones); // Estado para almacenar las opciones de "Comisión"
@@ -34,25 +56,9 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
       validationSchema={getValidationSchema(context)}
       onSubmit={onSubmit}
     >
-      {({ setFieldValue, values }) => {
-        useEffect(() => {
-          if (values.zonaMetropolitana === 'ZMPachuca' || values.zonaMetropolitana === 'ZMTula' || values.zonaMetropolitana === 'ZMTulancingo') {
-            setComisionOptions(subcomisiones);
-          } else {
-            setComisionOptions(comisiones);
-          }
-
-          // Configurar el valor y estado de 'estado' basado en la zona seleccionada
-          if (values.zonaMetropolitana === 'ZMPachuca' || values.zonaMetropolitana === 'ZMTula' || values.zonaMetropolitana === 'ZMTulancingo') {
-            setFieldValue('estado', 'Hidalgo');
-            setIsEstadoDisabled(true);
-          } else {
-            setFieldValue('estado', '');  // Reiniciar el valor si no es Hidalgo
-            setIsEstadoDisabled(false);
-          }
-        }, [values.zonaMetropolitana, setFieldValue]);
-
-        return (
+      {({ setFieldValue, values }) => (
+        <>
+          <ZonaEffect setComisionOptions={setComisionOptions} setIsEstadoDisabled={setIsEstadoDisabled} />
           <Form className="formulario-container">
             <h2>Datos Generales</h2>
             <div className="form-row">
@@ -64,7 +70,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
 
               <div className="form-group">
                 <label>Zona Metropolitana:</label>
-                <Field name="zonaMetropolitana" as="select" className="input-field" disabled={disableFields.descripcionAcuerdo} >
+                <Field name="zonaMetropolitana" as="select" className="input-field" disabled={disableFields.descripcionAcuerdo}>
                   <option value="">Selecciona una Zona metropolitana</option>
                   <option value="ZMPachuca">ZMPachuca</option>
                   <option value="ZMTula">ZMTula</option>
@@ -77,7 +83,7 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
 
               <div className="form-group">
                 <label>Comisión:</label>
-                <Field name="comision" as="select" className="input-field" disabled={disableFields.descripcionAcuerdo} >
+                <Field name="comision" as="select" className="input-field" disabled={disableFields.descripcionAcuerdo}>
                   <option value="">Selecciona una comisión</option>
                   {comisionOptions.map((comision, index) => (
                     <option key={index} value={comision.value}>
@@ -203,8 +209,8 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
             </div> */}
             <button type="submit" className="submit-button">Enviar</button>
           </Form>
-        );
-      }}
+        </>
+      )}
     </Formik>
   );
 };
