@@ -4,6 +4,8 @@ import Slider from '@/components/home/Slider';
 import Map from '@/components/home/InteractiveMap';
 // import Announcement from '@/components/home/Announcement';
 import Navbar from '@/components/shared/Navbar';
+import Chatbot from '@/components/chat/Chatbot';
+
 
 
 export default function Home() {
@@ -14,6 +16,7 @@ export default function Home() {
       <About />
       <Slider />
       <Map />
+      <Chatbot />
       {/* <Announcement /> */}
     </div>
   );
