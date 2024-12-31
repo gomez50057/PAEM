@@ -1,12 +1,18 @@
+"use client";
+
 import React, { useState } from "react";
-// import "./Chatbot.module.css";
+import styles from "./ChatbotMain.module.css";
 
 const ChatbotMain = () => {
   const [currentStep, setCurrentStep] = useState("menu");
   const [formData, setFormData] = useState({ name: "", description: "", municipalities: "" });
   const [selectedZone, setSelectedZone] = useState("");
 
-  const handleMenuClick = (step) => setCurrentStep(step);
+  const handleMenuClick = (step, zone = "") => {
+    setCurrentStep(step);
+    if (zone) setSelectedZone(zone);
+  };
+
   const handleInputChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const resetToMainMenu = () => {
@@ -16,21 +22,76 @@ const ChatbotMain = () => {
   };
 
   const renderMenu = () => (
-    <div className="chatbot-menu">
-      <p>Selecciona alguna de las siguientes opciones del menú:</p>
-      <ul>
-        <li onClick={() => handleMenuClick("proposal")}>Quiero hacer una propuesta metropolitana</li>
-        <li onClick={() => handleMenuClick("zoneInfo")}>Quiero información acerca de alguna de las zonas metropolitanas</li>
-        <li onClick={() => handleMenuClick("authorities")}>Quiero conocer el trabajo de las autoridades materia metropolitana</li>
-        <li onClick={() => handleMenuClick("projects")}>Quiero conocer los proyectos metropolitanos</li>
-        <li onClick={() => handleMenuClick("planning")}>Quiero conocer los instrumentos de planeación</li>
-        <li onClick={() => handleMenuClick("cartography")}>Quiero consultar la cartografía de alguna de las Zonas Metropolitanas</li>
+    <div className={styles.menu}>
+      <div className={styles.header}>
+        <img src="https://via.placeholder.com/50" alt="Chatbot Logo" className={styles.logo} />
+        <h2>Metrópoli Hidalgo</h2>
+      </div>
+      <div className={styles.welcomeText}>
+        <h3>¡HOLA!</h3>
+        <p>¿Cómo puedo ayudarte?</p>
+      </div>
+      <ul className={styles.options}>
+        <li onClick={() => handleMenuClick("proposal")}>
+          <div className={styles.icon}>
+            <img src="https://via.placeholder.com/40" alt="Icono" />
+          </div>
+          <div className={styles.content}>
+            <h4>Quiero hacer una propuesta metropolitana</h4>
+            <p>Desarrolla una idea pensando en el futuro Metropolitano</p>
+          </div>
+        </li>
+        <li onClick={() => handleMenuClick("zoneInfo")}>
+          <div className={styles.icon}>
+            <img src="https://via.placeholder.com/40" alt="Icono" />
+          </div>
+          <div className={styles.content}>
+            <h4>Quiero información acerca de alguna de las zonas metropolitanas</h4>
+            <p>Conoce lo más relevante de cada zona Metropolitana</p>
+          </div>
+        </li>
+        <li onClick={() => handleMenuClick("authorities")}>
+          <div className={styles.icon}>
+            <img src="https://via.placeholder.com/40" alt="Icono" />
+          </div>
+          <div className={styles.content}>
+            <h4>Quiero conocer el trabajo de las autoridades materia metropolitana</h4>
+            <p>Conoce lo más relevante de cada zona Metropolitana</p>
+          </div>
+        </li>
+        <li onClick={() => handleMenuClick("projects")}>
+          <div className={styles.icon}>
+            <img src="https://via.placeholder.com/40" alt="Icono" />
+          </div>
+          <div className={styles.content}>
+            <h4>Quiero conocer los proyectos metropolitanos</h4>
+            <p>Descubre los proyectos destacados de cada zona Metropolitana</p>
+          </div>
+        </li>
+        <li onClick={() => handleMenuClick("planning")}>
+          <div className={styles.icon}>
+            <img src="https://via.placeholder.com/40" alt="Icono" />
+          </div>
+          <div className={styles.content}>
+            <h4>Quiero conocer los instrumentos de planeación</h4>
+            <p>Encuentra herramientas de planeación para la coordinación Metropolitana</p>
+          </div>
+        </li>
+        <li onClick={() => handleMenuClick("cartography")}>
+          <div className={styles.icon}>
+            <img src="https://via.placeholder.com/40" alt="Icono" />
+          </div>
+          <div className={styles.content}>
+            <h4>Quiero consultar la cartografía de alguna de las Zonas Metropolitanas</h4>
+            <p>Accede a mapas y cartografía detallada de las zonas Metropolitanas</p>
+          </div>
+        </li>
       </ul>
     </div>
   );
 
   const renderProposalForm = () => (
-    <div className="chatbot-step">
+    <div className={styles.step}>
       <p>¡Perfecto! Por favor responde las siguientes preguntas:</p>
       <form>
         <label>
@@ -156,7 +217,7 @@ const ChatbotMain = () => {
         return renderProposalForm();
       case "proposalThanks":
         return (
-          <div className="chatbot-step">
+          <div className={styles.step}>
             <p>Gracias, tu propuesta será registrada!</p>
             <button onClick={resetToMainMenu}>Regresar al menú principal</button>
           </div>
@@ -173,12 +234,12 @@ const ChatbotMain = () => {
       case "projects":
         return renderResponseWithLink(
           "Con gusto, te comparto el siguiente link para visualizar nuestro mapa interactivo:",
-          "/mapa"
+          "/mapa-proyectos"
         );
       case "planning":
         return renderResponseWithLink(
           "Con gusto, te comparto el siguiente link de nuestra Biblioteca Digital:",
-          "/biblioteca"
+          "https://bibliotecadigitaluplaph.hidalgo.gob.mx/"
         );
       case "cartography":
         return renderCartography();
@@ -190,8 +251,7 @@ const ChatbotMain = () => {
   };
 
   return (
-    <div className="chatbot-container">
-      <h1>Chatbot: Metrópoli Hidalgo</h1>
+    <div className={styles.container}>
       {renderContent()}
     </div>
   );

@@ -10,11 +10,8 @@ const ChatbotWelcome = ({ onStartChat }) => {
         </button>
       </div>
       <div className={styles.content}>
-        <img
-          src="https://via.placeholder.com/200"
-          alt="Metrópoli Hidalgo"
-          className={styles.logo}
-        />
+        <img src="img/headertxt.png" alt="Metrópoli Hidalgo" className={styles.logotxt} />
+        <img src="img/sidebarRecurso.png" alt="Metrópoli Hidalgo" className={styles.logo} />
         <h1 className={styles.title}>¡Hola!, Bienvenid@ al</h1>
         <h2 className={styles.subtitle}>Chatbot de <span>Metrópoli Hidalgo</span></h2>
         <p className={styles.description}>Un asistente Metropolitano</p>
