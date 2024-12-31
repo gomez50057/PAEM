@@ -23,14 +23,17 @@ const ChatbotMain = () => {
 
   const renderMenu = () => (
     <div className={styles.menu}>
+
       <div className={styles.header}>
-        <img src="https://via.placeholder.com/50" alt="Chatbot Logo" className={styles.logo} />
-        <h2>Metrópoli Hidalgo</h2>
+        <img src="img/sidebarRecurso.png" alt="Chatbot Logo" className={styles.logo} />
+        <div>
+          <img src="img/headertxt.png" alt="Metrópoli Hidalgo" className={styles.logotxt} />
+          <div className={styles.welcomeText}>
+            <p>¡HOLA! <span>¿Cómo puedo ayudarte?</span></p>
+          </div>
+        </div>
       </div>
-      <div className={styles.welcomeText}>
-        <h3>¡HOLA!</h3>
-        <p>¿Cómo puedo ayudarte?</p>
-      </div>
+
       <ul className={styles.options}>
         <li onClick={() => handleMenuClick("proposal")}>
           <div className={styles.icon}>

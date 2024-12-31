@@ -1,13 +1,25 @@
 .container {
+  width: 400px;
+  height: 80vh;
+  position: fixed;
+  right: 15px;
+  bottom: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;  
+  background: rgba(245, 243, 245, 0.1);
+  border-radius: 40px;
+  border: 2px solid var(--grisClr);
+  backdrop-filter: blur(8px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.25), /* Sombra general */
+    inset 0 -2px 5px rgba(255, 255, 255, 0.4), /* Luz superior */
+    inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra inferior */
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 500;
 }
 
 .header {
@@ -17,14 +29,36 @@
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
+  width: 100px;
+  height: 100px;
+  margin-right: 15px;
+}
+
+.logotxt {
+  width: 180px;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 .welcomeText {
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
+}
+
+.welcomeText p {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--doradoOsc);
+}
+
+.welcomeText span {
+  display: block;
+  font-size: .85rem;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--grisOsc);
 }
 
 .options {
