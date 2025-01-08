@@ -48,7 +48,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.arrowLeft {
+.xClose {
   font-size: 18px;
   color: #666;
 }
@@ -122,3 +122,23 @@
 .arrowRight {
   font-size: 18px;
 }
+
+
+.logoCollapsed {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.logoCollapsed:hover {
+  transform: scale(1.1);
+}
+
