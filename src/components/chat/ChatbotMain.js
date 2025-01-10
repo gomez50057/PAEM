@@ -36,9 +36,7 @@ const ChatbotMain = () => {
         <div>
           <img src="img/headertxt.png" alt="Metrópoli Hidalgo" className={styles.logotxt} />
           <div className={styles.welcomeText}>
-            <p>
-              ¡HOLA! <span>¿Cómo puedo ayudarte?</span>
-            </p>
+            <p>¡HOLA!<span>¿Cómo puedo ayudarte?</span></p>
           </div>
         </div>
       </div>
@@ -166,6 +164,7 @@ const ChatbotMain = () => {
         href={`/${selectedZone.toLowerCase()}-ficha.pdf`}
         target="_blank"
         rel="noopener noreferrer"
+        className={styles.linkInline}
       >
         Ver Ficha
       </a>
@@ -176,7 +175,7 @@ const ChatbotMain = () => {
   const renderResponseWithLink = (message, link) => (
     <div className={styles.chatbotStep}>
       <p>{message}</p>
-      <a href={link} target="_blank" rel="noopener noreferrer">Ver más</a>
+      <a href={link} target="_blank" rel="noopener noreferrer" className={styles.linkInline}>Ver más</a>
       <button className={styles.iconButtonXl} onClick={resetToMainMenu}><HomeIcon className={styles.iconHeader} />Regresar al menú principal</button>
     </div>
   );
@@ -203,14 +202,12 @@ const ChatbotMain = () => {
 
   const renderCartographyDetails = () => (
     <div className={styles.chatbotStep}>
-      <p>
-        Con gusto, te comparto el siguiente documento donde podrás visualizar toda la cartografía
-        de la zona {selectedZone}:
-      </p>
+      <p>Con gusto, te comparto el siguiente documento donde podrás visualizar toda la cartografía de la zona {selectedZone}:</p>
       <a
         href={`chat/cartografía metropolitana/${selectedZone.toLowerCase()}-cartografia.pdf`}
         target="_blank"
         rel="noopener noreferrer"
+        className={styles.linkInline}
       >
         Ver Cartografía
       </a>
