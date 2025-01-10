@@ -41,7 +41,7 @@ const Navbar = () => {
           <img src={`${img}CDMX.webp`} alt="img_representativa" />
           <img src={`${img}EDOMEX.webp`} alt="img_representativa" /> */}
           <img src={`${img}HGO.webp`} alt="img_representativa" />
-          <img src={`img/headertxt.png`} alt="img_representativa" />
+          <img src={`/img/headertxt.png`} alt="img_representativa" />
 
           <li><Link href="/" className=""> Inicio </Link></li>
         </div>

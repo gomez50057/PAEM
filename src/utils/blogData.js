@@ -8,10 +8,24 @@ import styles from "../components/blog/FullPost.module.css";
 
 export const blogPosts = [
   {
+    name: "9na reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México",
+    description: " **¡Retos en materia de gobernanza y coordinación metropolitana!** \n El 11 de diciembre de 2024 se llevó a cabo la 9a reunión para la elaboración del Programa de Ordenamiento de la ZMVM, en la Secretaría de Planeación, Ordenamiento Territorial y Coordinación Metropolitana, encabezada por el secretario Alejandro Encinas, en la cual se presentó el diagnóstico general y los principales retos en materia de gobernanza y coordinación metropolitana en las entidades que conforman la ZMVM (Ciudad de México, Estado de México e Hidalgo), así como el avance del Atlas de Riesgos de la Zona Metropolitana del Valle de México. \n Asistieron también representantes del Estado de México, Hidalgo y la federación. \n Con estas acciones se busca mejorar la provisión de servicios públicos, la infraestructura y la calidad de vida de los habitantes, así como uso del suelo y los recursos naturales. \n Con la elaboración del Atlas de Riesgos de la Zona Metropolitana del Valle de México, se busca planificar el crecimiento urbano de manera más segura, evitando las zonas de mayor riesgo para la construcción de viviendas, infraestructuras y equipamientos, e identificar áreas vulnerables a riesgos naturales (como inundaciones, deslizamientos de tierra o sismos) y otros riesgos (como contaminación del aire o accidentes industriales). Esto permite tomar decisiones para mitigar los impactos de estos riesgos antes de que ocurran.",
+    date: "11 de diciembre, 2024",
+    image: "/img/noticias/ZMVM/9na reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México.jpg",
+    category: "ZMVM"
+  },
+  {
     name: "Red Nacional Metropolitana 2024",
     description: " **Gobernanza Metropolitana del Valle de México.** \n El pasado 29 de noviembre del 2024, el titular de Planeación y Prospectiva, Mtro. Miguel Ángel Tello Vargas, participó con una conferencia en la edición de la Red Nacional Metropolitana llevada a cabo en el estado de Tlaxcala. Donde destacó que, para garantizar una efectiva gobernanza metropolitana, es fundamental la coordinación entre los 3 órdenes de gobierno, en donde la escala metropolitana no conoce fronteras ni límites de competencia gubernamental. \n El titular destacó 4 principales pasos que se han llevado a cabo en la Zona Metropolitana del Valle de México para garantizar una efectiva coordinación: \n* Establecimiento de una agenda de trabajo permanente \n* Colaboración con identidades federativas \n* Trabajo cercano y permanente con autoridades municipales \n* Construcción con los sectores sociales",
     date: "29 de noviembre, 2024",
     image: "/img/noticias/ZMVM/Red Nacional Metropolitana 2024.jpg",
+    category: "ZMVM"
+  },
+  {
+    name: "8va reunión para la actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México",
+    description: " **¡Impulso a la movilidad!** El pasado 28 de noviembre del 2024 se llevó a cabo la 8va reunión de actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México, en la cual se realizó la   Presentación del diagnóstico general y los principales retos y acciones en materia de financiamiento, turismo, movilidad y desarrollo económico en las entidades que conforman la ZMVM. \n  Se contó con la asistencia del Subsecretario Víctor Hugo Hofmann Aguirre, en representación de la Secretaría de Desarrollo Agrario, Territorial y Urbano (SEDATU), Álvaro Lomelí Covarrubias, Coordinador General de Desarrollo Metropolitano y Movilidad (SEDATU), entre otros representantes de la SEDATU. \n Con estas acciones se busca mejorar la calidad de vida de los habitantes, fortalecer la economía regional, reducir los impactos negativos sobre el medio ambiente y fomentar la inclusión social. Una movilidad eficiente, sostenible e inclusiva es clave para abordar los desafíos urbanos y crear un futuro más equitativo y resiliente para esta región, ya que la zona enfrenta desafíos significativos relacionados con el transporte y la conectividad.",
+    date: "28 de noviembre, 2024",
+    image: "/img/noticias/ZMVM/8va reunión para la actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México.jpg",
     category: "ZMVM"
   },
   {
@@ -23,9 +37,16 @@ export const blogPosts = [
   },
   {
     name: "6ta reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México",
-    description: " **_sede Hidalgo_** \n Como parte de la Agenda Metropolitana del Valle de México, llevamos a cabo una reunión el 30 de octubre de 2024, donde se discutieron temas sobre asentamientos humanos, equipamiento e infraestructura, como parte de los **trabajos previos a la actualización del Programa de Ordenación de la ZMVM**, entre las entidades que conforman la #ZMVM: Estado de México, Ciudad de México e Hidalgo, junto con la SEDATU. ",
+    description: " **_sede Hidalgo_** \n Como parte de la Agenda Metropolitana del Valle de México, llevamos a cabo una reunión el 30 de octubre de 2024, donde se discutieron temas sobre asentamientos humanos, equipamiento e infraestructura, como parte de los **trabajos previos a la actualización del Programa de Ordenación de la ZMVM**, entre las entidades que conforman la #ZMVM: Estado de México, Ciudad de México e Hidalgo, junto con la SEDATU.",
     date: "30 de octubre, 2024",
     image: "/img/noticias/ZMVM/6ta reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México.jpg",
+    category: "ZMVM"
+  },
+  {
+    name: "5ta. Reunión para la elaboración del Programa de Ordenamiento de la Zona Metropolitana del Valle de México (POZMVM)",
+    description: "El Jueves 17 de octubre de 2024, se llevó a cabo la 5ta. Reunión para la elaboración del Programa de Ordenamiento de la Zona Metropolitana del Valle de México (POZMVM), contando con la presencia del Secretario de Planeación, Ordenamiento Territorial y Coordinación Metropolitana  Alejandro Encinas,  el Coordinador General de Desarrollo Metropolitano y Movilidad, Álvaro Lomelí Covarrubias, entre otros representantes de la SEDATU y del estado de Hidalgo, en dicha reunión se abordaron los principales retos acerca de la Gestión Integral de Riesgos y Desastres, así como al Cambio Climático, en las entidades que conforman la ZMVM. \n Esto con el objetivo de enfrentar los desafíos derivados de la alta densidad poblacional, la vulnerabilidad a desastres naturales y los problemas ambientales. \n A través de un enfoque coordinado y de largo plazo, estas acciones contribuyen a la protección de la vida humana, la sostenibilidad ambiental y el desarrollo económico y social de la región, garantizando su resiliencia frente a los futuros riesgos climáticos y naturales.",
+    date: "17 de octubre, 2024",
+    image: "/img/noticias/ZMVM/5ta. Reunión para la elaboración del Programa de Ordenamiento de la Zona Metropolitana del Valle de México (POZMVM).jpg",
     category: "ZMVM"
   },
   {
@@ -82,10 +103,15 @@ export const blogPosts = [
 
 export const featuredPosts = [
   {
-    name: "7ma reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México",
-    date: "13 de noviembre, 2024",
-    image: "/img/noticias/ZMVM/7ma reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México.jpg",
+    name: "9na reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México",
+    date: "11 de diciembre, 2024",
+    image: "/img/noticias/ZMVM/9na reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México.jpg",
   },
+  // {
+  //   name: "7ma reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México",
+  //   date: "13 de noviembre, 2024",
+  //   image: "/img/noticias/ZMVM/7ma reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México.jpg",
+  // },
   {
     name: "Red Nacional Metropolitana 2024",
     date: "29 de noviembre, 2024",
@@ -94,7 +120,8 @@ export const featuredPosts = [
 ];
 
 export const items = [
-  { name: "7ma reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México", des: "13 de noviembre, 2024", bg: "/img/noticias/ZMVM/7ma%20reuni%C3%B3n%20previas%20actualizaci%C3%B3n%20del%20Programa%20de%20Ordenamiento%20de%20la%20Zona%20Metropolitana%20del%20Valle%20de%20M%C3%A9xico.jpg" },
+  { name: "9na reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México", des: "11 de diciembre, 2024", bg: "/img/noticias/ZMVM/9na%20reunión%20previas%20actualización%20del%20Programa%20de%20Ordenamiento%20de%20la%20Zona%20Metropolitana%20del%20Valle%20de%20México.jpg" },
+  // { name: "7ma reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México", des: "13 de noviembre, 2024", bg: "/img/noticias/ZMVM/7ma%20reuni%C3%B3n%20previas%20actualizaci%C3%B3n%20del%20Programa%20de%20Ordenamiento%20de%20la%20Zona%20Metropolitana%20del%20Valle%20de%20M%C3%A9xico.jpg" },
   { name: "Red Nacional Metropolitana 2024", des: "29 de noviembre, 2024", bg: "/img/noticias/ZMVM/Red%20Nacional%20Metropolitana%202024.jpg" },
 ];
 
