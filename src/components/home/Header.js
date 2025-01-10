@@ -5,6 +5,8 @@ import './Header.css';
 
 const Header = () => {
   const imgBasePath = "/img/";
+  const imgZmSelect = "/img/ZM elige/";
+
   const txtRef = useRef(null);
   const imgRef = useRef(null);
 
@@ -20,10 +22,10 @@ const Header = () => {
   // Función para manejar la selección de zona y desplazarse hacia abajo
   const setZonaAndScroll = (zona) => {
     // Guardar en localStorage
-    localStorage.setItem('selectedZonaMetropolitana', zona); 
+    localStorage.setItem('selectedZonaMetropolitana', zona);
     // Emitir evento personalizado
     const event = new Event('zonaChanged');
-    window.dispatchEvent(event); 
+    window.dispatchEvent(event);
 
     // Desplazarse hacia abajo 100vh
     window.scrollTo({
@@ -44,15 +46,19 @@ const Header = () => {
           <p>¡Elige una Zona Metropolitana! </p>
           <div className="content_circuleZM">
             <div className="circuleZM" onClick={() => setZonaAndScroll('ZMP')}>
+              <img src={`${imgZmSelect}ZMP.jpg`} alt="ZM Pachuca" />
               <div className="tooltip">ZM de Pachuca</div>
             </div>
             <div className="circuleZM" onClick={() => setZonaAndScroll('ZMTula')}>
+              <img src={`${imgZmSelect}ZMTula.webp`} alt="ZMTula" />
               <div className="tooltip">ZM de Tula</div>
             </div>
             <div className="circuleZM" onClick={() => setZonaAndScroll('ZMTulancingo')}>
+              <img src={`${imgZmSelect}ZMTulancingo.jpg`} alt="ZMTulancingo" />
               <div className="tooltip">ZM de Tulancingo</div>
             </div>
             <div className="circuleZM" onClick={() => setZonaAndScroll('ZMVM')}>
+              <img src={`${imgZmSelect}ZMVM.jpg`} alt="ZMVM" />
               <div className="tooltip">ZM del Valle de México</div>
             </div>
           </div>
