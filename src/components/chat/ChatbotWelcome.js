@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CloseIcon from "@mui/icons-material/Close";
 import styles from './ChatbotWelcome.module.css';
 
 const ChatbotWelcome = ({ onStartChat }) => {
@@ -13,9 +14,7 @@ const ChatbotWelcome = ({ onStartChat }) => {
       {!isCollapsed ? (
         <div className={styles.chatbotWelcome}>
           <div className={styles.header}>
-            <button className={styles.backButton} onClick={handleToggleCollapse}>
-              <span className={styles.xClose}>x</span>
-            </button>
+            <button className={styles.iconButtonXs} onClick={handleToggleCollapse}><CloseIcon className={styles.iconHeader} /></button>
           </div>
           <div className={styles.content}>
             <img src="img/headertxt.png" alt="Metrópoli Hidalgo" className={styles.logotxt} />
