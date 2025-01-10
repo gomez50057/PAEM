@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CloseIcon from "@mui/icons-material/Close";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import styles from './ChatbotWelcome.module.css';
 
 const ChatbotWelcome = ({ onStartChat }) => {
@@ -25,7 +26,9 @@ const ChatbotWelcome = ({ onStartChat }) => {
           </div>
           <button className={styles.startButton} onClick={onStartChat}>
             Iniciar Chat
-            <span className={styles.arrowRight}>&rarr;</span>
+            <span className={styles.arrowIcon}>
+              <ArrowForwardIosIcon fontSize="small" />
+            </span>
           </button>
         </div>
       ) : (
