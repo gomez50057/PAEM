@@ -1,19 +1,27 @@
 "use client";
 
 import React, { useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import HomeIcon from "@mui/icons-material/Home";
 import styles from "./ChatbotMain.module.css";
+import ChatbotWelcome from "./ChatbotWelcome";
 
 const ChatbotMain = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState("menu");
   const [formData, setFormData] = useState({ name: "", description: "", municipalities: "" });
   const [selectedZone, setSelectedZone] = useState("");
+
+  const handleStartChat = () => setIsChatOpen(true);
+  const handleCollapseChat = () => setIsChatOpen(false);
 
   const handleMenuClick = (step, zone = "") => {
     setCurrentStep(step);
     if (zone) setSelectedZone(zone);
   };
 
-  const handleInputChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleInputChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const resetToMainMenu = () => {
     setCurrentStep("menu");
@@ -23,17 +31,17 @@ const ChatbotMain = () => {
 
   const renderMenu = () => (
     <div className={styles.menu}>
-
       <div className={styles.header}>
         <img src="img/sidebarRecurso.png" alt="Chatbot Logo" className={styles.logo} />
         <div>
           <img src="img/headertxt.png" alt="Metrópoli Hidalgo" className={styles.logotxt} />
           <div className={styles.welcomeText}>
-            <p>¡HOLA! <span>¿Cómo puedo ayudarte?</span></p>
+            <p>
+              ¡HOLA! <span>¿Cómo puedo ayudarte?</span>
+            </p>
           </div>
         </div>
       </div>
-
       <ul className={styles.options}>
         <li onClick={() => handleMenuClick("proposal")}>
           <div className={styles.icon}>
@@ -58,7 +66,7 @@ const ChatbotMain = () => {
             <img src="https://via.placeholder.com/40" alt="Icono" />
           </div>
           <div className={styles.content}>
-            <h4>Quiero conocer el trabajo de las autoridades materia metropolitana</h4>
+            <h4>Quiero conocer el trabajo de las autoridades en materia metropolitana</h4>
             <p>Conoce lo más relevante de cada zona Metropolitana</p>
           </div>
         </li>
@@ -132,7 +140,7 @@ const ChatbotMain = () => {
   );
 
   const renderZoneInfo = () => (
-    <div className="chatbot-step">
+    <div className={styles.chatbotStep}>
       <p>Claro que sí, ¿Qué Zona Metropolitana te interesa conocer?</p>
       <ul>
         <li onClick={() => handleMenuClick("zoneDetails", setSelectedZone("ZMVM"))}>
@@ -152,7 +160,7 @@ const ChatbotMain = () => {
   );
 
   const renderZoneDetails = () => (
-    <div className="chatbot-step">
+    <div className={styles.chatbotStep}>
       <p>¡Claro! Te comparto la ficha de la zona {selectedZone}:</p>
       <a
         href={`/${selectedZone.toLowerCase()}-ficha.pdf`}
@@ -161,22 +169,20 @@ const ChatbotMain = () => {
       >
         Ver Ficha
       </a>
-      <button onClick={resetToMainMenu}>Regresar al menú principal</button>
+      <button className={styles.iconButtonXl} onClick={resetToMainMenu}><HomeIcon className={styles.iconHeader} />Regresar al menú principal</button>
     </div>
   );
 
   const renderResponseWithLink = (message, link) => (
-    <div className="chatbot-step">
+    <div className={styles.chatbotStep}>
       <p>{message}</p>
-      <a href={link} target="_blank" rel="noopener noreferrer">
-        Ver más
-      </a>
-      <button onClick={resetToMainMenu}>Regresar al menú principal</button>
+      <a href={link} target="_blank" rel="noopener noreferrer">Ver más</a>
+      <button className={styles.iconButtonXl} onClick={resetToMainMenu}><HomeIcon className={styles.iconHeader} />Regresar al menú principal</button>
     </div>
   );
 
   const renderCartography = () => (
-    <div className="chatbot-step">
+    <div className={styles.chatbotStep}>
       <p>Escoge una de las Zonas Metropolitanas para visualizar la cartografía:</p>
       <ul>
         <li onClick={() => handleMenuClick("cartographyDetails", setSelectedZone("ZMVM"))}>
@@ -196,19 +202,20 @@ const ChatbotMain = () => {
   );
 
   const renderCartographyDetails = () => (
-    <div className="chatbot-step">
+    <div className={styles.chatbotStep}>
       <p>
         Con gusto, te comparto el siguiente documento donde podrás visualizar toda la cartografía
         de la zona {selectedZone}:
       </p>
       <a
-        href={`/${selectedZone.toLowerCase()}-cartografia.pdf`}
+        href={`chat/cartografía metropolitana/${selectedZone.toLowerCase()}-cartografia.pdf`}
         target="_blank"
         rel="noopener noreferrer"
       >
         Ver Cartografía
       </a>
-      <button onClick={resetToMainMenu}>Regresar al menú principal</button>
+      <button className={styles.iconButtonXl} onClick={resetToMainMenu}><HomeIcon className={styles.iconHeader} />Regresar al menú principal</button>
+
     </div>
   );
 
@@ -222,7 +229,7 @@ const ChatbotMain = () => {
         return (
           <div className={styles.step}>
             <p>Gracias, tu propuesta será registrada!</p>
-            <button onClick={resetToMainMenu}>Regresar al menú principal</button>
+            <button className={styles.iconButtonXl} onClick={resetToMainMenu}><HomeIcon className={styles.iconHeader} />Regresar al menú principal</button>
           </div>
         );
       case "zoneInfo":
@@ -254,9 +261,21 @@ const ChatbotMain = () => {
   };
 
   return (
-    <div className={styles.container}>
-      {renderContent()}
-    </div>
+    <>
+      {!isChatOpen ? (
+        <ChatbotWelcome onStartChat={handleStartChat} />
+      ) : (
+        <div className={styles.container}>
+          <div className={styles.containerHeader}>
+            <button className={styles.iconButtonXs} onClick={handleCollapseChat}><CloseIcon className={styles.iconHeader} /></button>
+            <button className={styles.iconButtonXs} onClick={resetToMainMenu}><HomeIcon className={styles.iconHeader} /></button>
+          </div>
+          <div className={styles.containerMain}>
+            {renderContent()}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
