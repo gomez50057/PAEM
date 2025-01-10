@@ -147,13 +147,14 @@
 .startButton {
   display: inline-flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   padding: 15px 30px;
+  width: 100%;
   font-size: 1.3rem;
   font-weight: 600;
   font-style: italic;
   color: var(--doradoClr);
-  background-color:  var(--blanco);
+  background-color: var(--blanco);
   border: none;
   border-radius: 50px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
@@ -162,6 +163,8 @@
   text-transform: capitalize;
   letter-spacing: 1px;
   gap: 10px;
+  position: relative;
+  overflow: hidden;
 }
 
 .startButton:hover {
@@ -180,15 +183,35 @@
   justify-content: center;
   width: 35px;
   height: 35px;
-  background-color: var(--doradoClr); 
+  background-color: var(--doradoClr);
   border-radius: 50%;
   color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  transform: translateX(-20px);
-  transition: transform 0.8s ease;
+  position: absolute;
+  left: 58%;
+  transition: transform 0.5s ease;
+  animation: moveArrow 2s ease-in-out infinite alternate;
 }
 
 .startButton:hover .arrowIcon {
-  transform: translateX(50px);
+  animation: none;
+  animation: moveArrowEnd 1.5s ease-in-out 1 forwards;
 }
 
+@keyframes moveArrow {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(26px);
+  }
+}
+
+@keyframes moveArrowEnd {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(105px);
+  }
+}
