@@ -11,9 +11,22 @@ const ProjectMap = () => {
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [L, setL] = useState(null); // Estado para Leaflet
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Estado para el menú desplegable
+    const [visibleZones, setVisibleZones] = useState({
+        ZMP: true,
+        ZMTula: true,
+        ZMTulancingo: true,
+        ZMVM: true,
+    });
+
+    const toggleZoneVisibility = (zone) => {
+        setVisibleZones((prevState) => ({
+            ...prevState,
+            [zone]: !prevState[zone],
+        }));
+    };
 
     useEffect(() => {
-        // Importar Leaflet solo en el cliente
         if (typeof window !== 'undefined') {
             import('leaflet').then((module) => {
                 setL(module.default);
@@ -23,7 +36,7 @@ const ProjectMap = () => {
     }, []);
 
     useEffect(() => {
-        if (!L) return; // Si Leaflet no está cargado, no hacer nada
+        if (!L) return;
 
         const commonStyle = (fillColor, color, weight = 2) => ({
             fillColor,
@@ -133,7 +146,7 @@ const ProjectMap = () => {
                     const colorMap = {
                         "Hidalgo": "#BC955B",
                         "Estado de México": "#691B31",
-                        "Ciudad de México": "#3a9680"
+                        "Ciudad de México": "#3a9680",
                     };
                     const color = colorMap[feature.properties.NOM_ENT] || "orange";
                     return commonStyle(color, color, 2.6);
@@ -144,39 +157,37 @@ const ProjectMap = () => {
             }).addTo(mapRef.current);
         };
 
-        // Inicializar el mapa solo si Leaflet está cargado
-        if (L) {
+        const addLayers = () => {
+            if (visibleZones.ZMP) geoJSONMetropolitanas(ZMP_Info, '#DEC9A3', '#DEC9A3');
+            if (visibleZones.ZMTula) geoJSONMetropolitanas(ZMT_Info, '#98989a', '#98989a');
+            if (visibleZones.ZMTulancingo) geoJSONMetropolitanas(ZMTUL_Info, '#A02142', '#A02142');
+            if (visibleZones.ZMVM) geoJSONZMVM(zmvm_InfoGeneral);
+        };
+
+        if (mapRef.current) {
+            mapRef.current.eachLayer((layer) => {
+                if (layer instanceof L.GeoJSON) {
+                    mapRef.current.removeLayer(layer);
+                }
+            });
+            addLayers();
+        } else {
             mapRef.current = L.map('map', {
                 center: [19.6296533, -98.9263916],
                 zoom: 9,
                 zoomControl: false,
                 minZoom: 8,
-                maxZoom: 18
+                maxZoom: 18,
             });
 
             L.tileLayer('http://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             }).addTo(mapRef.current);
 
-            mapRef.current.attributionControl.setPrefix('');
-
-            // Agregar todas las capas de zonas metropolitanas
-            geoJSONMetropolitanas(ZMP_Info, '#DEC9A3', '#DEC9A3');
-            geoJSONMetropolitanas(ZMT_Info, '#98989a', '#98989a');
-            geoJSONMetropolitanas(ZMTUL_Info, '#A02142', '#A02142');
-            geoJSONZMVM(zmvm_InfoGeneral);
-
-            setTimeout(() => mapRef.current.invalidateSize(), 300);
+            addLayers();
         }
-
-        // Limpiar el mapa al desmontar el componente
-        return () => {
-            if (mapRef.current) {
-                mapRef.current.remove();
-            }
-        };
-    }, [L]); // El efecto depende únicamente de Leaflet
+    }, [L, visibleZones]);
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -194,24 +205,9 @@ const ProjectMap = () => {
         }
     };
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const handleFullScreenChange = () => {
-                if (!document.fullscreenElement) {
-                    setIsFullScreen(false);
-                }
-            };
-
-            document.addEventListener('fullscreenchange', handleFullScreenChange);
-            return () => {
-                document.removeEventListener('fullscreenchange', handleFullScreenChange);
-            };
-        }
-    }, []);
-
     return (
         <section className="mapaConte">
-            <div id='map'>
+            <div id="map">
                 <button
                     id="toggleSidebar"
                     onClick={toggleSidebar}
@@ -226,7 +222,49 @@ const ProjectMap = () => {
 
                 <div id="sidebar" className={isSidebarOpen ? 'open' : ''}>
                     <p className="sidebar-title">Proyectos</p>
+                    <div className="dropdown">
+                        <button className="dropdown-toggle" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                            Zonas Metropolitanas
+                        </button>
+                        {isDropdownOpen && (
+                            <div className="dropdown-menu glass-effect">
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        checked={visibleZones.ZMP}
+                                        onChange={() => toggleZoneVisibility('ZMP')}
+                                    />
+                                    Zona Metropolitana de Pachuca
+                                </label>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        checked={visibleZones.ZMTula}
+                                        onChange={() => toggleZoneVisibility('ZMTula')}
+                                    />
+                                    Zona Metropolitana de Tula
+                                </label>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        checked={visibleZones.ZMTulancingo}
+                                        onChange={() => toggleZoneVisibility('ZMTulancingo')}
+                                    />
+                                    Zona Metropolitana de Tulancingo
+                                </label>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        checked={visibleZones.ZMVM}
+                                        onChange={() => toggleZoneVisibility('ZMVM')}
+                                    />
+                                    Zona Metropolitana del Valle de México
+                                </label>
+                            </div>
+                        )}
+                    </div>
                 </div>
+
             </div>
         </section>
     );

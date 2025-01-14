@@ -216,3 +216,80 @@
 .PopText {
   display: inline;
 }
+
+
+
+
+
+
+
+
+
+.dropdown {
+  margin: 10px 0;
+  position: relative;
+}
+
+.dropdown-toggle {
+  padding: 10px;
+  background: linear-gradient(145deg, #ffffff, #d4d4d4);
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-toggle:hover {
+  background: linear-gradient(145deg, #eaeaea, #ffffff);
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1), inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3), -5px -5px 20px rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.dropdown-menu.glass-effect {
+  animation: glassEffect 0.5s ease forwards;
+}
+
+.dropdown-menu label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #000;
+  transition: color 0.2s ease;
+}
+
+.dropdown-menu label:hover {
+  color: #691b31;
+}
+
+.dropdown-menu input {
+  margin-right: 10px;
+}
+
+@keyframes glassEffect {
+  0% {
+      transform: scale(0.9);
+      opacity: 0;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
