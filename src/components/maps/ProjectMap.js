@@ -228,43 +228,47 @@ const ProjectMap = () => {
                         </button>
                         {isDropdownOpen && (
                             <div className="dropdown-menu glass-effect">
-                                <label>
+                                <div className="checkbox-container">
                                     <input
                                         type="checkbox"
+                                        id="checkboxZMP"
                                         checked={visibleZones.ZMP}
                                         onChange={() => toggleZoneVisibility('ZMP')}
                                     />
-                                    Zona Metropolitana de Pachuca
-                                </label>
-                                <label>
+                                    <label htmlFor="checkboxZMP">Zona Metropolitana de Pachuca</label>
+                                </div>
+                                <div className="checkbox-container">
                                     <input
                                         type="checkbox"
+                                        id="checkboxZMTula"
                                         checked={visibleZones.ZMTula}
                                         onChange={() => toggleZoneVisibility('ZMTula')}
                                     />
-                                    Zona Metropolitana de Tula
-                                </label>
-                                <label>
+                                    <label htmlFor="checkboxZMTula">Zona Metropolitana de Tula</label>
+                                </div>
+                                <div className="checkbox-container">
                                     <input
                                         type="checkbox"
+                                        id="checkboxZMTulancingo"
                                         checked={visibleZones.ZMTulancingo}
                                         onChange={() => toggleZoneVisibility('ZMTulancingo')}
                                     />
-                                    Zona Metropolitana de Tulancingo
-                                </label>
-                                <label>
+                                    <label htmlFor="checkboxZMTulancingo">Zona Metropolitana de Tulancingo</label>
+                                </div>
+                                <div className="checkbox-container">
                                     <input
                                         type="checkbox"
+                                        id="checkboxZMVM"
                                         checked={visibleZones.ZMVM}
                                         onChange={() => toggleZoneVisibility('ZMVM')}
                                     />
-                                    Zona Metropolitana del Valle de México
-                                </label>
+                                    <label htmlFor="checkboxZMVM">Zona Metropolitana del Valle de México</label>
+                                </div>
                             </div>
                         )}
                     </div>
                 </div>
-
+                
             </div>
         </section>
     );
