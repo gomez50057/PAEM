@@ -43,56 +43,56 @@ const ChatbotMain = () => {
       <ul className={styles.options}>
         <li onClick={() => handleMenuClick("proposal")}>
           <div className={styles.icon}>
-            <img src="https://via.placeholder.com/40" alt="Icono" />
+            <img src="/img/chatBot/proposal.png" alt="Icono" />
           </div>
           <div className={styles.content}>
             <h4>Quiero hacer una propuesta metropolitana</h4>
-            <p>Desarrolla una idea pensando en el futuro Metropolitano</p>
+            <p>Desarrolla una idea pensando en el futuro Metropolitano.</p>
           </div>
         </li>
         <li onClick={() => handleMenuClick("zoneInfo")}>
           <div className={styles.icon}>
-            <img src="https://via.placeholder.com/40" alt="Icono" />
+            <img src="/img/chatBot/zoneInfo.png" alt="Icono" />
           </div>
           <div className={styles.content}>
             <h4>Quiero información acerca de alguna de las zonas metropolitanas</h4>
-            <p>Conoce lo más relevante de cada zona Metropolitana</p>
+            <p>Conoce lo más relevante de cada zona Metropolitana.</p>
           </div>
         </li>
         <li onClick={() => handleMenuClick("authorities")}>
           <div className={styles.icon}>
-            <img src="https://via.placeholder.com/40" alt="Icono" />
+            <img src="/img/chatBot/authorities.png" alt="Icono" />
           </div>
           <div className={styles.content}>
             <h4>Quiero conocer el trabajo de las autoridades en materia metropolitana</h4>
-            <p>Conoce lo más relevante de cada zona Metropolitana</p>
+            <p>Descubre cómo las autoridades gestionan y coordinan el desarrollo y bienestar de las zonas metropolitanas.</p>
           </div>
         </li>
         <li onClick={() => handleMenuClick("projects")}>
           <div className={styles.icon}>
-            <img src="https://via.placeholder.com/40" alt="Icono" />
+            <img src="/img/chatBot/projects.png" alt="Icono" />
           </div>
           <div className={styles.content}>
             <h4>Quiero conocer los proyectos metropolitanos</h4>
-            <p>Descubre los proyectos destacados de cada zona Metropolitana</p>
+            <p>Explora los proyectos metropolitanos a través de un mapa interactivo y conoce su impacto en la región.</p>
           </div>
         </li>
         <li onClick={() => handleMenuClick("planning")}>
           <div className={styles.icon}>
-            <img src="https://via.placeholder.com/40" alt="Icono" />
+            <img src="/img/chatBot/planning.png" alt="Icono" />
           </div>
           <div className={styles.content}>
             <h4>Quiero conocer los instrumentos de planeación</h4>
-            <p>Encuentra herramientas de planeación para la coordinación Metropolitana</p>
+            <p>Accede a la biblioteca digital y descubre herramientas clave para la coordinación metropolitana.</p>
           </div>
         </li>
         <li onClick={() => handleMenuClick("cartography")}>
           <div className={styles.icon}>
-            <img src="https://via.placeholder.com/40" alt="Icono" />
+            <img src="/img/chatBot/cartography.png" alt="Icono" />
           </div>
           <div className={styles.content}>
-            <h4>Quiero consultar la cartografía de alguna de las Zonas Metropolitanas</h4>
-            <p>Accede a mapas y cartografía detallada de las zonas Metropolitanas</p>
+            <h4>Quiero Explora el Mapa de las Zonas Metropolitanas</h4>
+            <p>Visualiza el mapa en PDF con las delimitaciones de cada Zona Metropolitana, sus límites territoriales y los municipios que las integran.</p>
           </div>
         </li>
       </ul>

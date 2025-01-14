@@ -8,10 +8,13 @@
   border-radius: 40px;
   border: 2px solid var(--grisClr);
   backdrop-filter: blur(8px);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.25), /* Sombra general */
-    inset 0 -2px 5px rgba(255, 255, 255, 0.4), /* Luz superior */
-    inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra inferior */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    /* Sombra general */
+    inset 0 -2px 5px rgba(255, 255, 255, 0.4),
+    /* Luz superior */
+    inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Sombra inferior */
   text-align: center;
   padding: 20px;
   display: flex;
@@ -23,9 +26,9 @@
 
 .chatbotWelcome:hover {
   transform: translateY(-8px);
-  box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.35), 
-    inset 0 -2px 5px rgba(255, 255, 255, 0.4), 
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    inset 0 -2px 5px rgba(255, 255, 255, 0.4),
     inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -71,27 +74,27 @@
 }
 
 .logo {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: auto;
   margin-bottom: 20px;
 }
 
 .title {
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   margin: 2px;
   color: var(--vinoClr);
 }
 
 .subtitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--vinoOsc);
   font-weight: 500;
   margin: 2px;
 }
 
 .subtitle span {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: var(--doradoOsc);
   font-style: italic;
 }
@@ -108,6 +111,7 @@
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
+  margin: 10px 0 5px 0;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -157,7 +161,6 @@
   background-color: var(--blanco);
   border: none;
   border-radius: 50px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: capitalize;
@@ -165,16 +168,20 @@
   gap: 10px;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+    4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .startButton:hover {
   transform: translateY(-4px);
-  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3);
-}
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.8),
+    inset 2px 2px 5px rgba(228, 228, 228, 0.4),
+    4px 4px 10px rgba(0, 0, 0, 0.5);
 
-.startButton:active {
-  transform: translateY(2px);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+
 }
 
 .arrowIcon {
@@ -186,11 +193,13 @@
   background-color: var(--doradoClr);
   border-radius: 50%;
   color: white;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   position: absolute;
   left: 58%;
-  transition: transform 0.5s ease;
-  animation: moveArrow 2s ease-in-out infinite alternate;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+    4px 4px 10px rgba(0, 0, 0, 0.3);
+  animation: moveArrow 1.2s ease-in-out infinite alternate;
 }
 
 .startButton:hover .arrowIcon {
@@ -198,19 +207,23 @@
   animation: moveArrowEnd 1.5s ease-in-out 1 forwards;
 }
 
+/* Movimiento automático suave */
 @keyframes moveArrow {
   0% {
     transform: translateX(0px);
   }
+
   100% {
     transform: translateX(26px);
   }
 }
 
+/* Movimiento hasta la derecha */
 @keyframes moveArrowEnd {
   0% {
     transform: translateX(0px);
   }
+
   100% {
     transform: translateX(105px);
   }
