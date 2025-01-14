@@ -11,7 +11,6 @@ const ProjectMap = () => {
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [L, setL] = useState(null); // Estado para Leaflet
-    const [zonaSeleccionada, setZonaSeleccionada] = useState('ZMP'); // Zona Metropolitana seleccionada (por defecto ZMP)
 
     useEffect(() => {
         // Importar Leaflet solo en el cliente
@@ -23,24 +22,8 @@ const ProjectMap = () => {
         }
     }, []);
 
-    // Escuchar el evento "zonaChanged" para actualizar la zona seleccionada
     useEffect(() => {
-        const handleZonaChange = () => {
-            const newZona = localStorage.getItem('selectedZonaMetropolitana') || 'ZMP'; // Obtener la nueva zona seleccionada
-            setZonaSeleccionada(newZona); // Actualizar el estado
-        };
-
-        // Agregar el evento listener
-        window.addEventListener('zonaChanged', handleZonaChange);
-
-        // Limpiar el evento listener cuando se desmonte el componente
-        return () => {
-            window.removeEventListener('zonaChanged', handleZonaChange);
-        };
-    }, []);
-
-    useEffect(() => {
-        if (!L || !zonaSeleccionada) return; // Si Leaflet o la zona no está cargada, no hagas nada
+        if (!L) return; // Si Leaflet no está cargado, no hacer nada
 
         const commonStyle = (fillColor, color, weight = 2) => ({
             fillColor,
@@ -178,16 +161,11 @@ const ProjectMap = () => {
 
             mapRef.current.attributionControl.setPrefix('');
 
-            // Condicional para agregar la capa correcta según la zona metropolitana seleccionada
-            if (zonaSeleccionada === 'ZMP') {
-                geoJSONMetropolitanas(ZMP_Info, '#DEC9A3', '#DEC9A3');
-            } else if (zonaSeleccionada === 'ZMTula') {
-                geoJSONMetropolitanas(ZMT_Info, '#98989a', '#98989a');
-            } else if (zonaSeleccionada === 'ZMTulancingo') {
-                geoJSONMetropolitanas(ZMTUL_Info, '#A02142', '#A02142');
-            } else if (zonaSeleccionada === 'ZMVM') {
-                geoJSONZMVM(zmvm_InfoGeneral);
-            }
+            // Agregar todas las capas de zonas metropolitanas
+            geoJSONMetropolitanas(ZMP_Info, '#DEC9A3', '#DEC9A3');
+            geoJSONMetropolitanas(ZMT_Info, '#98989a', '#98989a');
+            geoJSONMetropolitanas(ZMTUL_Info, '#A02142', '#A02142');
+            geoJSONZMVM(zmvm_InfoGeneral);
 
             setTimeout(() => mapRef.current.invalidateSize(), 300);
         }
@@ -198,7 +176,7 @@ const ProjectMap = () => {
                 mapRef.current.remove();
             }
         };
-    }, [L, zonaSeleccionada]); // El efecto depende de Leaflet y la zona seleccionada
+    }, [L]); // El efecto depende únicamente de Leaflet
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -250,10 +228,6 @@ const ProjectMap = () => {
                     <p className="sidebar-title">Proyectos</p>
                 </div>
             </div>
-            {/* <div className="mapaTxt">
-                <h2><span>Explora</span> la <span className="span-doarado">Zona Metropolitana</span> en el <span>Mapa</span> Interactivo</h2>
-                <p>Descubre sobre la Zona Metropolitana {getPreposicion(zonaSeleccionada)} {getTituloZona(zonaSeleccionada)}. Haz clic en cada zona para ver datos detallados de los municipios y sus características. ¡Explora ahora!</p>
-            </div> */}
         </section>
     );
 };
