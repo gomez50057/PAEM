@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
+import HeaderAnimation from '../shared/HeaderAnimation';
 import './Header.css';
 
 const Header = () => {
@@ -39,7 +40,7 @@ const Header = () => {
       <div className="background-svg" />
       <div className="content_header">
         <div className="header_txt fade-in-target" ref={txtRef}>
-          <img src={`${imgBasePath}headertxt.png`} alt="img_representativa" />
+          <HeaderAnimation />
         </div>
 
         <div className="ZonasMetro">

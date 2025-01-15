@@ -235,8 +235,8 @@ const ChatbotMain = () => {
         return renderZoneDetails();
       case "authorities":
         return renderResponseWithLink(
-          "Claro que sí, te comparto el siguiente link donde encontrarás la información de las Comisiones Metropolitanas:",
-          "/comisiones"
+          "Claro que sí, te comparto el siguiente link donde encontrarás las notas de acciones relevantes:",
+          "/noticias"
         );
       case "projects":
         return renderResponseWithLink(

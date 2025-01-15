@@ -127,7 +127,7 @@ export const featuredPosts = [
 export const items = [
   { name: "9na reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México", des: "11 de diciembre, 2024", bg: "/img/noticias/ZMVM/9na%20reunión%20previas%20actualización%20del%20Programa%20de%20Ordenamiento%20de%20la%20Zona%20Metropolitana%20del%20Valle%20de%20México.jpg" },
   // { name: "7ma reunión previas actualización del Programa de Ordenamiento de la Zona Metropolitana del Valle de México", des: "13 de noviembre, 2024", bg: "/img/noticias/ZMVM/7ma%20reuni%C3%B3n%20previas%20actualizaci%C3%B3n%20del%20Programa%20de%20Ordenamiento%20de%20la%20Zona%20Metropolitana%20del%20Valle%20de%20M%C3%A9xico.jpg" },
-  { name: "Red Nacional Metropolitana 2024 Sexta Edición Día 2", des: "29 de noviembre, 2024", bg: "/img/noticias/ZMVM/Red%20Nacional%20Metropolitana%202024.jpg" },
+  { name: "Red Nacional Metropolitana 2024 Sexta Edición Día 2", des: "29 de noviembre, 2024", bg: "/img/noticias/ZMVM/Red%20Nacional%20Metropolitana%202024%20Sexta%20Edición%20Día%202.jpg" },
 ];
 
 
