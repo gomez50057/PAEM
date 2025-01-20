@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Select from "react-select";
 import * as Yup from "yup";
+import axios from "axios";
 import { municipiosDeHidalgo } from "../../utils/utils";
 import "../forms/Formulario.css";
 
@@ -28,7 +29,10 @@ const municipalityOptions = municipiosDeHidalgo.map((municipio) => ({
   value: municipio,
 }));
 
-// Componente del formulario
+// URL de la API
+const API_URL = "http://127.0.0.1:8000/chat-forms/create/";
+
+
 const ChatForms = ({ handleMenuClick }) => (
   <div>
     <p>¡Perfecto! Por favor responde las siguientes preguntas:</p>
@@ -39,12 +43,30 @@ const ChatForms = ({ handleMenuClick }) => (
         municipalities: [],
       }}
       validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={async (values, { setSubmitting, resetForm }) => {
         setSubmitting(true);
-        // Manejar envío del formulario
-        console.log("Formulario enviado con los valores:", values);
-        handleMenuClick("proposalThanks");
-        setSubmitting(false);
+
+        // Formatear los municipios para que se guarden correctamente en el backend
+        const formattedValues = {
+          ...values,
+          municipalities: values.municipalities.map((m) => m.value),
+        };
+
+        try {
+          // Enviar los datos al backend
+          const response = await axios.post(API_URL, formattedValues);
+          console.log("Formulario enviado con éxito:", response.data);
+
+          // Llamar al manejador de navegación
+          handleMenuClick("proposalThanks");
+
+          // Reiniciar el formulario
+          resetForm();
+        } catch (error) {
+          console.error("Error al enviar el formulario:", error);
+        } finally {
+          setSubmitting(false);
+        }
       }}
     >
       {({ isSubmitting, setFieldValue, values }) => (
@@ -88,7 +110,7 @@ const ChatForms = ({ handleMenuClick }) => (
           </div>
 
           <button type="submit" className="submit-button" disabled={isSubmitting}>
-            Enviar
+            {isSubmitting ? "Enviando..." : "Enviar"}
           </button>
         </Form>
       )}
