@@ -51,37 +51,37 @@ export const slidesOther = [
   {
     image: 'img/slider/COMEPROC.png',
     title: 'Comisión Metropolitana de Gestión Integral de Riesgos (COMEPROC)',
-    description: 'Establecer una coordinación operativa conjunta de prevención, atención, mitigación y restablecimiento en las Zonas Metropolitanas del Estado de Hidalgo, para impulsar un sistema metropolitano de alertamiento múltiple.',
+    description: 'Establecer una coordinación operativa conjunta de prevención, atención, mitigación y restablecimiento en las Zonas Metropolitanas, para impulsar un sistema metropolitano de alertamiento múltiple.',
   },
   {
     image: 'img/slider/COMEDECO.png',
     title: 'Comisión Metropolitana de Desarrollo Económico, Competitividad y Turismo (COMEDECO)',
-    description: 'Consolidar a las Zonas Metropolitanas de Hidalgo como uno de los principales destinos turísticos del país, así como crear una estrategia para fortalecer el desarrollo económico regional.',
+    description: 'Consolidar a las Zonas Metropolitanas como uno de los principales destinos turísticos del país, así como crear una estrategia para fortalecer el desarrollo económico regional.',
   },
   {
     image: 'img/slider/COMETAH.png',
     title: 'Comisión Metropolitana de Asentamientos Humanos (COMETAH)',
-    description: 'Armonizar la normativa en materia de desarrollo urbano, así como establecer estrategias que permitan un crecimiento urbano sostenible en las Zonas Metropolitanas del Estado de Hidalgo.',
+    description: 'Armonizar la normativa en materia de desarrollo urbano, así como establecer estrategias que permitan un crecimiento urbano sostenible en las Zonas Metropolitanas.',
   },
   {
     image: 'img/slider/COMEMOVI.png',
     title: 'Comisión Metropolitana de Movilidad (COMEMOVI)',
-    description: 'Fortalecer la interoperabilidad, los procesos y manejo de datos del transporte público concesionado, impulsando proyectos de infraestructura de movilidad en las Zonas Metropolitanas del Estado de Hidalgo.',
+    description: 'Fortalecer la interoperabilidad, los procesos y manejo de datos del transporte público concesionado, impulsando proyectos de infraestructura de movilidad en las Zonas Metropolitanas.',
   },
   {
     image: 'img/slider/COMESA.png',
     title: 'Comisión Metropolitana de Salud (COMESA)',
-    description: 'Optimizar los protocolos de atención prehospitalaria, creando un sistema metropolitano de salud para atención ambulatoria y hospitalaria; así como la implementación de un Atlas de Riesgos Sanitarios y Epidemiológicos en las Zonas Metropolitanas de Hidalgo.',
+    description: 'Optimizar los protocolos de atención prehospitalaria, creando un sistema metropolitano de salud para atención ambulatoria y hospitalaria; así como la implementación de un Atlas de Riesgos Sanitarios y Epidemiológicos en las Zonas Metropolitanas.',
   },
   {
     image: 'img/slider/CADAM.png',
     title: 'Comisión de Agua y Drenaje del Área Metropolitana (CADAM)',
-    description: 'Implementar protocolos de atención, prevención, reacción y restablecimiento en contingencias hidrometeorológicas en las zonas limítrofes y metropolitanas del Estado de Hidalgo.',
+    description: 'Implementar protocolos de atención, prevención, reacción y restablecimiento en contingencias hidrometeorológicas en las zonas limítrofes y metropolitanas.',
   },
   {
     image: 'img/slider/CAM.png',
     title: 'Comisión Ambiental Metropolitana (CAM)',
-    description: 'Reducir la huella ambiental, mejorando la calidad del aire, así como emprender políticas de mitigación de los efectos del calentamiento global en las Zonas Metropolitanas del Estado de Hidalgo.',
+    description: 'Reducir la huella ambiental, mejorando la calidad del aire, así como emprender políticas de mitigación de los efectos del calentamiento global en las Zonas Metropolitanas.',
   },
 ];
 
