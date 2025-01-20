@@ -2,15 +2,13 @@
 
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import HomeIcon from "@mui/icons-material/Home";
-import styles from "./ChatbotMain.module.css";
-import "../forms/Formulario.css";
+import HomeIcon from "@mui/icons-material/Home";import styles from "./ChatbotMain.module.css";
 import ChatbotWelcome from "./ChatbotWelcome";
+import ChatForms from "./ChatForms";
 
 const ChatbotMain = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState("menu");
-  const [formData, setFormData] = useState({ name: "", description: "", municipalities: "" });
   const [selectedZone, setSelectedZone] = useState("");
 
   const handleStartChat = () => setIsChatOpen(true);
@@ -20,9 +18,6 @@ const ChatbotMain = () => {
     setCurrentStep(step);
     if (zone) setSelectedZone(zone);
   };
-
-  const handleInputChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const resetToMainMenu = () => {
     setCurrentStep("menu");
@@ -102,19 +97,7 @@ const ChatbotMain = () => {
 
   const renderProposalForm = () => (
     <div className={styles.step}>
-      <p>¡Perfecto! Por favor responde las siguientes preguntas:</p>
-      <form className="formulario-container">
-        <div className="form-group">
-          <label>¿Cómo se llama tu proyecto?<input name="name" type="text" className="input-field" value={formData.name} onChange={handleInputChange} /></label>
-        </div>
-        <div className="form-group">
-          <label>¿En qué consiste? (Máximo 500 caracteres)<textarea name="description" className="input-field" value={formData.description} onChange={handleInputChange} maxLength="500" /></label>
-        </div>
-        <div className="form-group">
-          <label>¿Cuáles municipios comprende?<input name="municipalities" type="text" className="input-field" value={formData.municipalities} onChange={handleInputChange} />        </label>
-        </div>
-        <button type="button" className="submit-button" onClick={() => handleMenuClick("proposalThanks")}>Enviar</button>
-      </form>
+      <ChatForms handleMenuClick={handleMenuClick} />
     </div>
   );
 

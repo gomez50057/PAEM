@@ -1,6 +1,6 @@
 import React from 'react';
 import Team from '@/components/teams/Team';
-import { tecnicoTeamMembers } from '@/utils/utils';
+import { COMZMsHgo } from '@/utils/teamsZmHgo';
 
 
 const COMZMsHgoTeam = () => {
@@ -8,7 +8,7 @@ const COMZMsHgoTeam = () => {
   return (
     <Team 
       teamName="Comisiones de Ordenamiento Metropolitano" 
-      teamMembers={tecnicoTeamMembers}
+      teamMembers={COMZMsHgo}
       isTecnicoTeam={true} 
     />
   );

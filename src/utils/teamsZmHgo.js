@@ -6,64 +6,88 @@ export const CEMZMsHgo = [
     "image": "/img/ZMVM/Presidencia Conjunta/Julio Menchaca Salazar.png",
   },
   {
-    "name": "Representante de SEDATU",
-    "position": "Secretaría de Desarrollo Agrario, Territorial y Urbano",
+    "name": "Edna Elena Vega Rangel",
+    "position": "Secretaria de Desarrollo Agrario, Territorial y Urbano",
     "gobierno": "Gobierno Federal",
-    "image": "https://via.placeholder.com/400x400",
+    "image": "/img/ZMVM/Presidencia Conjunta/Edna Elena Vega Rangel.png"
   },
-
 ];
 
-// export const COMZMsHgo = [
-//   {
-//     "name": "Álvaro Lomelí Covarrubias",
-//     "position": "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
-//     "gobierno": "Gobierno Federal",
-//     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Álvaro Lomelí Covarrubias.png"
-//   },
-//   {
-//     "name": "Miguel Ángel Tello Vargas",
-//     "position": "Titular de la Unidad de Planeación y Prospectiva",
-//     "gobierno": "Gobierno del Estado de Hidalgo",
-//     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Miguel Ángel Tello Vargas.png",
-//   },
-//   {
-//     "name": "Onésimo Rodrigo Serrano Rivera",
-//     "position": "Coordinador General de Planeación y Proyectos",
-//     "gobierno": "Gobierno del Estado de Hidalgo",
-//     "image": "/img/ZMVM/Secretariado Técnico Conjunto/.png"
-//   },
-//   {
-//     "name": "Guillermo Olivares Reyna",
-//     "position": "Secretario de Gobierno",
-//     "gobierno": "Gobierno del Estado de Hidalgo",
-//     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Guillermo Olivares Reyna.png"
-//   },
-//   {
-//     "name": "César Cravioto Romero",
-//     "position": "Secretario de Gobierno",
-//     "gobierno": "Gobierno de la Ciudad de México",
-//     "image": "/img/ZMVM/Secretariado Técnico Conjunto/César Cravioto Romero.png"
-//   },
-//   {
-//     "name": "Alejandro Encinas Rodríguez",
-//     "position": "Secretario de Planeación y Ordenamiento Territorial y Coordinación Metropolitana   ",
-//     "gobierno": "Gobierno de la Ciudad de México",
-//     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Alejandro Encinas Rodríguez.png"
-//   },
-//   {
-//     "name": "Horacio Duarte Olivares",
-//     "position": "Secretario General de Gobierno",
-//     "gobierno": "Gobierno del Estado de México",
-//     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Horacio Duarte Olivares.png"
-//   },
-//   {
-//     "name": "Carlos Jesús Maza Lara",
-//     "position": "Secretario de Desarrollo Urbano y Obra",
-//     "gobierno": "Gobierno del Estado de México",
-//     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Carlos Jesús Maza Lara.png"
-//   }
-// ];
+export const COMZMsHgo = [
+  // {
+  //   "name": "",
+  //   "position": "",
+  //   "gobierno": "Gobierno del Estado de Hidalgo",
+  //   "image": "/img/ZMsHGO/COMZMsHgo/.png"
+  // },
+  {
+    "name": "Miguel Ángel Tello Vargas",
+    "position": "Titular de la Unidad de Planeación y Prospectiva",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Miguel Ángel Tello Vargas.png",
+  },
+  {
+    "name": "Onésimo Rodrigo Serrano Rivera",
+    "position": "Coordinador General de Planeación y Proyectos",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Onésimo Rodrigo Serrano Rivera.png"
+
+  },
+  {
+    "name": "Guillermo Olivares Reyna",
+    "position": "Secretario de Gobierno",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Guillermo Olivares Reyna.png"
+  },
+  {
+    "name": "Alejandro Sánchez García",
+    "position": "Secretario de Infraestructura Pública y Desarrollo Urbano Sustentable",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMsHGO/COMZMsHgo/Alejandro Sánchez García.png"
+  },
+  {
+    "name": "Carlos Henkel Escorza",
+    "position": "Secretario de Desarrollo Económico",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMsHGO/COMZMsHgo/Carlos Henkel Escorza.png"
+  },
+  {
+    "name": "Elizabeth Quintanar Gómez",
+    "position": "Secretaria de Turismo",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMsHGO/COMZMsHgo/Elizabeth Quintanar Gómez.png"
+  },
+  {
+    "name": "Francisco Fernández Hasbun",
+    "position": "Jefe del Despacho de la Procuraduría General de Justicia del Estado de Hidalgo",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMsHGO/COMZMsHgo/Francisco Fernández Hasbun.png"
+  },
+  {
+    "name": "Lyzbeth Robles Gutiérrez",
+    "position": "Secretaria de Movilidad y Transporte",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMsHGO/COMZMsHgo/Lyzbeth Robles Gutiérrez.png"
+  },
+  {
+    "name": "Mónica Patricia Mixtega Trejo",
+    "position": "Secretaria de Medio Ambiente y Recursos Naturales de Hidalgo",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMsHGO/COMZMsHgo/Mónica Patricia Mixtega Trejo.png"
+  },
+  {
+    "name": "Salvador Cruz Neri",
+    "position": "Secretario de Seguridad Pública",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMsHGO/COMZMsHgo/Salvador Cruz Neri.png"
+  },
+  {
+    "name": "Vanessa Escalante Arroyo",
+    "position": "Secretaria de Salud",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMsHGO/COMZMsHgo/Vanessa Escalante Arroyo.png"
+  },
+];
 
 export const PresidentesZMPachuca = [
   {
