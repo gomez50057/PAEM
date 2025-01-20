@@ -72,6 +72,7 @@ const ChatForms = ({ handleMenuClick }) => (
           <div className="form-group">
             <label htmlFor="name">¿Cómo se llama tu proyecto?</label>
             <Field
+              id="name"
               name="name"
               type="text"
               className="input-field"
@@ -83,6 +84,7 @@ const ChatForms = ({ handleMenuClick }) => (
           <div className="form-group">
             <label htmlFor="description">¿En qué consiste? (Máximo 500 caracteres)</label>
             <Field
+              id="description"
               name="description"
               as="textarea"
               className="input-field"

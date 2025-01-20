@@ -7,6 +7,7 @@ import ChatbotWelcome from "./ChatbotWelcome";
 import ChatForms from "./ChatForms";
 
 const ChatbotMain = () => {
+  const [formData, setFormData] = useState({});
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState("menu");
   const [selectedZone, setSelectedZone] = useState("");
@@ -15,6 +16,7 @@ const ChatbotMain = () => {
   const handleCollapseChat = () => setIsChatOpen(false);
 
   const handleMenuClick = (step, zone = "") => {
+    setFormData({});
     setCurrentStep(step);
     if (zone) setSelectedZone(zone);
   };
