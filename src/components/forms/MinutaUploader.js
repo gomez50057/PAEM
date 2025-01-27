@@ -65,7 +65,7 @@ const MinutaUploader = ({ minuta, setMinuta }) => {
           ) : (
             <div className="dropzone-txt">
               <img src="/img/iconos/dropzone.png" alt="Subir archivo PDF" className="upload-icon" />
-              <p>Arrastra y suelta el <span className="highlight">archivo PDF</span> de la minuta</p>
+              <p>Arrastra y suelta el <span className="highlight">archivo PDF</span></p>
               <p>o <span className="highlight">busca un archivo</span> en tu computadora</p>
             </div>
           )}

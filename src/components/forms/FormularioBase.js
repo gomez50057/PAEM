@@ -197,8 +197,8 @@ const FormularioBase = ({ initialValues, onSubmit, files, setFiles, minuta, setM
             )}
 
             <div className="form-group">
-              <label>Minuta:</label>
-              <p>En esta sección, puedes cargar la minuta del proyecto en formato PDF. Recuerda que solo se permite subir un único archivo y debe ser exclusivamente en formato PDF. Asegúrate de que el archivo contiene toda la información relevante antes de realizar la subida.</p>
+              <label>Documentos Anexos(evidencia):</label>
+              <p>En esta sección, puedes cargar todos los anexos relacionados con el proyecto, excepto la minuta. Recuerda que solo se permite subir un único archivo y debe ser exclusivamente en formato PDF. Asegúrate de que el archivo contiene toda la información relevante antes de realizar la subida.</p>
               <MinutaUploader minuta={minuta} setMinuta={setMinuta} />
             </div>
 

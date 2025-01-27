@@ -56,31 +56,28 @@ export const getImages = (zonaSeleccionada) => {
   switch (zonaSeleccionada) {
     case 'ZMP':
       return [
-        'https://via.placeholder.com/250?text=Pachuca+1',
-        'https://via.placeholder.com/250?text=Pachuca+2',
-        'https://via.placeholder.com/250?text=Pachuca+3',
-        'https://via.placeholder.com/250?text=Pachuca+4'
+        '/img/About/ZMPachuca/pachuca reloj.png',
+        '/img/About/ZMPachuca/pachuca 1.png',
+        '/img/About/ZMPachuca/2.JPG',
+        '/img/About/ZMPachuca/zempoala.JPG'
       ];
     case 'ZMTula':
       return [
-        'https://via.placeholder.com/250?text=Tula+1',
-        'https://via.placeholder.com/250?text=Tula+2',
-        'https://via.placeholder.com/250?text=Tula+3',
-        'https://via.placeholder.com/250?text=Tula+4'
+        '/img/About/ZMTula/1.JPG',
+        '/img/About/ZMTula/2.JPG'
       ];
     case 'ZMTulancingo':
       return [
-        'https://via.placeholder.com/250?text=Tulancingo+1',
-        'https://via.placeholder.com/250?text=Tulancingo+2',
-        'https://via.placeholder.com/250?text=Tulancingo+3',
+        '/img/About/ZMTulancingo/puente tulanciongo.png',
         'https://via.placeholder.com/250?text=Tulancingo+4'
       ];
     case 'ZMVM':
       return [
-        'https://via.placeholder.com/250?text=Valle+de+Mexico+1',
-        'https://via.placeholder.com/250?text=Valle+de+Mexico+2',
-        'https://via.placeholder.com/250?text=Valle+de+Mexico+3',
-        'https://via.placeholder.com/250?text=Valle+de+Mexico+4'
+        '/img/About/ZMVM/Angel CDMX.jpg',
+        '/img/About/ZMVM/bellas artes CDMX.jpg',
+        '/img/About/ZMVM/CDMX 1.jpg',
+        '/img/About/ZMVM/Teotihuacán.jpg',
+        '/img/About/ZMVM/Torres de Satélite.jpg'
       ];
     default:
       // Asegúrate de que siempre se devuelva un arreglo, incluso si no hay zona seleccionada
