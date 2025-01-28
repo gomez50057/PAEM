@@ -49,6 +49,7 @@
 .containerTitle {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 /* Elemento principal de cada comisión */
@@ -75,13 +76,19 @@
 }
 
 /* Indicador circular al lado de las comisiones */
-.circle {
-  width: 35px;
-  height: 35px;
-  margin-right: 30px;
-  background: linear-gradient(135deg, #ff8c00, #ff005d);
-  border-radius: 50%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+.comisionImage {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin-right: 10px;
+  padding: 5px;
+  border: #cccccc62 1px solid;
+}
+
+.containerTitle img{
+  filter: drop-shadow(0 4px 6px  rgba(34, 34, 34, 0.2));
 }
 
 /* Flecha indicadora */
@@ -102,7 +109,7 @@
 .subMenu {
   list-style: none;
   padding: 15px 20px;
-  margin-top: 10px;
+  margin: 10px 0 0 40%;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);

@@ -6,7 +6,6 @@ import DownloadIcon from "@mui/icons-material/Download";
 import PreviewIcon from "@mui/icons-material/Preview";
 import { minutasData } from "@/utils/minutasData";
 
-
 const Minutas = () => {
   const [openMenu, setOpenMenu] = useState(null);
 
@@ -25,14 +24,13 @@ const Minutas = () => {
               onClick={() => toggleMenu(comision.id)}
             >
               <div className={styles.containerTitle}>
-                <div className={styles.circle}></div>
+                <img src={comision.img} alt={comision.title} className={styles.comisionImage} />
                 <span>{comision.title}</span>
               </div>
-              
+
               <div
-                className={`${styles.arrow} ${
-                  openMenu === comision.id ? styles.open : ""
-                }`}
+                className={`${styles.arrow} ${openMenu === comision.id ? styles.open : ""
+                  }`}
               ></div>
             </div>
             {openMenu === comision.id && (
