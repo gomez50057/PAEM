@@ -11,13 +11,13 @@ export const minutasData = [
       },
       {
         nombre: "Minuta",
-        fecha: "2019-06-24",
-        link: "/minutas/Comisión Ambiental Metropolitana (CAM)/Minuta_CAM_240619.pdf",
+        fecha: "2021-02-22",
+        link: "/minutas/Comisión Ambiental Metropolitana (CAM)/Minuta_CAM_22022021.pdf",
       },
       {
         nombre: "Minuta",
-        fecha: "2021-02-22",
-        link: "/minutas/Comisión Ambiental Metropolitana (CAM)/Minuta_CAM_22022021.pdf",
+        fecha: "2019-06-24",
+        link: "/minutas/Comisión Ambiental Metropolitana (CAM)/Minuta_CAM_240619.pdf",
       },
     ],
   },
@@ -29,13 +29,13 @@ export const minutasData = [
     acuerdos: [
       {
         nombre: "Minuta",
-        fecha: "2023-03-29",
-        link: "/minutas/Comisión Metropolitana de Agua y Drenaje del Área Metropolitana (CADAM)/Minuta CADAM_29032023.pdf",
+        fecha: "2023-06-24",
+        link: "/minutas/Comisión Metropolitana de Agua y Drenaje del Área Metropolitana (CADAM)/Minuta_CADAM_240619.pdf",
       },
       {
         nombre: "Minuta",
-        fecha: "2023-06-24",
-        link: "/minutas/Comisión Metropolitana de Agua y Drenaje del Área Metropolitana (CADAM)/Minuta_CADAM_240619.pdf",
+        fecha: "2023-03-29",
+        link: "/minutas/Comisión Metropolitana de Agua y Drenaje del Área Metropolitana (CADAM)/Minuta CADAM_29032023.pdf",
       },
       {
         nombre: "Minuta",
@@ -50,9 +50,9 @@ export const minutasData = [
     img: "/img/ico/comisiones/comision_asentamientos.png",
     acuerdos: [
       {
-        nombre: "Acta",
-        fecha: "2020-06-04",
-        link: "/minutas/Comisión Metropolitana de Asentamientos Humanos (COMETAH)/Acta_COMETAH_040620.pdf",
+        nombre: "Minuta",
+        fecha: "2023-03-15",
+        link: "/minutas/Comisión Metropolitana de Asentamientos Humanos (COMETAH)/Minuta COMETAH_15032023.pdf",
       },
       {
         nombre: "Acta",
@@ -60,9 +60,9 @@ export const minutasData = [
         link: "/minutas/Comisión Metropolitana de Asentamientos Humanos (COMETAH)/Acta_COMETAH_230321.pdf",
       },
       {
-        nombre: "Minuta",
-        fecha: "2023-03-15",
-        link: "/minutas/Comisión Metropolitana de Asentamientos Humanos (COMETAH)/Minuta COMETAH_15032023.pdf",
+        nombre: "Acta",
+        fecha: "2020-06-04",
+        link: "/minutas/Comisión Metropolitana de Asentamientos Humanos (COMETAH)/Acta_COMETAH_040620.pdf",
       },
       {
         nombre: "Minuta",
@@ -102,13 +102,13 @@ export const minutasData = [
       },
       {
         nombre: "Minuta",
-        fecha: "2019-07-26",
-        link: "/minutas/Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil (COMEPROC)/Minuta_COMEPROC_260719.pdf",
+        fecha: "2021-02-23",
+        link: "/minutas/Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil (COMEPROC)/Minuta_COMEPROC_23022021.pdf",
       },
       {
         nombre: "Minuta",
-        fecha: "2021-02-23",
-        link: "/minutas/Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil (COMEPROC)/Minuta_COMEPROC_23022021.pdf",
+        fecha: "2019-07-26",
+        link: "/minutas/Comisión Metropolitana de Gestión Integral de Riesgos y Protección Civil (COMEPROC)/Minuta_COMEPROC_260719.pdf",
       },
     ],
   },
