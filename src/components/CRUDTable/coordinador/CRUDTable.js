@@ -61,6 +61,7 @@ const CRUDTable = () => {
     { name: "id", label: "ID Acuerdo", options: { display: false, viewColumns: false } },
     { name: "id_unico", label: "ID Acuerdo" },
     { name: "fecha_creacion", label: "Fecha" },
+    { name: "comision", label: "Comision" },
     { name: "descripcion_acuerdo", label: "Descripción del Acuerdo", options: { sort: true, sortDirection: 'asc', } },
     {
       name: "estatus",

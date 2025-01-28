@@ -12,6 +12,8 @@ const TableEnlace = dynamic(() => import('../CRUDTable/enlace/TableEnlace'), { l
 const Headerdashboard = dynamic(() => import('../dashboard/HeaderDashboard'), { loading: () => <Preloader />, ssr: false });
 const SvgIcon = dynamic(() => import('../shared/SvgIcon'), { loading: () => <Preloader />, ssr: false });
 const ConfirmationModal = dynamic(() => import('../shared/LogoutModal'), { loading: () => <Preloader />, ssr: false });
+const Minutas = dynamic(() => import('./Minutas'), { loading: () => <Preloader />, ssr: false });
+
 
 const Dashboard = () => {
   const [activeComponent, setActiveComponent] = useState('');
@@ -66,6 +68,8 @@ const Dashboard = () => {
 
   const renderContent = () => {
     switch (activeComponent) {
+      case 'minutas':
+        return <Minutas />;
       case 'formulario':
         return <Formulario />;
       case 'acuerdosCoordinador':
@@ -93,6 +97,18 @@ const Dashboard = () => {
                   <SvgIcon name="dashboard" />
                 </div>
                 <span className="title">Dashboard</span>
+              </a>
+            </li>
+          )}
+          {userRole === 'coordinador' && (
+            <li className="list-item" data-component="minutas" onClick={() => handleMenuClick('minutas')}>
+              <b></b>
+              <b></b>
+              <a href="#" className="list-item-link">
+                <div className="icon">
+                  <SvgIcon name="dashboard" />
+                </div>
+                <span className="title">Minutas</span>
               </a>
             </li>
           )}
