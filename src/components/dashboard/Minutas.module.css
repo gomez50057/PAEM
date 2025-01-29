@@ -108,12 +108,23 @@
 /* Submenú desplegable */
 .subMenu {
   list-style: none;
-  padding: 15px 20px;
-  margin: 10px 0 0 40%;
+  padding: 0 20px;
+  margin: 0;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
+  border-left: 7px var(--vinoClr) solid;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  max-height: 0; /* Inicialmente oculto */
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
 }
+
+/* Submenú abierto */
+.subMenu.open {
+  max-height: 300px; /* Tamaño máximo del submenú */
+  padding: 15px 20px;
+}
+
 
 /* Elemento de cada acuerdo */
 .acuerdo {

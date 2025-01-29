@@ -33,37 +33,25 @@ const Minutas = () => {
                   }`}
               ></div>
             </div>
-            {openMenu === comision.id && (
-              <ul className={styles.subMenu}>
-                {comision.acuerdos.map((acuerdo, index) => (
-                  <li key={index} className={styles.acuerdo}>
-                    <div className={styles.acuerdoInfo}>
-                      <span className={styles.nombre}>{acuerdo.nombre}</span>
-                      <span className={styles.fecha}>{acuerdo.fecha}</span>
-                    </div>
-                    <div className={styles.icons}>
-                      <a
-                        href={acuerdo.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.iconLink}
-                        title="Visualizar"
-                      >
-                        <PreviewIcon className={styles.icon} />
-                      </a>
-                      <a
-                        href={acuerdo.link}
-                        download
-                        className={styles.iconLink}
-                        title="Descargar"
-                      >
-                        <DownloadIcon className={styles.icon} />
-                      </a>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
+            {/* Submenú con clase dinámica */}
+            <ul className={`${styles.subMenu} ${openMenu === comision.id ? styles.open : ""}`} >
+              {comision.acuerdos.map((acuerdo, index) => (
+                <li key={index} className={styles.acuerdo}>
+                  <div className={styles.acuerdoInfo}>
+                    <span className={styles.nombre}>{acuerdo.nombre}</span>
+                    <span className={styles.fecha}>{acuerdo.fecha}</span>
+                  </div>
+                  <div className={styles.icons}>
+                    <a href={acuerdo.link} target="_blank" rel="noopener noreferrer" className={styles.iconLink} title="Visualizar" >
+                      <PreviewIcon className={styles.icon} />
+                    </a>
+                    <a href={acuerdo.link} download className={styles.iconLink} title="Descargar" >
+                      <DownloadIcon className={styles.icon} />
+                    </a>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
