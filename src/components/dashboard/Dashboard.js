@@ -5,6 +5,7 @@ import Preloader from '../shared/Preloader';
 import '../shared/Preloader.css';
 import './Dashboard.css';
 
+const DashboardCharts = dynamic(() => import('./DashboardCharts'), { loading: () => <Preloader />, ssr: false });
 const Formulario = dynamic(() => import('../forms/CreateFormulario'), { loading: () => <Preloader />, ssr: false });
 const Acuerdos = dynamic(() => import('../CRUDTable/coordinador/CRUDTable'), { loading: () => <Preloader />, ssr: false });
 const TableResponsable = dynamic(() => import('../CRUDTable/responsable/TableResponsable'), { loading: () => <Preloader />, ssr: false });
@@ -78,6 +79,8 @@ const Dashboard = () => {
         return <TableResponsable />;
       case 'acuerdosEnlace':
         return <TableEnlace />;
+      case 'dashboardCharts':
+        return <DashboardCharts />;
       default:
         return <h1>DASHBOARD</h1>;
     }
@@ -89,7 +92,7 @@ const Dashboard = () => {
         <div className="toggle active"></div>
         <ul className="list">
           {userRole === 'coordinador' && (
-            <li className="list-item" data-component="dashboard" onClick={() => handleMenuClick('dashboard')}>
+            <li className="list-item" data-component="dashboardCharts" onClick={() => handleMenuClick('dashboardCharts')}>
               <b></b>
               <b></b>
               <a href="#" className="list-item-link">
