@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import HomeIcon from "@mui/icons-material/Home";import styles from "./ChatbotMain.module.css";
+import HomeIcon from "@mui/icons-material/Home"; import styles from "./ChatbotMain.module.css";
 import ChatbotWelcome from "./ChatbotWelcome";
 import ChatForms from "./ChatForms";
 
@@ -89,7 +89,7 @@ const ChatbotMain = () => {
             <img src="/img/chatBot/cartography.png" alt="Icono" />
           </div>
           <div className={styles.content}>
-            <h4>Quiero Explora el Mapa de las Zonas Metropolitanas</h4>
+            <h4>Quiero Explora la Cartografía las Zonas Metropolitanas</h4>
             <p>Visualiza el mapa en PDF con las delimitaciones de cada Zona Metropolitana, sus límites territoriales y los municipios que las integran.</p>
           </div>
         </li>
@@ -191,7 +191,11 @@ const ChatbotMain = () => {
       case "proposalThanks":
         return (
           <div className={styles.step}>
-            <p>Gracias, tu propuesta será registrada!</p>
+            <div>
+              <p>¡Gracias por compartir tu propuesta! La tomaremos en cuenta para seguir construyendo juntos un mejor futuro metropolitano. </p>
+              <p>Tu participación es clave para construir un futuro más sostenible e innovador para Hidalgo. ¡Sigue contribuyendo</p>
+              <p>¡Tu voz es el motor del cambio!</p>
+            </div>
             <button className={styles.iconButtonXl} onClick={resetToMainMenu}><HomeIcon className={styles.iconHeader} />Regresar al menú principal</button>
           </div>
         );

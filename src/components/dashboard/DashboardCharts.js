@@ -113,7 +113,7 @@ const DashboardCharts = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Indicadores de Acuerdos</h2>
+      <h2 className={styles.title}><span>Indicadores</span> de Acuerdos</h2>
       <div className={styles.chartTotalAgreements}>
         <h3>📊 Total de Acuerdos</h3>
         <p className={styles.totalNumber}>{stats.acuerdos.total}</p>

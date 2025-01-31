@@ -40,6 +40,7 @@ const Navbar = () => {
           {/* <img src={`${img}MX.webp`} alt="img_representativa" />
           <img src={`${img}CDMX.webp`} alt="img_representativa" />
           <img src={`${img}EDOMEX.webp`} alt="img_representativa" /> */}
+          <img src={`${img}Coordinación.png`} alt="img_representativa" />
           <img src={`${img}HGO.webp`} alt="img_representativa" />
           <img src={`/img/headertxt.png`} alt="img_representativa" />
 
@@ -48,7 +49,7 @@ const Navbar = () => {
 
         <div className="Navbar_inicio">
           <div className="navbar_opc">
-            <li><Link href="/mapa-proyectos" className=""> Mapa  </Link></li>
+            <li><Link href="/mapa-proyectos" className=""> Proyectos Metropolitanos  </Link></li>
             <li><Link href="/integrantes" className=""> Integrantes  </Link></li>
             <li><Link href="/noticias" className=""> Noticias  </Link></li>
             <li><Link href="/login" className=""> Acceder </Link></li>
