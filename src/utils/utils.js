@@ -256,24 +256,22 @@ export const hgoTeamMembers = [
 
 export const tecnicoTeamMembersZMVM = [
   {
-    "name": "Álvaro Lomelí Covarrubias",
-    "position": "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
-    "gobierno": "Gobierno Federal",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Álvaro Lomelí Covarrubias.png"
-
-  },
-  {
     "name": "Miguel Ángel Tello Vargas",
     "position": "Titular de la Unidad de Planeación y Prospectiva",
     "gobierno": "Gobierno del Estado de Hidalgo",
     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Miguel Ángel Tello Vargas.png",
   },
   {
-    "name": "Onésimo Rodrigo Serrano Rivera",
-    "position": "Coordinador General de Planeación y Proyectos",
-    "gobierno": "Gobierno del Estado de Hidalgo",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/.png"
-
+    "name": "Alejandro Encinas Rodríguez",
+    "position": "Secretario de Planeación y Ordenamiento Territorial y Coordinación Metropolitana   ",
+    "gobierno": "Gobierno de la Ciudad de México",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Alejandro Encinas Rodríguez.png"
+  },
+  {
+    "name": "Carlos Jesús Maza Lara",
+    "position": "Secretario de Desarrollo Urbano y Obra",
+    "gobierno": "Gobierno del Estado de México",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Carlos Jesús Maza Lara.png"
   },
   {
     "name": "Guillermo Olivares Reyna",
@@ -288,10 +286,10 @@ export const tecnicoTeamMembersZMVM = [
     "image": "/img/ZMVM/Secretariado Técnico Conjunto/César Cravioto Romero.png"
   },
   {
-    "name": "Alejandro Encinas Rodríguez",
-    "position": "Secretario de Planeación y Ordenamiento Territorial y Coordinación Metropolitana   ",
-    "gobierno": "Gobierno de la Ciudad de México",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Alejandro Encinas Rodríguez.png"
+    "name": "Onésimo Rodrigo Serrano Rivera",
+    "position": "Coordinador General de Planeación y Proyectos",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Onésimo Rodrigo Serrano Rivera.png"
   },
   {
     "name": "Horacio Duarte Olivares",
@@ -300,11 +298,23 @@ export const tecnicoTeamMembersZMVM = [
     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Horacio Duarte Olivares.png"
   },
   {
-    "name": "Carlos Jesús Maza Lara",
-    "position": "Secretario de Desarrollo Urbano y Obra",
+    "name": "Álvaro Lomelí Covarrubias",
+    "position": "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
+    "gobierno": "Gobierno Federal",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Álvaro Lomelí Covarrubias.png"
+  },
+  {
+    "name": "Juan Carlos Chávez González",
+    "position": "Director General de la Comisión Estatal del Agua y Alcantarillado",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Juan Carlos Chávez González.png"
+  },
+  {
+    "name": "Alejandro Viedma Velázquez",
+    "position": "Subsecretario General de Gobierno",
     "gobierno": "Gobierno del Estado de México",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Carlos Jesús Maza Lara.png"
-  }
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Alejandro Viedma Velázquez.png"
+  },
 ];
 
 export const estatalTeamMembers = [

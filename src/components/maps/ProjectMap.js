@@ -40,7 +40,7 @@ const ProjectMap = () => {
 
         const commonStyle = (fillColor, color, weight = 2) => ({
             fillColor,
-            fillOpacity: 0.7,
+            fillOpacity: 0.3,
             color,
             weight,
         });

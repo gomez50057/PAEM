@@ -27,13 +27,6 @@ export const COMZMsHgo = [
     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Miguel Ángel Tello Vargas.png",
   },
   {
-    "name": "Onésimo Rodrigo Serrano Rivera",
-    "position": "Coordinador General de Planeación y Proyectos",
-    "gobierno": "Gobierno del Estado de Hidalgo",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Onésimo Rodrigo Serrano Rivera.png"
-
-  },
-  {
     "name": "Guillermo Olivares Reyna",
     "position": "Secretario de Gobierno",
     "gobierno": "Gobierno del Estado de Hidalgo",
@@ -86,6 +79,12 @@ export const COMZMsHgo = [
     "position": "Secretaria de Salud",
     "gobierno": "Gobierno del Estado de Hidalgo",
     "image": "/img/ZMsHGO/COMZMsHgo/Vanessa Escalante Arroyo.png"
+  },
+  {
+    "name": "Onésimo Rodrigo Serrano Rivera",
+    "position": "Coordinador General de Planeación y Proyectos",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Onésimo Rodrigo Serrano Rivera.png"
   },
 ];
 
