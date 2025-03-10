@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import ChatbotWelcome from './ChatbotWelcome';
+// import ChatbotWelcome from './ChatbotWelcome';
 import ChatbotMain from './ChatbotMain';
 
 const Chatbot = () => {
@@ -11,10 +11,20 @@ const Chatbot = () => {
     setIsChatStarted(true);
   };
 
+  // return (
+  //   <div>
+  //     {!isChatStarted ? (
+  //       <ChatbotWelcome onStartChat={startChat} />
+  //     ) : (
+  //       <ChatbotMain />
+  //     )}
+  //   </div>
+  // );
+  //se Evita el doble clic
   return (
     <div>
       {!isChatStarted ? (
-        <ChatbotWelcome onStartChat={startChat} />
+        <ChatbotMain onStartChat={startChat} />
       ) : (
         <ChatbotMain />
       )}
