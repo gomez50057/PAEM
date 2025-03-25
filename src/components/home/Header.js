@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
-import HeaderAnimation from '../shared/HeaderAnimation';
+import dynamic from "next/dynamic";
+
+// Deshabilita SSR para HeaderAnimation
+const HeaderAnimation = dynamic(() => import("../shared/HeaderAnimation"), { ssr: false });
 import './Header.css';
 
 const Header = () => {

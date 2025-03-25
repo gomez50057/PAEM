@@ -364,11 +364,11 @@ export const municipiosDeHidalgo = [
   '080 Yahualica', '081 Zacualtipán de Ángeles', '082 Zapotlán de Juárez', '083 Zempoala', '084 Zimapán'
 ];
 
-export default {
-  federalTeamMembers,
-  cdmxTeamMembers,
-  edomexTeamMembers,
-  hgoTeamMembers,
-  tecnicoTeamMembersZMVM,
-  estatalTeamMembers,
-};
+// export default {
+//   federalTeamMembers,
+//   cdmxTeamMembers,
+//   edomexTeamMembers,
+//   hgoTeamMembers,
+//   tecnicoTeamMembersZMVM,
+//   estatalTeamMembers,
+// };

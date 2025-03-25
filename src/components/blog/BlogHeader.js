@@ -7,33 +7,30 @@ import { normalizeName, items } from "../../utils/blogData";
 
 const BlogHeader = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [animationKey, setAnimationKey] = useState(0); // Cambia la clave para forzar el reinicio de la animación
-  const [manualChange, setManualChange] = useState(false); // Indica si se hizo un cambio manual
+  const [animationKey, setAnimationKey] = useState(0);
+  const [manualChange, setManualChange] = useState(false);
 
   useEffect(() => {
-    // Actualizamos la clave de animación para reiniciar las animaciones
     setAnimationKey((prevKey) => prevKey + 1);
   }, [activeIndex]);
 
   useEffect(() => {
-    // Configura el intervalo para cambiar el slider automáticamente
     if (!manualChange) {
       const interval = setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % items.length);
       }, 6000);
-
       return () => clearInterval(interval);
     }
-  }, [items.length, manualChange]);
+  }, [manualChange]);
 
   const handleNext = () => {
-    setManualChange(true); // Detiene el avance automático temporalmente
+    setManualChange(true);
     setActiveIndex((prev) => (prev + 1) % items.length);
     restartAutoAdvance();
   };
 
   const handlePrev = () => {
-    setManualChange(true); // Detiene el avance automático temporalmente
+    setManualChange(true);
     setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
     restartAutoAdvance();
   };
@@ -47,32 +44,40 @@ const BlogHeader = () => {
   };
 
   const handlePreviewClick = (index) => {
-    setManualChange(true); // Detiene el avance automático temporalmente
-    setActiveIndex(index); // Cambiar la diapositiva al hacer clic en la previsualización
+    setManualChange(true);
+    setActiveIndex(index);
     restartAutoAdvance();
   };
 
   return (
-    <div className={`${styles.container}`} style={{ backgroundImage: `url(${items[activeIndex].bg})` }}>
-      <div className={styles.overlay}></div> {/* Capa semitransparente */}
-
+    <div
+      className={`${styles.container}`}
+      style={{ backgroundImage: `url(${items[activeIndex].bg})` }}
+    >
+      <div className={styles.overlay}></div>
       <div className={styles.content}>
-        {/* Asignamos claves únicas para cada elemento */}
-        <div key={`${animationKey}-name`} className={`${styles.name} ${styles.textAnimation} delay-1`}>
+        <div
+          key={`${animationKey}-name`}
+          className={`${styles.name} ${styles.textAnimation} delay-1`}
+        >
           {items[activeIndex].name}
         </div>
-        <div key={`${animationKey}-des`} className={`${styles.des} ${styles.textAnimation} delay-2`}>
+        <div
+          key={`${animationKey}-des`}
+          className={`${styles.des} ${styles.textAnimation} delay-2`}
+        >
           {items[activeIndex].des}
         </div>
         <Link href={`/noticias/${normalizeName(items[activeIndex].name)}`} passHref>
-          <button key={`${animationKey}-button`} className={`${styles.textAnimation} delay-3`}>
+          <button
+            key={`${animationKey}-button`}
+            className={`${styles.textAnimation} delay-3`}
+          >
             Leer más
           </button>
         </Link>
       </div>
-
       <div className={styles.previewContainer}>
-        {/* Previsualización de las siguientes imágenes */}
         {Array(2)
           .fill(null)
           .map((_, offset) => {
@@ -82,12 +87,11 @@ const BlogHeader = () => {
                 key={nextIndex}
                 className={`${styles.previewItem} ${styles.slideAnimation}`}
                 style={{ backgroundImage: `url(${items[nextIndex].bg})` }}
-                onClick={() => handlePreviewClick(nextIndex)} // Manejar clic para cambiar a esta diapositiva
+                onClick={() => handlePreviewClick(nextIndex)}
               ></div>
             );
           })}
       </div>
-
       <div className={styles.button}>
         <button className={styles.prevButton} onClick={handlePrev}>
           <ArrowBackIos />

@@ -6,11 +6,11 @@ import './Formulario.css';
 
 const EditFormulario = ({ projectId, onClose }) => {
   const [files, setFiles] = useState([]);
-  const [minuta, setMinuta] = useState(null);  // Estado para la minuta
+  const [minuta, setMinuta] = useState(null);
   const [initialValues, setInitialValues] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [estatus, setEstatus] = useState(''); // Estado para el campo estatus
+  const [estatus, setEstatus] = useState('');
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
@@ -28,22 +28,23 @@ const EditFormulario = ({ projectId, onClose }) => {
           comision: acuerdoData.comision || '',
         });
 
-        // Setear el estatus inicial si está presente en los datos del acuerdo
         setEstatus(acuerdoData.estatus || '');
 
-        // Configurar los archivos de documentos
-        setFiles(Array.isArray(acuerdoData.documentos) ? acuerdoData.documentos.map((doc) => ({
-          file: null,
-          preview: doc.url,
-          progress: 100,
-          completed: true
-        })) : []);
+        setFiles(
+          Array.isArray(acuerdoData.documentos)
+            ? acuerdoData.documentos.map((doc) => ({
+                file: null,
+                preview: doc.url,
+                progress: 100,
+                completed: true,
+              }))
+            : []
+        );
 
-        // Configurar el archivo de minuta si existe
         if (acuerdoData.minuta) {
           setMinuta({
             file: null,
-            preview: acuerdoData.minuta,  // Aquí cargamos el enlace del archivo de minuta existente
+            preview: acuerdoData.minuta,
           });
         }
 
@@ -57,7 +58,7 @@ const EditFormulario = ({ projectId, onClose }) => {
     if (projectId) {
       fetchAcuerdoData();
     }
-  }, [projectId]);
+  }, [projectId, apiUrl]);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     const formData = new FormData();
@@ -67,24 +68,21 @@ const EditFormulario = ({ projectId, onClose }) => {
     formData.append('descripcion_acuerdo', values.descripcionAcuerdo);
     formData.append('estatus', estatus);
 
-    // Adjuntar archivos de documentos
     files.forEach((file, index) => {
       if (file.file) {
         formData.append(`documentos_${index}`, file.file);
       }
     });
 
-    // Adjuntar archivo de minuta si está presente
     if (minuta && minuta.file) {
       formData.append('minuta', minuta.file);
     }
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
     try {
       const response = await axios.put(`${apiUrl}/api/acuerdos/${projectId}/`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+          'Content-Type': 'multipart/form-data',
+        },
       });
       console.log('Formulario actualizado:', response.data);
       setModalIsOpen(true);
@@ -144,8 +142,8 @@ const EditFormulario = ({ projectId, onClose }) => {
         onSubmit={handleSubmit}
         files={files}
         setFiles={setFiles}
-        minuta={minuta}  // Pasamos la minuta
-        setMinuta={setMinuta}  // Función para manejar la minuta
+        minuta={minuta}
+        setMinuta={setMinuta}
         context="edit"
         showFields={false}
       />
