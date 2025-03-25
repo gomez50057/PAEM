@@ -1,9 +1,21 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { MaterialReactTable } from 'material-react-table';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { CssBaseline, Typography, Button, Box } from '@mui/material';
+import {
+  MaterialReactTable,
+  useMaterialReactTable,
+  createMRTColumnHelper,
+} from 'material-react-table';
+import {
+  createTheme,
+  ThemeProvider,
+  CssBaseline,
+  Typography,
+  Button,
+  Box,
+} from '@mui/material';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import { mkConfig, generateCsv, download } from 'export-to-csv';
 import axios from 'axios';
 import ProjectModal from '../ProjectModal';
 import '../CRUDTable.css';
@@ -40,25 +52,22 @@ const CRUDTable = () => {
     fetchData();
   };
 
+  const columnHelper = createMRTColumnHelper();
+
   const columns = [
-    {
-      accessorKey: 'id_unico',
+    columnHelper.accessor('id_unico', {
       header: 'ID Acuerdo',
-    },
-    {
-      accessorKey: 'fecha_creacion',
+    }),
+    columnHelper.accessor('fecha_creacion', {
       header: 'Fecha',
-    },
-    {
-      accessorKey: 'comision',
+    }),
+    columnHelper.accessor('comision', {
       header: 'Comisión',
-    },
-    {
-      accessorKey: 'descripcion_acuerdo',
+    }),
+    columnHelper.accessor('descripcion_acuerdo', {
       header: 'Descripción del Acuerdo',
-    },
-    {
-      accessorKey: 'estatus',
+    }),
+    columnHelper.accessor('estatus', {
       header: 'Estatus',
       Cell: ({ cell }) => {
         const value = cell.getValue();
@@ -69,7 +78,6 @@ const CRUDTable = () => {
           cancelado: { label: 'Cancelado', color: '#808080' },
         };
         const { label, color } = estatusMap[value] || { label: value, color: 'inherit' };
-
         return (
           <span style={{
             backgroundColor: color,
@@ -83,10 +91,9 @@ const CRUDTable = () => {
             {label}
           </span>
         );
-      }
-    },
-    {
-      accessorKey: 'descripcion_avance',
+      },
+    }),
+    columnHelper.accessor('descripcion_avance', {
       header: 'Avances',
       Cell: ({ row }) => (
         <Button
@@ -97,11 +104,10 @@ const CRUDTable = () => {
           Ver todos los avances
         </Button>
       ),
-    },
-    {
-      accessorKey: 'documentos',
+    }),
+    columnHelper.accessor('documentos', {
       header: 'Documentos',
-    },
+    }),
     {
       header: 'Acciones',
       Cell: ({ row }) => {
@@ -115,8 +121,128 @@ const CRUDTable = () => {
         );
       },
       enableSorting: false,
-    }
+    },
   ];
+
+  // CSV Export config
+  const csvConfig = mkConfig({
+    fieldSeparator: ',',
+    decimalSeparator: '.',
+    useKeysAsHeaders: true,
+    filename: 'acuerdos_export',
+  });
+
+ 
+  const estatusMap = {
+    sin_avance: 'Sin Avance',
+    en_proceso: 'En Proceso',
+    atendido: 'Atendido',
+    cancelado: 'Cancelado',
+  };
+  
+  const sanitizeForCsv = (obj) => {
+    const clean = {};
+    for (const key in obj) {
+      let value = obj[key];
+  
+      // Personalizaciones
+      if (key === 'estatus') {
+        value = estatusMap[value] || value;
+      }
+  
+      if (key === 'descripcion_avance') {
+        value = 'Ver todos los avances';
+      }
+  
+      if (key === 'documentos') {
+        if (Array.isArray(value)) {
+          value = value.map((doc) =>
+            typeof doc === 'string' ? doc : doc?.nombre || '[Documento]'
+          ).join(', ');
+        } else if (typeof value === 'object') {
+          value = JSON.stringify(value);
+        }
+      }
+  
+      // Sanitización general
+      if (
+        typeof value === 'string' ||
+        typeof value === 'number' ||
+        typeof value === 'boolean' ||
+        value === null ||
+        value === undefined
+      ) {
+        clean[key] = value;
+      } else {
+        clean[key] = JSON.stringify(value);
+      }
+    }
+    return clean;
+  };
+  
+  const handleExportRows = (rows) => {
+    const rowData = rows.map((row) => sanitizeForCsv(row.original));
+    const csv = generateCsv(csvConfig)(rowData);
+    download(csvConfig)(csv);
+  };
+  
+  const handleExportAllData = () => {
+    const cleanData = data.map(sanitizeForCsv);
+    const csv = generateCsv(csvConfig)(cleanData);
+    download(csvConfig)(csv);
+  };
+  
+
+  const table = useMaterialReactTable({
+    data,
+    columns,
+    enableRowSelection: true,
+    enableColumnActions: false,
+    enableDensityToggle: false,
+    renderTopToolbarCustomActions: ({ table }) => (
+      <Box sx={{ display: 'flex', gap: '12px', flexWrap: 'wrap', padding: '8px' }}>
+        <Button
+          onClick={handleExportAllData}
+          startIcon={<FileDownloadIcon />}
+        >
+          Exportar todos los datos
+        </Button>
+        <Button
+          onClick={() => handleExportRows(table.getSelectedRowModel().rows)}
+          disabled={!table.getIsSomeRowsSelected() && !table.getIsAllRowsSelected()}
+          startIcon={<FileDownloadIcon />}
+        >
+          Exportar seleccionados
+        </Button>
+      </Box>
+    ),
+    initialState: {
+      columnVisibility: { id: false },
+    },
+    muiTableBodyRowProps: {
+      sx: {
+        '&:hover': {
+          backgroundColor: 'rgba(230, 230, 230, 0.9)',
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+        },
+      },
+    },
+    muiTableHeadCellProps: {
+      sx: {
+        backgroundColor: '#f5f5f5',
+        fontWeight: 'bold',
+      },
+    },
+    localization: {
+      actions: 'Acciones',
+      noRecordsToDisplay: 'No se encontraron registros',
+      showHideColumns: 'Ver columnas',
+      search: 'Buscar',
+      clearSearch: 'Limpiar',
+      filter: 'Filtrar',
+      sortBy: 'Ordenar por',
+    },
+  });
 
   const theme = createTheme({
     components: {
@@ -146,47 +272,7 @@ const CRUDTable = () => {
       <CssBaseline />
       <div className="table_grid">
         <Typography variant="h3">Registrados</Typography>
-        <MaterialReactTable
-          columns={columns}
-          data={data}
-          enableColumnActions={false}
-          enableRowSelection={false}
-          enableDensityToggle={false}
-          initialState={{
-            columnVisibility: {
-              id: false,
-            },
-          }}
-          muiTableBodyRowProps={{
-            sx: {
-              '&:hover': {
-                backgroundColor: 'rgba(230, 230, 230, 0.9)',
-                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
-              },
-            },
-          }}
-          muiTableHeadCellProps={{
-            sx: {
-              backgroundColor: '#f5f5f5',
-              fontWeight: 'bold',
-            },
-          }}
-          localization={{
-            // Traducción al español
-            actions: 'Acciones',
-            noRecordsToDisplay: 'No se encontraron registros',
-            and: 'y',
-            showHideColumns: 'Ver columnas',
-            search: 'Buscar',
-            clearSearch: 'Limpiar',
-            filter: 'Filtrar',
-            sortBy: 'Ordenar por',
-            toggleDensity: 'Densidad',
-            toggleFullScreen: 'Pantalla completa',
-            toggleFilters: 'Mostrar filtros',
-            // etc. (puedes personalizar más)
-          }}
-        />
+        <MaterialReactTable table={table} />
       </div>
 
       <ProjectModal
