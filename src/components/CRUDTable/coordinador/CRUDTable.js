@@ -109,7 +109,10 @@ const CRUDTable = () => {
       header: 'Documentos',
     }),
     {
+      id: 'acciones',
       header: 'Acciones',
+      enableSorting: false,
+      enableColumnPinning: true,
       Cell: ({ row }) => {
         const id = row.original.id;
         return (
@@ -132,28 +135,28 @@ const CRUDTable = () => {
     filename: 'acuerdos_export',
   });
 
- 
+
   const estatusMap = {
     sin_avance: 'Sin Avance',
     en_proceso: 'En Proceso',
     atendido: 'Atendido',
     cancelado: 'Cancelado',
   };
-  
+
   const sanitizeForCsv = (obj) => {
     const clean = {};
     for (const key in obj) {
       let value = obj[key];
-  
+
       // Personalizaciones
       if (key === 'estatus') {
         value = estatusMap[value] || value;
       }
-  
+
       if (key === 'descripcion_avance') {
         value = 'Ver todos los avances';
       }
-  
+
       if (key === 'documentos') {
         if (Array.isArray(value)) {
           value = value.map((doc) =>
@@ -163,7 +166,7 @@ const CRUDTable = () => {
           value = JSON.stringify(value);
         }
       }
-  
+
       // Sanitización general
       if (
         typeof value === 'string' ||
@@ -179,26 +182,28 @@ const CRUDTable = () => {
     }
     return clean;
   };
-  
+
   const handleExportRows = (rows) => {
     const rowData = rows.map((row) => sanitizeForCsv(row.original));
     const csv = generateCsv(csvConfig)(rowData);
     download(csvConfig)(csv);
   };
-  
+
   const handleExportAllData = () => {
     const cleanData = data.map(sanitizeForCsv);
     const csv = generateCsv(csvConfig)(cleanData);
     download(csvConfig)(csv);
   };
-  
+
 
   const table = useMaterialReactTable({
     data,
     columns,
     enableRowSelection: true,
     enableColumnActions: false,
+    enableColumnPinning: true,
     enableDensityToggle: false,
+    enableColumnFilters: true,
     renderTopToolbarCustomActions: ({ table }) => (
       <Box sx={{ display: 'flex', gap: '12px', flexWrap: 'wrap', padding: '8px' }}>
         <Button
@@ -218,6 +223,7 @@ const CRUDTable = () => {
     ),
     initialState: {
       columnVisibility: { id: false },
+      columnPinning: { right: ['acciones'], },
     },
     muiTableBodyRowProps: {
       sx: {
