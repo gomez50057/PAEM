@@ -2,13 +2,18 @@ import React, { useState, useEffect } from 'react';
 import Dropzone from 'react-dropzone';
 import './Formulario.css';
 
-const FileUploader = ({ onFilesChange }) => {
+const FileUploader = ({ onFilesChange, resetTrigger }) => {
   const [files, setFiles] = useState([]);
 
   // Notifica al padre cuando 'files' cambie
   useEffect(() => {
     onFilesChange(files);
   }, [files, onFilesChange]);
+
+  // Cuando resetTrigger cambie, reinicia el estado de archivos
+  useEffect(() => {
+    setFiles([]);
+  }, [resetTrigger]);
 
   const handleDrop = (acceptedFiles) => {
     const newFiles = acceptedFiles.map((file) => ({
@@ -55,7 +60,16 @@ const FileUploader = ({ onFilesChange }) => {
   }, [files]);
 
   return (
-    <Dropzone onDrop={handleDrop}>
+    <Dropzone
+      onDrop={handleDrop}
+      accept={{
+        'application/pdf': [],
+        'image/png': [],
+        'image/jpeg': [],
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': [],
+        'text/csv': []
+      }}
+    >
       {({ getRootProps, getInputProps }) => (
         <div {...getRootProps()} className="dropzone">
           <input {...getInputProps()} />

@@ -10,8 +10,9 @@ import FileUploader from './FileUploader';
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const FormularioCarga = () => {
-  const [files, setFiles] = useState([]); // Estado para archivos subidos con FileUploader
+  const [files, setFiles] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [resetTrigger, setResetTrigger] = useState(0);
 
   const handleSubmit = async (values, { resetForm }) => {
     const formData = new FormData();
@@ -21,7 +22,7 @@ const FormularioCarga = () => {
     formData.append('numero_contacto', values.numero_contacto);
     formData.append('extension', values.extension);
 
-    // Iteramos sobre los archivos retornados por FileUploader.
+    // Se itera sobre los archivos del FileUploader
     files.forEach(fileObj => {
       formData.append('archivos', fileObj.file);
     });
@@ -31,26 +32,28 @@ const FormularioCarga = () => {
         method: 'POST',
         body: formData,
       });
-    
+
       if (!response.ok) {
         const contentType = response.headers.get('content-type');
-        let err;
+        let errorMsg;
         if (contentType && contentType.indexOf('application/json') !== -1) {
-          err = await response.json();
+          errorMsg = await response.json();
         } else {
-          err = await response.text();
+          errorMsg = await response.text();
         }
-        console.error('Error de validación:', err);
+        console.error('Error de validación:', errorMsg);
         alert('Ocurrió un error al enviar el formulario.');
         return;
       }
-    
+
+      // Procesa la respuesta exitosa
       resetForm();
       setFiles([]);
       setIsModalOpen(true);
+      setResetTrigger(prev => prev + 1);
     } catch (error) {
       console.error('Error al enviar:', error);
-    }    
+    }
   };
 
   const handleCreateNewAgreement = () => {
@@ -96,16 +99,18 @@ const FormularioCarga = () => {
               <ErrorMessage name="nombre_contacto" component="div" className={styles.errorMessage} />
             </div>
 
-            <div className={styles.formGroup}>
-              <label>Número de Contacto:</label>
-              <Field name="numero_contacto" type="tel" className={styles.inputField} />
-              <ErrorMessage name="numero_contacto" component="div" className={styles.errorMessage} />
-            </div>
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
+                <label>Número de Contacto:</label>
+                <Field name="numero_contacto" type="tel" className={styles.inputField} />
+                <ErrorMessage name="numero_contacto" component="div" className={styles.errorMessage} />
+              </div>
 
-            <div className={styles.formGroup}>
-              <label>Extensión Telefónica:</label>
-              <Field name="extension" type="text" className={styles.inputField} />
-              <ErrorMessage name="extension" component="div" className={styles.errorMessage} />
+              <div className={styles.formGroup}>
+                <label>Extensión Telefónica:</label>
+                <Field name="extension" type="text" className={styles.inputField} />
+                <ErrorMessage name="extension" component="div" className={styles.errorMessage} />
+              </div>
             </div>
 
             <div className={styles.formGroup}>
@@ -115,7 +120,8 @@ const FormularioCarga = () => {
                 Puedes subir archivos en formato de imágenes, vídeos o cualquier otro tipo de documento. Asegúrate
                 de incluir toda la información adicional que respalde tu proyecto.
               </p>
-              <FileUploader onFilesChange={setFiles} />
+              <FileUploader key={resetTrigger} onFilesChange={setFiles} resetTrigger={resetTrigger} />
+
             </div>
 
             <button type="submit" className={styles.submitButton}>Enviar</button>
