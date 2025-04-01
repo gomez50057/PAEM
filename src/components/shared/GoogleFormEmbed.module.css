@@ -1,0 +1,7 @@
+.iframeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Puedes agregar más estilos según tus necesidades */
+  padding: 1rem;
+}
