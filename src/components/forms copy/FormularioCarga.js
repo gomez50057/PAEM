@@ -8,13 +8,22 @@ import validationSchema from './validationSchema';
 import FileUploader from './FileUploader';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const INITIAL_VALUES = {
+  nombre: '',
+  descripcion: '',
+  nombre_contacto: '',
+  numero_contacto: '',
+  extension: '',
+};
 
 const FormularioCarga = () => {
   const [files, setFiles] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [resetTrigger, setResetTrigger] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (values, { resetForm }) => {
+    setLoading(true);
     const formData = new FormData();
     formData.append('nombre', values.nombre);
     formData.append('descripcion', values.descripcion);
@@ -22,7 +31,6 @@ const FormularioCarga = () => {
     formData.append('numero_contacto', values.numero_contacto);
     formData.append('extension', values.extension);
 
-    // Se itera sobre los archivos del FileUploader
     files.forEach(fileObj => {
       formData.append('archivos', fileObj.file);
     });
@@ -46,13 +54,14 @@ const FormularioCarga = () => {
         return;
       }
 
-      // Procesa la respuesta exitosa
       resetForm();
       setFiles([]);
       setIsModalOpen(true);
       setResetTrigger(prev => prev + 1);
     } catch (error) {
       console.error('Error al enviar:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,13 +76,7 @@ const FormularioCarga = () => {
   return (
     <>
       <Formik
-        initialValues={{
-          nombre: '',
-          descripcion: '',
-          nombre_contacto: '',
-          numero_contacto: '',
-          extension: '',
-        }}
+        initialValues={INITIAL_VALUES}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
@@ -82,33 +85,33 @@ const FormularioCarga = () => {
             <h2>Carga de Documentos</h2>
 
             <div className={styles.formGroup}>
-              <label>Nombre del Proyecto:</label>
-              <Field name="nombre" type="text" className={styles.inputField} />
+              <label htmlFor="nombre">Nombre del Proyecto:</label>
+              <Field id="nombre" name="nombre" type="text" className={styles.inputField} aria-required="true" />
               <ErrorMessage name="nombre" component="div" className={styles.errorMessage} />
             </div>
 
             <div className={styles.formGroup}>
-              <label>Descripción:</label>
-              <Field name="descripcion" as="textarea" className={styles.inputField} rows="4" />
+              <label htmlFor="descripcion">Descripción:</label>
+              <Field id="descripcion" name="descripcion" as="textarea" className={styles.inputField} rows="4" aria-required="true" />
               <ErrorMessage name="descripcion" component="div" className={styles.errorMessage} />
             </div>
 
             <div className={styles.formGroup}>
-              <label>Nombre del Contacto:</label>
-              <Field name="nombre_contacto" type="text" className={styles.inputField} />
+              <label htmlFor="nombre_contacto">Nombre del Contacto:</label>
+              <Field id="nombre_contacto" name="nombre_contacto" type="text" className={styles.inputField} aria-required="true" />
               <ErrorMessage name="nombre_contacto" component="div" className={styles.errorMessage} />
             </div>
 
             <div className={styles.formRow}>
               <div className={styles.formGroup}>
-                <label>Número de Contacto:</label>
-                <Field name="numero_contacto" type="tel" className={styles.inputField} />
+                <label htmlFor="numero_contacto">Número de Contacto:</label>
+                <Field id="numero_contacto" name="numero_contacto" type="tel" className={styles.inputField} aria-required="true" />
                 <ErrorMessage name="numero_contacto" component="div" className={styles.errorMessage} />
               </div>
 
               <div className={styles.formGroup}>
-                <label>Extensión Telefónica:</label>
-                <Field name="extension" type="text" className={styles.inputField} />
+                <label htmlFor="extension">Extensión Telefónica:</label>
+                <Field id="extension" name="extension" type="text" className={styles.inputField} />
                 <ErrorMessage name="extension" component="div" className={styles.errorMessage} />
               </div>
             </div>
@@ -121,10 +124,11 @@ const FormularioCarga = () => {
                 de incluir toda la información adicional que respalde tu proyecto.
               </p>
               <FileUploader key={resetTrigger} onFilesChange={setFiles} resetTrigger={resetTrigger} />
-
             </div>
 
-            <button type="submit" className={styles.submitButton}>Enviar</button>
+            <button type="submit" className={styles.submitButton} disabled={loading}>
+              {loading ? 'Enviando...' : 'Enviar'}
+            </button>
           </Form>
         )}
       </Formik>
