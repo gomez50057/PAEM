@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Dropzone from 'react-dropzone';
 import './Formulario.css';
 
-
 const FileUploader = ({ onFilesChange }) => {
   const [files, setFiles] = useState([]);
+
+  // Notifica al padre cuando 'files' cambie
+  useEffect(() => {
+    onFilesChange(files);
+  }, [files, onFilesChange]);
 
   const handleDrop = (acceptedFiles) => {
     const newFiles = acceptedFiles.map((file) => ({
@@ -14,17 +18,12 @@ const FileUploader = ({ onFilesChange }) => {
       completed: false,
     }));
 
-    setFiles((prevFiles) => {
-      const updatedFiles = [...prevFiles, ...newFiles];
-      // Llamada al prop para notificar al componente padre
-      onFilesChange(updatedFiles); // Esto actualiza el estado del padre fuera del renderizado
-      return updatedFiles;
-    });
+    setFiles(prevFiles => [...prevFiles, ...newFiles]);
 
     // Simulación de progreso
     newFiles.forEach((newFile, index) => {
       const interval = setInterval(() => {
-        setFiles((prevFiles) => {
+        setFiles(prevFiles => {
           const updatedFiles = [...prevFiles];
           const currentFileIndex = prevFiles.length - newFiles.length + index;
           const currentFile = updatedFiles[currentFileIndex];
@@ -43,17 +42,15 @@ const FileUploader = ({ onFilesChange }) => {
   };
 
   const handleRemoveFile = (fileToRemove) => {
-    setFiles((prevFiles) => {
-      const updatedFiles = prevFiles.filter((fileObj) => fileObj.file !== fileToRemove);
-      onFilesChange(updatedFiles); // Notificar al padre del cambio
-      return updatedFiles;
-    });
+    setFiles(prevFiles =>
+      prevFiles.filter(fileObj => fileObj.file !== fileToRemove)
+    );
   };
 
-  // Limpieza de URLs de previsualización para evitar fugas de memoria
+  // Limpieza de URLs para evitar fugas de memoria
   useEffect(() => {
     return () => {
-      files.forEach((fileObj) => URL.revokeObjectURL(fileObj.preview));
+      files.forEach(fileObj => URL.revokeObjectURL(fileObj.preview));
     };
   }, [files]);
 
@@ -65,8 +62,12 @@ const FileUploader = ({ onFilesChange }) => {
           {files.length === 0 && (
             <div className="dropzone-txt">
               <img src="/img/iconos/dropzone.png" alt="Icono de archivo" />
-              <p>Arrastra y suelta <span className="highlight">imágenes, vídeos o cualquier archivo</span></p>
-              <p>o <span className="highlight">buscar archivos</span> en su computadora</p>
+              <p>
+                Arrastra y suelta <span className="highlight">imágenes, vídeos o cualquier archivo</span>
+              </p>
+              <p>
+                o <span className="highlight">buscar archivos</span> en su computadora
+              </p>
             </div>
           )}
           <div className="file-preview">

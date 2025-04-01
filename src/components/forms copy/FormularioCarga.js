@@ -10,10 +10,8 @@ import FileUploader from './FileUploader';
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const FormularioCarga = () => {
-  const [archivos, setArchivos] = useState([]);
+  const [files, setFiles] = useState([]); // Estado para archivos subidos con FileUploader
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [files, setFiles] = useState([]); // Define el estado
-
 
   const handleSubmit = async (values, { resetForm }) => {
     const formData = new FormData();
@@ -23,8 +21,9 @@ const FormularioCarga = () => {
     formData.append('numero_contacto', values.numero_contacto);
     formData.append('extension', values.extension);
 
-    archivos.forEach(file => {
-      formData.append('archivos', file);
+    // Iteramos sobre los archivos retornados por FileUploader.
+    files.forEach(fileObj => {
+      formData.append('archivos', fileObj.file);
     });
 
     try {
@@ -32,38 +31,26 @@ const FormularioCarga = () => {
         method: 'POST',
         body: formData,
       });
-
+    
       if (!response.ok) {
-        const err = await response.json();
+        const contentType = response.headers.get('content-type');
+        let err;
+        if (contentType && contentType.indexOf('application/json') !== -1) {
+          err = await response.json();
+        } else {
+          err = await response.text();
+        }
         console.error('Error de validación:', err);
         alert('Ocurrió un error al enviar el formulario.');
         return;
       }
-
+    
       resetForm();
-      setArchivos([]);
+      setFiles([]);
       setIsModalOpen(true);
     } catch (error) {
       console.error('Error al enviar:', error);
-    }
-  };
-
-  const handleFileChange = e => {
-    const files = Array.from(e.target.files);
-    const tiposPermitidos = [
-      'application/pdf',
-      'image/png',
-      'image/jpeg',
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      'text/csv',
-    ];
-
-    const archivosValidos = files.filter(file => tiposPermitidos.includes(file.type));
-    if (archivosValidos.length !== files.length) {
-      alert('Uno o más archivos tienen un formato no permitido.');
-    }
-
-    setArchivos(archivosValidos);
+    }    
   };
 
   const handleCreateNewAgreement = () => {
@@ -122,20 +109,12 @@ const FormularioCarga = () => {
             </div>
 
             <div className={styles.formGroup}>
-              <label>Archivos (PDF, PNG, JPEG, XLSX, CSV):</label>
-              <input type="file" multiple onChange={handleFileChange} className={styles.inputField} />
-              {archivos.length > 0 && (
-                <ul className={styles.listaArchivos}>
-                  {archivos.map((file, idx) => (
-                    <li key={idx}>{file.name}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label>Documentos Anexos(evidencia):</label>
-              <p>En esta sección, puedes cargar todos los anexos relacionados con el proyecto, excepto la minuta. Puedes subir archivos en formato de imágenes, vídeos o cualquier otro tipo de documento. Asegúrate de incluir toda la información adicional que respalde tu proyecto.</p>
+              <label>Documentos Anexos (evidencia):</label>
+              <p>
+                En esta sección, puedes cargar todos los anexos relacionados con el proyecto, excepto la minuta.
+                Puedes subir archivos en formato de imágenes, vídeos o cualquier otro tipo de documento. Asegúrate
+                de incluir toda la información adicional que respalde tu proyecto.
+              </p>
               <FileUploader onFilesChange={setFiles} />
             </div>
 
