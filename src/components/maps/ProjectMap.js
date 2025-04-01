@@ -144,9 +144,9 @@ const ProjectMap = () => {
             return L.geoJSON(data, {
                 style: (feature) => {
                     const colorMap = {
-                        "Hidalgo": "#BC955B",
+                        "Hidalgo": "#691B31",
                         "Estado de México": "#691B31",
-                        "Ciudad de México": "#3a9680",
+                        "Ciudad de México": "#691B31",
                     };
                     const color = colorMap[feature.properties.NOM_ENT] || "orange";
                     return commonStyle(color, color, 2.6);
@@ -158,7 +158,7 @@ const ProjectMap = () => {
         };
 
         const addLayers = () => {
-            if (visibleZones.ZMP) geoJSONMetropolitanas(ZMP_Info, '#DEC9A3', '#DEC9A3');
+            if (visibleZones.ZMP) geoJSONMetropolitanas(ZMP_Info, '#BC955B', '#BC955B');
             if (visibleZones.ZMTula) geoJSONMetropolitanas(ZMT_Info, '#98989a', '#98989a');
             if (visibleZones.ZMTulancingo) geoJSONMetropolitanas(ZMTUL_Info, '#A02142', '#A02142');
             if (visibleZones.ZMVM) geoJSONZMVM(zmvm_InfoGeneral);
