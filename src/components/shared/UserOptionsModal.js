@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
 import './UserOptionsModal.css';
@@ -76,17 +77,17 @@ const UserOptionsModal = ({ isOpen, onClose, anchorElement, username }) => {
           {/* Bloques de enlaces con íconos */}
           <div className="menu-item small-screen-links" onClick={handleFaqClick}>
             <HelpOutlineIcon />
-            <span><a href="/integrantes" className="">Integrantes</a></span>
+            <span><Link href="/integrantes/">Integrantes</Link></span>
           </div>
 
           <div className="menu-item small-screen-links" onClick={handleFaqClick}>
             <HelpOutlineIcon />
-            <span><a href="/noticias" className="">Noticias</a></span>
+            <span><Link href="/noticias/">Noticias</Link></span>
           </div>
 
           <div className="menu-item small-screen-links" onClick={handleFaqClick}>
             <HelpOutlineIcon />
-            <span><a href="/login" className="">Acceder</a></span>
+            <span><Link href="/login/">Acceder</Link></span>
           </div>
 
           <button

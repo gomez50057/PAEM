@@ -92,7 +92,7 @@ const Login = () => {
             <button type="submit" disabled={loading}>INGRESAR</button>
           )}
         </form>
-        <p>¿No tienes una cuenta? <a href="/" className="link-registrarse">REGÍSTRATE</a></p>
+        {/* <p>¿No tienes una cuenta? <a href="/" className="link-registrarse">REGÍSTRATE</a></p> */}
       </div>
     </section>
   );
