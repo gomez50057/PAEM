@@ -5,6 +5,7 @@ import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import './ProjectMap.css';
 import { ZMP_Info, ZMT_Info, ZMTUL_Info, zmvm_InfoGeneral } from './ZM';
+import { municipalityIcons } from './MunicipalityIcons';
 
 const ProjectMap = () => {
     const mapRef = useRef(null);
@@ -129,12 +130,41 @@ const ProjectMap = () => {
             return popupContent;
         };
 
+
+        
+          
+
+        // Función para agregar íconos según el municipio
+        const addMunicipalityIcons = (feature, layer) => {
+            const iconsArray = municipalityIcons[feature.properties.NOM_MUN];
+            if (iconsArray && iconsArray.length) {
+                // Calcula el centro del polígono para ubicar el/los ícono(s)
+                const bounds = layer.getBounds();
+                const center = bounds.getCenter();
+
+                iconsArray.forEach((iconUrl, index) => {
+                    // Aplica un pequeño offset para evitar superposición en caso de múltiples íconos
+                    const offsetLat = center.lat + index * 0.01;
+                    const offsetLng = center.lng + index * 0.01;
+                    const customIcon = L.icon({
+                        iconUrl: iconUrl,
+                        iconSize: [30, 30],    // Ajusta el tamaño según sea necesario
+                        iconAnchor: [15, 15],  // Centra el ícono
+                    });
+
+                    L.marker([offsetLat, offsetLng], { icon: customIcon }).addTo(mapRef.current);
+                });
+            }
+        };
+
+
         const geoJSONMetropolitanas = (data, fillColor, color) => {
             if (!L) return;
             return L.geoJSON(data, {
                 style: commonStyle(fillColor, color),
                 onEachFeature: (feature, layer) => {
                     layer.bindPopup(createPopupContentMetropolitanas(feature));
+                    addMunicipalityIcons(feature, layer);
                 }
             }).addTo(mapRef.current);
         };
@@ -153,6 +183,8 @@ const ProjectMap = () => {
                 },
                 onEachFeature: (feature, layer) => {
                     layer.bindPopup(createPopupContentZMVM(feature));
+                    addMunicipalityIcons(feature, layer);
+
                 }
             }).addTo(mapRef.current);
         };
@@ -268,7 +300,7 @@ const ProjectMap = () => {
                         )}
                     </div>
                 </div>
-                
+
             </div>
         </section>
     );
