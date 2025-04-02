@@ -119,18 +119,18 @@
   gap: 15px;
 }
 
-.chatbotStep ul{
+.chatbotStep ul {
   list-style: none;
   margin: 0;
   padding: 0 15px;
   color: var(--grisOsc);
 }
 
-.chatbotStep ul li{
-padding: 2px 0;
+.chatbotStep ul li {
+  padding: 2px 0;
 }
 
-.chatbotStep ul li:hover{
+.chatbotStep ul li:hover {
   cursor: pointer;
   padding: 5px;
   color: var(--doradoOsc);
@@ -155,6 +155,10 @@ padding: 2px 0;
 }
 
 .iconButtonXs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aqua;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -196,6 +200,7 @@ padding: 2px 0;
 
 .containerHeader {
   position: relative;
+  display: flex;
   width: auto;
   height: 40px;
   left: calc(-47% + 20px);
