@@ -3,6 +3,10 @@
   padding: 3vh 0px;
 }
 
+.about-container .white-space-pre-line {
+  white-space: pre-line;
+}
+
 .about_txt {
   width: 60vw;
   height: auto;
