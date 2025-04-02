@@ -298,16 +298,10 @@ export const tecnicoTeamMembersZMVM = [
     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Horacio Duarte Olivares.png"
   },
   {
-    "name": "Álvaro Lomelí Covarrubias",
-    "position": "Coordinador General de Desarrollo Metropolitano y Movilidad de la SEDATU",
+    "name": "Enrique Soto Alva",
+    "position": "Director General de Ordenamiento Metropolitano Regional",
     "gobierno": "Gobierno Federal",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Álvaro Lomelí Covarrubias.png"
-  },
-  {
-    "name": "Juan Carlos Chávez González",
-    "position": "Director General de la Comisión Estatal del Agua y Alcantarillado",
-    "gobierno": "Gobierno del Estado de Hidalgo",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Juan Carlos Chávez González.png"
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Enrique Soto Alva.png"
   },
   {
     "name": "Alejandro Viedma Velázquez",

@@ -186,10 +186,4 @@ export const PresidentesZMTulanciongo = [
     "gobierno": "Gobierno del Estado de Hidalgo",
     "image": "/img/ZMsHGO/tulanciongo/Jorge Hernández Araus.png",
   },
-  {
-    "name": "Dip. Hilda Miranda Miranda",
-    "position": "Presidenta de la Comisión De Asuntos Urbanos Y Metropolitanos",
-    "gobierno": "Gobierno del Estado de Hidalgo",
-    "image": "/img/ZMsHGO/tulanciongo/Hilda Miranda Miranda.png",
-  }
 ];
