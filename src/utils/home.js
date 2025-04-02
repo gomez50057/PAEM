@@ -13,7 +13,7 @@ export const getTextoDescripcion = (zonaSeleccionada) => {
     case 'ZMVM':
       return 'Las Comisiones del Valle de México son órganos auxiliares del Consejo, cuya labor consiste en informar, desahogar, proponer, recomendar, analizar, investigar, opinar y evaluar los Asuntos Metropolitanos que corresponden a la problemática sectorial que atiende cada Comisión en particular.';
     default:
-      return 'Las Comisiones son órganos auxiliares del Consejo, cuya labor consiste en informar, desahogar, proponer, recomendar, analizar, investigar, opinar y evaluar los Asuntos Metropolitanos que corresponden a la problemática sectorial que atiende cada Comisión en particular.';
+      return 'Las Comisiones del Valle de México son órganos auxiliares del Consejo, cuya labor consiste en informar, desahogar, proponer, recomendar, analizar, investigar, opinar y evaluar los Asuntos Metropolitanos que corresponden a la problemática sectorial que atiende cada Comisión en particular.';
   }
 };
 
@@ -69,7 +69,7 @@ export const getImages = (zonaSeleccionada) => {
     case 'ZMTulancingo':
       return [
         '/img/About/ZMTulancingo/puente tulanciongo.png',
-        'https://via.placeholder.com/250?text=Tulancingo+4'
+        '/img/About/ZMTulancingo/puente tulanciongo.png'
       ];
     case 'ZMVM':
       return [
@@ -81,10 +81,10 @@ export const getImages = (zonaSeleccionada) => {
     default:
       // Asegúrate de que siempre se devuelva un arreglo, incluso si no hay zona seleccionada
       return [
-        'https://via.placeholder.com/250?text=Default+1',
-        'https://via.placeholder.com/250?text=Default+2',
-        'https://via.placeholder.com/250?text=Default+3',
-        'https://via.placeholder.com/250?text=Default+4'
+        '/img/About/ZMVM/Angel CDMX.jpg',
+        '/img/About/ZMVM/bellas artes CDMX.jpg',
+        '/img/About/ZMVM/CDMX 1.jpg',
+        '/img/About/ZMVM/Torres de Satélite.jpg'
       ];
   }
 };
