@@ -176,8 +176,14 @@ const ProjectMap = () => {
                         iconSize: [35, 45],    // Ajusta el tamaño según sea necesario
                         iconAnchor: [15, 25],  // Centra el ícono
                     });
-                    L.marker([randomPoint.lat, randomPoint.lng], { icon: customIcon })
+                    const marker = L.marker([randomPoint.lat, randomPoint.lng], { icon: customIcon })
                         .addTo(mapRef.current);
+
+                    // Al hacer clic, se abre el PDF correspondiente (mismo nombre, extensión .pdf)
+                    marker.on('click', () => {
+                        const pdfUrl = iconUrl.replace('.png', '.pdf');
+                        window.open(pdfUrl, '_blank');
+                    });
                 });
             }
         };
