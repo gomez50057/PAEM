@@ -130,29 +130,54 @@ const ProjectMap = () => {
             return popupContent;
         };
 
+        // Función que determina si un punto está dentro de un polígono
+        const pointInPolygon = (point, vs) => {
+            const x = point.lng,
+                y = point.lat;
+            let inside = false;
+            for (let i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+                const xi = vs[i].lng, yi = vs[i].lat;
+                const xj = vs[j].lng, yj = vs[j].lat;
+                const intersect = ((yi > y) !== (yj > y)) &&
+                    (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                if (intersect) inside = !inside;
+            }
+            return inside;
+        };
 
-        
-          
+        // Función que devuelve un punto aleatorio dentro del polígono del layer
+        const getRandomPointInPolygon = (polygonLayer) => {
+            const bounds = polygonLayer.getBounds();
+            const sw = bounds.getSouthWest();
+            const ne = bounds.getNorthEast();
+            // Suponemos que el polígono es simple y tomamos el primer anillo
+            const polygonLatLngs = polygonLayer.getLatLngs()[0];
+            let point;
+            let attempts = 0;
+            do {
+                const lat = sw.lat + Math.random() * (ne.lat - sw.lat);
+                const lng = sw.lng + Math.random() * (ne.lng - sw.lng);
+                point = L.latLng(lat, lng);
+                attempts++;
+                // Evitamos un loop infinito en caso de polígonos muy complejos
+                if (attempts > 100) break;
+            } while (!pointInPolygon(point, polygonLatLngs));
+            return point;
+        };
 
-        // Función para agregar íconos según el municipio
+        // Función para agregar íconos según el municipio, distribuyéndolos dentro del polígono
         const addMunicipalityIcons = (feature, layer) => {
             const iconsArray = municipalityIcons[feature.properties.NOM_MUN];
             if (iconsArray && iconsArray.length) {
-                // Calcula el centro del polígono para ubicar el/los ícono(s)
-                const bounds = layer.getBounds();
-                const center = bounds.getCenter();
-
-                iconsArray.forEach((iconUrl, index) => {
-                    // Aplica un pequeño offset para evitar superposición en caso de múltiples íconos
-                    const offsetLat = center.lat + index * 0.01;
-                    const offsetLng = center.lng + index * 0.01;
+                iconsArray.forEach((iconUrl) => {
+                    const randomPoint = getRandomPointInPolygon(layer);
                     const customIcon = L.icon({
                         iconUrl: iconUrl,
-                        iconSize: [30, 30],    // Ajusta el tamaño según sea necesario
-                        iconAnchor: [15, 15],  // Centra el ícono
+                        iconSize: [35, 45],    // Ajusta el tamaño según sea necesario
+                        iconAnchor: [15, 25],  // Centra el ícono
                     });
-
-                    L.marker([offsetLat, offsetLng], { icon: customIcon }).addTo(mapRef.current);
+                    L.marker([randomPoint.lat, randomPoint.lng], { icon: customIcon })
+                        .addTo(mapRef.current);
                 });
             }
         };
