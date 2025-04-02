@@ -299,19 +299,19 @@ const ProjectMap = () => {
   return (
     <section className="mapaConte">
       <div id="map">
-        <button
+        {/* <button
           id="toggleSidebar"
           onClick={toggleSidebar}
           className={isSidebarOpen ? 'open' : ''}
         >
           {isSidebarOpen ? 'Cerrar' : 'Abrir panel de información'}
-        </button>
+        </button> */}
 
         <div id="fullscreenButton" onClick={toggleFullScreen}>
           {isFullScreen ? <FullscreenExitIcon /> : <FullscreenIcon />}
         </div>
 
-        <div id="sidebar" className={isSidebarOpen ? 'open' : ''}>
+        {/* <div id="sidebar" className={isSidebarOpen ? 'open' : ''}>
           <p className="sidebar-title">Proyectos</p>
           <div className="dropdown">
             <button
@@ -369,7 +369,7 @@ const ProjectMap = () => {
               </div>
             )}
           </div>
-        </div>
+        </div> */}
 
         <div id="icons">
           <img
