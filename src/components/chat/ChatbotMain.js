@@ -39,7 +39,7 @@ const ChatbotMain = () => {
         </div>
       </div>
       <ul className={styles.options}>
-        <li onClick={() => handleMenuClick("proposal")}>
+        {/* <li onClick={() => handleMenuClick("proposal")}>
           <div className={styles.icon}>
             <img src="/img/chatBot/proposal.png" alt="Icono" />
           </div>
@@ -47,8 +47,8 @@ const ChatbotMain = () => {
             <h4>Quiero hacer una propuesta metropolitana</h4>
             <p>Desarrolla una idea pensando en el futuro Metropolitano.</p>
           </div>
-        </li>
-        <li onClick={() => handleMenuClick("zoneInfo")}>
+        </li> */}
+        {/* <li onClick={() => handleMenuClick("zoneInfo")}>
           <div className={styles.icon}>
             <img src="/img/chatBot/zoneInfo.png" alt="Icono" />
           </div>
@@ -56,7 +56,7 @@ const ChatbotMain = () => {
             <h4>Quiero información acerca de alguna de las zonas metropolitanas</h4>
             <p>Conoce lo más relevante de cada zona Metropolitana.</p>
           </div>
-        </li>
+        </li> */}
         <li onClick={() => handleMenuClick("authorities")}>
           <div className={styles.icon}>
             <img src="/img/chatBot/authorities.png" alt="Icono" />
