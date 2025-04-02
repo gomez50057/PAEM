@@ -78,6 +78,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: center;
+  z-index: 2000;
 }
 
 #fullscreenButton:hover {
@@ -361,4 +362,27 @@
 /* Hover Effect */
 .checkbox-container label:hover::before {
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3), -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+
+
+#icons {
+  position: absolute;
+  bottom: -50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 75vh;
+  overflow-y: auto;
+  padding: 20px 10px 10px 10px;
+  background: rgba(255, 255, 255, 0.8); /* Opcional, para mayor visibilidad */
+  z-index: 1000;
+  border-radius: 50px 0 0 0;
+}
+
+#icons img {
+  display: block;
+  height: 50px;
+  width: 42px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }

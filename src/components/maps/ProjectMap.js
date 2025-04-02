@@ -267,6 +267,7 @@ const ProjectMap = () => {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             }).addTo(mapRef.current);
+            mapRef.current.attributionControl.setPrefix('');
 
             addLayers();
         }
@@ -306,7 +307,10 @@ const ProjectMap = () => {
                 <div id="sidebar" className={isSidebarOpen ? 'open' : ''}>
                     <p className="sidebar-title">Proyectos</p>
                     <div className="dropdown">
-                        <button className="dropdown-toggle" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                        <button
+                            className="dropdown-toggle"
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        >
                             Zonas Metropolitanas
                         </button>
                         {isDropdownOpen && (
@@ -352,6 +356,14 @@ const ProjectMap = () => {
                     </div>
                 </div>
 
+                <div id="icons">
+                    <img src="/icons/CLI_AIFA.png" alt="CLI_AIFA" />
+                    <img src="/icons/PHMVM.png" alt="PHMVM" />
+                    <img src="/icons/PIMUS.png" alt="PIMUS" />
+                    <img src="/icons/PMIU_ZMP.png" alt="PMIU_ZMP" />
+                    <img src="/icons/PVB.png" alt="PVB" />
+                    <img src="/icons/TREN_MEX-QRO.png" alt="TREN_MEX-QRO" />
+                </div>
             </div>
         </section>
     );
