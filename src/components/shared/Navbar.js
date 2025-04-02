@@ -50,7 +50,8 @@ const Navbar = () => {
         <div className="Navbar_inicio">
           <div className="navbar_opc">
             {/* <li><Link href="/mapa-proyectos" className=""> Proyectos Metropolitanos  </Link></li> */}
-            <li><Link href="/actualizacion-POZMVM" className=""> POZMVM </Link></li>
+            <li><Link href="https://docs.google.com/forms/d/e/1FAIpQLSehI664YEXO00Iq_RCcFavmttiDTAaREbNcgk1ClOZzilnrGQ/viewform?usp=header" target="_blank"
+              rel="noopener noreferrer"> POZMVM </Link></li>
             <li><Link href="/integrantes" className=""> Integrantes  </Link></li>
             <li><Link href="/noticias" className=""> Noticias  </Link></li>
             <li><Link href="/login" className=""> Acceder </Link></li>
