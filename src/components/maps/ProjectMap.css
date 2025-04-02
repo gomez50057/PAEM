@@ -66,7 +66,7 @@
   display: flex;
   position: absolute;
   top: 85px;
-  right: 20px;
+  right: 75px;
   width: 40px;
   height: 40px;
   cursor: pointer;
@@ -368,13 +368,12 @@
 
 #icons {
   position: absolute;
-  bottom: -50%;
+  bottom: 0;
   right: 0;
-  transform: translateY(-50%);
-  height: 75vh;
+  height: 90vh;
   overflow-y: auto;
-  padding: 20px 10px 10px 10px;
-  background: rgba(255, 255, 255, 0.8); /* Opcional, para mayor visibilidad */
+  padding: 20px 10px 5px 10px;
+  background: rgba(255, 255, 255, 0.8); 
   z-index: 1000;
   border-radius: 50px 0 0 0;
 }

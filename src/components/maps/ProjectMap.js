@@ -372,12 +372,61 @@ const ProjectMap = () => {
         </div>
 
         <div id="icons">
-          <img src="/icons/CLI_AIFA.png" alt="CLI_AIFA" onClick={() => handleIconClick('/icons/CLI_AIFA.png')} />
-          <img src="/icons/PHMVM.png" alt="PHMVM" onClick={() => handleIconClick('/icons/PHMVM.png')} />
-          <img src="/icons/PIMUS.png" alt="PIMUS" onClick={() => handleIconClick('/icons/PIMUS.png')} />
-          <img src="/icons/PMIU_ZMP.png" alt="PMIU_ZMP" onClick={() => handleIconClick('/icons/PMIU_ZMP.png')} />
-          <img src="/icons/PVB.png" alt="PVB" onClick={() => handleIconClick('/icons/PVB.png')} />
-          <img src="/icons/TREN_MEX-QRO.png" alt="TREN_MEX-QRO" onClick={() => handleIconClick('/icons/TREN_MEX-QRO.png')} />
+          <img
+            src="/icons/ACT_PDUyOT_ZMP.png"
+            alt="ACT_PDUyOT_ZMP"
+            title="Actualización del Programa de Desarrollo Urbano y Ordenamiento Territorial de la Zona Metropolitana de Pachuca"
+            onClick={() => handleIconClick('/icons/ACT_PDUyOT_ZMP.png')}
+          />
+          <img
+            src="/icons/ACT_PO_ZMVM.png"
+            alt="ACT_PO_ZMVM"
+            title="Actualización del Programa de Ordenamiento Zona Metropolitana del Valle de México"
+            onClick={() => handleIconClick('/icons/ACT_PO_ZMVM.png')}
+          />
+          <img
+            src="/icons/CLI_AIFA.png"
+            alt="CLI_AIFA"
+            title="Corredor Logístico Industrial del AIFA"
+            onClick={() => handleIconClick('/icons/CLI_AIFA.png')}
+          />
+          <img
+            src="/icons/PHMVM.png"
+            alt="PHMVM"
+            title="Plan Hídrico Metropolitano del Valle de México"
+            onClick={() => handleIconClick('/icons/PHMVM.png')}
+          />
+          <img
+            src="/icons/PIMUS.png"
+            alt="PIMUS"
+            title="Planes Integrales de Movilidad Urbana Sustentable"
+            onClick={() => handleIconClick('/icons/PIMUS.png')}
+          />
+          <img
+            src="/icons/PMIU_ZMP.png"
+            alt="Plan Maestro de Imagen Urbana para la Zona Metropolitana de Pachuca"
+            title="PMIU_ZMP"
+            onClick={() => handleIconClick('/icons/PMIU_ZMP.png')}
+          />
+          <img
+            src="/icons/PVB.png"
+            alt="PVB"
+            title="Programa de Vivienda para el Bienestar"
+            onClick={() => handleIconClick('/icons/PVB.png')}
+          />
+          <img
+            src="/icons/TREN_MEX-QRO.png"
+            alt="TREN_MEX-QRO"
+            title="Tren México - Querétaro"
+            onClick={() => handleIconClick('/icons/TREN_MEX-QRO.png')}
+          />
+          <img
+            src="/icons/TREN_TRAMO_AIFA-PACHUCA.png"
+            alt="TREN_TRAMO_AIFA-PACHUCA"
+            title="Tren México - Pachuca, Tramo AIFA - Pachuca"
+            onClick={() => handleIconClick('/icons/TREN_TRAMO_AIFA-PACHUCA.png')}
+          />
+
         </div>
 
         {/* Modal para mostrar el PDF */}
