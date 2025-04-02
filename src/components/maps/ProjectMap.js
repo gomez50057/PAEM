@@ -171,18 +171,38 @@ const ProjectMap = () => {
             if (iconsArray && iconsArray.length) {
                 iconsArray.forEach((iconUrl) => {
                     const randomPoint = getRandomPointInPolygon(layer);
-                    const customIcon = L.icon({
+
+                    // Icono por defecto
+                    const defaultIcon = L.icon({
                         iconUrl: iconUrl,
-                        iconSize: [35, 45],    // Ajusta el tamaño según sea necesario
-                        iconAnchor: [15, 25],  // Centra el ícono
+                        iconSize: [35, 45],    // Tamaño por defecto
+                        iconAnchor: [15, 25],
                     });
-                    const marker = L.marker([randomPoint.lat, randomPoint.lng], { icon: customIcon })
+
+                    // Icono para hover (más grande)
+                    const hoverIcon = L.icon({
+                        iconUrl: iconUrl,
+                        iconSize: [45, 55],    // Tamaño mayor al hacer hover
+                        iconAnchor: [22, 27.5], // Ajusta el anchor para centrar el icono aumentado
+                    });
+
+                    const marker = L.marker([randomPoint.lat, randomPoint.lng], { icon: defaultIcon })
                         .addTo(mapRef.current);
 
-                    // Al hacer clic, se abre el PDF correspondiente (mismo nombre, extensión .pdf)
+                    // Al hacer clic, abre el PDF correspondiente (reemplaza .png por .pdf)
                     marker.on('click', () => {
                         const pdfUrl = iconUrl.replace('.png', '.pdf');
                         window.open(pdfUrl, '_blank');
+                    });
+
+                    // Al pasar el mouse, se cambia al icono más grande
+                    marker.on('mouseover', () => {
+                        marker.setIcon(hoverIcon);
+                    });
+
+                    // Cuando el mouse sale, vuelve al icono por defecto
+                    marker.on('mouseout', () => {
+                        marker.setIcon(defaultIcon);
                     });
                 });
             }
