@@ -193,12 +193,13 @@ export const hgoTeamMembers = [
     "image": "/img/ZMVM/integrantesComisiones/HGO/Francisco Ángel Fernández Hasbun.png"
   },
   {
-    "name": "Román Bernal Díaz",
-    "position": "Subsecretario de Protección Civil y Gestión de Riesgos",
+    "name": "Alejandro Sánchez García",
+    "position": "Secretario de Infraestructura Pública y Desarrollo Urbano Sostenible",
     "description": [
-      "Comisión Metropolitana de Gestión Integral de Riesgos"
+      "Comisión Metropolitana de Asentamientos Humanos - ",
+      "Comisión de Agua y Drenaje del Área Metropolitana"
     ],
-    "image": "/img/ZMVM/integrantesComisiones/HGO/Román Bernal Díaz.png"
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Alejandro Sánchez García.png"
   },
   {
     "name": "Carlos Henkel Escorza",
@@ -207,7 +208,6 @@ export const hgoTeamMembers = [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
     "image": "/img/ZMVM/integrantesComisiones/HGO/Carlos Henkel Escorza.png"
-
   },
   {
     "name": "Elizabeth Quintanar Gómez",
@@ -218,14 +218,12 @@ export const hgoTeamMembers = [
     "image": "/img/ZMVM/integrantesComisiones/HGO/Elizabeth Quintanar Gómez.png"
   },
   {
-    "name": "Alejandro Sánchez García",
-    "position": "Secretario de Infraestructura Pública y Desarrollo Urbano Sostenible",
+    "name": "Román Bernal Díaz",
+    "position": "Subsecretario de Protección Civil y Gestión de Riesgos",
     "description": [
-      "Comisión Metropolitana de Asentamientos Humanos - ",
-      "Comisión de Agua y Drenaje del Área Metropolitana"
+      "Comisión Metropolitana de Gestión Integral de Riesgos"
     ],
-    "image": "/img/ZMVM/integrantesComisiones/HGO/Alejandro Sánchez García.png"
-
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Román Bernal Díaz.png"
   },
   {
     "name": "Lyzbeth Robles Gutiérrez",
@@ -302,12 +300,6 @@ export const tecnicoTeamMembersZMVM = [
     "position": "Director General de Ordenamiento Metropolitano Regional",
     "gobierno": "Gobierno Federal",
     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Enrique Soto Alva.png"
-  },
-  {
-    "name": "Alejandro Viedma Velázquez",
-    "position": "Subsecretario General de Gobierno",
-    "gobierno": "Gobierno del Estado de México",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Alejandro Viedma Velázquez.png"
   },
 ];
 
