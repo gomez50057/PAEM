@@ -1,27 +1,15 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import styles from './GoogleFormEmbed.module.css';
 
 const GoogleFormEmbed = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Muestra el slider al montar el componente
     setIsVisible(true);
   }, []);
-
-  const openForm = () => {
-    const width = 800;
-    const height = 600;
-    const left = window.innerWidth ? (window.innerWidth - width) / 2 : 0;
-    const top = window.innerHeight ? (window.innerHeight - height) / 2 : 0;
-    window.open(
-      'https://docs.google.com/forms/d/e/1FAIpQLSehI664YEXO00Iq_RCcFavmttiDTAaREbNcgk1ClOZzilnrGQ/viewform?usp=header',
-      '_blank',
-      `width=${width},height=${height},left=${left},top=${top},scrollbars=yes,resizable=yes`
-    );
-  };
 
   return (
     <div className={`${styles.slider} ${isVisible ? styles.slideIn : ''}`}>
@@ -31,7 +19,14 @@ const GoogleFormEmbed = () => {
       </video>
       <div className={styles.overlay}></div>
       <div className={styles.content}>
-        <button onClick={openForm}>Formulario de POZMVM</button>
+        <Link
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfTlloGpmaaKJsAJMnqqQ2sEND3Hn2l5rBEPXvgHIoshzK9hQ/viewform?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.button}
+        >
+          Formulario de POZMVM
+        </Link>
       </div>
     </div>
   );
