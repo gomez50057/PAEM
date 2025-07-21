@@ -112,28 +112,20 @@ export const edomexTeamMembers = [
     "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Cristóbal Castañeda Camarillo.png"
   },
   {
-    "name": "José Luis Cervantes Martínez",
-    "position": "Fiscal General de Justicia de Estado de México",
-    "description": [
-      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
-    ],
-    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/José Luis Cervantes Martínez.png"
-  },
-  {
-    "name": "Adrián Hernández Romero",
-    "position": "Coordinador General de Protección Civil y Gestión Integral del Riesgo",
-    "description": [
-      "Comisión Metropolitana de Gestión Integral de Riesgos"
-    ],
-    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Adrián Hernández Romero.png"
-  },
-  {
     "name": "Laura González Hernández",
     "position": "Secretaria de Desarrollo Económico",
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
     "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Laura González Hernández.png"
+  },
+  {
+    "name": "José Luis Cervantes Martínez",
+    "position": "Fiscal General de Justicia de Estado de México",
+    "description": [
+      "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
+    ],
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/José Luis Cervantes Martínez.png"
   },
   {
     "name": "Nelly Minerva Carrasco Godínez",
@@ -144,12 +136,12 @@ export const edomexTeamMembers = [
     "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Nelly Minerva Carrasco Godínez.png"
   },
   {
-    "name": "Daniel Andrés Sibaja González",
-    "position": "Secretario de Movilidad",
+    "name": "Adrián Hernández Romero",
+    "position": "Coordinador General de Protección Civil y Gestión Integral del Riesgo",
     "description": [
-      "Comisión Metropolitana de Movilidad"
+      "Comisión Metropolitana de Gestión Integral de Riesgos"
     ],
-    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Daniel Andrés Sibaja González.png"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Adrián Hernández Romero.png"
   },
   {
     "name": "Macarena Montoya Olvera",
@@ -160,12 +152,12 @@ export const edomexTeamMembers = [
     "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Macarena Montoya Olvera.png"
   },
   {
-    "name": "Pedro Moctezuma Barragán",
-    "position": "Secretario de Agua",
+    "name": "Daniel Andrés Sibaja González",
+    "position": "Secretario de Movilidad",
     "description": [
-      "Comisión de Agua y Drenaje del Área Metropolitana"
+      "Comisión Metropolitana de Movilidad"
     ],
-    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Pedro Moctezuma Barragán.png"
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Daniel Andrés Sibaja González.png"
   },
   {
     "name": "Alhely Rubio Arronis",
@@ -174,7 +166,15 @@ export const edomexTeamMembers = [
       "Comisión Ambiental Metropolitana"
     ],
     "image": "/img/ZMVM/integrantesComisiones/EDOMEX/Alhely Rubio Arronis.png"
-  }
+  },
+  {
+    "name": "José Arnulfo Silva Adaya",
+    "position": "Secretario del Agua",
+    "description": [
+      "Comisión de Agua y Drenaje del Área Metropolitana"
+    ],
+    "image": "/img/ZMVM/integrantesComisiones/EDOMEX/José Arnulfo Silva Adaya.png"
+  },
 ];
 
 export const hgoTeamMembers = [
@@ -185,12 +185,28 @@ export const hgoTeamMembers = [
     "image": "/img/ZMVM/integrantesComisiones/HGO/Salvador Cruz Neri.png"
   },
   {
+    "name": "J. Vanesa Escalante Arroyo",
+    "position": "Secretaria de Salud",
+    "description": [
+      "Comisión Metropolitana de Salud"
+    ],
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Juana Vanesa Escalante Arroyo.png"
+  },
+  {
     "name": "Francisco Ángel Fernández Hasbun",
     "position": "Jefe del Despacho de la Procuraduría General de Justicia",
     "description": [
       "Comisión Metropolitana de Seguridad Pública y Procuración de Justicia"
     ],
     "image": "/img/ZMVM/integrantesComisiones/HGO/Francisco Ángel Fernández Hasbun.png"
+  },
+  {
+    "name": "Elizabeth Quintanar Gómez",
+    "position": "Secretaria de Turismo",
+    "description": [
+      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
+    ],
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Elizabeth Quintanar Gómez.png"
   },
   {
     "name": "Alejandro Sánchez García",
@@ -202,6 +218,14 @@ export const hgoTeamMembers = [
     "image": "/img/ZMVM/integrantesComisiones/HGO/Alejandro Sánchez García.png"
   },
   {
+    "name": "Lyzbeth Robles Gutiérrez",
+    "position": "Secretaria de Movilidad y Transporte",
+    "description": [
+      "Comisión Metropolitana de Movilidad"
+    ],
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Lyzbeth Robles Gutiérrez.png"
+  },
+  {
     "name": "Carlos Henkel Escorza",
     "position": "Secretario de Desarrollo Económico",
     "description": [
@@ -210,12 +234,12 @@ export const hgoTeamMembers = [
     "image": "/img/ZMVM/integrantesComisiones/HGO/Carlos Henkel Escorza.png"
   },
   {
-    "name": "Elizabeth Quintanar Gómez",
-    "position": "Secretaria de Turismo",
+    "name": "Mónica Patricia Mixtega Trejo",
+    "position": "Secretaria de Medio Ambiente y Recursos Naturales",
     "description": [
-      "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
+      "Comisión Ambiental Metropolitana"
     ],
-    "image": "/img/ZMVM/integrantesComisiones/HGO/Elizabeth Quintanar Gómez.png"
+    "image": "/img/ZMVM/integrantesComisiones/HGO/Mónica Patricia Mixtega Trejo.png"
   },
   {
     "name": "Román Bernal Díaz",
@@ -225,34 +249,27 @@ export const hgoTeamMembers = [
     ],
     "image": "/img/ZMVM/integrantesComisiones/HGO/Román Bernal Díaz.png"
   },
-  {
-    "name": "Lyzbeth Robles Gutiérrez",
-    "position": "Secretaria de Movilidad y Transporte",
-    "description": [
-      "Comisión Metropolitana de Movilidad"
-    ],
-    "image": "/img/ZMVM/integrantesComisiones/HGO/Lyzbeth Robles Gutiérrez.png"
-
-  },
-  {
-    "name": "Juana Vanesa Escalante Arroyo",
-    "position": "Secretaria de Salud",
-    "description": [
-      "Comisión Metropolitana de Salud"
-    ],
-    "image": "/img/ZMVM/integrantesComisiones/HGO/Juana Vanesa Escalante Arroyo.png"
-  },
-  {
-    "name": "Mónica Patricia Mixtega Trejo",
-    "position": "Secretaria de Medio Ambiente y Recursos Naturales",
-    "description": [
-      "Comisión Ambiental Metropolitana"
-    ],
-    "image": "/img/ZMVM/integrantesComisiones/HGO/Mónica Patricia Mixtega Trejo.png"
-  }
 ];
 
 export const tecnicoTeamMembersZMVM = [
+  {
+    "name": "Guillermo Olivares Reyna",
+    "position": "Secretario de Gobierno",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Guillermo Olivares Reyna.png"
+  },
+  {
+    "name": "César Cravioto Romero",
+    "position": "Secretario de Gobierno",
+    "gobierno": "Gobierno de la Ciudad de México",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/César Cravioto Romero.png"
+  },
+  {
+    "name": "Horacio Duarte Olivares",
+    "position": "Secretario General de Gobierno",
+    "gobierno": "Gobierno del Estado de México",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Horacio Duarte Olivares.png"
+  },
   {
     "name": "Miguel Ángel Tello Vargas",
     "position": "Titular de la Unidad de Planeación y Prospectiva",
@@ -271,35 +288,25 @@ export const tecnicoTeamMembersZMVM = [
     "gobierno": "Gobierno del Estado de México",
     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Carlos Jesús Maza Lara.png"
   },
-  {
-    "name": "Guillermo Olivares Reyna",
-    "position": "Secretario de Gobierno",
-    "gobierno": "Gobierno del Estado de Hidalgo",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Guillermo Olivares Reyna.png"
-  },
-  {
-    "name": "César Cravioto Romero",
-    "position": "Secretario de Gobierno",
-    "gobierno": "Gobierno de la Ciudad de México",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/César Cravioto Romero.png"
-  },
+
   {
     "name": "Onésimo Rodrigo Serrano Rivera",
     "position": "Coordinador General de Planeación y Proyectos",
     "gobierno": "Gobierno del Estado de Hidalgo",
     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Onésimo Rodrigo Serrano Rivera.png"
   },
-  {
-    "name": "Horacio Duarte Olivares",
-    "position": "Secretario General de Gobierno",
-    "gobierno": "Gobierno del Estado de México",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Horacio Duarte Olivares.png"
-  },
+
   {
     "name": "Enrique Soto Alva",
     "position": "Director General de Ordenamiento Metropolitano Regional",
     "gobierno": "Gobierno Federal",
     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Enrique Soto Alva.png"
+  },
+  {
+    "name": "Víctor Hugo Hofmann Aguirre",
+    "position": "Subsecretario de Ordenamiento Territorial, Urbano y Vivienda de la SEDATU",
+    "gobierno": "Gobierno Federal",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Víctor Hugo Hofmann Aguirre.png"
   },
 ];
 
