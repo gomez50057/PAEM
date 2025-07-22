@@ -22,7 +22,7 @@ export const metadata = {
     siteName: "Metrópoli Hidalgo",
     images: [
       {
-        url: "/og-image-metropoli.jpg",
+        url: "/og-image-metropoli.png",
         width: 1200,
         height: 630,
         alt: "Metrópoli Hidalgo - Planeación Metropolitana",

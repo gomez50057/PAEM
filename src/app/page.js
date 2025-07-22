@@ -6,12 +6,7 @@ import Map from '@/components/home/InteractiveMap';
 import Navbar from '@/components/shared/Navbar';
 import Chatbot from '@/components/chat/Chatbot';
 import IntroVideoModal from '../components/shared/IntroVideoModal';
-
 import GoogleFor from '../components/shared/GoogleFormEmbed';
-
-
-
-
 
 export default function Home() {
   return (
