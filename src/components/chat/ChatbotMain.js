@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import HomeIcon from "@mui/icons-material/Home"; 
+import HomeIcon from "@mui/icons-material/Home";
 import styles from "./ChatbotMain.module.css";
 import ChatbotWelcome from "./ChatbotWelcome";
 import ChatForms from "./ChatForms";
@@ -58,39 +58,61 @@ const ChatbotMain = () => {
             <p>Conoce lo más relevante de cada zona Metropolitana.</p>
           </div>
         </li> */}
-        <li onClick={() => handleMenuClick("authorities")}>
-          <div className={styles.icon}>
-            <img src="/img/chatBot/authorities.png" alt="Icono" />
-          </div>
-          <div className={styles.content}>
-            <h4>Quiero conocer el trabajo de las autoridades en materia metropolitana</h4>
-            <p>Descubre cómo las autoridades gestionan y coordinan el desarrollo y bienestar de las zonas metropolitanas.</p>
-          </div>
-        </li>
-        <li onClick={() => handleMenuClick("projects")}>
-          <div className={styles.icon}>
-            <img src="/img/chatBot/projects.png" alt="Icono" />
-          </div>
-          <div className={styles.content}>
-            <h4>Quiero conocer los proyectos metropolitanos</h4>
-            <p>Explora los proyectos metropolitanos a través de un mapa interactivo y conoce su impacto en la región.</p>
-          </div>
-        </li>
-        <li onClick={() => handleMenuClick("planning")}>
-          <div className={styles.icon}>
-            <img src="/img/chatBot/planning.png" alt="Icono" />
-          </div>
-          <div className={styles.content}>
-            <h4>Quiero conocer los instrumentos de planeación</h4>
-            <p>Accede a la biblioteca digital y descubre herramientas clave para la coordinación metropolitana.</p>
-          </div>
-        </li>
+        <a
+          href="/noticias"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkItem}
+        >
+          <li>
+            <div className={styles.icon}>
+              <img src="/img/chatBot/authorities.png" alt="Icono" />
+            </div>
+            <div className={styles.content}>
+              <h4>Quiero conocer el trabajo de las autoridades en materia metropolitana</h4>
+              <p>Descubre cómo las autoridades gestionan y coordinan el desarrollo y bienestar de las zonas metropolitanas.</p>
+            </div>
+          </li>
+        </a>
+
+        <a
+          href="/mapa-proyectos"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkItem}
+        >
+          <li>
+            <div className={styles.icon}>
+              <img src="/img/chatBot/projects.png" alt="Icono" />
+            </div>
+            <div className={styles.content}>
+              <h4>Quiero conocer los proyectos metropolitanos</h4>
+              <p>Explora los proyectos metropolitanos a través de un mapa interactivo y conoce su impacto en la región.</p>
+            </div>
+          </li>
+        </a>
+        <a
+          href="https://bibliotecadigitaluplaph.hidalgo.gob.mx/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkItem}
+        >
+          <li>
+            <div className={styles.icon}>
+              <img src="/img/chatBot/planning.png" alt="Icono" />
+            </div>
+            <div className={styles.content}>
+              <h4>Quiero conocer los instrumentos de planeación</h4>
+              <p>Accede a la biblioteca digital y descubre herramientas clave para la coordinación metropolitana.</p>
+            </div>
+          </li>
+        </a>
         <li onClick={() => handleMenuClick("cartography")}>
           <div className={styles.icon}>
             <img src="/img/chatBot/cartography.png" alt="Icono" />
           </div>
           <div className={styles.content}>
-            <h4>Quiero Explora la Cartografía las Zonas Metropolitanas</h4>
+            <h4>Quiero Explorar la Cartografía las Zonas Metropolitanas</h4>
             <p>Visualiza el mapa en PDF con las delimitaciones de cada Zona Metropolitana, sus límites territoriales y los municipios que las integran.</p>
           </div>
         </li>
@@ -151,18 +173,38 @@ const ChatbotMain = () => {
     <div className={styles.chatbotStep}>
       <p>Escoge una de las Zonas Metropolitanas para visualizar la cartografía:</p>
       <ul>
-        <li onClick={() => handleMenuClick("cartographyDetails", setSelectedZone("ZMVM"))}>
-          Zona Metropolitana del Valle de México
-        </li>
-        <li onClick={() => handleMenuClick("cartographyDetails", setSelectedZone("ZMPachuca"))}>
-          Zona Metropolitana de Pachuca
-        </li>
-        <li onClick={() => handleMenuClick("cartographyDetails", setSelectedZone("ZMTulancingo"))}>
-          Zona Metropolitana de Tulancingo
-        </li>
-        <li onClick={() => handleMenuClick("cartographyDetails", setSelectedZone("ZMTula"))}>
-          Zona Metropolitana de Tula
-        </li>
+        <a
+          href="chat/cartografía metropolitana/zmvm-cartografia.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkItem}
+        >
+          <li>Zona Metropolitana del Valle de México</li>
+        </a>
+        <a
+          href="chat/cartografía metropolitana/zmpachuca-cartografia.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkItem}
+        >
+          <li>Zona Metropolitana de Pachuca</li>
+        </a>
+        <a
+          href="chat/cartografía metropolitana/zmtulancingo-cartografia.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkItem}
+        >
+          <li>Zona Metropolitana de Tulancingo</li>
+        </a>
+        <a
+          href="chat/cartografía metropolitana/zmtula-cartografia.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkItem}
+        >
+          <li>Zona Metropolitana de Tula</li>
+        </a>
       </ul>
     </div>
   );
@@ -204,21 +246,6 @@ const ChatbotMain = () => {
         return renderZoneInfo();
       case "zoneDetails":
         return renderZoneDetails();
-      case "authorities":
-        return renderResponseWithLink(
-          "Claro que sí, te comparto el siguiente link donde encontrarás las notas de acciones relevantes:",
-          "/noticias"
-        );
-      case "projects":
-        return renderResponseWithLink(
-          "Con gusto, te comparto el siguiente link para visualizar nuestro mapa interactivo:",
-          "/mapa-proyectos"
-        );
-      case "planning":
-        return renderResponseWithLink(
-          "Con gusto, te comparto el siguiente link de nuestra Biblioteca Digital:",
-          "https://bibliotecadigitaluplaph.hidalgo.gob.mx/"
-        );
       case "cartography":
         return renderCartography();
       case "cartographyDetails":

@@ -206,3 +206,9 @@
   left: calc(-47% + 20px);
   top: 10px;
 }
+
+.linkItem {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}

@@ -21,16 +21,16 @@ export const COMZMsHgo = [
   //   "image": "/img/ZMsHGO/COMZMsHgo/.png"
   // },
   {
-    "name": "Miguel Ángel Tello Vargas",
-    "position": "Titular de la Unidad de Planeación y Prospectiva",
-    "gobierno": "Gobierno del Estado de Hidalgo",
-    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Miguel Ángel Tello Vargas.png",
-  },
-  {
     "name": "Guillermo Olivares Reyna",
     "position": "Secretario de Gobierno",
     "gobierno": "Gobierno del Estado de Hidalgo",
     "image": "/img/ZMVM/Secretariado Técnico Conjunto/Guillermo Olivares Reyna.png"
+  },
+  {
+    "name": "Miguel Ángel Tello Vargas",
+    "position": "Titular de la Unidad de Planeación y Prospectiva",
+    "gobierno": "Gobierno del Estado de Hidalgo",
+    "image": "/img/ZMVM/Secretariado Técnico Conjunto/Miguel Ángel Tello Vargas.png",
   },
   {
     "name": "Alejandro Sánchez García",
@@ -128,7 +128,7 @@ export const PresidentesZMPachuca = [
   },
   {
     "name": "Francisco Sinuhe Ramírez Oviedo",
-    "position": "Presidenea Municipal de Zempoala",
+    "position": "Presidente Municipal de Zempoala",
     "gobierno": "Gobierno del Estado de Hidalgo",
     "image": "img/ZMsHGO/pachuca/Francisco Sinuhe Ramírez Oviedo.png",
   }
@@ -137,7 +137,7 @@ export const PresidentesZMPachuca = [
 export const PresidentesZMTula = [
   {
     "name": "Claudia Arisbee Sandoval RamÍrez",
-    "position": "Presidente Municipal de Atitalaquia",
+    "position": "Presidenta Municipal de Atitalaquia",
     "gobierno": "Gobierno del Estado de Hidalgo",
     "image": "img/ZMsHGO/tula/Claudia Arisbee Sandoval RamÍrez.png",
   },
@@ -161,7 +161,7 @@ export const PresidentesZMTula = [
   },
   {
     "name": "Cristhian Martínez Reséndiz",
-    "position": "Presidenta Municipal de Tula de Allende",
+    "position": "Presidente Municipal de Tula de Allende",
     "gobierno": "Gobierno del Estado de Hidalgo",
     "image": "img/ZMsHGO/tula/Cristhian Martínez Reséndiz.png",
   }
