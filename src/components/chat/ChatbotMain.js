@@ -112,7 +112,7 @@ const ChatbotMain = () => {
             <img src="/img/chatBot/cartography.png" alt="Icono" />
           </div>
           <div className={styles.content}>
-            <h4>Quiero Explorar la Cartografía las Zonas Metropolitanas</h4>
+            <h4>Quiero Explorar la Cartografía de las Zonas Metropolitanas</h4>
             <p>Visualiza el mapa en PDF con las delimitaciones de cada Zona Metropolitana, sus límites territoriales y los municipios que las integran.</p>
           </div>
         </li>

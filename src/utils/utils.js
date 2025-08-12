@@ -45,7 +45,7 @@ export const cdmxTeamMembers = [
   },
   {
     "name": "Manola Zabalza Aldama",
-    "position": "Secretario de Desarrollo Económico",
+    "position": "Secretaria de Desarrollo Económico",
     "description": [
       "Comisión Metropolitana de Desarrollo Económico y Competitividad, y Turismo"
     ],
