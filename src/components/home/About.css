@@ -1,6 +1,7 @@
 .about-container {
   display: flex;
   padding: 3vh 0px;
+  gap: 2rem;
 }
 
 .about-container .white-space-pre-line {
@@ -13,10 +14,11 @@
   padding-right: 2.5vw;
 }
 
-.about_txt h3 {
+.about_txt h2 {
   color: var(--vinoOsc);
   font-size: 2rem;
   font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .about_txt p {
@@ -48,7 +50,7 @@
   border-radius: 50%;
   border: 2px solid var(--vinoOsc);
   padding: 5px;
-  background-color: var(blanco);
+  background-color: var(--blanco);
   animation: semicircle 12s infinite ease-in-out;
 }
 
@@ -68,6 +70,7 @@
   animation-delay: 9s;
 }
 
+/* Animación semicircular */
 @keyframes semicircle {
   0% {
     top: 100%;
@@ -102,5 +105,82 @@
     left: 50%;
     transform: translate(-50%, 0) scale(0);
     opacity: 0;
+  }
+}
+
+/* 📱 Móvil */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2vh 5vw;
+  }
+
+  .about_txt {
+    width: 100%;
+    padding: 0;
+  }
+
+  .about_txt h2 {
+    font-size: 1.5rem;
+  }
+
+  .about_txt p {
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  .about_giro {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .gallery {
+    width: 250px;
+    height: 125px;
+  }
+
+  .gallery img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* 💻 Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3vh 5vw;
+  }
+
+  .about_txt {
+    width: 90%;
+    padding: 0;
+  }
+
+  .about_txt h2 {
+    font-size: 1.8rem;
+  }
+
+  .about_txt p {
+    font-size: 1.05rem;
+  }
+
+  .about_giro {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .gallery {
+    width: 300px;
+    height: 150px;
+  }
+
+  .gallery img {
+    width: 100px;
+    height: 100px;
   }
 }
