@@ -2,10 +2,10 @@
 
 import { useEffect, useRef } from 'react';
 import dynamic from "next/dynamic";
+import styles from './Header.module.css';
 
 // Deshabilita SSR para HeaderAnimation
 const HeaderAnimation = dynamic(() => import("../shared/HeaderAnimation"), { ssr: false });
-import './Header.css';
 
 const Header = () => {
   const imgBasePath = "/img/";
@@ -16,60 +16,57 @@ const Header = () => {
 
   useEffect(() => {
     if (txtRef.current) {
-      txtRef.current.classList.add('fade-in');
+      txtRef.current.classList.add(styles.fadeIn);
     }
     if (imgRef.current) {
-      imgRef.current.classList.add('fade-in');
+      imgRef.current.classList.add(styles.fadeIn);
     }
   }, []);
 
-  // Función para manejar la selección de zona y desplazarse hacia abajo
   const setZonaAndScroll = (zona) => {
-    // Guardar en localStorage
     localStorage.setItem('selectedZonaMetropolitana', zona);
-    // Emitir evento personalizado
     const event = new Event('zonaChanged');
     window.dispatchEvent(event);
-
-    // Desplazarse hacia abajo 100vh
-    window.scrollTo({
-      top: window.innerHeight,  // Esto desplaza 100vh
-      behavior: 'smooth',       // Animación suave
-    });
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
 
   return (
-    <section id="header" className="header-container">
-      <div className="background-svg" />
-      <div className="content_header">
-        <div className="header_txt fade-in-target" ref={txtRef}>
+    <section id="header" className={styles.headerContainer}>
+      <div className={styles.backgroundSvg} />
+
+      <div className={styles.contentHeader}>
+        <div className={styles.headerTxt} ref={txtRef}>
           <HeaderAnimation />
         </div>
 
-        <div className="ZonasMetro">
+        <div className={styles.zonasMetro}>
           <p>¡Elige una Zona Metropolitana! </p>
-          <div className="content_circuleZM">
-            <div className="circuleZM" onClick={() => setZonaAndScroll('ZMP')}>
+
+          <div className={styles.contentCirculeZm}>
+            <button className={styles.circuleZm} onClick={() => setZonaAndScroll('ZMP')} aria-label="Zona Metropolitana de Pachuca">
               <img src={`${imgZmSelect}ZMP.jpg`} alt="ZM Pachuca" />
-              <div className="tooltip">ZM de Pachuca</div>
-            </div>
-            <div className="circuleZM" onClick={() => setZonaAndScroll('ZMTula')}>
-              <img src={`${imgZmSelect}ZMTula.webp`} alt="ZMTula" />
-              <div className="tooltip">ZM de Tula</div>
-            </div>
-            <div className="circuleZM" onClick={() => setZonaAndScroll('ZMTulancingo')}>
-              <img src={`${imgZmSelect}ZMTulancingo.jpg`} alt="ZMTulancingo" />
-              <div className="tooltip">ZM de Tulancingo</div>
-            </div>
-            <div className="circuleZM" onClick={() => setZonaAndScroll('ZMVM')}>
-              <img src={`${imgZmSelect}ZMVM.jpg`} alt="ZMVM" />
-              <div className="tooltip">ZM del Valle de México</div>
-            </div>
+              <span className={styles.tooltip}>ZM de Pachuca</span>
+            </button>
+
+            <button className={styles.circuleZm} onClick={() => setZonaAndScroll('ZMTula')} aria-label="Zona Metropolitana de Tula">
+              <img src={`${imgZmSelect}ZMTula.webp`} alt="ZM Tula" />
+              <span className={styles.tooltip}>ZM de Tula</span>
+            </button>
+
+            <button className={styles.circuleZm} onClick={() => setZonaAndScroll('ZMTulancingo')} aria-label="Zona Metropolitana de Tulancingo">
+              <img src={`${imgZmSelect}ZMTulancingo.jpg`} alt="ZM Tulancingo" />
+              <span className={styles.tooltip}>ZM de Tulancingo</span>
+            </button>
+
+            <button className={styles.circuleZm} onClick={() => setZonaAndScroll('ZMVM')} aria-label="Zona Metropolitana del Valle de México">
+              <img src={`${imgZmSelect}ZMVM.jpg`} alt="ZM del Valle de México" />
+              <span className={styles.tooltip}>ZM del Valle de México</span>
+            </button>
           </div>
         </div>
 
-        <div className="header_img fade-in-target" ref={imgRef}>
-          <img src={`${imgBasePath}headerimg.png`} alt="img_representativa" className="floating-img" />
+        <div className={styles.headerImg} ref={imgRef}>
+          <img src={`${imgBasePath}headerimg.png`} alt="Imagen representativa" className={styles.floatingImg} />
         </div>
       </div>
     </section>
