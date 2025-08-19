@@ -1,75 +1,150 @@
 "use client";
-import React, { useEffect, useState, useRef } from 'react';
+
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
-import UserOptionsModal from './UserOptionsModal';
-import './Navbar.css';
+import { usePathname } from 'next/navigation'; // Hook para obtener la ruta actual
+import styles from './Navbar.module.css';
 
-const img = "/img/escudos/";
-const imgBasePath = "https://bibliotecadigitaluplaph.hidalgo.gob.mx/img_banco/";
+const LOGOS = [
+  { src: "/img/escudos/Coordinación.png", alt: "Logo de Coordinación" },
+  { src: "/img/headertxt.png", alt: "Logo de Metropoli Hidalgo" },
+];
 
+const NAV_ITEMS = [
+  { label: "Inicio", href: "/" },
+
+  { label: "POZMVM", href: "https://docs.google.com/forms/u/3/d/e/1FAIpQLSfTlloGpmaaKJsAJMnqqQ2sEND3Hn2l5rBEPXvgHIoshzK9hQ/viewform?usp=sharing" },
+  { label: "Integrantes", href: "/integrantes" },
+  { label: "Noticias", href: "/noticias" },
+  { label: "Acceder", href: "/login" },
+];
+
+/**
+ * Navbar: Componente principal que representa la barra de navegación.
+ */
 const Navbar = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [visible, setVisible] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [username, setUsername] = useState(''); // Supón que obtienes el nombre de usuario de algún lugar
-  const circuloRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(true); // Controla la visibilidad del navbar en scroll
+  const [menuOpen, setMenuOpen] = useState(false); // Controla el estado del menú en mobile
+  const [submenuOpen, setSubmenuOpen] = useState(false); // Controla el submenu en mobile
+  const lastScrollPos = useRef(0); // Referencia para guardar el último scroll
+  const pathname = usePathname(); // Hook para detectar cambios de ruta
 
+  /**
+   * Hook: Controla la visibilidad de la navbar en base al scroll del usuario.
+   */
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      setVisible(currentScrollPos < scrollPosition || currentScrollPos < 10);
-      setScrollPosition(currentScrollPos);
+      setIsVisible(currentScrollPos < lastScrollPos.current || currentScrollPos < 10);
+      lastScrollPos.current = currentScrollPos;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrollPosition]);
+  }, []);
 
-  const handleCirculoClick = () => {
-    setIsModalOpen(!isModalOpen);
+  /**
+   * Hook: Cierra el menú y el submenu al cambiar de página.
+   */
+  useEffect(() => {
+    setMenuOpen(false);
+    setSubmenuOpen(false);
+  }, [pathname]);
+
+  /**
+   * toggleMenu: Alterna el menú principal en mobile.
+   */
+  const toggleMenu = useCallback(() => setMenuOpen(prev => !prev), []);
+
+  /**
+   * toggleSubmenu: Alterna el submenu en mobile.
+   */
+  const toggleSubmenu = useCallback(() => setSubmenuOpen(prev => !prev), []);
+
+  /**
+   * handleLinkClick: Cierra el menú y submenu en mobile después de hacer clic en un enlace.
+   */
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+    setSubmenuOpen(false);
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+  /**
+   * renderNavItems: Renderiza el menú de navegación para desktop y mobile.
+   * @param {boolean} isMobile - Determina si el renderizado es para mobile o desktop.
+   */
+  const renderNavItems = (isMobile = false) => (
+    <ul className={isMobile ? styles.navbarOpcMobile : styles.navbarOpcDesktop}>
+      {NAV_ITEMS.map((item, index) => (
+        <li
+          key={index}
+          className={`
+            ${item.submenu ? styles.dropdown : ""} 
+            ${isMobile && item.label === "Materiales de apoyo" && submenuOpen ? styles.dropdownOpen : ""}
+          `}
+        >
+          {item.submenu ? (
+            <>
+              <span className={styles.dropdownToggle} onClick={isMobile ? toggleSubmenu : undefined}>{item.label}</span>
+              <ul className={`${styles.dropdownMenu} ${isMobile && submenuOpen ? styles.menuOpen : ""}`}>
+                {item.submenu.map((subItem, subIndex) => (
+                  <li key={subIndex}>
+                    <Link href={subItem.href} onClick={isMobile ? handleLinkClick : undefined}>
+                      {subItem.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <Link
+              href={item.href}
+              onClick={isMobile ? handleLinkClick : undefined}
+              target={item.external ? "_blank" : "_self"}
+              rel={item.external ? "noopener noreferrer" : undefined}
+            >
+              {item.label}
+            </Link>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
-    <nav className={`Navbar ${visible ? 'active' : 'hidden'} ${scrollPosition > 100 ? 'scrolled' : ''}`}>
-      <ul>
-        <div className="Navbar_img">
-          {/* <img src={`${img}MX.webp`} alt="img_representativa" />
-          <img src={`${img}CDMX.webp`} alt="img_representativa" />
-          <img src={`${img}EDOMEX.webp`} alt="img_representativa" /> */}
-          <img src={`${img}Coordinación.png`} alt="img_representativa" />
-          <img src={`${img}HGO.webp`} alt="img_representativa" />
-          <img src={`/img/headertxt.png`} alt="img_representativa" />
-
-          <li><Link href="/" className=""> Inicio </Link></li>
-        </div>
-
-        <div className="Navbar_inicio">
-          <div className="navbar_opc">
-            {/* <li><Link href="/mapa-proyectos" className=""> Proyectos Metropolitanos  </Link></li> */}
-            <li><Link href="https://docs.google.com/forms/d/e/1FAIpQLSfTlloGpmaaKJsAJMnqqQ2sEND3Hn2l5rBEPXvgHIoshzK9hQ/viewform?usp=sharing" target="_blank"
-              rel="noopener noreferrer"> POZMVM </Link></li>
-            <li><Link href="/integrantes" className=""> Integrantes  </Link></li>
-            <li><Link href="/noticias" className=""> Noticias  </Link></li>
-            <li><Link href="/login" className=""> Acceder </Link></li>
+    <>
+      {/* Navbar principal */}
+      <nav
+        className={`${styles.Navbar} 
+          ${isVisible ? styles.active : styles.hidden} 
+          ${lastScrollPos.current > 100 ? styles.scrolled : ''}
+        `}
+      >
+        <div className={styles.NavbarList}>
+          {/* Logos de la navbar */}
+          <div className={styles.NavbarImg}>
+            {LOGOS.map((logo, index) => (
+              <img key={index} src={logo.src} alt={logo.alt} />
+            ))}
           </div>
-          <div className="Navbar_circulo" ref={circuloRef} onClick={handleCirculoClick}>
-            <img src={`${imgBasePath}estrella.webp`} alt="img_representativa" />
+
+          {/* Menú de navegación */}
+          <div className={styles.NavbarInicio}>
+            {/* Botón hamburguesa visible solo en mobile */}
+            <div className={styles.NavbarCirculo} onClick={toggleMenu}>
+              <img src="/img/estrella.webp" alt="Menú" />
+            </div>
+            {/* Menú horizontal para desktop */}
+            {renderNavItems(false)}
           </div>
         </div>
-      </ul>
+      </nav>
 
-      {/* Mostrar el UserOptionsModal */}
-      <UserOptionsModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        anchorElement={circuloRef.current}
-        username={username} // Pasar el nombre de usuario, si está disponible
-      />
-    </nav>
+      {/* Menú desplegable para mobile */}
+      <div className={`${styles.NavbarMenuContainer} ${menuOpen ? styles.menuOpen : ''}`}>
+        {renderNavItems(true)}
+      </div>
+    </>
   );
 };
 
