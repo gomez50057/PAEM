@@ -84,15 +84,6 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
-  #fullscreenButton {
-    top: 5px;
-    right: 5px;
-    font-size: 24px;
-    padding: 8px;
-  }
-}
-
 #map {
   position: relative;
   width: 65vw;
@@ -109,14 +100,6 @@
   color: var(--blanco);
 }
 
-@media (max-width: 600px) {
-  #sidebar {
-    padding: 10px;
-  }
-}
-
-
-/* Estilo general para el popup */
 .leaflet-popup-content-wrapper {
   padding: 20px;
   width: auto;
@@ -178,24 +161,6 @@
   text-decoration: underline;
 }
 
-
-@media (max-width: 600px) {
-  .leaflet-popup-content-wrapper {
-    width: 90vw;
-    border-radius: 20px;
-  }
-
-  .popup-content {
-    width: 87vw;
-  }
-
-  .popup-project-name {
-    font-size: 16px;
-  }
-}
-
-
-
 .PopupT {
   text-align: center;
   font-weight: 900;
@@ -214,4 +179,49 @@
 
 .PopText {
   display: inline;
+}
+
+@media (max-width: 768px) {
+  #fullscreenButton {
+    top: 5px;
+    right: 5px;
+    font-size: 24px;
+    padding: 8px;
+  }
+
+  .mapaConte {
+    flex-direction: column-reverse;
+  }
+
+  #map {
+    position: relative;
+    width: 90vw;
+    height: 90vh;
+  }
+
+  .mapaTxt {
+    background: none;
+    justify-content: center;
+    width: 90vw;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  #sidebar {
+    padding: 10px;
+  }
+
+  .leaflet-popup-content-wrapper {
+    width: 90vw;
+    border-radius: 20px;
+  }
+
+  .popup-content {
+    width: 87vw;
+  }
+
+  .popup-project-name {
+    font-size: 16px;
+  }
 }

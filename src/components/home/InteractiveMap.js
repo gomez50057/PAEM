@@ -5,7 +5,7 @@ import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import './InteractiveMap.css';
 import { ZMP_Info, ZMT_Info, ZMTUL_Info, zmvm_InfoGeneral } from './ZM';
-import { getTituloZona, getPreposicion } from '../../utils/home'; // Importar las funciones necesarias
+import { getTituloZona, getPreposicion } from '@/utils/home';
 
 const InteractiveMap = () => {
     const mapRef = useRef(null);
