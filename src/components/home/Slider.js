@@ -1,78 +1,64 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import './Slider.css';
-import { slidesZMVM, slidesOther } from '../../utils/sliderData';
+import styles from './Slider.module.css';
+import { slidesZMVM, slidesOther } from '@/utils/sliderData';
 
 const Slider = () => {
-  // const imgBasePath = "/img/glifos/";
   const [zonaSeleccionada, setZonaSeleccionada] = useState('');
-  const [slides, setSlides] = useState(slidesZMVM); // Diapositivas predeterminadas
+  const [slides, setSlides] = useState(slidesZMVM);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [fade, setFade] = useState(false);
 
   useEffect(() => {
     const getZonaFromLocalStorage = () => {
       const zonaMetropolitana = localStorage.getItem('selectedZonaMetropolitana');
-      setZonaSeleccionada(zonaMetropolitana || ''); // Actualiza el estado
+      setZonaSeleccionada(zonaMetropolitana || '');
     };
     getZonaFromLocalStorage();
     window.addEventListener('zonaChanged', getZonaFromLocalStorage);
-    return () => {
-      window.removeEventListener('zonaChanged', getZonaFromLocalStorage);
-    };
+    return () => window.removeEventListener('zonaChanged', getZonaFromLocalStorage);
   }, []);
 
   useEffect(() => {
-    // Cambiar las diapositivas según la zona seleccionada
-    if (zonaSeleccionada === 'ZMVM') {
-      setSlides(slidesZMVM);
-    } else {
-      setSlides(slidesOther);
-    }
-    setCurrentSlide(0); // Reiniciar al primer slide
+    setSlides(zonaSeleccionada === 'ZMVM' ? slidesZMVM : slidesOther);
+    setCurrentSlide(0);
   }, [zonaSeleccionada]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setFade(true);
-      setTimeout(() => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+      const t = setTimeout(() => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
         setFade(false);
-      }, 1000); // Duración de la animación
-    }, 12000); // Cambiar cada 12 segundos
-
+      }, 1000); // duración salida
+      return () => clearTimeout(t);
+    }, 12000); // cada 12s
     return () => clearInterval(interval);
   }, [slides]);
 
   return (
-    <div className="slider-container">
-      <div className="slide">
-        <div className={`slide-image ${fade ? 'fade-out' : ''}`}>
-          <img src={slides[currentSlide].image} alt="placeholder" />
+    <div className={styles.sliderContainer}>
+      <div className={`${styles.slide} ${fade ? styles.isFading : ''}`}>
+        <div className={styles.slideImage}>
+          <img src={slides[currentSlide].image} alt="slide" />
         </div>
-        <div className="slide-content">
-          <h2 className={`slide-title ${fade ? 'fade-out' : ''}`}>
-            {slides[currentSlide].title}
-          </h2>
-          {/* <div className="slide-glifo">
-            <img src={`${imgBasePath}Atitalaquia.webp`} alt="img_representativa" />
-            <img src={`${imgBasePath}atotonilco-de-tula.webp`} alt="img_representativa" />
-            <img src={`${imgBasePath}Tlahuelilpan.webp`} alt="img_representativa" />
-            <img src={`${imgBasePath}Tlaxcoapan.webp`} alt="img_representativa" />
-            <img src={`${imgBasePath}Tula de allende.webp`} alt="img_representativa" />
-          </div> */}
-          <p className={`slide-description ${fade ? 'fade-out' : ''}`}>
-            {slides[currentSlide].description}
-          </p>
+
+        <div className={styles.slideContent}>
+          <h2 className={styles.slideTitle}>{slides[currentSlide].title}</h2>
+          <p className={styles.slideDescription}>{slides[currentSlide].description}</p>
         </div>
-        <div className="slider-controls">
+
+        <div className={styles.sliderControls} role="tablist" aria-label="Seleccionar diapositiva">
           {slides.map((_, index) => (
-            <span
+            <button
               key={index}
-              className={`dot ${currentSlide === index ? 'active' : ''}`}
+              type="button"
+              className={`${styles.dot} ${currentSlide === index ? styles.active : ''}`}
               onClick={() => setCurrentSlide(index)}
-            ></span>
+              aria-label={`Ir a la diapositiva ${index + 1}`}
+              aria-selected={currentSlide === index}
+            />
           ))}
         </div>
       </div>
