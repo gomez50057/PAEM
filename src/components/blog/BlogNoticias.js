@@ -9,16 +9,15 @@ const BlogNoticias = ({ posts, featuredPosts }) => {
 
   const [selectedCategory, setSelectedCategory] = useState('Todas');
   const [fadeEffect, setFadeEffect] = useState(false);
-  // Función para manejar el cambio en el select con un pequeño delay para la animación
+
   const handleCategoryChange = (event) => {
-    setFadeEffect(true); // Inicia el fade-out
+    setFadeEffect(true);
     setTimeout(() => {
       setSelectedCategory(event.target.value);
-      setFadeEffect(false); // Inicia el fade-in
-    }, 300); // Retardo de 300ms para que se vea el efecto de transición
+      setFadeEffect(false);
+    }, 300);
   };
 
-  // Filtrar las publicaciones según la categoría seleccionada
   const filteredPosts = selectedCategory === 'Todas'
     ? posts
     : posts.filter(post => post.category === selectedCategory);
@@ -27,8 +26,14 @@ const BlogNoticias = ({ posts, featuredPosts }) => {
     <section className={styles.blogNoticias}>
       <div className={styles.newsSection}>
         <div className={styles.newsHeader}>
-          <h2> <span>Noticias</span> de las <span>Zonas</span> <span className="span-doarado">Metropolitanas</span> </h2>
-          <select className={styles.orderSelect} onChange={handleCategoryChange}>
+          <h2><span>Noticias</span> de las <span>Zonas</span> <span className="span-doarado">Metropolitanas</span></h2>
+
+          <select
+            className={styles.orderSelect}
+            onChange={handleCategoryChange}
+            value={selectedCategory}
+            aria-label="Filtrar por categoría"
+          >
             <option value="Todas">Todas</option>
             <option value="ZMVM">ZMVM</option>
             <option value="ZMP">ZMPachuca</option>
@@ -36,6 +41,7 @@ const BlogNoticias = ({ posts, featuredPosts }) => {
             <option value="ZMTulancingo">ZMTulancingo</option>
           </select>
         </div>
+
         <div className={`${styles.newsGrid} ${fadeEffect ? styles.fadeOut : styles.fadeIn}`}>
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post, index) => (
@@ -50,7 +56,7 @@ const BlogNoticias = ({ posts, featuredPosts }) => {
                       : renderDescription(post.description)}
                   </div>
                 </div>
-                <Link href={`/noticias/${normalizeName(post.name)}`} className="readMoreBtn" >Leer más</Link>
+                <Link href={`/noticias/${normalizeName(post.name)}`} className="readMoreBtn">Leer más</Link>
               </div>
             ))
           ) : (
@@ -59,7 +65,6 @@ const BlogNoticias = ({ posts, featuredPosts }) => {
         </div>
       </div>
 
-      {/* Barra Lateral - Publicaciones Destacadas */}
       <FeaturedPosts featuredPosts={featuredPosts} />
     </section>
   );
