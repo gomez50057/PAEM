@@ -59,3 +59,15 @@
   padding-inline-start: 40px;
 
 }
+
+@media (max-width: 768px) {
+  .postContainer {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex: none;
+    width: 100%;
+    padding: 0 10px;
+  }
+}
