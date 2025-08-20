@@ -29,8 +29,9 @@
 
 .headerTxt {
   position: absolute;
-  top: 45%;
-  left: clamp(16px, 2.5vw, 32px);
+  top: 40%;
+  left: 0;
+  margin-left: -3vw;
   transform: translateY(-50%);
   width: min(1597px, 50vw);
   opacity: 0;
