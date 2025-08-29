@@ -194,3 +194,53 @@ export const municipalityIcons = {
   "Coyotepec": ["/icons/ACT_PO_ZMVM.png"],
   "Chalco": ["/icons/ACT_PO_ZMVM.png"]
 };
+
+// Mapa de equivalencias por proyecto (key = filename)
+export const PROJECT_META = {
+  'ACT_PDUyOT_ZMP.png': {
+    label: 'Actualización del PDUyOT – Zona Metropolitana de Pachuca',
+    pdf: '/icons/ACT_PDUyOT_ZMP.pdf',
+    color: '#2ecc71', // opcional (color de impacto)
+  },
+  'ACT_PO_ZMVM.png': {
+    label: 'Actualización del Programa de Ordenamiento – ZM del Valle de México',
+    pdf: '/icons/ACT_PO_ZMVM.pdf',
+    color: '#2ecc71',
+  },
+  'CLI_AIFA.png': {
+    label: 'Corredor Logístico Industrial del AIFA',
+    pdf: '/icons/CLI_AIFA.pdf',
+    color: '#2ecc71',
+  },
+  'PHMVM.png': {
+    label: 'Plan Hídrico Metropolitano del Valle de México',
+    pdf: '/icons/PHMVM.pdf',
+    color: '#2ecc71',
+  },
+  'PIMUS.png': {
+    label: 'Planes Integrales de Movilidad Urbana Sustentable',
+    pdf: '/icons/PIMUS.pdf',
+    color: '#2ecc71',
+  },
+  'PMIU_ZMP.png': {
+    label: 'Plan Maestro de Imagen Urbana – ZM de Pachuca',
+    pdf: '/icons/PMIU_ZMP.pdf',
+    color: '#2ecc71',
+  },
+  'PVB.png': {
+    label: 'Programa de Vivienda para el Bienestar',
+    pdf: '/icons/PVB.pdf',
+    color: '#2ecc71',
+  },
+  'TREN_MEX-QRO.png': {
+    label: 'Tren México – Querétaro',
+    pdf: '/icons/TREN_MEX-QRO.pdf',
+    color: '#2ecc71',
+  },
+  'TREN_TRAMO_AIFA-PACHUCA.png': {
+    label: 'Tren México – Pachuca (Tramo AIFA – Pachuca)',
+    pdf: '/icons/TREN_TRAMO_AIFA-PACHUCA.pdf',
+    color: '#2ecc71',
+  },
+};
+
