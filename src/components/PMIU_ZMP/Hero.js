@@ -1,4 +1,5 @@
 import styles from "@/styles/PMIU_ZMP/Hero.module.css";
+import MunicipiosSwapy from "@/components/PMIU_ZMP/MunicipiosSwapy";
 
 export default function Hero() {
   const imgBasePath = "/img/PMIU_ZMP/";
@@ -64,7 +65,7 @@ export default function Hero() {
         </div>
 
         <div className={styles.rightBottomCard}>
-          <h3>hola?</h3>
+          <MunicipiosSwapy />
         </div>
       </div>
     </section>
