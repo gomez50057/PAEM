@@ -54,15 +54,16 @@ h2 {
 }
 
 h1 span,
-h2 span,
-h3 span {
+h2 span {
   font-weight: 700;
 }
 
 h2 .span-doarado,
-h1 .span-doarado {
+h1 .span-doarado,
+h3 .span-doarado {
   color: var(--doradoOsc);
   font-style: italic;
+  font-weight: 700;
 }
 
 p {
