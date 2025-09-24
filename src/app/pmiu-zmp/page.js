@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from '@/components/shared/Navbar';
 import Hero from '@/components/PMIU_ZMP/Hero';
+import BehindPlan from '@/components/PMIU_ZMP/BehindPlan';
+import MunicipioCard from '@/components/PMIU_ZMP/MunicipiosGrid';
 
 
 const pmiu_zmp = () => {
@@ -8,7 +10,8 @@ const pmiu_zmp = () => {
     <div>
       <Navbar />
       <Hero />
-
+      <BehindPlan />
+      <MunicipioCard />
     </div>
   );
 };
