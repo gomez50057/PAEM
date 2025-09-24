@@ -24,9 +24,9 @@ export default function Hero() {
         <div className={styles.leftBottomCard}>
           <h3>¿Qué es la <span className="span-doarado">Imagen Urbana?</span></h3>
           <p>
-            "La imagen urbana se define como la percepción colectiva que los individuos
+            &quot;La imagen urbana se define como la percepción colectiva que los individuos
             construyen del entorno urbano a partir de la experiencia visual, espacial y
-            simbólica del mismo."{" "}
+            simbólica del mismo.&quot;{" "}
             <span className={styles.cardLabel}>
               Kevin Lynch (1960), The Image of the City.
             </span>
