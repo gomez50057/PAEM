@@ -1,5 +1,5 @@
 import styles from "@/styles/PMIU_ZMP/Hero.module.css";
-import MunicipiosSwapy from "@/components/PMIU_ZMP/MunicipiosSwapy";
+import MunicipiosSwapy from "@/components/PMIU_ZMP/MunicipioCard/MunicipiosSwapy";
 import { MUNICIPIOS, splitMunicipios } from "@/utils/municipios";
 
 export default function Hero() {

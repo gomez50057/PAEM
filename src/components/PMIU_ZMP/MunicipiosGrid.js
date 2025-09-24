@@ -1,5 +1,5 @@
 import { MUNICIPIOS } from "@/utils/municipios";
-import MunicipioCard from "./MunicipioCard";
+import MunicipioCard from "./MunicipioCard/MunicipioCard";
 import styles from "@/styles/PMIU_ZMP/MunicipioCard.module.css";
 
 export default function MunicipiosGrid() {
