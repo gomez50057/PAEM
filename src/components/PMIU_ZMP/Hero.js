@@ -1,5 +1,5 @@
 import styles from "@/styles/PMIU_ZMP/Hero.module.css";
-import MunicipiosSwapy from "@/components/PMIU_ZMP/MunicipioCard/MunicipiosSwapy";
+import MunicipiosSwapy from "@/components/PMIU_ZMP/MunicipiosSwapy";
 import { MUNICIPIOS, splitMunicipios } from "@/utils/municipios";
 
 export default function Hero() {
@@ -54,7 +54,7 @@ export default function Hero() {
         </div>
 
         <div className={styles.rightBottomCard}>
-          {/* 3 municipios al lado derecho */}
+          {/* municipios al lado derecho */}
           <MunicipiosSwapy items={right} />
         </div>
       </div>

@@ -14,6 +14,7 @@ const NAV_ITEMS = [
   { label: "Inicio", href: "/" },
 
   { label: "POZMVM", href: "https://docs.google.com/forms/u/3/d/e/1FAIpQLSfTlloGpmaaKJsAJMnqqQ2sEND3Hn2l5rBEPXvgHIoshzK9hQ/viewform?usp=sharing" },
+  { label: "PMIU ZMP", href: "/pmiu-zmp" },
   { label: "Integrantes", href: "/integrantes" },
   { label: "Noticias", href: "/noticias" },
   { label: "Acceder", href: "/login" },

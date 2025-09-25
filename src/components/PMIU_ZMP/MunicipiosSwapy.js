@@ -53,7 +53,7 @@ export default function MunicipiosSwapy({ items = [] }) {
 
   const [positions, setPositions] = useState(desktopPreset);
 
-  // --- Resolución de colisiones ---
+  //  Resolución de colisiones 
   function resolveCollisions(posPercent, fieldEl, count) {
     if (!fieldEl) return posPercent.slice(0, count);
 
