@@ -1,10 +1,11 @@
 import styles from "@/styles/PMIU_ZMP/Hero.module.css";
-import MunicipiosSwapy from "@/components/PMIU_ZMP/MunicipiosSwapy";
-import { MUNICIPIOS, splitMunicipios } from "@/utils/municipios";
+import MunicipiosSwapy from "@/components/PMIU_ZMP/hero/MunicipiosSwapy";
+import { MUNICIPIOS } from "@/utils/municipios";
+import OpinionButtonModal, { OPINION_LINKS } from "@/components/PMIU_ZMP/hero/OpinionButtonModal";
+
 
 export default function Hero() {
   const imgBasePath = "/img/PMIU_ZMP/";
-  const { left, right } = splitMunicipios(MUNICIPIOS, { rightCount: 3 });
 
   return (
     <section className={styles.hero} aria-label="bloque hero">
@@ -21,10 +22,8 @@ export default function Hero() {
         </figure>
 
         <div className={styles.leftBottomCard}>
-          {/* 4 municipios al lado izquierdo */}
-          <div className={styles.leftCircles}>
-            <MunicipiosSwapy items={left} />
-          </div>
+          <OpinionButtonModal links={OPINION_LINKS} />
+
         </div>
       </div>
 
@@ -55,7 +54,7 @@ export default function Hero() {
 
         <div className={styles.rightBottomCard}>
           {/* municipios al lado derecho */}
-          <MunicipiosSwapy items={right} />
+          <MunicipiosSwapy items={MUNICIPIOS} mode="full" />
         </div>
       </div>
     </section>

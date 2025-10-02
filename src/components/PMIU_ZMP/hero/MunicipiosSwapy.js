@@ -2,12 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "@/styles/PMIU_ZMP/MunicipiosSwapy.module.css";
+import { MUNICIPIOS as items } from "@/utils/municipios";
 
-export default function MunicipiosSwapy({ items = [] }) {
+export default function MunicipiosSwapy() {
   const fieldRef = useRef(null);
   const imgBasePath = "/img/PMIU_ZMP/municipios/";
+  const [positions, setPositions] = useState([]);
 
-  // Presets base (porcentaje del contenedor)
+  // Presets base (% del contenedor)
   const desktopPreset = [
     { top: 14, left: 22 },
     { top: 10, left: 60 },
@@ -38,43 +40,41 @@ export default function MunicipiosSwapy({ items = [] }) {
 
   const pickPreset = () => {
     if (typeof window === "undefined") return desktopPreset;
-    if (window.innerWidth <= 560) return mobilePreset;
-    if (window.innerWidth <= 900) return tabletPreset;
+    const w = window.innerWidth;
+    if (w <= 560) return mobilePreset;
+    if (w <= 900) return tabletPreset;
     return desktopPreset;
   };
 
   const jitterize = (base) => {
     const jitter = () => (Math.random() - 0.5) * 6; // +/-3%
-    return base.map(p => ({
+    return base.map((p) => ({
       top: Math.max(6, Math.min(92, p.top + jitter())),
       left: Math.max(6, Math.min(92, p.left + jitter())),
     }));
   };
 
-  const [positions, setPositions] = useState(desktopPreset);
-
-  //  Resolución de colisiones 
+  // Resolución de colisiones en px, luego mapea a %
   function resolveCollisions(posPercent, fieldEl, count) {
     if (!fieldEl) return posPercent.slice(0, count);
 
     const rect = fieldEl.getBoundingClientRect();
-    const style = getComputedStyle(fieldEl);
-    const sizePx = parseFloat(style.getPropertyValue("--size")) || 84;
+    const cs = getComputedStyle(fieldEl);
+    const sizePx = parseFloat(cs.getPropertyValue("--size")) || 84;
     const gapPx = 10;
 
-    let pts = posPercent.slice(0, count).map(p => ({
+    let pts = posPercent.slice(0, count).map((p) => ({
       x: (p.left / 100) * rect.width,
       y: (p.top / 100) * rect.height,
     }));
 
     const minDist = sizePx + gapPx;
     const minDist2 = minDist * minDist;
-    const maxIter = 120;
-
-    const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
+    const maxIter = 140;
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     const pad = sizePx / 2 + 2;
 
-    for (let iter = 0; iter < maxIter; iter++) {
+    for (let it = 0; it < maxIter; it++) {
       let moved = false;
       for (let i = 0; i < pts.length; i++) {
         for (let j = i + 1; j < pts.length; j++) {
@@ -96,7 +96,7 @@ export default function MunicipiosSwapy({ items = [] }) {
       if (!moved) break;
     }
 
-    return pts.map(p => ({
+    return pts.map((p) => ({
       left: (p.x / rect.width) * 100,
       top: (p.y / rect.height) * 100,
     }));
@@ -105,7 +105,13 @@ export default function MunicipiosSwapy({ items = [] }) {
   const recompute = () => {
     const base = pickPreset();
     const jitter = jitterize(base);
-    const resolved = resolveCollisions(jitter, fieldRef.current, items.length);
+
+    // Si hay más ítems que el preset, reusa posiciones con más jitter
+    const want = items.length;
+    const tiled = Array.from({ length: want }, (_, i) => jitter[i % jitter.length]);
+    const jitter2 = jitterize(tiled); // un poco más de variación
+
+    const resolved = resolveCollisions(jitter2, fieldRef.current, want);
     setPositions(resolved);
   };
 
@@ -119,7 +125,7 @@ export default function MunicipiosSwapy({ items = [] }) {
 
   const handleClick = (anchor) => {
     if (typeof window !== "undefined") {
-      window.location.hash = anchor.startsWith("#") ? anchor.slice(1) : anchor;
+      window.location.hash = anchor?.startsWith("#") ? anchor.slice(1) : anchor;
     }
   };
 
@@ -130,7 +136,7 @@ export default function MunicipiosSwapy({ items = [] }) {
           const pos = positions[idx] ?? { top: 50, left: 50 };
           return (
             <div
-              key={m.id}
+              key={m.id ?? idx}
               className={styles.slot}
               style={{ top: `${pos.top}%`, left: `${pos.left}%` }}
             >

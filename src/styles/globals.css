@@ -66,6 +66,15 @@ h3 .span-doarado {
   font-weight: 700;
 }
 
+
+h2 .span-vino,
+h1 .span-vino,
+h3 .span-vino {
+  color: var(--vinoOsc);
+  font-style: italic;
+  font-weight: 700;
+}
+
 p {
   color: var(--grisOsc);
   font-weight: 500;

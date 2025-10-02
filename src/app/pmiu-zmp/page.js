@@ -2,7 +2,8 @@ import React from 'react';
 import Navbar from '@/components/shared/Navbar';
 import Hero from '@/components/PMIU_ZMP/Hero';
 import BehindPlan from '@/components/PMIU_ZMP/BehindPlan';
-import MunicipioCard from '@/components/PMIU_ZMP/MunicipiosGrid';
+import MunicipiosPromoSlider from "@/components/PMIU_ZMP/MunicipiosPromoSlider";
+import { MUNICIPIOS } from "@/utils/municipios";
 
 
 const pmiu_zmp = () => {
@@ -11,7 +12,7 @@ const pmiu_zmp = () => {
       <Navbar />
       <Hero />
       <BehindPlan />
-      <MunicipioCard />
+      <MunicipiosPromoSlider items={MUNICIPIOS} />
     </div>
   );
 };
