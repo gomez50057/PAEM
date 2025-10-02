@@ -121,16 +121,6 @@ export default function MunicipiosPromoSlider({ items = [] }) {
                 </p>
 
                 {s.encuesta ? (
-                  // <a
-                  //   href={s.encuesta}
-                  //   target="_blank"
-                  //   rel="noopener noreferrer"
-                  //   className={styles.cta}
-                  // >
-                  //   Responder encuesta <span className={styles.extIcon} aria-hidden="true">↗</span>
-                  // </a>
-
-
                   <a
                     href={s.encuesta}
                     target="_blank"
