@@ -121,19 +121,38 @@ export default function MunicipiosPromoSlider({ items = [] }) {
                 </p>
 
                 {s.encuesta ? (
+                  // <a
+                  //   href={s.encuesta}
+                  //   target="_blank"
+                  //   rel="noopener noreferrer"
+                  //   className={styles.cta}
+                  // >
+                  //   Responder encuesta <span className={styles.extIcon} aria-hidden="true">↗</span>
+                  // </a>
+
+
                   <a
                     href={s.encuesta}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.cta}
                   >
-                    Responder encuesta <span className={styles.extIcon} aria-hidden="true">↗</span>
+                    <span>Responder encuesta</span>
+                    <svg width="15px" height="10px" viewBox="0 0 13 10">
+                      <path d="M1,5 L11,5"></path>
+                      <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
                   </a>
+
+
+
                 ) : (
                   <button className={`${styles.cta} ${styles.ctaDisabled}`} disabled>
                     Próximamente
                   </button>
-                )} 
+
+
+                )}
               </div>
             </article>
           </SwiperSlide>
