@@ -144,14 +144,10 @@ export default function MunicipiosPromoSlider({ items = [] }) {
                     </svg>
                   </a>
 
-
-
                 ) : (
                   <button className={`${styles.cta} ${styles.ctaDisabled}`} disabled>
                     Próximamente
                   </button>
-
-
                 )}
               </div>
             </article>
