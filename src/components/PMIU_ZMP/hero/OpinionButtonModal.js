@@ -52,10 +52,9 @@ export default function OpinionButtonModal({
       handleClose();
     }
   }
-
   return (
     <div className={styles.btnWrap}>
-      <h3 className={styles.tituloBtn}><span className="span-doarado">Participa</span> en la <span className="span-doarado">Convocatoria</span> </h3>
+      <h3 className={styles.tituloBtn}><span className="span-doarado">Participa</span> en la <span className="span-doarado">Consulta </span> </h3>
       <p className={styles.descriptionBtn}><span>Opinión ciudadana </span>Tu opinión es clave para fortalecer el PMIU. Responde el cuestionario del municipio que te interese.</p>
 
       <button type="button" className={styles.opinionBtn} onClick={handleOpen}>

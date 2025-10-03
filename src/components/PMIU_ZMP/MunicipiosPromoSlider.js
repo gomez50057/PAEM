@@ -56,8 +56,8 @@ export default function MunicipiosPromoSlider({ items = [] }) {
   return (
     <section className={styles.wrap} aria-label="Carrusel promocional de municipios">
       <div className={styles.contentTitule}>
-        <p className={styles.tituleBack}>¿Dónde y Cuándo?</p>
-        <p className={styles.titleFrond}>¿Dónde y Cuándo?</p>
+        <p className={styles.tituleBack}>¿Cómo fue?</p>
+        <p className={styles.titleFrond}>¿Cómo fue?</p>
       </div>
 
       <button className={`${styles.navBtn} ${styles.prev}`} aria-label="Anterior" />
@@ -96,7 +96,8 @@ export default function MunicipiosPromoSlider({ items = [] }) {
                   <span className="span-vino">PMIU ZMP</span> · {s.name}
                 </div>
 
-                <h3 className={styles.title}><span className="span-vino">Participa</span> en el <span className="span-doarado">Taller</span></h3>
+                <h3 className={styles.title}><span className="span-vino">Así</span> se<span className="span-vino">Vivió</span> en el <span className="span-doarado">Taller</span></h3>
+                <p className={styles.desc}>Gracias por su participación.</p>
 
                 <div className={styles.actions}>
                   {s.participa ? (

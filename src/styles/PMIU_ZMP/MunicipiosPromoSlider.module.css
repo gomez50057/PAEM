@@ -1,3 +1,4 @@
+/* ------ Base + tokens ------ */
 .wrap {
   --vino: var(--vinoOsc, #691B32);
   --vinoSoft: rgba(105, 27, 50, .06);
@@ -6,8 +7,11 @@
 
   position: relative;
   padding: clamp(12px, 2vw, 24px);
+  padding-left: max(clamp(12px, 2vw, 24px), env(safe-area-inset-left));
+  padding-right: max(clamp(12px, 2vw, 24px), env(safe-area-inset-right));
 }
 
+/* ------ Títulos ------ */
 .contentTitule {
   position: relative;
   display: flex;
@@ -17,7 +21,6 @@
   text-align: center;
   margin-bottom: clamp(24px, 4vw, 48px);
   padding: 0 clamp(16px, 4vw, 48px);
-
 }
 
 .tituleBack {
@@ -31,39 +34,40 @@
   user-select: none;
   pointer-events: none;
   z-index: 0;
-
-  width: 90vw;
+  width: min(90vw, 1400px);
+  margin-inline: auto;
 }
 
 .titleFrond {
   font-size: clamp(1.5rem, 4vw, 5rem);
   font-weight: 800;
-  color: var(--grisOsc, #707271);
+  color: var(--grisOsc);
   user-select: none;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
-/* Flechas */
+/* ------ Flechas / navegación ------ */
 .navBtn {
   position: absolute;
-  top: 50%;
+  top: 40%;
   z-index: 10;
-  width: 48px;
-  height: 48px;
+  width: clamp(40px, 4.5vw, 56px);
+  height: clamp(40px, 4.5vw, 56px);
   border-radius: 999px;
   border: 1px solid var(--brd);
-  background: #fff;
+  background: var(--blanco);
   box-shadow: 0 10px 30px rgba(0, 0, 0, .16);
   transform: translateY(-50%);
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .navBtn::before {
   content: "";
   display: block;
-  width: 14px;
-  height: 14px;
+  width: clamp(12px, 1.6vw, 16px);
+  height: clamp(12px, 1.6vw, 16px);
   border: 2px solid var(--vino);
   border-top: none;
   border-right: none;
@@ -74,17 +78,18 @@
 }
 
 .prev {
-  left: 10%;
+  left: clamp(8px, 6vw, 10%);
 }
 
 .next {
-  right: 10%;
+  right: clamp(8px, 6vw, 10%);
 }
 
 .next::before {
   transform: translate(-60%, -50%) rotate(-135deg);
 }
 
+/* ------ Carrusel ------ */
 .swiper {
   width: min(1260px, 94vw);
   margin: 0 auto;
@@ -95,12 +100,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: clamp(420px, 62vh, 720px);
+  min-height: clamp(360px, 62vh, 720px);
   overflow: hidden;
 }
 
-/* Tarjeta */
+/* ------ Tarjeta ------ */
 .card {
+  container-type: inline-size;
   position: relative;
   z-index: 1;
   display: flex;
@@ -118,53 +124,44 @@
   transition: opacity .35s ease, transform .35s ease;
 }
 
-/* Slide activo => fade-in */
 .swiper-slide-active .card {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
-/* Alterna layout */
-.reverse {
-  flex-direction: row-reverse;
-}
-
-.card:not(.reverse) {
-  flex-direction: row;
-}
-
-/* Imagen con Ken Burns */
+/* ------ Media (imagen) ------ */
 .media {
   flex: 0 0 auto;
 }
 
 .mediaImg {
-  width: clamp(320px, 36vw, 640px);
-  height: auto;
+  inline-size: clamp(260px, 36vw, 640px);
+  block-size: auto;
   display: block;
   border-radius: 20px;
-  transform-origin: center center;
+  transform-origin: center;
   animation: kenburns 7s ease-in-out forwards paused;
+  max-width: 100%;
+  height: auto;
 }
 
 @keyframes kenburns {
   0% {
-    transform: scale(1) translate3d(0, 0, 0);
+    transform: scale(1);
     filter: contrast(1) saturate(1);
   }
 
   100% {
-    transform: scale(1.06) translate3d(0, 0, 0);
+    transform: scale(1.06);
     filter: contrast(1.04) saturate(1.06);
   }
 }
 
-/* Solo en activo corre la animación */
 .swiper-slide-active .mediaImg {
   animation-play-state: running;
 }
 
-/* Contenido con slide-in desde el lado opuesto + fade */
+/* ------ Contenido ------ */
 .content {
   flex: 1 1 auto;
   display: flex;
@@ -184,13 +181,12 @@
   transform: translateX(-24px);
 }
 
-/* Activo: aparece y se centra */
 .swiper-slide-active .content {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Tipos */
+/* ------ Tipografía ------ */
 .kicker {
   font-weight: 700;
   color: var(--vino);
@@ -207,11 +203,11 @@
 
 .desc {
   margin: 0;
-  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  font-size: clamp(.98rem, 1.4vw, 1.1rem);
   line-height: 1.55;
 }
 
-/* Acciones/Meta */
+/* ------ Acciones / CTA ------ */
 .actions {
   display: flex;
   flex-direction: column;
@@ -223,6 +219,7 @@
   position: relative;
   margin: auto;
   padding: 12px 18px;
+  min-height: 44px;
   transition: all 0.2s ease;
   border: none;
   background: none;
@@ -233,9 +230,7 @@
 .cta:before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
+  inset: 0 auto 0 0;
   border-radius: 50px;
   background: var(--vinoGradient);
   width: 60px;
@@ -245,7 +240,7 @@
 
 .cta span {
   position: relative;
-  font-size: 25px;
+  font-size: clamp(18px, 2.2vw, 25px);
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--doradoOsc);
@@ -280,7 +275,7 @@
 }
 
 .cta:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
 .cta:focus-visible {
@@ -299,6 +294,7 @@
   line-height: 1;
 }
 
+/* ------ Meta ------ */
 .meta {
   display: flex;
   flex-direction: column;
@@ -315,21 +311,151 @@
   opacity: .8;
 }
 
-/* Responsivo */
 @media (max-width: 1024px) {
-  .card {
-    flex-direction: column;
-  }
 
+  .card,
   .reverse {
     flex-direction: column;
   }
 
   .mediaImg {
-    width: clamp(260px, 84vw, 640px);
+    inline-size: min(84vw, 640px);
+    max-width: 100%;
   }
 
   .content {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide {
+    min-height: clamp(320px, 58vh, 640px);
+  }
+
+  .card {
+    border-radius: 22px;
+    padding: clamp(14px, 4vw, 24px);
+    gap: clamp(12px, 4vw, 24px);
+  }
+
+  .desc {
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .titleFrond {
+    font-size: clamp(1.35rem, 8vw, 2rem);
+  }
+
+  .tituleBack {
+    font-size: clamp(1.1rem, 12vw, 5rem);
+  }
+
+  .card {
+    padding: clamp(12px, 5vw, 20px);
+  }
+
+  .mediaImg {
+    inline-size: 100%;
+    border-radius: 16px;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .cta {
+    padding: 10px 16px;
+  }
+
+  .cta:before {
+    width: 54px;
+    height: 54px;
+  }
+}
+
+/* Very large desktops: limita expansión para legibilidad */
+@media (min-width: 1600px) {
+  .swiper {
+    width: min(1400px, 92vw);
+  }
+
+  .card {
+    padding: clamp(24px, 1.8vw, 40px);
+  }
+}
+
+/* Orientación paisaje en móviles: reduce altura mínima */
+@media (orientation: landscape) and (max-width: 920px) {
+  .slide {
+    min-height: 70svh;
+  }
+}
+
+/* ------ Container Queries (si el contenedor de .card es estrecho) ------ */
+@container (max-width: 720px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .mediaImg {
+    inline-size: 100%;
+  }
+}
+
+/* ------ Accesibilidad: reduce animaciones si el usuario lo pide ------ */
+@media (prefers-reduced-motion: reduce) {
+  .mediaImg {
+    animation: none !important;
+  }
+
+  .card,
+  .content {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .card,
+  .card.reverse {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .media,
+  .content {
+    width: 100%;
+  }
+
+  .mediaImg {
+    inline-size: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+}
+
+@container (max-width: 720px) {
+
+  .card,
+  .card.reverse {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .media,
+  .content {
+    width: 100%;
+  }
+
+  .mediaImg {
+    inline-size: 100%;
   }
 }
