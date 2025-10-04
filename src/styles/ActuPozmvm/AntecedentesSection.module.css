@@ -1,0 +1,68 @@
+
+.section {
+  position: relative;
+  padding-block: clamp(28px, 4vw, 56px);
+  padding-inline: clamp(16px, 4vw, 5rem);
+  background: var(--bg);
+  border-bottom: 1px solid color-mix(in lab, var(--brd) 70%, transparent);
+}
+
+.titule {
+  margin: 0 0 16px;
+  font-size: clamp(1.1rem, 2.2vw, 2rem);
+  line-height: 1.2;
+  color: var(--vinoOsc, var(--vino, #691B32));
+  font-weight: 600;
+}
+
+.list {
+  counter-reset: step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(12px, 1.4vw, 18px);
+}
+
+.list li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  column-gap: 14px;
+  row-gap: 4px;
+  padding: 10px 0;
+  border-bottom: 1px solid color-mix(in lab, var(--brd) 75%, transparent);
+}
+
+.list li:last-child {
+  border-bottom: none;
+}
+
+.list li::before {
+  content: counter(step, decimal-leading-zero);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  line-height: 1;
+  letter-spacing: .6px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: linear-gradient(90deg,
+    color-mix(in lab, var(--vinoOsc, var(--vino, #691B32)) 80%, #eeeeee),
+    color-mix(in lab, var(--vinoOsc, var(--vino, #691B32)) 50%, #eeeeee));
+  color: #fff;
+}
+
+.list li:hover {
+  transform: translateY(-1px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .section {
+    border-bottom-color: color-mix(in lab, var(--brd) 45%, transparent);
+    background: color-mix(in lab, var(--bg) 96%, #0b0b0b);
+  }
+  .list li {
+    border-bottom-color: color-mix(in lab, var(--brd) 55%, transparent);
+  }
+}

@@ -12,8 +12,16 @@
   --vinoGradient: linear-gradient(-45deg, var(--vinoOsc), var(--vinoClr));
   --doradoGradient: linear-gradient(-45deg, var(--doradoOsc), var(--doradoClr));
   --grisGradient: linear-gradient(-45deg, var(--grisClr), var(--blanco));
-}
 
+
+  --text: #1f1f1f;
+  --muted: #5f5f5f;
+  --bg: #fafafa;
+  --card: #ffffff;
+  --brd: #e6e6e6;
+  --radius: 18px;
+  --shadow: 0 6px 24px rgba(0, 0, 0, .08);
+}
 
 * {
   box-sizing: border-box;
